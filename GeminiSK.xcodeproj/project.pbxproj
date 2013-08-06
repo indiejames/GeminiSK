@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7688707517B08BBA0002430C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707417B08BBA0002430C /* Foundation.framework */; };
+		7688707717B08BBA0002430C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707617B08BBA0002430C /* CoreGraphics.framework */; };
+		7688707917B08BBA0002430C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707817B08BBA0002430C /* UIKit.framework */; };
+		7688707B17B08BBA0002430C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707A17B08BBA0002430C /* SpriteKit.framework */; };
+		7688708117B08BBA0002430C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7688707F17B08BBA0002430C /* InfoPlist.strings */; };
+		7688708317B08BBA0002430C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708217B08BBA0002430C /* main.m */; };
+		7688708717B08BBA0002430C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708617B08BBA0002430C /* AppDelegate.m */; };
+		7688708A17B08BBA0002430C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7688708817B08BBA0002430C /* Main_iPhone.storyboard */; };
+		7688708D17B08BBA0002430C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7688708B17B08BBA0002430C /* Main_iPad.storyboard */; };
+		7688709017B08BBA0002430C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708F17B08BBA0002430C /* ViewController.m */; };
+		7688709317B08BBA0002430C /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688709217B08BBA0002430C /* MyScene.m */; };
+		7688709517B08BBA0002430C /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 7688709417B08BBA0002430C /* Spaceship.png */; };
+		7688709717B08BBA0002430C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7688709617B08BBA0002430C /* Images.xcassets */; };
+		7688709E17B08BBA0002430C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688709D17B08BBA0002430C /* XCTest.framework */; };
+		7688709F17B08BBA0002430C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707417B08BBA0002430C /* Foundation.framework */; };
+		768870A017B08BBA0002430C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707817B08BBA0002430C /* UIKit.framework */; };
+		768870A817B08BBA0002430C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 768870A617B08BBA0002430C /* InfoPlist.strings */; };
+		768870AA17B08BBA0002430C /* GeminiSKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768870A917B08BBA0002430C /* GeminiSKTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		768870A117B08BBA0002430C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7688706917B08BBA0002430C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7688707017B08BBA0002430C;
+			remoteInfo = GeminiSK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7688707117B08BBA0002430C /* GeminiSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeminiSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7688707417B08BBA0002430C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7688707617B08BBA0002430C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7688707817B08BBA0002430C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7688707A17B08BBA0002430C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		7688707E17B08BBA0002430C /* GeminiSK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeminiSK-Info.plist"; sourceTree = "<group>"; };
+		7688708017B08BBA0002430C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7688708217B08BBA0002430C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7688708417B08BBA0002430C /* GeminiSK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeminiSK-Prefix.pch"; sourceTree = "<group>"; };
+		7688708517B08BBA0002430C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7688708617B08BBA0002430C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7688708917B08BBA0002430C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		7688708C17B08BBA0002430C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		7688708E17B08BBA0002430C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7688708F17B08BBA0002430C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7688709117B08BBA0002430C /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		7688709217B08BBA0002430C /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		7688709417B08BBA0002430C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		7688709617B08BBA0002430C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7688709C17B08BBA0002430C /* GeminiSKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeminiSKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7688709D17B08BBA0002430C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		768870A517B08BBA0002430C /* GeminiSKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeminiSKTests-Info.plist"; sourceTree = "<group>"; };
+		768870A717B08BBA0002430C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		768870A917B08BBA0002430C /* GeminiSKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeminiSKTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7688706E17B08BBA0002430C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7688707717B08BBA0002430C /* CoreGraphics.framework in Frameworks */,
+				7688707917B08BBA0002430C /* UIKit.framework in Frameworks */,
+				7688707B17B08BBA0002430C /* SpriteKit.framework in Frameworks */,
+				7688707517B08BBA0002430C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7688709917B08BBA0002430C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7688709E17B08BBA0002430C /* XCTest.framework in Frameworks */,
+				768870A017B08BBA0002430C /* UIKit.framework in Frameworks */,
+				7688709F17B08BBA0002430C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7688706817B08BBA0002430C = {
+			isa = PBXGroup;
+			children = (
+				7688707C17B08BBA0002430C /* GeminiSK */,
+				768870A317B08BBA0002430C /* GeminiSKTests */,
+				7688707317B08BBA0002430C /* Frameworks */,
+				7688707217B08BBA0002430C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7688707217B08BBA0002430C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7688707117B08BBA0002430C /* GeminiSK.app */,
+				7688709C17B08BBA0002430C /* GeminiSKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7688707317B08BBA0002430C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7688707417B08BBA0002430C /* Foundation.framework */,
+				7688707617B08BBA0002430C /* CoreGraphics.framework */,
+				7688707817B08BBA0002430C /* UIKit.framework */,
+				7688707A17B08BBA0002430C /* SpriteKit.framework */,
+				7688709D17B08BBA0002430C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7688707C17B08BBA0002430C /* GeminiSK */ = {
+			isa = PBXGroup;
+			children = (
+				7688708517B08BBA0002430C /* AppDelegate.h */,
+				7688708617B08BBA0002430C /* AppDelegate.m */,
+				7688708817B08BBA0002430C /* Main_iPhone.storyboard */,
+				7688708B17B08BBA0002430C /* Main_iPad.storyboard */,
+				7688708E17B08BBA0002430C /* ViewController.h */,
+				7688708F17B08BBA0002430C /* ViewController.m */,
+				7688709117B08BBA0002430C /* MyScene.h */,
+				7688709217B08BBA0002430C /* MyScene.m */,
+				7688709417B08BBA0002430C /* Spaceship.png */,
+				7688709617B08BBA0002430C /* Images.xcassets */,
+				7688707D17B08BBA0002430C /* Supporting Files */,
+			);
+			path = GeminiSK;
+			sourceTree = "<group>";
+		};
+		7688707D17B08BBA0002430C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7688707E17B08BBA0002430C /* GeminiSK-Info.plist */,
+				7688707F17B08BBA0002430C /* InfoPlist.strings */,
+				7688708217B08BBA0002430C /* main.m */,
+				7688708417B08BBA0002430C /* GeminiSK-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		768870A317B08BBA0002430C /* GeminiSKTests */ = {
+			isa = PBXGroup;
+			children = (
+				768870A917B08BBA0002430C /* GeminiSKTests.m */,
+				768870A417B08BBA0002430C /* Supporting Files */,
+			);
+			path = GeminiSKTests;
+			sourceTree = "<group>";
+		};
+		768870A417B08BBA0002430C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				768870A517B08BBA0002430C /* GeminiSKTests-Info.plist */,
+				768870A617B08BBA0002430C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7688707017B08BBA0002430C /* GeminiSK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768870AD17B08BBA0002430C /* Build configuration list for PBXNativeTarget "GeminiSK" */;
+			buildPhases = (
+				7688706D17B08BBA0002430C /* Sources */,
+				7688706E17B08BBA0002430C /* Frameworks */,
+				7688706F17B08BBA0002430C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeminiSK;
+			productName = GeminiSK;
+			productReference = 7688707117B08BBA0002430C /* GeminiSK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7688709B17B08BBA0002430C /* GeminiSKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768870B017B08BBA0002430C /* Build configuration list for PBXNativeTarget "GeminiSKTests" */;
+			buildPhases = (
+				7688709817B08BBA0002430C /* Sources */,
+				7688709917B08BBA0002430C /* Frameworks */,
+				7688709A17B08BBA0002430C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				768870A217B08BBA0002430C /* PBXTargetDependency */,
+			);
+			name = GeminiSKTests;
+			productName = GeminiSKTests;
+			productReference = 7688709C17B08BBA0002430C /* GeminiSKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7688706917B08BBA0002430C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "James Norton";
+				TargetAttributes = {
+					7688709B17B08BBA0002430C = {
+						TestTargetID = 7688707017B08BBA0002430C;
+					};
+				};
+			};
+			buildConfigurationList = 7688706C17B08BBA0002430C /* Build configuration list for PBXProject "GeminiSK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7688706817B08BBA0002430C;
+			productRefGroup = 7688707217B08BBA0002430C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7688707017B08BBA0002430C /* GeminiSK */,
+				7688709B17B08BBA0002430C /* GeminiSKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7688706F17B08BBA0002430C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7688709517B08BBA0002430C /* Spaceship.png in Resources */,
+				7688709717B08BBA0002430C /* Images.xcassets in Resources */,
+				7688708D17B08BBA0002430C /* Main_iPad.storyboard in Resources */,
+				7688708A17B08BBA0002430C /* Main_iPhone.storyboard in Resources */,
+				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7688709A17B08BBA0002430C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768870A817B08BBA0002430C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7688706D17B08BBA0002430C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7688709317B08BBA0002430C /* MyScene.m in Sources */,
+				7688709017B08BBA0002430C /* ViewController.m in Sources */,
+				7688708717B08BBA0002430C /* AppDelegate.m in Sources */,
+				7688708317B08BBA0002430C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7688709817B08BBA0002430C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768870AA17B08BBA0002430C /* GeminiSKTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		768870A217B08BBA0002430C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7688707017B08BBA0002430C /* GeminiSK */;
+			targetProxy = 768870A117B08BBA0002430C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7688707F17B08BBA0002430C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7688708017B08BBA0002430C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7688708817B08BBA0002430C /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7688708917B08BBA0002430C /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		7688708B17B08BBA0002430C /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7688708C17B08BBA0002430C /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		768870A617B08BBA0002430C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				768870A717B08BBA0002430C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		768870AB17B08BBA0002430C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		768870AC17B08BBA0002430C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		768870AE17B08BBA0002430C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeminiSK/GeminiSK-Prefix.pch";
+				INFOPLIST_FILE = "GeminiSK/GeminiSK-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		768870AF17B08BBA0002430C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeminiSK/GeminiSK-Prefix.pch";
+				INFOPLIST_FILE = "GeminiSK/GeminiSK-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		768870B117B08BBA0002430C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GeminiSK.app/GeminiSK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeminiSK/GeminiSK-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GeminiSKTests/GeminiSKTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		768870B217B08BBA0002430C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GeminiSK.app/GeminiSK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeminiSK/GeminiSK-Prefix.pch";
+				INFOPLIST_FILE = "GeminiSKTests/GeminiSKTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7688706C17B08BBA0002430C /* Build configuration list for PBXProject "GeminiSK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768870AB17B08BBA0002430C /* Debug */,
+				768870AC17B08BBA0002430C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		768870AD17B08BBA0002430C /* Build configuration list for PBXNativeTarget "GeminiSK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768870AE17B08BBA0002430C /* Debug */,
+				768870AF17B08BBA0002430C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		768870B017B08BBA0002430C /* Build configuration list for PBXNativeTarget "GeminiSKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768870B117B08BBA0002430C /* Debug */,
+				768870B217B08BBA0002430C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7688706917B08BBA0002430C /* Project object */;
+}

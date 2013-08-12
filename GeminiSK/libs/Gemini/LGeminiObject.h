@@ -15,4 +15,5 @@
 int addEventListener(lua_State *L); // used everywhere
 int removeEventListener(lua_State *L);
 int luaopen_geminiObjectLib (lua_State *L);
-
+int genericIndex(lua_State *L);
+int genericNewIndex(lua_State *L);

@@ -20,8 +20,6 @@ extern "C" {
 
 //void callLuaMethodForDisplayObject(lua_State *L, int methodRef, GemDisplayObject *obj);
 void createMetatable(lua_State *L, const char *key, const struct luaL_Reg *funcs);
-int genericIndex(lua_State *L);
-int genericNewIndex(lua_State *L);
 int genericNodeIndex(lua_State *L, SKNode *obj);
 int genericNodeNewIndex(lua_State *L, SKNode *obj);
 int addChild(lua_State *L);

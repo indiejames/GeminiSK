@@ -33,6 +33,8 @@ function scene:createScene( event )
   label.zRotation = 1.5
  print("Lua: Adding label to scene")
   scene:addChild(label)
+  label.zzz = "A Test"
+  print("Lua: zzz = " .. label.zzz)
 
 end
 

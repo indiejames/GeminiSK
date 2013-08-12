@@ -17,35 +17,9 @@ void createMetatable(lua_State *L, const char *key, const struct luaL_Reg *funcs
     luaL_setfuncs(L, funcs, 0);
 }
 
-// generic index method for userdata types
-int genericIndex(lua_State *L){
-    // first check the uservalue
-    lua_getuservalue( L, -2 );
-    if(lua_isnil(L,-1)){
-        // GemLog(@"user value for user data is nil");
-    }
-    lua_pushvalue( L, -2 );
-    
-    lua_rawget( L, -2 );
-    if( lua_isnoneornil( L, -1 ) == 0 )
-    {
-        return 1;
-    }
-    
-    lua_pop( L, 2 );
-    
-    // second check the metatable
-    lua_getmetatable( L, -2 );
-    lua_pushvalue( L, -2 );
-    lua_rawget( L, -2 );
-    
-    // nil or otherwise, we return here
-    return 1;
-    
-}
 
 // generic new index method for userdata types
-int genericNewIndex(lua_State *L){
+/*int genericNewIndex(lua_State *L){
     
     lua_getuservalue( L, -3 );  // table attached is attached to objects via user value
     lua_pushvalue(L, -3);
@@ -53,7 +27,7 @@ int genericNewIndex(lua_State *L){
     lua_rawset( L, -3 );
     
     return 0;
-}
+}*/
 
 int genericNodeIndex(lua_State *L, SKNode *obj){
     if (lua_isstring(L, -1)) {

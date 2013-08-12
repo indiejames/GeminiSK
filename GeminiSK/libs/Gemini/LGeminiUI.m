@@ -12,6 +12,7 @@
 #import "LGeminiLuaSupport.h"
 #import "AppDelegate.h"
 #import "LGeminiNode.h"
+#import "LGeminiObject.h"
 
 extern int removeEventListener(lua_State *L);
 extern int addEventListener(lua_State *L);
@@ -123,8 +124,8 @@ static const struct luaL_Reg uiLib_f [] = {
 // mappings for the label methods
 static const struct luaL_Reg label_m [] = {
     //{"__gc", sceneGC},
-    {"__index", labelIndex},
-    {"__newindex", labelNewIndex},
+    {"__index", genericIndex},
+    {"__newindex", genericNewIndex},
     //{"setBackgroundColor", sceneSetBackroundColor},
     /*{"addLayer", addLayerToScene},
     {"addNativeObject", addNativeObjectToScene},*/

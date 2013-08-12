@@ -157,15 +157,90 @@ int removeEventListener(lua_State *L){
 }
 
 
+// generic index method for userdata types
+int genericIndex(lua_State *L){
+    // first check to see if the delegate object will accept the call
+    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    NSObject *delegate = (*go).delegate;
+    
+    const char *attr = luaL_checkstring(L, 2);
+    NSString *attrStr = [NSString stringWithFormat:@"%s", attr];
+    // check to see if the delgate object can handle the call
+    NSString *firstCapChar = [[attrStr substringToIndex:1] capitalizedString];
+    NSString *cappedString = [attrStr stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
+    NSString *methodName = [NSString stringWithFormat:@"set%@:", cappedString];
+    SEL selector = NSSelectorFromString(methodName);
+    if ([delegate respondsToSelector:selector]) {
+        // use the delegate object to handle the call
+        NSMethodSignature *sig = [delegate methodSignatureForSelector:selector];
+        const char *returnType = [sig methodReturnType];
+        NSInvocation *invoke = [NSInvocation invocationWithMethodSignature:sig];
+        [invoke setTarget:delegate];
+        
+        [invoke setSelector:selector];
+        [invoke invoke];
+                
+        if (strcmp("f", returnType) == 0){
+            float fVal;
+            [invoke getReturnValue:&fVal];
+            lua_pushnumber(L, fVal);
+            
+        } else if (strcmp("i", returnType) == 0) {
+            int iVal;
+            [invoke getReturnValue:&iVal];
+            lua_pushinteger(L, iVal);
+        } else if (strcmp("u", returnType) == 0) {
+            unsigned int uVal;
+            [invoke getReturnValue:&uVal];
+            lua_pushunsigned(L, uVal);
+        } else if (strcmp("d", returnType) == 0) {
+            double dVal;
+            [invoke getReturnValue:&dVal];
+            lua_pushnumber(L, dVal);
+        } else {
+            // everything else is treated as a string
+            NSString *sVal;
+            [invoke getReturnValue:&sVal];
+            lua_pushstring(L, [sVal cStringUsingEncoding:[NSString defaultCStringEncoding]]);
+        }
+        
+        
+    } else {
 
-static int l_irc_index( lua_State* L )
-{
-    GemLog(@"Calling l_irc_index()");
-    /* object, key */
-    /* first check the environment */ 
+        // first check the uservalue
+        lua_getuservalue( L, -2 );
+        if(lua_isnil(L,-1)){
+            // GemLog(@"user value for user data is nil");
+        }
+        lua_pushvalue( L, -2 );
+        
+        lua_rawget( L, -2 );
+        if( lua_isnoneornil( L, -1 ) == 0 )
+        {
+            return 1;
+        }
+        
+        lua_pop( L, 2 );
+        
+        // second check the metatable
+        lua_getmetatable( L, -2 );
+        lua_pushvalue( L, -2 );
+        lua_rawget( L, -2 );
+        
+    }
+    
+    // nil or otherwise, we return here
+    return 1;
+    
+}
+
+
+// generic index method for userdata types
+int genericIandex(lua_State *L){
+    // first check the uservalue
     lua_getuservalue( L, -2 );
     if(lua_isnil(L,-1)){
-        GemLog(@"user value for user data is nil");
+        // GemLog(@"user value for user data is nil");
     }
     lua_pushvalue( L, -2 );
     
@@ -177,29 +252,90 @@ static int l_irc_index( lua_State* L )
     
     lua_pop( L, 2 );
     
-    /* second check the metatable */    
+    // second check the metatable
     lua_getmetatable( L, -2 );
     lua_pushvalue( L, -2 );
     lua_rawget( L, -2 );
     
-    /* nil or otherwise, we return here */
+    // nil or otherwise, we return here
     return 1;
+    
 }
 
-// this function gets called with the table on the bottom of the stack, the index to assign to next,
-// and the value to be assigned on top
-// TODO - set the underlying GeminiObject properties to match the lua table value
-static int newindex( lua_State* L )
-{
-    GemLog(@"Calling l_irc_newindex()");
-    int top = lua_gettop(L);
-    GemLog(@"stack has %d values", top);
-    /* object, key, value */
+
+
+// generic new index method, i.e., obj.something = some_value
+// only support primitive types (ints, float, char *, etc.) for some_value
+int genericNewIndex(lua_State *L) {
+    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    NSObject *delegate = (*go).delegate;
     
-    lua_getuservalue( L, -3 );  // table attached is attached to objects via user value
-    lua_pushvalue(L, -3);
-    lua_pushvalue(L,-3);
-    lua_rawset( L, -3 );
+    const char *attr = luaL_checkstring(L, 2);
+    NSString *attrStr = [NSString stringWithFormat:@"%s", attr];
+    // check to see if the delgate object can handle the call
+    NSString *firstCapChar = [[attrStr substringToIndex:1] capitalizedString];
+    NSString *cappedString = [attrStr stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
+    NSString *methodName = [NSString stringWithFormat:@"set%@:", cappedString];
+    SEL selector = NSSelectorFromString(methodName);
+    if ([delegate respondsToSelector:selector]) {
+        // use the delegate object to handle the call
+        NSMethodSignature *sig = [delegate methodSignatureForSelector:selector];
+        const char *argType = [sig getArgumentTypeAtIndex:2];
+        NSInvocation *invoke = [NSInvocation invocationWithMethodSignature:sig];
+        [invoke setTarget:delegate];
+        NSString *sVal;
+        char *cVal;
+        double dVal;
+        float fVal;
+        int iVal;
+        unsigned int uVal;
+        
+        if (strcmp("*", argType) == 0) {
+            // char * string
+            cVal = (char *)luaL_checkstring(L, 3);
+            [invoke setArgument:&cVal atIndex:2];
+        } else if (strcmp("f", argType) == 0){
+            fVal = luaL_checknumber(L, 3);
+            [invoke setArgument:&fVal atIndex:2];
+        } else if (strcmp("i", argType) == 0) {
+            iVal = luaL_checkinteger(L, 3);
+            [invoke setArgument:&iVal atIndex:2];
+        } else if (strcmp("u", argType) == 0) {
+            uVal = luaL_checkunsigned(L, 3);
+            [invoke setArgument:&uVal atIndex:2];
+        } else if (strcmp("d", argType) == 0) {
+            dVal = luaL_checknumber(L, 3);
+            [invoke setArgument:&dVal atIndex:2];
+        } else {
+            // everything else is treated as a string
+            cVal = (char *)luaL_checkstring(L, 3);
+            sVal = [NSString stringWithFormat:@"%s", cVal];
+            [invoke setArgument:&sVal atIndex:2];
+        }
+        switch (lua_type(L, 3)) {
+            case LUA_TSTRING:
+                
+                break;
+                
+            default:
+                
+                
+                break;
+        }
+        
+        [invoke setSelector:selector];
+        [invoke invoke];
+        
+    } else {
+        // use the attache Lua table
+        // this function gets called with the table on the bottom of the stack,
+        // the index to assign to next, and the value to be assigned on top
+        lua_getuservalue( L, -3 );  // table attached is attached to objects via user value
+        lua_pushvalue(L, -3);
+        lua_pushvalue(L,-3);
+        lua_rawset( L, -3 );
+
+    }
     
     return 0;
 }
@@ -213,8 +349,8 @@ static const struct luaL_Reg geminiObjectLib_m [] = {
     {"addEventListener", addEventListener},
     {"removeEventListener", removeEventListener},
     {"__gc", geminiObjectGC},
-    {"__index", l_irc_index},
-    {"__newindex", newindex},
+    {"__index", genericIndex},
+    {"__newindex", genericNewIndex},
     {NULL, NULL}
 };
 

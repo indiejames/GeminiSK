@@ -10,7 +10,7 @@
 #import "GemTimer.h"
 #//import "GemGLKViewController.h"
 #import "Gemini.h"
-//#import "LGeminiObject.h"
+#import "LGeminiObject.h"
 
 static int performWithDelay(lua_State *L){
     // stack : 1 - delay, 2 - callback (funciton or table/userdata), 3 - num iterations (optional)

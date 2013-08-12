@@ -12,6 +12,7 @@
 #import "GemEventManager.h"
 //#import "GemGLKViewController.h"
 #import "Gemini.h"
+#import "LGeminiObject.h"
 #import "LGeminiLuaSupport.h"
 
 int luaopen_event_lib(lua_State *L);
@@ -185,7 +186,8 @@ static int collisionEventIndex(lua_State *L){
 
 // mappings for the event methods
 static const struct luaL_Reg event_m [] = {
-    {"__index", eventIndex},
+    {"__index", genericIndex},
+    {"__newIndex", genericNewIndex},
     {"setFocus", setFocus},
     {"removeFocus", removeFocus},
     {NULL, NULL}

@@ -43,7 +43,7 @@
     self = [super init];
     
     if (self) {
-        luaData = [[GemObject alloc] initWithLuaState:luaState];
+        luaData = [[GemObject alloc] initWithLuaState:luaState LuaKey:GEMINI_EVENT_LUA_KEY];
         luaData.delegate = self;
         target = trgt;
     }

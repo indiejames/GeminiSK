@@ -164,11 +164,10 @@ int genericIndex(lua_State *L){
     NSObject *delegate = (*go).delegate;
     
     const char *attr = luaL_checkstring(L, 2);
-    NSString *attrStr = [NSString stringWithFormat:@"%s", attr];
+    
     // check to see if the delgate object can handle the call
-    NSString *firstCapChar = [[attrStr substringToIndex:1] capitalizedString];
-    NSString *cappedString = [attrStr stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
-    NSString *methodName = [NSString stringWithFormat:@"set%@:", cappedString];
+    NSString *methodName = [NSString stringWithFormat:@"%s", attr];
+   
     SEL selector = NSSelectorFromString(methodName);
     if ([delegate respondsToSelector:selector]) {
         // use the delegate object to handle the call
@@ -233,36 +232,6 @@ int genericIndex(lua_State *L){
     return 1;
     
 }
-
-
-// generic index method for userdata types
-int genericIandex(lua_State *L){
-    // first check the uservalue
-    lua_getuservalue( L, -2 );
-    if(lua_isnil(L,-1)){
-        // GemLog(@"user value for user data is nil");
-    }
-    lua_pushvalue( L, -2 );
-    
-    lua_rawget( L, -2 );
-    if( lua_isnoneornil( L, -1 ) == 0 )
-    {
-        return 1;
-    }
-    
-    lua_pop( L, 2 );
-    
-    // second check the metatable
-    lua_getmetatable( L, -2 );
-    lua_pushvalue( L, -2 );
-    lua_rawget( L, -2 );
-    
-    // nil or otherwise, we return here
-    return 1;
-    
-}
-
-
 
 // generic new index method, i.e., obj.something = some_value
 // only support primitive types (ints, float, char *, etc.) for some_value

@@ -49,27 +49,6 @@ static int sceneGC (lua_State *L){
 }
 
 
-static int sceneIndex(lua_State *L){
-    int rval = 0;
-   // __unsafe_unretained SKScene  **scene = (__unsafe_unretained SKScene **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
-    __unsafe_unretained GemObject **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
-    if (obj != NULL) {
-        rval = genericNodeIndex(L, (SKNode *)(*obj).delegate);
-    }
-    
-    return rval;
-}
-
-static int sceneNewIndex (lua_State *L){
-    int rval = 0;
-    __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
-    if (obj != NULL) {
-        rval = genericNodeNewIndex(L, (SKNode *)(*obj).delegate);
-    }
-    
-    return rval;
-}
-
 static int directorLoadScene(lua_State *L){
     
     const char *sceneName = luaL_checkstring(L, 1);
@@ -154,8 +133,8 @@ static const struct luaL_Reg directorLib_f [] = {
 // mappings for the scene methods
 static const struct luaL_Reg scene_m [] = {
     //{"__gc", sceneGC},
-    {"__index", sceneIndex},
-    {"__newindex", sceneNewIndex},
+    {"__index", genericIndex},
+    {"__newindex", genericNewIndex},
     {"setBackgroundColor", sceneSetBackroundColor},
     /*{"addLayer", addLayerToScene},
     {"addNativeObject", addNativeObjectToScene},*/

@@ -167,16 +167,6 @@ int setLuaPath(lua_State *L, NSString* path );
         luaL_openlibs(L);
         
         director = [[GemDirector alloc] initWithLuaState:L];
-
-/*        viewController = [[GemGLKViewController alloc] initWithLuaState:L];
-        physics = [[GemPhysics alloc] init];
-        float screenWidth = scale * bounds.width;
-        float physScale = 50.0 * screenWidth / 320.0;
-        [physics setScale:physScale];
-        
-        soundManager = [[GemSoundManager alloc] init];
-        
-        fontManager = [[GemFontManager alloc] init];*/
         
     }
     
@@ -256,66 +246,33 @@ int setLuaPath(lua_State *L, NSString* path );
     [runtime handleEvent:event];
 }
 
+-(void)sendEventToRuntime:(NSString *)evt {
+    GemEvent *event = [[GemEvent alloc] initWithLuaState:L Target:runtime];
+    event.name = evt;
+    [runtime handleEvent:event];
+}
+
 -(void)applicationWillExit {
-    GemEvent *exitEvent = [[GemEvent alloc] initWithTarget:runtime];
-    exitEvent.name = @"applicationWillExit";
-    [runtime handleEvent:exitEvent];
+    [self sendEventToRuntime:@"applicationWillExit"];
 }
 
 -(void)applicationWillResignActive {
     
-    GemEvent *exitEvent = [[GemEvent alloc] initWithTarget:runtime];
-    exitEvent.name = @"applicationWillResignActive";
-    [runtime handleEvent:exitEvent];
+    [self sendEventToRuntime:@"applicationWillResignActive"];
 }
 
 - (void)applicationDidBecomeActive {
-    GemEvent *exitEvent = [[GemEvent alloc] initWithTarget:runtime];
-    exitEvent.name = @"applicationDidBecomeActive";
-    [runtime handleEvent:exitEvent];
+    [self sendEventToRuntime:@"applicationDidBecomeActive"];
 }
 
 -(void)applicationDidEnterBackground {
-    GemEvent *exitEvent = [[GemEvent alloc] initWithTarget:runtime];
-    exitEvent.name = @"applicationDidEnterBackground";
-    [runtime handleEvent:exitEvent];
+    [self sendEventToRuntime:@"applicationDidEnterBackground"];
 }
 
 -(void)applicationWillEnterForeground {
-    GemEvent *exitEvent = [[GemEvent alloc] initWithTarget:runtime];
-    exitEvent.name = @"applicationWillEnterForeground";
-    [runtime handleEvent:exitEvent];
+    [self sendEventToRuntime:@"applicationWillEnterForeground"];
 }
 
-// the global update method - called from the GeminiGLKViewController update method
-// deltaT - time in seconds since last update
-/*-(void) update:(double)deltaT {
-    
-    // do physics
-    [physics update:deltaT];
-    
-    // update transitions
-    [[GemTransitionManager shared] processTransitions:deltaT];
-    
-    GemEvent *enterFrameEvent = [[GemEvent alloc] initWithLuaState:L Target:runtime];
-    enterFrameEvent.name = @"enterFrame";
-    [runtime handleEvent:enterFrameEvent];
- 
-#ifdef GEM_DEBUG
-    static int callCount = 0;
-    
-    if (callCount % 120 == 0) {
-        callCount = 0;
-        int kByteCount = lua_gc(L, LUA_GCCOUNT, 0);
-        GemLog(@"Gemini: Lua is using %d Kb", kByteCount);
-        lua_gc(L, LUA_GCCOLLECT, 0);
-        lua_settop(L, 0);
-    }
-    
-    callCount++;
-#endif
-    
-}*/
 
 // makes it possible for Lua to load files on iOS
 int setLuaPath(lua_State *L, NSString* path )  

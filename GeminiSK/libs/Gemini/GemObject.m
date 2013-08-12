@@ -141,7 +141,7 @@
                 int err = lua_pcall(self.L, 1, LUA_MULTRET, -3);
                 if (err != 0) {
                     const char *msg = lua_tostring(self.L, -1);
-                    GemLog(@"Error executing event handler: %s", msg);
+                    NSLog(@"Error executing event handler: %s", msg);
                 } else {
                     int numResp = lua_gettop(self.L) - base;
                     if (numResp == 1) {

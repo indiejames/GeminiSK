@@ -24,9 +24,10 @@
 @property (nonatomic) int eventListenerTableRef;
 @property lua_State *L;
 @property (strong) NSString *name;
-@property (weak) NSObject *delegate;
+@property (weak) id delegate;
 
 -(id)initWithLuaState:(lua_State *)luaState;
 -(id) initWithLuaState:(lua_State *)luaState LuaKey:(const char *)luaKey;
 -(BOOL)handleEvent:(GemEvent *)event;
+//- (void)callLuaMethod:(NSStirng *)method withArgs:(NSString *)firstArg, ...;
 @end

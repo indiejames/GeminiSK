@@ -42,6 +42,7 @@
 -(void)applicationDidEnterBackground;
 -(void)applicationWillEnterForeground;
 +(Gemini *)shared;
+int traceback (lua_State *L);
 
 
 @end

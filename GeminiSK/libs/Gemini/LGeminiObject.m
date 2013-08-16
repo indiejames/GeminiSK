@@ -14,7 +14,7 @@
 #import "GemEventManager.h"
 
 
-static int newGeminiObject(lua_State *L){
+/*static int newGeminiObject(lua_State *L){
     GemObject *go = [[GemObject alloc] initWithLuaState:L];
     
     __unsafe_unretained GemObject **lgo = (__unsafe_unretained GemObject **)lua_newuserdata(L, sizeof(GemObject *));
@@ -46,10 +46,20 @@ static int newGeminiObject(lua_State *L){
     
     return 1;
     
+}*/
+
+int genericGC(lua_State *L){
+    GemLog(@"GeminiObject released");
+    return 0;
 }
 
-static int geminiObjectGC (lua_State *L){
-    GemLog(@"GeminiObject released");
+// method called by all bindings to remove an object
+int genericDestroy(lua_State *L){
+    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    [(*go).delegate setUserData:nil]; // this should eventually cause the object to be gc'ed
+    [[Gemini shared].geminiObjects removeObject:*go];
+    // TODO - remove object from parent node
+    
     return 0;
 }
 
@@ -310,14 +320,14 @@ int genericNewIndex(lua_State *L) {
 }
 
 static const struct luaL_Reg geminiObjectLib_f [] = {
-    {"new", newGeminiObject},
+    //{"new", newGeminiObject},
     {NULL, NULL}
 };
 
 static const struct luaL_Reg geminiObjectLib_m [] = {
     {"addEventListener", addEventListener},
     {"removeEventListener", removeEventListener},
-    {"__gc", geminiObjectGC},
+    {"__gc", genericGC},
     {"__index", genericIndex},
     {"__newindex", genericNewIndex},
     {NULL, NULL}

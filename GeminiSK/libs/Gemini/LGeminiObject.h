@@ -10,10 +10,10 @@
 #include "lualib.h"
 #include "lauxlib.h"
 
-#define GEMINI_OBJECT_LUA_KEY "GeminiLib.GEMINI_OBJECT_LUA_KEY"
-
 int addEventListener(lua_State *L); // used everywhere
 int removeEventListener(lua_State *L);
 int luaopen_geminiObjectLib (lua_State *L);
 int genericIndex(lua_State *L);
 int genericNewIndex(lua_State *L);
+int genericGC(lua_State *L);
+int genericDestroy(lua_State *L);

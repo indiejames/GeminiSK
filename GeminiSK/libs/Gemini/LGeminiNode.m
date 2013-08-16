@@ -24,3 +24,18 @@ int setPosition(lua_State *L) {
     
     return 0;
 }
+
+int destroyNode(lua_State *L){
+    // we don't check the userdata type here because it can be anything - we just force it to
+    // GemObject
+    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    SKNode *node = (SKNode *)(*go).delegate;
+    
+    if (node) {
+        [node removeFromParent];
+    }
+    
+    [[Gemini shared].geminiObjects removeObject:*go];
+
+    return 0;
+}

@@ -110,18 +110,9 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
             [scenes setObject:newScene forKey:sceneName];
             [loadingScenes removeObject:sceneName];
         });
-        /*dispatch_async(globalQueue, ^(){
-            GemScene *newScene = sceneLoader(sceneName, L);
-            dispatch_sync(globalQueue, ^{
-                [scenes setObject:newScene forKey:sceneName];
-                [loadingScenes removeObject:sceneName];
-                
-            });
-            
-        });*/
         
-        /*dispatch_async(globalQueue, ^(){
-            GemScene *newScene = sceneLoader(sceneName, L);
+       /* dispatch_async(globalQueue, ^(){
+            SKScene *newScene = sceneLoader(sceneName, luaData.L);
             [scenes setObject:newScene forKey:sceneName];
             [loadingScenes removeObject:sceneName];
         });*/

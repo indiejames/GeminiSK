@@ -12,13 +12,12 @@
 #define GEMINI_EVENT_LUA_KEY "GeminiLib.GEMINI_EVENT_LUA_KEY"
 
 @interface GemEvent : NSObject {
-    GemObject *luaData;
     GemObject *target;  // the object receiving the event
     NSNumber *timestamp;
     NSString *name;
 }
 
-@property (nonatomic, strong) GemObject *luaData;
+@property (nonatomic, strong) NSMutableDictionary *userData; // used to store lua data
 @property (nonatomic, strong) GemObject *target;
 @property (readonly) NSNumber *timestamp;
 @property (nonatomic, strong) NSString *name;

@@ -11,3 +11,4 @@
 #import "LGeminiLuaSupport.h"
 
 int setPosition(lua_State *L); // used everywhere
+int destroyNode(lua_State *L); // 

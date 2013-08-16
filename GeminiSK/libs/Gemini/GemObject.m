@@ -77,6 +77,12 @@
 
 
 -(void) dealloc {
+    
+#ifdef GEM_DEBUG
+    int kByteCount = lua_gc(self.L, LUA_GCCOUNT, 0);
+    GemLog(@"Gemini: Lua is using %d Kb", kByteCount);
+#endif
+    
     // release our property table so it can be GC by Lua
     if (self.propertyTableRef != -1) {
         luaL_unref(self.L, LUA_REGISTRYINDEX, self.propertyTableRef);
@@ -92,20 +98,18 @@
     if (self.selfRef != -1) {
         luaL_unref(self.L, LUA_REGISTRYINDEX, self.selfRef);
     }
+
+#ifdef GEM_DEBUG
+    kByteCount = lua_gc(self.L, LUA_GCCOUNT, 0);
+    //lua_gc(self.L, LUA_GCCOLLECT, 0);
+    lua_settop(self.L, 0);
+    GemLog(@"Gemini: Lua is NOW using %d Kb", kByteCount);
+#endif
     
 }
 
 
 -(BOOL)handleEvent:(GemEvent *)event {
-    /*if ([event.name isEqualToString:@"GEM_TIMER_EVENT"]) {
-        GemLog(@"GemObject: handling event %@", event.name);
-
-    }
-    
-    if ([event.name isEqualToString:GEM_TOUCH_EVENT_NAME]) {
-        GemLog(@"GemObject: handling event %@", event.name);
-        
-    }*/
     
     if ([event.name isEqualToString:@"applicationWillEXit"]) {
         GemLog(@"GemObject: handling event %@", event.name);
@@ -114,7 +118,6 @@
     
     BOOL rval = NO;
 
-       
     // get the full event handler table
     lua_rawgeti(self.L, LUA_REGISTRYINDEX, self.eventListenerTableRef);
     // get the event handlers for this event
@@ -136,7 +139,8 @@
                 lua_insert(self.L, base);  // put it under callback function
                 
                 // push the event object onto the top of the stack as the argument to the event handler
-                int eRef = event.luaData.selfRef;
+                GemObject *obj = [event.userData objectForKey:@"LUA_DATA"];
+                int eRef = obj.selfRef;
                 lua_rawgeti(self.L, LUA_REGISTRYINDEX, eRef);
                 int err = lua_pcall(self.L, 1, LUA_MULTRET, -3);
                 if (err != 0) {
@@ -176,7 +180,8 @@
                     // the first argument
                     lua_pushvalue(self.L, -2);
                 }
-                int eRef = event.luaData.selfRef;
+                GemObject *obj = [event.userData objectForKey:@"LUA_DATA"];
+                int eRef = obj.selfRef;
                 lua_rawgeti(self.L, LUA_REGISTRYINDEX, eRef); // add the event as the second param
                 
                 int err = 0;
@@ -214,48 +219,6 @@
         
     return rval;
 }
-
-// add an event listener to this object
-/*-(void)addEventListener:(int)callback forEvent:(NSString *)event {
-    NSLog(@"GemObject adding event listener for %@", event);
-    
-    
-    // get the event handler table
-    lua_rawgeti(L, LUA_REGISTRYINDEX, eventListenerTableRef);
-    // get the event handlers for this event
-    lua_getfield(L, -1, [event UTF8String]);
-
-    if (lua_istable(L, -1)) {
-        //int index = lua_objlen(L, -1);
-        //lua_pushinteger(L, index);
-        lua_len(L, -1);
-        lua_pushvalue(L, -4);
-        lua_settable(L, -4);
-    } else {
-        lua_pushstring(L,[event UTF8String]);
-        lua_newtable(L);
-        lua_settable(L, -4);
-        lua_getfield(L, -2, [event UTF8String]);
-        lua_pushinteger(L, 1);
-        lua_pushvalue(L, 3);
-    }
-}*/
-
-// remove an event listener for this object
-/*-(void)removeEventListener:(int)callback forEvent:(NSString *)event {
-    GemLog(@"GemObject: removing event listener for %@", event);
-    GemLog(@"GemObject: registered handlers:");
-    
-    NSMutableArray *handler = (NSMutableArray *)[eventHandlers objectForKey:event];
-    if (handler != nil) {
-        for (int i=0; i<[handler count]; i++) {
-            NSNumber *h = [handler objectAtIndex:i];
-            GemLog(@"\t\t%d",[h intValue]);
-        }
-        [handler removeObject:[NSNumber numberWithInt:callback]];
-    }
-}*/
-
 
 @end
 

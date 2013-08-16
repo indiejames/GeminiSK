@@ -12,7 +12,7 @@ local scene = director.newScene()
 -- 
 --	NOTE:
 --	
---	Code outside of listener functions (below) will only be executed once,
+--	Code outside of functions (below) will only be executed once,
 --	unless director.removeScene() is called.
 -- 
 ---------------------------------------------------------------------------------
@@ -21,26 +21,26 @@ local scene = director.newScene()
 -- BEGINNING OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
 
--- Called when the scene's view does not exist:
+-- Called when the scene is first created.
+-- Add scene elements here.
 function scene:createScene( event )
 	print("Lua: Creating scene1")
     scene:setBackgroundColor(1.0,0,0)
-  label = ui.newLabel("Chalkduster")
- label.fontSize = 30
-  label.text = "Hello, James!"
- print("Lua: setting label position")
-  label:setPosition(200,100)
-  label.zRotation = 1.5
- print("Lua: Adding label to scene")
+   print("Lua: Adding label to scene")
   scene:addChild(label)
   label.zzz = "A Test"
   print("Lua: zzz = " .. label.zzz)
-
+  --ui.destroyLabel(label)
+  --label = nil
+  local label2 = ui.newLabel("Chalkduster")
+  label2.text = "Goodbye"
+  label2:setPosition(200,300)
+  scene:addChild(label2)
 end
 
 
 -- Called immediately after scene has moved onscreen:
-function scene:didMoveToView( event )
+function scene:didMoveToView(  )
 	
 
 	-----------------------------------------------------------------------------
@@ -56,7 +56,7 @@ end
 
 
 -- Called when scene is about to move offscreen:
-function scene:willMoveFromView( event )
+function scene:willMoveFromView(  )
 	
 
 	-----------------------------------------------------------------------------
@@ -71,9 +71,34 @@ function scene:willMoveFromView( event )
 
 end
 
+-- Called when the scene physics have been simulated
+function scene:didSimulatePhysics()
 
--- Called prior to the removal of scene's "view" (display group)
-function scene:destroyScene( event )
+end
+
+-- Called when scenes actions have been updated
+function scene:didEvaluateActions()
+
+end
+
+-- Called when the scene's size changes
+function scene:didChangeSize(width, height)
+
+end
+
+-- Called once every frame
+function scene:update(currentTime)
+    -----------------------------------------
+    
+    --  It is not recommended to use this  --
+    --  method for animation - use physics --
+    --  and actions instead.               --
+    
+    -----------------------------------------
+end
+
+-- Called when scene is deallocated
+function scene:destroyScene(  )
 	
 
 	-----------------------------------------------------------------------------
@@ -88,18 +113,5 @@ end
 -- END OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
 
-scene.name = "scene1"
-
--- "createScene" event is dispatched if scene's view does not exist
-scene:addEventListener( "createScene", scene )
-
--- "didMoveToView" event is dispatched whenever scene transition has finished
-scene:addEventListener( "didMoveToView", scene )
-
--- "willMoveFromView" event is dispatched before next scene's transition begins
-scene:addEventListener( "willMoveFromView", scene )
-
--- "destroyScene" event is dispatched before view is deallocated
-scene:addEventListener( "destroyScene", scene )
 
 return scene

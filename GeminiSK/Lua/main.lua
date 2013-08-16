@@ -21,6 +21,13 @@ Runtime:addEventListener("applicationWillResignActive",exitHandler)
 Runtime:addEventListener("applicationDidEnterBackground", exitHandler)
 Runtime:addEventListener("applicationWillEnterForeground", exitHandler)
 
---scene = director.newScene()
+-- A global label that can be added to any scene
+label = ui.newLabel("Chalkduster")
+label.fontSize = 30
+label.text = "Hello, James!"
+print("Lua: setting label position")
+label:setPosition(200,100)
+label.zRotation = 1.5
+
 director.loadScene("scene1")
 director.gotoScene("scene1")

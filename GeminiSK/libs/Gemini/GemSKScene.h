@@ -10,8 +10,8 @@
 #import <GemSKSceneDelegate.h>
 
 
-@interface GemSKScene : SKScene
+@interface GemSKScene : SKScene <GemSKSceneDelegate>
 
-@property (weak) id <GemSKSceneDelegate> delegate;
+//@property (weak) id <GemSKSceneDelegate> delegate;
 
 @end

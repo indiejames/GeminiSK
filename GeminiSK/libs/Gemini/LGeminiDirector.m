@@ -14,17 +14,15 @@
 #import "AppDelegate.h"
 #import "MyScene.h"
 #import "GemDirector.h"
+#import "GemSKScene.h"
 
 
 static int newScene(lua_State *L){
-    NSLog(@"Creating new scene");
+    GemLog(@"Creating new scene");
     
-   // GemScene *scene = [[GemScene alloc] initWithLuaState:L defaultLayerIndex:0];
-//    [((GemGLKViewController *)[Gemini shared].viewController).director addScene:scene];
-   
     SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
     
-    SKScene *scene = [[MyScene alloc] initWithSize:skView.bounds.size];
+    GemSKScene *scene = [[GemSKScene alloc] initWithSize:skView.bounds.size];
     GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_SCENE_LUA_KEY];
     luaData.delegate = scene;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];

@@ -27,14 +27,10 @@
 @private
     lua_State *L;
     NSDictionary *settings;
-//    GemGLKViewController *viewController;
     int x;
     double initTime;
     GemObject *runtime;
     GemDirector *director;
-/*    GemPhysics *physics;
-    GemSoundManager *soundManager;
-    GemFontManager *fontManager;*/
 }
 @end
 
@@ -57,33 +53,20 @@ int setLuaPath(lua_State *L, NSString* path );
 // add a global Runtime object
 -(void) addRuntimeObject {
     
-    runtime = [[GemObject alloc] initWithLuaState:L];
+    runtime = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_OBJECT_LUA_KEY];
     runtime.name = @"Runtime";
     
-    __unsafe_unretained GemObject **lgo = (__unsafe_unretained GemObject **)lua_newuserdata(L, sizeof(GemObject *));
-    *lgo = runtime;
+    // push the ref to the runtime object onto the lua stack
+    lua_rawgeti(L, LUA_REGISTRYINDEX, runtime.selfRef);
     
-    luaL_getmetatable(L, GEMINI_OBJECT_LUA_KEY);
-    lua_setmetatable(L, -2);
-    
-    lua_newtable(L);
-    lua_pushvalue(L, -1); // make a copy of the table becaue the next line pops the top value
-    // store a reference to this table so our sprite methods can access it
-    runtime.propertyTableRef = luaL_ref(L, LUA_REGISTRYINDEX);
-    lua_setuservalue(L, -2);
-    
-    lua_pushvalue(L, -1); // make another copy of the userdata since the next line will pop it off
-    runtime.selfRef = luaL_ref(L, LUA_REGISTRYINDEX);
-    
-    // create a table for the event listeners
-    lua_newtable(L);
-    runtime.eventListenerTableRef = luaL_ref(L, LUA_REGISTRYINDEX);
-    
-    // create an entry in the global table
+    // create an entry in the lua global table
     lua_setglobal(L, "Runtime");
     
     // empty the stack
     lua_pop(L, lua_gettop(L));
+    
+    // make sure it doesn't get GC'ed
+    [self.geminiObjects addObject:runtime];
     
 }
 
@@ -165,6 +148,14 @@ int setLuaPath(lua_State *L, NSString* path );
         //viewController = [[GeminiGLKViewController alloc] init];
         L = luaL_newstate();
         luaL_openlibs(L);
+        if(lua_gc(L, LUA_GCISRUNNING, 0)){
+            GemLog( @"GC is running");
+        } else {
+            GemLog(@"GC is NOT running");
+        }
+        
+        
+        lua_settop(L, 0);
         
         director = [[GemDirector alloc] initWithLuaState:L];
         

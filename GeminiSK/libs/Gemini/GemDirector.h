@@ -21,7 +21,6 @@
 
 -(void)loadScene:(NSString *)sceneName;
 -(void)gotoScene:(NSString *)scene withOptions:(NSDictionary *)options;
--(void)destroyScene:(NSString *)scene;
 -(void)setCurrentScene:(NSString *)scene;
 
 -(id)initWithLuaState:(lua_State *)luaState;

@@ -10,7 +10,6 @@
 #import "LGeminiEvent.h"
 
 @implementation GemEvent
-@synthesize luaData;
 @synthesize target;
 @synthesize timestamp;
 @synthesize name;
@@ -28,8 +27,11 @@
     self = [super init];
     
     if (self) {
-        luaData = [[GemObject alloc] initWithLuaState:luaState LuaKey:luaKey];
-        luaData.delegate = self;
+        GemObject *obj = [[GemObject alloc] initWithLuaState:luaState LuaKey:luaKey];
+        obj.delegate = self;
+        NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
+        [wrapper setObject:obj forKey:@"LUA_DATA"];
+        self.userData = wrapper;
         target = trgt;
     }
     
@@ -43,8 +45,11 @@
     self = [super init];
     
     if (self) {
-        luaData = [[GemObject alloc] initWithLuaState:luaState LuaKey:GEMINI_EVENT_LUA_KEY];
-        luaData.delegate = self;
+        GemObject *obj = [[GemObject alloc] initWithLuaState:luaState LuaKey:GEMINI_EVENT_LUA_KEY];
+        obj.delegate = self;
+        NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
+        [wrapper setObject:obj forKey:@"LUA_DATA"];
+        self.userData = wrapper;
         target = trgt;
     }
     
@@ -54,19 +59,5 @@
     return self;
 
 }
-
-/*
--(id)initWithLuaState:(lua_State *)luaState Target:(GemObject *)trgt Event:(UIEvent *)evt; {
-    self = [super initWithLuaState:luaState LuaKey:GEMINI_EVENT_LUA_KEY];
-    if (self) {
-        target = trgt;
-        if (evt) {
-            timestamp = [NSNumber numberWithDouble:evt.timestamp];
-        }
-        
-    }
-    
-    return self;
-}*/
 
 @end

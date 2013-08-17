@@ -14,6 +14,7 @@
 #import "GemEvent.h"
 #import "GemDirector.h"
 //#import "GemPhysics.h"
+#import "GemTimerManager.h"
 #import "GemFileNameResolver.h"
 //#import "GemSoundManager.h"
 //#import "GemFontManager.h"
@@ -31,11 +32,11 @@
 //@property (readonly) GemSoundManager *soundManager;
 //@property (readonly) GemFontManager *fontManager;
 @property (readonly) GemDirector *director;
+@property (readonly) GemTimerManager *timerManager;
 
 -(void)execute:(NSString *)filename;
 //-(BOOL)handleEvent:(NSString *)event;
 -(void)handleEvent:(GemEvent *)event;
--(void)update:(double)deltaT;
 -(void)applicationWillExit;
 -(void)applicationWillResignActive;
 - (void)applicationDidBecomeActive;

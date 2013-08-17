@@ -49,7 +49,7 @@
 }*/
 
 int genericGC(lua_State *L){
-    GemLog(@"GeminiObject released");
+    GemLog(@"Gemini Lua Object released");
     return 0;
 }
 

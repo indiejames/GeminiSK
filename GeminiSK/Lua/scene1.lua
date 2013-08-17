@@ -6,7 +6,11 @@
 
 local director = require( "director" )
 local ui = require("ui")
+local action = require("action")
+local timer = require("timer")
 local scene = director.newScene()
+
+local label2 
 
 ----------------------------------------------------------------------------------
 -- 
@@ -32,10 +36,12 @@ function scene:createScene( event )
   print("Lua: zzz = " .. label.zzz)
   --ui.destroyLabel(label)
   --label = nil
-  local label2 = ui.newLabel("Chalkduster")
+  label2 = ui.newLabel("Chalkduster")
   label2.text = "Goodbye"
   label2:setPosition(200,300)
   scene:addChild(label2)
+  rotation = action.rotate(7.0, 3)
+
 end
 
 
@@ -50,7 +56,13 @@ function scene:didMoveToView(  )
 	-----------------------------------------------------------------------------
     
     print("Entering scene 1")
-    
+  
+  function doRotation()
+    label2:runAction(rotation)
+    label:runAction(rotation)
+  end
+
+    timer.performWithDelay(5, doRotation)
 
 end
 
@@ -66,6 +78,8 @@ function scene:willMoveFromView(  )
 	-----------------------------------------------------------------------------
     
     --Runtime:removeEventListener("enterFrame", scene.starListener)
+    rotation:delete()
+    rotation = nil
     
     print("Exiting scene 1")
 

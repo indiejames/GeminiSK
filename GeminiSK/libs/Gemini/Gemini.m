@@ -31,6 +31,7 @@
     double initTime;
     GemObject *runtime;
     GemDirector *director;
+    GemTimerManager *_timerManager;
 }
 @end
 
@@ -47,6 +48,7 @@
 @synthesize director;
 //@synthesize soundManager;
 //@synthesize fontManager;
+@synthesize timerManager;
 
 int setLuaPath(lua_State *L, NSString* path );
 
@@ -145,6 +147,7 @@ int setLuaPath(lua_State *L, NSString* path );
         fileNameResolver = [[GemFileNameResolver alloc] initForWidth:bounds.width Height:bounds.height ContentScale:scale Settings:plist];
                 
         geminiObjects = [[NSMutableArray alloc] initWithCapacity:1];
+        timerManager = [[GemTimerManager alloc] init];
         //viewController = [[GeminiGLKViewController alloc] init];
         L = luaL_newstate();
         luaL_openlibs(L);

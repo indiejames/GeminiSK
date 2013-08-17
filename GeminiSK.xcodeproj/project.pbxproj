@@ -715,10 +715,10 @@
 		7688730517B092E30002430C /* Gemini */ = {
 			isa = PBXGroup;
 			children = (
-				76C67A0B17BDA1C200B73696 /* LGeminiAction.h */,
-				76C67A0C17BDA1C200B73696 /* LGeminiAction.m */,
 				7688730817B092E30002430C /* Gemini.h */,
 				7688730917B092E30002430C /* Gemini.m */,
+				76C67A0F17BDAF4600B73696 /* GemAction.h */,
+				76C67A1017BDAF4600B73696 /* GemAction.m */,
 				760EC4CB17B5C6D70079E84E /* GemDirector.h */,
 				760EC4CC17B5C6D80079E84E /* GemDirector.m */,
 				7688731617B09C610002430C /* GemEvent.h */,
@@ -736,6 +736,8 @@
 				76D081B717B1E3590033E3DF /* GemTimer.mm */,
 				76D081B817B1E3590033E3DF /* GemTimerManager.h */,
 				76D081B917B1E3590033E3DF /* GemTimerManager.m */,
+				76C67A0B17BDA1C200B73696 /* LGeminiAction.h */,
+				76C67A0C17BDA1C200B73696 /* LGeminiAction.m */,
 				760EC4C317B46DE10079E84E /* LGeminiDirector.h */,
 				760EC4C417B46DE10079E84E /* LGeminiDirector.m */,
 				76D081B417B1E3590033E3DF /* LGeminiEvent.h */,
@@ -750,8 +752,6 @@
 				76D081CD17B329840033E3DF /* LGeminiTimer.m */,
 				760EC4DA17B7E4730079E84E /* LGeminiUI.h */,
 				760EC4DB17B7E4730079E84E /* LGeminiUI.m */,
-				76C67A0F17BDAF4600B73696 /* GemAction.h */,
-				76C67A1017BDAF4600B73696 /* GemAction.m */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";

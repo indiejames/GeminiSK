@@ -29,11 +29,7 @@ static int performWithDelay(lua_State *L){
     
     GemTimer *timer = [[GemTimer alloc] initWithLuaState:L Delay:delay Listener:-1 NumIterations:numIterations];
     
-    
-    int timerIndex = lua_gettop(L);
-    
-    // TODO - Fix this
-    //[((GemGLKViewController *)([Gemini shared].viewController)).timerManager addTimer:timer];
+    [[Gemini shared].timerManager addTimer:timer];
     
     const char *ename = [GEM_TIMER_EVENT_NAME UTF8String];
     

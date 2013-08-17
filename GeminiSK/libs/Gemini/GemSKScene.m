@@ -68,6 +68,8 @@
 }
 
 -(void)update:(NSTimeInterval)currentTime {
+    [[Gemini shared].timerManager update:currentTime];
+    
     GemObject *luaData = [self.userData objectForKey:@"LUA_DATA"];
     lua_State *L = luaData.L;
     lua_gc(L, LUA_GCSTEP, 1);

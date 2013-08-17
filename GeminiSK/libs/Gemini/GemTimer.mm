@@ -30,7 +30,7 @@
     if (self) {
         luaData = [[GemObject alloc] initWithLuaState:luaState LuaKey:GEMINI_TIMER_LUA_KEY];
         luaData.delegate = self;
-        delay = del / 1000.0;
+        delay = del;
         numIterations = numIters;
         iteration = 0;
         accumulatedTime = 0;
@@ -69,6 +69,9 @@
 -(void)update:(double)currentTime {
     // TODO - verify this logic
     if (!paused && (iteration < numIterations || numIterations == 0)) {
+        if (lastUpdateTime == 0) {
+            lastUpdateTime = currentTime;
+        }
         double timeDelta = currentTime - lastUpdateTime;
         lastUpdateTime = currentTime;
         accumulatedTime += timeDelta;

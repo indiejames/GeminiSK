@@ -33,22 +33,36 @@ static int newRotateAction(lua_State *L){
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
     gemAction.userData = wrapper;
     
-    [[Gemini shared].geminiObjects addObject:luaData];
+    // keep the action wrapper from being GC'ed
+    [[Gemini shared].geminiObjects addObject:gemAction];
     
     return 1;
 }
+
+static int deleteAction(lua_State *L){
+    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_ACTION_LUA_KEY);
+    
+    GemAction *gemAction = (GemAction *)(*go).delegate;
+    
+    // allow the action wrapper to be GC'ed
+    [[Gemini shared].geminiObjects removeObject:gemAction];
+    
+    return 0;
+
+}
+
 // the mappings for the library functions
 static const struct luaL_Reg actionLib_f [] = {
-    
+    {"rotate", newRotateAction},
     {NULL, NULL}
 };
 
-// mappings for the scene methods
+// mappings for the action methods
 static const struct luaL_Reg action_m [] = {
-    //{"__gc", sceneGC},
-    /*{"__index", genericIndex},
+    {"__gc", genericGC},
+    {"__index", genericIndex},
     {"__newindex", genericNewIndex},
-    {"setBackgroundColor", sceneSetBackroundColor},*/
+    {"delete", deleteAction},
     {NULL, NULL}
 };
 

@@ -28,13 +28,9 @@ static int newLabel(lua_State *L){
     SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:[NSString stringWithFormat:@"%s", fontStr]];
     GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_LABEL_LUA_KEY];
     luaData.delegate = label;
-    [[Gemini shared].geminiObjects addObject:luaData];
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
     label.userData = wrapper;
-    
-    SKAction *rotate = [SKAction rotateByAngle:12.0 duration:15.0];
-    [label runAction:rotate];
     
     return 1;
 }
@@ -54,6 +50,7 @@ static const struct luaL_Reg label_m [] = {
     {"addEventListener", addEventListener},
     {"setPosition", setPosition},
     {"addChild", addChild},
+    {"runAction", runAction},
     {NULL, NULL}
 };
 

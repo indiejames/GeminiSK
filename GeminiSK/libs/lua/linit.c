@@ -25,12 +25,13 @@ extern int luaopen_geminiObjectLib (lua_State *L);
 extern int luaopen_event_lib(lua_State *L);
 extern int luaopen_director_lib(lua_State *L);
 extern int luaopen_ui_lib (lua_State *L);
+extern int luaopen_action_lib(lua_State *L);
+extern int luaopen_timer_lib(lua_State *L);
 /*extern int luaopen_soundlib (lua_State *L);
 extern int luaopen_spritelib (lua_State *L);
 extern int luaopen_system_lib (lua_State *L);
 extern int luaopen_display_lib (lua_State *L);
 extern int luaopen_transition_lib (lua_State *L);
-extern int luaopen_timer_lib(lua_State *L);
 extern int luaopen_physics_lib(lua_State *L);
 extern int luaopen_particle_system_lib(lua_State *L);
 extern int luaopen_text_lib(lua_State *L);
@@ -57,6 +58,8 @@ static const luaL_Reg loadedlibs[] = {
     {"event", luaopen_event_lib},
     {"director", luaopen_director_lib},
     {"ui", luaopen_ui_lib},
+    {"action", luaopen_action_lib},
+    {"timer", luaopen_timer_lib},
     /*{"system", luaopen_system_lib},
     {"display", luaopen_display_lib},
     {"transition", luaopen_transition_lib},

@@ -10,4 +10,11 @@
 
 @implementation GemAction
 
+-(void)dealloc {
+    GemLog(@"Deallocing GemAction");
+    self.skAction = nil;
+    [self.userData removeAllObjects];
+    self.userData = nil;
+}
+
 @end

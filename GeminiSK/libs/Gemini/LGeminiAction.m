@@ -12,7 +12,6 @@
 #import "LGeminiLuaSupport.h"
 #import "LGeminiObject.h"
 #import "AppDelegate.h"
-#import "MyScene.h"
 #import "GemDirector.h"
 #import "GemAction.h"
 

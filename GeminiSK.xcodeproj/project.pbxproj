@@ -31,7 +31,6 @@
 		7688708A17B08BBA0002430C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7688708817B08BBA0002430C /* Main_iPhone.storyboard */; };
 		7688708D17B08BBA0002430C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7688708B17B08BBA0002430C /* Main_iPad.storyboard */; };
 		7688709017B08BBA0002430C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708F17B08BBA0002430C /* ViewController.m */; };
-		7688709317B08BBA0002430C /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688709217B08BBA0002430C /* MyScene.m */; };
 		7688709517B08BBA0002430C /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 7688709417B08BBA0002430C /* Spaceship.png */; };
 		7688709717B08BBA0002430C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7688709617B08BBA0002430C /* Images.xcassets */; };
 		7688709E17B08BBA0002430C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688709D17B08BBA0002430C /* XCTest.framework */; };
@@ -182,6 +181,10 @@
 		76C67A0E17BDA1C200B73696 /* LGeminiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A0C17BDA1C200B73696 /* LGeminiAction.m */; };
 		76C67A1117BDAF4600B73696 /* GemAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1017BDAF4600B73696 /* GemAction.m */; };
 		76C67A1217BDAF4600B73696 /* GemAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1017BDAF4600B73696 /* GemAction.m */; };
+		76C67A1517BF381100B73696 /* LGeminiShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1417BF381100B73696 /* LGeminiShape.m */; };
+		76C67A1617BF381100B73696 /* LGeminiShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1417BF381100B73696 /* LGeminiShape.m */; };
+		76C67A1817C11B6F00B73696 /* scene2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A1717C11B6F00B73696 /* scene2.lua */; };
+		76C67A1917C11B6F00B73696 /* scene2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A1717C11B6F00B73696 /* scene2.lua */; };
 		76D081B217B1D2730033E3DF /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76D081B117B1D2730033E3DF /* main.lua */; };
 		76D081B317B1D2730033E3DF /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76D081B117B1D2730033E3DF /* main.lua */; };
 		76D081BE17B1E3590033E3DF /* LGeminiEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081B517B1E3590033E3DF /* LGeminiEvent.m */; };
@@ -238,8 +241,6 @@
 		7688708C17B08BBA0002430C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		7688708E17B08BBA0002430C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7688708F17B08BBA0002430C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7688709117B08BBA0002430C /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		7688709217B08BBA0002430C /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
 		7688709417B08BBA0002430C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		7688709617B08BBA0002430C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7688709C17B08BBA0002430C /* GeminiSKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeminiSKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,6 +385,9 @@
 		76C67A0C17BDA1C200B73696 /* LGeminiAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiAction.m; sourceTree = "<group>"; };
 		76C67A0F17BDAF4600B73696 /* GemAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemAction.h; sourceTree = "<group>"; };
 		76C67A1017BDAF4600B73696 /* GemAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemAction.m; sourceTree = "<group>"; };
+		76C67A1317BF381100B73696 /* LGeminiShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiShape.h; sourceTree = "<group>"; };
+		76C67A1417BF381100B73696 /* LGeminiShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiShape.m; sourceTree = "<group>"; };
+		76C67A1717C11B6F00B73696 /* scene2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene2.lua; sourceTree = "<group>"; };
 		76D081B117B1D2730033E3DF /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		76D081B417B1E3590033E3DF /* LGeminiEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiEvent.h; sourceTree = "<group>"; };
 		76D081B517B1E3590033E3DF /* LGeminiEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiEvent.m; sourceTree = "<group>"; };
@@ -471,8 +475,6 @@
 				7688708B17B08BBA0002430C /* Main_iPad.storyboard */,
 				7688708E17B08BBA0002430C /* ViewController.h */,
 				7688708F17B08BBA0002430C /* ViewController.m */,
-				7688709117B08BBA0002430C /* MyScene.h */,
-				7688709217B08BBA0002430C /* MyScene.m */,
 				7688709417B08BBA0002430C /* Spaceship.png */,
 				7688709617B08BBA0002430C /* Images.xcassets */,
 				7688707D17B08BBA0002430C /* Supporting Files */,
@@ -748,6 +750,8 @@
 				760EC4DF17B817830079E84E /* LGeminiNode.m */,
 				760EC4D217B7457F0079E84E /* LGeminiObject.h */,
 				760EC4D317B7457F0079E84E /* LGeminiObject.m */,
+				76C67A1317BF381100B73696 /* LGeminiShape.h */,
+				76C67A1417BF381100B73696 /* LGeminiShape.m */,
 				76D081CC17B329840033E3DF /* LGeminiTimer.h */,
 				76D081CD17B329840033E3DF /* LGeminiTimer.m */,
 				760EC4DA17B7E4730079E84E /* LGeminiUI.h */,
@@ -759,8 +763,9 @@
 		76D081B017B1D2730033E3DF /* Lua */ = {
 			isa = PBXGroup;
 			children = (
-				760EC4CF17B5D12D0079E84E /* scene1.lua */,
 				76D081B117B1D2730033E3DF /* main.lua */,
+				760EC4CF17B5D12D0079E84E /* scene1.lua */,
+				76C67A1717C11B6F00B73696 /* scene2.lua */,
 			);
 			path = Lua;
 			sourceTree = "<group>";
@@ -853,6 +858,7 @@
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688727F17B08D3D0002430C /* LICENSE_Gemini.txt in Resources */,
 				7688728117B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
+				76C67A1817C11B6F00B73696 /* scene2.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,6 +870,7 @@
 				760EC4D117B5D12D0079E84E /* scene1.lua in Resources */,
 				7688728417B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688728217B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
+				76C67A1917C11B6F00B73696 /* scene2.lua in Resources */,
 				76D081B317B1D2730033E3DF /* main.lua in Resources */,
 				7688728617B08D3D0002430C /* LICENSE_ObjectAL.txt in Resources */,
 				7688728817B08D3D0002430C /* LICENSE_QSUtils.txt in Resources */,
@@ -912,7 +919,6 @@
 				768872FB17B08D3D0002430C /* OALAudioFile.m in Sources */,
 				7688728917B08D3D0002430C /* lapi.c in Sources */,
 				760EC4C017B465870079E84E /* GemSKScene.m in Sources */,
-				7688709317B08BBA0002430C /* MyScene.m in Sources */,
 				7688729F17B08D3D0002430C /* lfunc.c in Sources */,
 				760EC4CD17B5C6D80079E84E /* GemDirector.m in Sources */,
 				768872D717B08D3D0002430C /* OALAudioTrackNotifications.m in Sources */,
@@ -931,6 +937,7 @@
 				768872D317B08D3D0002430C /* OALUtilityActions.m in Sources */,
 				768872C917B08D3D0002430C /* lsqlite3.c in Sources */,
 				768872C117B08D3D0002430C /* ltm.c in Sources */,
+				76C67A1517BF381100B73696 /* LGeminiShape.m in Sources */,
 				768872B517B08D3D0002430C /* lparser.c in Sources */,
 				768872DF17B08D3D0002430C /* ALCaptureDevice.m in Sources */,
 				7688709017B08BBA0002430C /* ViewController.m in Sources */,
@@ -1002,6 +1009,7 @@
 				7688729C17B08D3D0002430C /* ldo.c in Sources */,
 				768872F417B08D3D0002430C /* OALSuspendHandler.m in Sources */,
 				7688729A17B08D3D0002430C /* ldebug.c in Sources */,
+				76C67A1617BF381100B73696 /* LGeminiShape.m in Sources */,
 				768872CE17B08D3D0002430C /* OALActionManager.m in Sources */,
 				768872AA17B08D3D0002430C /* lmathlib.c in Sources */,
 				768872AC17B08D3D0002430C /* lmem.c in Sources */,

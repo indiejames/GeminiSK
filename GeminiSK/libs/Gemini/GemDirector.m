@@ -85,7 +85,7 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     // this gets a pointer to the "createScene" method on the new scene
     lua_getfield(L, -1, "createScene");
     
-    // duplicate the scene on top of th stack since it is the first param of the createScene method
+    // duplicate the scene on top of the stack since it is the first param of the createScene method
     lua_pushvalue(L, -2);
     // invokde the createScene method
     lua_pcall(L, 1, 0, 0);
@@ -105,72 +105,35 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
         
         dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         
-        dispatch_sync(globalQueue, ^(){
-            SKScene *newScene = sceneLoader(sceneName, luaData.L);
-            [scenes setObject:newScene forKey:sceneName];
-            [loadingScenes removeObject:sceneName];
-        });
-        
-       /* dispatch_async(globalQueue, ^(){
+        /*dispatch_sync(globalQueue, ^(){
             SKScene *newScene = sceneLoader(sceneName, luaData.L);
             [scenes setObject:newScene forKey:sceneName];
             [loadingScenes removeObject:sceneName];
         });*/
         
-        
-        /*int err;
-        
-        lua_settop(L, 0);
-        
-        // set our error handler function
-        lua_pushcfunction(L, traceback);
-        
-        GemFileNameResolver *resolver = [Gemini shared].fileNameResolver;
-        
-        NSString *resolvedFileName = [resolver resolveNameForFile:sceneName ofType:@"lua"];
-        
-        NSString *luaFilePath = [[NSBundle mainBundle] pathForResource:resolvedFileName ofType:@"lua"];
-        
-        err = luaL_loadfile(L, [luaFilePath cStringUsingEncoding:[NSString defaultCStringEncoding]]);
-        
-        if (0 != err) {
-            luaL_error(L, "cannot compile lua file: %s",
-                       lua_tostring(L, -1));
-            return;
-        }
-        
-        
-        err = lua_pcall(L, 0, 1, 1);
-        if (0 != err) {
-            luaL_error(L, "cannot run lua file: %s",
-                       lua_tostring(L, -1));
-            return;
-        }
-        
-        // The scene should now be on the top of the stack
-        __unsafe_unretained GemScene **lscene = (__unsafe_unretained GemScene **)luaL_checkudata(L, -1, GEMINI_SCENE_LUA_KEY);
-        GemScene *scene = *lscene;
-        scene.name = sceneName;
-        [scenes setObject:scene forKey:sceneName];
-        
-        // this gets a pointer to the "createScene" method on the new scene
-        lua_getfield(L, -1, "createScene");
-        
-        // duplicate the scene on top of th stack since it is the first param of the createScene method
-        lua_pushvalue(L, -2);
-        lua_pcall(L, 1, 0, 0);
-        
-        lua_settop(L, 0); */
-        
+        dispatch_async(globalQueue, ^(){
+            SKScene *newScene = sceneLoader(sceneName, luaData.L);
+            [scenes setObject:newScene forKey:sceneName];
+            [loadingScenes removeObject:sceneName];
+        });
         
         
     }
     
 }
 
--(void)gotoScene:(NSString *)scene withOptions:(NSDictionary *)options {
+-(void)gotoScene:(NSString *)sceneName withOptions:(NSDictionary *)options {
+    
+    // load the scene if it is not already loaded or being loaded
+    [self loadScene:sceneName];
+    
     SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
-    SKScene *skScene = (SKScene *)[scenes objectForKey:scene];
+    
+    while([scenes objectForKey:sceneName] == nil){
+        [NSThread sleepForTimeInterval:0.1];
+    }
+    
+    SKScene *skScene = (SKScene *)[scenes objectForKey:sceneName];
     [skView presentScene:skScene];
 }
 

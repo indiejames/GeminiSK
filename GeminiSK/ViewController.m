@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
 #import "AppDelegate.h"
 
 @implementation ViewController
@@ -23,13 +22,6 @@
     
     [((AppDelegate *)[UIApplication sharedApplication].delegate) viewDidLoad:skView];
     
-    
-    // Create and configure the scene.
-    /*SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
-    [skView presentScene:scene];*/
 }
 
 - (BOOL)shouldAutorotate

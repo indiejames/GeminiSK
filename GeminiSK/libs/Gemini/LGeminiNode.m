@@ -38,7 +38,7 @@ int destroyNode(lua_State *L){
         [node removeFromParent];
     }
     
-    //[[Gemini shared].geminiObjects removeObject:*go];
+    [[Gemini shared].geminiObjects removeObject:node];
 
     return 0;
 }

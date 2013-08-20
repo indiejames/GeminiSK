@@ -74,6 +74,17 @@ int setLuaPath(lua_State *L, NSString* path );
 
 // setup global constants related to rendering
 -(void) setupGlobalConstants {
+    
+    // Action timing modes
+    lua_pushinteger(L, SKActionTimingLinear);
+    lua_setglobal(L, "SKActionTimingLinear");
+    lua_pushinteger(L, SKActionTimingEaseIn);
+    lua_setglobal(L, "SKActionTimingEaseIn");
+    lua_pushinteger(L, SKActionTimingEaseOut);
+    lua_setglobal(L, "SKActionTimingEaseOut");
+    lua_pushinteger(L, SKActionTimingEaseInEaseOut);
+    lua_setglobal(L, "SKActionTimingEaseInEaseOut");
+    
     // GL blending constants
     lua_pushinteger(L, GL_SRC_ALPHA);
     lua_setglobal(L, "GL_SRC_ALPHA");

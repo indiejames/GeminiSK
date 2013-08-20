@@ -185,6 +185,12 @@
 		76C67A1617BF381100B73696 /* LGeminiShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1417BF381100B73696 /* LGeminiShape.m */; };
 		76C67A1817C11B6F00B73696 /* scene2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A1717C11B6F00B73696 /* scene2.lua */; };
 		76C67A1917C11B6F00B73696 /* scene2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A1717C11B6F00B73696 /* scene2.lua */; };
+		76C67A2E17C2F5D000B73696 /* marios.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A2517C2F5D000B73696 /* marios.atlas */; };
+		76C67A2F17C2F5D000B73696 /* marios.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A2517C2F5D000B73696 /* marios.atlas */; };
+		76C67A4217C2F78B00B73696 /* LGeminiSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A4117C2F78B00B73696 /* LGeminiSprite.m */; };
+		76C67A4317C2F78B00B73696 /* LGeminiSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A4117C2F78B00B73696 /* LGeminiSprite.m */; };
+		76C67A4517C3084700B73696 /* runner.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A4417C3084700B73696 /* runner.atlas */; };
+		76C67A4617C3084700B73696 /* runner.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A4417C3084700B73696 /* runner.atlas */; };
 		76D081B217B1D2730033E3DF /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76D081B117B1D2730033E3DF /* main.lua */; };
 		76D081B317B1D2730033E3DF /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76D081B117B1D2730033E3DF /* main.lua */; };
 		76D081BE17B1E3590033E3DF /* LGeminiEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081B517B1E3590033E3DF /* LGeminiEvent.m */; };
@@ -388,6 +394,10 @@
 		76C67A1317BF381100B73696 /* LGeminiShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiShape.h; sourceTree = "<group>"; };
 		76C67A1417BF381100B73696 /* LGeminiShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiShape.m; sourceTree = "<group>"; };
 		76C67A1717C11B6F00B73696 /* scene2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene2.lua; sourceTree = "<group>"; };
+		76C67A2517C2F5D000B73696 /* marios.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = marios.atlas; sourceTree = "<group>"; };
+		76C67A4017C2F78B00B73696 /* LGeminiSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiSprite.h; sourceTree = "<group>"; };
+		76C67A4117C2F78B00B73696 /* LGeminiSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiSprite.m; sourceTree = "<group>"; };
+		76C67A4417C3084700B73696 /* runner.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = runner.atlas; sourceTree = "<group>"; };
 		76D081B117B1D2730033E3DF /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		76D081B417B1E3590033E3DF /* LGeminiEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiEvent.h; sourceTree = "<group>"; };
 		76D081B517B1E3590033E3DF /* LGeminiEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiEvent.m; sourceTree = "<group>"; };
@@ -468,6 +478,7 @@
 		7688707C17B08BBA0002430C /* GeminiSK */ = {
 			isa = PBXGroup;
 			children = (
+				76C67A1D17C2F53B00B73696 /* Artwork */,
 				76D081B017B1D2730033E3DF /* Lua */,
 				7688708517B08BBA0002430C /* AppDelegate.h */,
 				7688708617B08BBA0002430C /* AppDelegate.m */,
@@ -752,12 +763,23 @@
 				760EC4D317B7457F0079E84E /* LGeminiObject.m */,
 				76C67A1317BF381100B73696 /* LGeminiShape.h */,
 				76C67A1417BF381100B73696 /* LGeminiShape.m */,
+				76C67A4017C2F78B00B73696 /* LGeminiSprite.h */,
+				76C67A4117C2F78B00B73696 /* LGeminiSprite.m */,
 				76D081CC17B329840033E3DF /* LGeminiTimer.h */,
 				76D081CD17B329840033E3DF /* LGeminiTimer.m */,
 				760EC4DA17B7E4730079E84E /* LGeminiUI.h */,
 				760EC4DB17B7E4730079E84E /* LGeminiUI.m */,
 			);
 			path = Gemini;
+			sourceTree = "<group>";
+		};
+		76C67A1D17C2F53B00B73696 /* Artwork */ = {
+			isa = PBXGroup;
+			children = (
+				76C67A4417C3084700B73696 /* runner.atlas */,
+				76C67A2517C2F5D000B73696 /* marios.atlas */,
+			);
+			path = Artwork;
 			sourceTree = "<group>";
 		};
 		76D081B017B1D2730033E3DF /* Lua */ = {
@@ -855,8 +877,10 @@
 				7688728517B08D3D0002430C /* LICENSE_ObjectAL.txt in Resources */,
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
+				76C67A2E17C2F5D000B73696 /* marios.atlas in Resources */,
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688727F17B08D3D0002430C /* LICENSE_Gemini.txt in Resources */,
+				76C67A4517C3084700B73696 /* runner.atlas in Resources */,
 				7688728117B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
 				76C67A1817C11B6F00B73696 /* scene2.lua in Resources */,
 			);
@@ -866,6 +890,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76C67A2F17C2F5D000B73696 /* marios.atlas in Resources */,
 				768870A817B08BBA0002430C /* InfoPlist.strings in Resources */,
 				760EC4D117B5D12D0079E84E /* scene1.lua in Resources */,
 				7688728417B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
@@ -874,6 +899,7 @@
 				76D081B317B1D2730033E3DF /* main.lua in Resources */,
 				7688728617B08D3D0002430C /* LICENSE_ObjectAL.txt in Resources */,
 				7688728817B08D3D0002430C /* LICENSE_QSUtils.txt in Resources */,
+				76C67A4617C3084700B73696 /* runner.atlas in Resources */,
 				7688728017B08D3D0002430C /* LICENSE_Gemini.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -945,6 +971,7 @@
 				7688708717B08BBA0002430C /* AppDelegate.m in Sources */,
 				76D081BE17B1E3590033E3DF /* LGeminiEvent.m in Sources */,
 				768872E917B08D3D0002430C /* ALSoundSourcePool.m in Sources */,
+				76C67A4217C2F78B00B73696 /* LGeminiSprite.m in Sources */,
 				768872DB17B08D3D0002430C /* OALSimpleAudio.m in Sources */,
 				768872AB17B08D3D0002430C /* lmem.c in Sources */,
 				768872A117B08D3D0002430C /* lgc.c in Sources */,
@@ -1043,6 +1070,7 @@
 				768872E617B08D3D0002430C /* ALDevice.m in Sources */,
 				7688730D17B092E30002430C /* Gemini.m in Sources */,
 				768872EC17B08D3D0002430C /* ALSource.m in Sources */,
+				76C67A4317C2F78B00B73696 /* LGeminiSprite.m in Sources */,
 				768872BC17B08D3D0002430C /* lstrlib.c in Sources */,
 				768870AA17B08BBA0002430C /* GeminiSKTests.m in Sources */,
 				768872B217B08D3D0002430C /* lopcodes.c in Sources */,

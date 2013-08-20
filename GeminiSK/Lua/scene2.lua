@@ -23,8 +23,8 @@ local rotation
 function scene:createScene( event )
 	print("Lua: Creating scene1")
     circles = {}
-    for i=1,100 do
-        circles[i] = shape.newCircle(20,100, 50 + i*5)
+    for i=1,10 do
+        circles[i] = shape.newCircle(20,100, 50 + i*25)
         circles[i].lineWidth = 1
         circles[i]:setStrokeColor(0,0,0.75)
         circles[i]:setFillColor(0.5,0,0.5)
@@ -49,7 +49,7 @@ function scene:didMoveToView(  )
     print("Entering scene 2")
   
   function doRotation()
-    for i=1,100 do
+    for i=1,10 do
         circles[i]:runAction(rotation)
     end
   end

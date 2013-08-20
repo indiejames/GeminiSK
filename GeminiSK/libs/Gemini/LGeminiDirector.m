@@ -118,6 +118,30 @@ static int sceneSetBackroundColor(lua_State *L){
     return 0;
 }
 
+static int sceneSetSize(lua_State *L){
+    __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+    SKScene *scene = (SKScene *)(*obj).delegate;
+    
+    GLfloat width = luaL_checknumber(L, 2);
+    GLfloat height = luaL_checknumber(L, 3);
+    
+    scene.size = CGSizeMake(width, height);
+    
+    return 0;
+}
+
+static int sceneSetPosition(lua_State *L){
+    __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+    SKScene *scene = (SKScene *)(*obj).delegate;
+    
+    GLfloat x = luaL_checknumber(L, 2);
+    GLfloat y = luaL_checknumber(L, 3);
+    
+    scene.position = CGPointMake(x, y);
+    
+    return 0;
+}
+
 // the mappings for the library functions
 static const struct luaL_Reg directorLib_f [] = {
     {"newScene", newScene},
@@ -137,6 +161,8 @@ static const struct luaL_Reg scene_m [] = {
     {"addNativeObject", addNativeObjectToScene},*/
     {"addEventListener", addEventListener},
     {"addChild", addChild},
+    {"setSize", sceneSetSize},
+    {"setPosition", sceneSetPosition},
     //{"zoom", zoomScene},
     //{"pan", panScene},
     //{"resetCamera", resetSceneCamera},

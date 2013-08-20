@@ -10,6 +10,10 @@
 
 @implementation GemAction
 
+-(void)setTimingMode:(SKActionTimingMode) mode {
+    self.skAction.timingMode = mode;
+}
+
 -(void)dealloc {
     GemLog(@"Deallocing GemAction");
     self.skAction = nil;

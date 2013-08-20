@@ -8,8 +8,27 @@
 
 #import "LGeminiNode.h"
 #import "LGeminiAction.h"
+#import "LGeminiObject.h"
 #import "Gemini.h"
 #import "GemAction.h"
+
+static int newNode(lua_State *L){
+    
+    GemLog(@"Creating new node");
+    
+    SKNode *node = [[SKNode alloc] init];
+    
+    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_NODE_LUA_KEY];
+    luaData.delegate = node;
+    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
+    [wrapper setObject:luaData forKey:@"LUA_DATA"];
+    node.userData = wrapper;
+    
+    [[Gemini shared].geminiObjects addObject:node];
+    
+    return 1;
+}
+
 
 SKNode *getNode(lua_State *L){
     // we don't check the userdata type here because it can be anything - we just force it to
@@ -58,3 +77,38 @@ int runAction(lua_State *L){
     
     return 0;
 }
+
+// the mappings for the library functions
+static const struct luaL_Reg nodeLib_f [] = {
+    {"newNode", newNode},
+    {"destroyNode", destroyNode},
+    {NULL, NULL}
+};
+
+// mappings for the node methods
+static const struct luaL_Reg node_m [] = {
+    {"__gc", genericGC},
+    {"__index", genericIndex},
+    {"__newindex", genericNewIndex},
+    {"addEventListener", addEventListener},
+    {"setPosition", setPosition},
+    {"addChild", addChild},
+    {"runAction", runAction},
+    {NULL, NULL}
+};
+
+// the registration function
+int luaopen_node_lib (lua_State *L){
+    // create meta tables for our various types /////////
+    
+    // node
+    createMetatable(L, GEMINI_NODE_LUA_KEY, node_m);
+    
+    /////// finished with metatables ///////////
+    
+    // create the table for this library and popuplate it with our functions
+    luaL_newlib(L, nodeLib_f);
+    
+    return 1;
+}
+

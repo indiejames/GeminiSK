@@ -30,12 +30,12 @@ extern int luaopen_timer_lib(lua_State *L);
 extern int luaopen_shape_lib(lua_State *L);
 extern int luaopen_node_lib (lua_State *L);
 extern int luaopen_sprite_lib(lua_State *L);
+extern int luaopen_physics_lib(lua_State *L);
 /*extern int luaopen_soundlib (lua_State *L);
 extern int luaopen_spritelib (lua_State *L);
 extern int luaopen_system_lib (lua_State *L);
 extern int luaopen_display_lib (lua_State *L);
 extern int luaopen_transition_lib (lua_State *L);
-extern int luaopen_physics_lib(lua_State *L);
 extern int luaopen_particle_system_lib(lua_State *L);
 extern int luaopen_text_lib(lua_State *L);
 extern int luaopen_UI_lib (lua_State *L);
@@ -66,6 +66,7 @@ static const luaL_Reg loadedlibs[] = {
     {"shape", luaopen_shape_lib},
     {"node", luaopen_node_lib},
     {"sprite", luaopen_sprite_lib},
+    {"physics", luaopen_physics_lib},
     /*{"system", luaopen_system_lib},
     {"display", luaopen_display_lib},
     {"transition", luaopen_transition_lib},

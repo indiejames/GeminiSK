@@ -11,6 +11,7 @@ local timer = require("timer")
 local shape = require("shape")
 local node = require("node")
 local sprite = require("sprite")
+local physics = require("physics")
 local scene = director.newScene()
 scene:setSize(1280,960)
 
@@ -24,6 +25,7 @@ local pan
 local runner
 local animate
 local rep
+local pbody
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -42,6 +44,11 @@ function scene:createScene( event )
   runner = sprite.newSprite("runner")
   zoomNode:addChild(runner)
   runner:setPosition(150, 400)
+  
+  pbody = physics.newBodyFromCircle(30)
+  runner.physicsBody = pbody
+  
+  scene:setPhysicsGravity(0,-4.5)
   
   frames =  {
   "runner.0001.png",

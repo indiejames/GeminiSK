@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7605105617DC3BA600089A6E /* GemPhysicsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7605105517DC3BA600089A6E /* GemPhysicsBody.m */; };
+		7605105717DC3BA600089A6E /* GemPhysicsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 7605105517DC3BA600089A6E /* GemPhysicsBody.m */; };
 		760EC4C017B465870079E84E /* GemSKScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4BF17B465870079E84E /* GemSKScene.m */; };
 		760EC4C117B465870079E84E /* GemSKScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4BF17B465870079E84E /* GemSKScene.m */; };
 		760EC4C517B46DE10079E84E /* LGeminiDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4C417B46DE10079E84E /* LGeminiDirector.m */; };
@@ -205,6 +207,8 @@
 		76D081CB17B1E3D10033E3DF /* LGeminiLuaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081C917B1E3D10033E3DF /* LGeminiLuaSupport.m */; };
 		76D081CE17B329840033E3DF /* LGeminiTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081CD17B329840033E3DF /* LGeminiTimer.m */; };
 		76D081CF17B329840033E3DF /* LGeminiTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081CD17B329840033E3DF /* LGeminiTimer.m */; };
+		76DF479817D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
+		76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +222,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7605105417DC3BA600089A6E /* GemPhysicsBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemPhysicsBody.h; sourceTree = "<group>"; };
+		7605105517DC3BA600089A6E /* GemPhysicsBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemPhysicsBody.m; sourceTree = "<group>"; };
 		760EC4BE17B465870079E84E /* GemSKScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemSKScene.h; sourceTree = "<group>"; };
 		760EC4BF17B465870079E84E /* GemSKScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSKScene.m; sourceTree = "<group>"; };
 		760EC4C217B466150079E84E /* GemSKSceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemSKSceneDelegate.h; sourceTree = "<group>"; };
@@ -411,6 +417,8 @@
 		76D081C917B1E3D10033E3DF /* LGeminiLuaSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiLuaSupport.m; sourceTree = "<group>"; };
 		76D081CC17B329840033E3DF /* LGeminiTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiTimer.h; sourceTree = "<group>"; };
 		76D081CD17B329840033E3DF /* LGeminiTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiTimer.m; sourceTree = "<group>"; };
+		76DF479717D6C85700664D81 /* LGeminiPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPhysics.m; sourceTree = "<group>"; };
+		76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPhysics.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -769,6 +777,10 @@
 				76D081CD17B329840033E3DF /* LGeminiTimer.m */,
 				760EC4DA17B7E4730079E84E /* LGeminiUI.h */,
 				760EC4DB17B7E4730079E84E /* LGeminiUI.m */,
+				76DF479717D6C85700664D81 /* LGeminiPhysics.m */,
+				76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */,
+				7605105417DC3BA600089A6E /* GemPhysicsBody.h */,
+				7605105517DC3BA600089A6E /* GemPhysicsBody.m */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -945,6 +957,7 @@
 				768872FB17B08D3D0002430C /* OALAudioFile.m in Sources */,
 				7688728917B08D3D0002430C /* lapi.c in Sources */,
 				760EC4C017B465870079E84E /* GemSKScene.m in Sources */,
+				76DF479817D6C85700664D81 /* LGeminiPhysics.m in Sources */,
 				7688729F17B08D3D0002430C /* lfunc.c in Sources */,
 				760EC4CD17B5C6D80079E84E /* GemDirector.m in Sources */,
 				768872D717B08D3D0002430C /* OALAudioTrackNotifications.m in Sources */,
@@ -991,6 +1004,7 @@
 				768872BF17B08D3D0002430C /* ltablib.c in Sources */,
 				768872F717B08D3D0002430C /* mach_timing.c in Sources */,
 				768872CD17B08D3D0002430C /* OALActionManager.m in Sources */,
+				7605105617DC3BA600089A6E /* GemPhysicsBody.m in Sources */,
 				768872F317B08D3D0002430C /* OALSuspendHandler.m in Sources */,
 				7688708317B08BBA0002430C /* main.m in Sources */,
 			);
@@ -1041,6 +1055,7 @@
 				768872AA17B08D3D0002430C /* lmathlib.c in Sources */,
 				768872AC17B08D3D0002430C /* lmem.c in Sources */,
 				768872D017B08D3D0002430C /* OALAudioActions.m in Sources */,
+				76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */,
 				76D081C717B1E3590033E3DF /* GemEventManager.m in Sources */,
 				768872D817B08D3D0002430C /* OALAudioTrackNotifications.m in Sources */,
 				768872DA17B08D3D0002430C /* OALAudioTracks.m in Sources */,
@@ -1080,6 +1095,7 @@
 				768872A217B08D3D0002430C /* lgc.c in Sources */,
 				768872F617B08D3D0002430C /* IOSVersion.m in Sources */,
 				76D081CF17B329840033E3DF /* LGeminiTimer.m in Sources */,
+				7605105717DC3BA600089A6E /* GemPhysicsBody.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

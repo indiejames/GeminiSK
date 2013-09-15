@@ -12,6 +12,8 @@
 #import "LGeminiObject.h"
 #import "GemTimer.h"
 #import "GemEventManager.h"
+#import "GemPhysicsBody.h"
+#import "LGeminiPhysics.h"
 
 
 /*static int newGeminiObject(lua_State *L){
@@ -243,13 +245,27 @@ int genericIndex(lua_State *L){
     
 }
 
+// TODO - need to modify this method for setPhysicsBody, so it will pull the
+// SKPhysicsBody out from the GemPhysicsBody before calling setPhysicsBody
 // generic new index method, i.e., obj.something = some_value
 // only support primitive types (ints, float, char *, etc.) for some_value
 int genericNewIndex(lua_State *L) {
     __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
     NSObject *delegate = (*go).delegate;
-    
     const char *attr = luaL_checkstring(L, 2);
+    
+    // physicsBody property is handled separately since it is not a simple value
+    if (strcmp("physicsBody", attr) == 0) {
+        __unsafe_unretained GemObject **pgo = (__unsafe_unretained GemObject **)luaL_checkudata(L, 3, GEMINI_PHYSICS_BODY_LUA_KEY);
+        
+        GemPhysicsBody *gBody = (GemPhysicsBody *)(*pgo).delegate;
+        ((SKNode*)delegate).physicsBody = gBody.skPhysicsBody;
+        
+        return 0;
+        
+        // TODO - refactor this
+    }
+    
     NSString *attrStr = [NSString stringWithFormat:@"%s", attr];
     // check to see if the delgate object can handle the call
     NSString *firstCapChar = [[attrStr substringToIndex:1] capitalizedString];

@@ -852,7 +852,7 @@
 				ORGANIZATIONNAME = "James Norton";
 				TargetAttributes = {
 					7688709B17B08BBA0002430C = {
-						TestTargetID = 7688707017B08BBA0002430C;
+						TestTargetID = 7688707017B08BBA0002430C /* GeminiSK */;
 					};
 				};
 			};

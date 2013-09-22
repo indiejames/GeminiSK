@@ -29,6 +29,8 @@ static int newScene(lua_State *L){
     scene.userData = wrapper;
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
+    [[Gemini shared].geminiObjects addObject:scene];
+    
     // Present the scene.
     //[skView presentScene:scene];
     
@@ -150,7 +152,7 @@ static int setPhysicsGrvaity(lua_State *L){
     float gx = luaL_checknumber(L, 2);
     float gy = luaL_checknumber(L, 3);
     
-    scene.physicsWorld.gravity = CGPointMake(gx, gy);
+    scene.physicsWorld.gravity = CGVectorMake(gx, gy);
     
     return 0;
 }

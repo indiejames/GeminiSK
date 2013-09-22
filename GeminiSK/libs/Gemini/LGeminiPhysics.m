@@ -29,7 +29,27 @@ static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
     
     [[Gemini shared].geminiObjects addObject:gBody];
     
+    return 1;
+}
+
+static int newPhysicsBodyWithEdgeLoopFromRectangle(lua_State *L){
+    // stack: x0, y0, width, height
     
+    CGFloat x0 = luaL_checknumber(L, 1);
+    CGFloat y0 = luaL_checknumber(L, 2);
+    CGFloat width = luaL_checknumber(L, 3);
+    CGFloat height = luaL_checknumber(L, 4);
+    
+    SKPhysicsBody *body = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(x0, y0, width, height)];
+    GemPhysicsBody *gBody = [[GemPhysicsBody alloc] init];
+    gBody.skPhysicsBody = body;
+    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_PHYSICS_BODY_LUA_KEY];
+    luaData.delegate = gBody;
+    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
+    [wrapper setObject:luaData forKey:@"LUA_DATA"];
+    gBody.userData = wrapper;
+    
+    [[Gemini shared].geminiObjects addObject:gBody];
     
     return 1;
 }
@@ -38,6 +58,7 @@ static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
 // the mappings for the library functions
 static const struct luaL_Reg physicsLib_f [] = {
     {"newBodyFromCircle", newPhysicsBodyFromCircleWithRadius},
+    {"newBodyWidthEdgeLoopFromRect", newPhysicsBodyWithEdgeLoopFromRectangle},
     {NULL, NULL}
 };
 
@@ -49,8 +70,8 @@ static const struct luaL_Reg body_m [] = {
     {"addEventListener", addEventListener},
     /*{"setPosition", setPosition},
     {"addChild", addChild},
-    {"runAction", runAction},
-    {NULL, NULL}*/
+    {"runAction", runAction},*/
+    {NULL, NULL}
 };
 
 // the registration function

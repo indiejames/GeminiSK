@@ -26,6 +26,7 @@ local runner
 local animate
 local rep
 local pbody
+local sceneBodby
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -36,6 +37,8 @@ local pbody
 function scene:createScene( event )
   print("Lua: Creating scene1")
   
+
+  
   zoomNode = node.newNode()
   scene:addChild(zoomNode)
   panNode = node.newNode()
@@ -45,8 +48,11 @@ function scene:createScene( event )
   zoomNode:addChild(runner)
   runner:setPosition(150, 400)
   
-  pbody = physics.newBodyFromCircle(30)
-  runner.physicsBody = pbody
+  --pbody = physics.newBodyFromCircle(30)
+  --runner.physicsBody = pbody
+  
+ --sceneBody = physics.newBodyWidthEdgeLoopFromRect(0, 0, 1280, 960)
+ --scene.physicsBody = sceneBody
   
   scene:setPhysicsGravity(0,-4.5)
   

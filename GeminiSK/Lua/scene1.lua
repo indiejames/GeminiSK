@@ -49,7 +49,8 @@ function scene:createScene( event )
   texture_atlas = texture.newTextureAtlas("runner")
  texture1 = texture.newTexture(texture_atlas, "runner.0001.png")
   
-  runner = sprite.newSprite("runner")
+  --runner = sprite.newSprite("runner")
+ runner = sprite.newSprite(texture1)
   zoomNode:addChild(runner)
   runner:setPosition(150, 400)
   

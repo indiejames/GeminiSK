@@ -13,4 +13,6 @@
 @interface GemSKSpriteNode : SKSpriteNode <GemLoadListener>
 @property BOOL isLoaded;
 
+-(id) initWithGemTexture:(GemTexture *)tex;
+
 @end

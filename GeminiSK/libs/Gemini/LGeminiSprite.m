@@ -15,20 +15,20 @@
 #import "LGeminiNode.h"
 #import "LGeminiObject.h"
 #import "LGeminiNode.h"
+#import "LGeminiTexture.h"
+#import "GemTexture.h"
+#import "GemSKSpriteNode.h"
 
 extern int removeEventListener(lua_State *L);
 extern int addEventListener(lua_State *L);
 
 static int newSprite(lua_State *L){
-    // stack: 1 - texture atlas name
+    // stack: 1 - texture
+    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_TEXTURE_LUA_KEY);
+    GemTexture *texture = (*go).delegate;
     
-    const char *atlasName = luaL_checkstring(L, 1);
-    GemLog(@"Creating new sprite with texture atlas %s", atlasName);
-    
-    NSString *firstTextureName = [NSString stringWithFormat:@"%s.0001.png", atlasName];
-    
-    [SKTextureAtlas atlasNamed:[NSString stringWithFormat:@"%s", atlasName]];
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:firstTextureName]];
+    GemSKSpriteNode *sprite = [[GemSKSpriteNode alloc] initWithGemTexture:texture];
+    //SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:firstTextureName]];
     GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_SPRITE_LUA_KEY];
     luaData.delegate = sprite;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];

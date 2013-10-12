@@ -17,6 +17,7 @@
     
     if (self) {
         gemTexture = tex;
+        [tex addLoadListener:self];
     }
     
     return self;
@@ -26,6 +27,7 @@
     GemLog(@"Texture data is now available");
     
     self.texture = gemTexture.texture;
+    self.size = gemTexture.texture.size;
     _isLoaded = YES;
     
 }

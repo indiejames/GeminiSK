@@ -12,6 +12,10 @@
 
 @interface GemSKScene : SKScene <GemSKSceneDelegate>
 
+@property (readonly) NSMutableArray *textureAtlases;
+
 //@property (weak) id <GemSKSceneDelegate> delegate;
+
+-(BOOL)isReady;
 
 @end

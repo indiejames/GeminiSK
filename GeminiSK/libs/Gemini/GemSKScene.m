@@ -9,6 +9,7 @@
 #import "Gemini.h"
 #import "GemSKScene.h"
 #import "GemObject.h"
+#import "GemSKSpriteNode.h"
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
@@ -19,6 +20,8 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        _textureAtlases = [NSMutableArray arrayWithCapacity:1];
+        
         // The scene should be initialized with Lua code in the createScene() method
     }
     return self;
@@ -69,6 +72,7 @@
 
 -(void)update:(NSTimeInterval)currentTime {
     [[Gemini shared].timerManager update:currentTime];
+    [[Gemini shared].director doPendingSceneTransition];
     
     GemObject *luaData = [self.userData objectForKey:@"LUA_DATA"];
     lua_State *L = luaData.L;
@@ -89,6 +93,21 @@
 
 -(void)didChangeSize:(CGSize)oldSize {
     //[self callMethodOnScene:@"didChangeSize"];
+}
+
+-(BOOL)isReady {
+    BOOL ready = YES;
+    unsigned int childCount = [self.children count];
+    for (int i=0; i<childCount; i++) {
+        id child = [self.children objectAtIndex:i];
+        if ([child isKindOfClass:[GemSKSpriteNode class]]) {
+            if (!((GemSKSpriteNode *)child).isLoaded) {
+                ready = NO;
+            }
+        }
+    }
+    
+    return ready;
 }
 
 @end

@@ -24,6 +24,10 @@ static int animateSpriteWithTextures(lua_State *L){
     for (int i=1; i<numArgs; i++) {
         const char *frame = luaL_checkstring(L, i);
         SKTexture *tex = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%s",frame]];
+        // Force texture to be loaded to avoid SK bug causing sprite to be rendered twice its size
+        // initially
+        CGFloat height = tex.size.height;
+        
         [frames addObject:tex];
     }
     

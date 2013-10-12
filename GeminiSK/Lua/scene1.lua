@@ -12,6 +12,7 @@ local shape = require("shape")
 local node = require("node")
 local sprite = require("sprite")
 local physics = require("physics")
+local texture = require("texture")
 local scene = director.newScene()
 scene:setSize(1280,960)
 
@@ -43,6 +44,10 @@ function scene:createScene( event )
   scene:addChild(zoomNode)
   panNode = node.newNode()
   zoomNode:addChild(panNode)
+  
+  
+  texture_atlas = texture.newTextureAtlas("runner")
+ texture1 = texture.newTexture(texture_atlas, "runner.0001.png")
   
   runner = sprite.newSprite("runner")
   zoomNode:addChild(runner)
@@ -99,17 +104,17 @@ function scene:createScene( event )
   label2:setPosition(200,300)
   panNode:addChild(label2)
   rotation = action.rotate(7.0, 3)
-  pan = action.moveToX(300, 2.5)
-  pan.timingMode = SKActionTimingEaseInEaseOut
+  -- pan = action.moveToX(300, 2.5)
+  -- pan.timingMode = SKActionTimingEaseInEaseOut
 
   
-  rectangle = shape.newRectangle(200,100)
-  rectangle:setFillColor(0,0.5,0)
-  rectangle.zRotation = 1.5
-  rectangle:setPosition(0, 300)
+  -- rectangle = shape.newRectangle(200,100)
+  -- rectangle:setFillColor(0,0.5,0)
+  -- rectangle.zRotation = 1.5
+  -- rectangle:setPosition(0, 300)
   
-  panNode:addChild(circle)
-  panNode:addChild(rectangle)
+  -- panNode:addChild(circle)
+  -- panNode:addChild(rectangle)
 
 
 
@@ -134,7 +139,7 @@ function scene:didMoveToView(  )
     circle:runAction(rotation)
   end
 
-  panNode:runAction(pan)
+  --panNode:runAction(pan)
   
 rep = action.repeatAction(animate,-1)
 
@@ -144,7 +149,7 @@ rep = action.repeatAction(animate,-1)
     director.gotoScene("scene2")
   end
 
-  timer.performWithDelay(1, doRotation)
+  --timer.performWithDelay(1, doRotation)
   timer.performWithDelay(7, goToScene2)
 
   director.loadScene("scene2")

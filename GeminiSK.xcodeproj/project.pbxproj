@@ -179,6 +179,14 @@
 		7688731517B09C2D0002430C /* GemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731317B09C2D0002430C /* GemObject.m */; };
 		7688731817B09C610002430C /* GemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731717B09C610002430C /* GemEvent.m */; };
 		7688731917B09C610002430C /* GemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731717B09C610002430C /* GemEvent.m */; };
+		7698E3DF17FD04CA007B7912 /* GemTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3DE17FD04CA007B7912 /* GemTexture.m */; };
+		7698E3E017FD04CA007B7912 /* GemTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3DE17FD04CA007B7912 /* GemTexture.m */; };
+		7698E3E318024871007B7912 /* GemTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3E218024871007B7912 /* GemTextureAtlas.m */; };
+		7698E3E418024871007B7912 /* GemTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3E218024871007B7912 /* GemTextureAtlas.m */; };
+		7698E3E818038CC1007B7912 /* LGeminiTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3E718038CC1007B7912 /* LGeminiTexture.m */; };
+		7698E3E918038CC1007B7912 /* LGeminiTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3E718038CC1007B7912 /* LGeminiTexture.m */; };
+		7698E3F11803A535007B7912 /* GemSKSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F01803A535007B7912 /* GemSKSpriteNode.m */; };
+		7698E3F21803A535007B7912 /* GemSKSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F01803A535007B7912 /* GemSKSpriteNode.m */; };
 		76C67A0D17BDA1C200B73696 /* LGeminiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A0C17BDA1C200B73696 /* LGeminiAction.m */; };
 		76C67A0E17BDA1C200B73696 /* LGeminiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A0C17BDA1C200B73696 /* LGeminiAction.m */; };
 		76C67A1117BDAF4600B73696 /* GemAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1017BDAF4600B73696 /* GemAction.m */; };
@@ -393,6 +401,16 @@
 		7688731317B09C2D0002430C /* GemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemObject.m; sourceTree = "<group>"; };
 		7688731617B09C610002430C /* GemEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemEvent.h; sourceTree = "<group>"; };
 		7688731717B09C610002430C /* GemEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemEvent.m; sourceTree = "<group>"; };
+		7698E3DD17FD04CA007B7912 /* GemTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTexture.h; sourceTree = "<group>"; };
+		7698E3DE17FD04CA007B7912 /* GemTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemTexture.m; sourceTree = "<group>"; };
+		7698E3E118024871007B7912 /* GemTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTextureAtlas.h; sourceTree = "<group>"; };
+		7698E3E218024871007B7912 /* GemTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemTextureAtlas.m; sourceTree = "<group>"; };
+		7698E3E51802497E007B7912 /* GemLoadListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemLoadListener.h; sourceTree = "<group>"; };
+		7698E3E618038781007B7912 /* GemLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemLoader.h; sourceTree = "<group>"; };
+		7698E3E718038CC1007B7912 /* LGeminiTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiTexture.m; sourceTree = "<group>"; };
+		7698E3EA18038CE0007B7912 /* LGeminiTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiTexture.h; sourceTree = "<group>"; };
+		7698E3EF1803A535007B7912 /* GemSKSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemSKSpriteNode.h; sourceTree = "<group>"; };
+		7698E3F01803A535007B7912 /* GemSKSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSKSpriteNode.m; sourceTree = "<group>"; };
 		76C67A0B17BDA1C200B73696 /* LGeminiAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiAction.h; sourceTree = "<group>"; };
 		76C67A0C17BDA1C200B73696 /* LGeminiAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiAction.m; sourceTree = "<group>"; };
 		76C67A0F17BDAF4600B73696 /* GemAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemAction.h; sourceTree = "<group>"; };
@@ -773,6 +791,8 @@
 				76C67A1417BF381100B73696 /* LGeminiShape.m */,
 				76C67A4017C2F78B00B73696 /* LGeminiSprite.h */,
 				76C67A4117C2F78B00B73696 /* LGeminiSprite.m */,
+				7698E3EA18038CE0007B7912 /* LGeminiTexture.h */,
+				7698E3E718038CC1007B7912 /* LGeminiTexture.m */,
 				76D081CC17B329840033E3DF /* LGeminiTimer.h */,
 				76D081CD17B329840033E3DF /* LGeminiTimer.m */,
 				760EC4DA17B7E4730079E84E /* LGeminiUI.h */,
@@ -781,6 +801,14 @@
 				76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */,
 				7605105417DC3BA600089A6E /* GemPhysicsBody.h */,
 				7605105517DC3BA600089A6E /* GemPhysicsBody.m */,
+				7698E3DD17FD04CA007B7912 /* GemTexture.h */,
+				7698E3DE17FD04CA007B7912 /* GemTexture.m */,
+				7698E3E118024871007B7912 /* GemTextureAtlas.h */,
+				7698E3E218024871007B7912 /* GemTextureAtlas.m */,
+				7698E3E51802497E007B7912 /* GemLoadListener.h */,
+				7698E3E618038781007B7912 /* GemLoader.h */,
+				7698E3EF1803A535007B7912 /* GemSKSpriteNode.h */,
+				7698E3F01803A535007B7912 /* GemSKSpriteNode.m */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -852,7 +880,7 @@
 				ORGANIZATIONNAME = "James Norton";
 				TargetAttributes = {
 					7688709B17B08BBA0002430C = {
-						TestTargetID = 7688707017B08BBA0002430C /* GeminiSK */;
+						TestTargetID = 7688707017B08BBA0002430C;
 					};
 				};
 			};
@@ -923,6 +951,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7698E3DF17FD04CA007B7912 /* GemTexture.m in Sources */,
 				768872B917B08D3D0002430C /* lstring.c in Sources */,
 				768872ED17B08D3D0002430C /* ALWrapper.m in Sources */,
 				7688729117B08D3D0002430C /* lcode.c in Sources */,
@@ -994,11 +1023,14 @@
 				768872C317B08D3D0002430C /* lundump.c in Sources */,
 				768872B717B08D3D0002430C /* lstate.c in Sources */,
 				768872C517B08D3D0002430C /* lvm.c in Sources */,
+				7698E3F11803A535007B7912 /* GemSKSpriteNode.m in Sources */,
 				768872F917B08D3D0002430C /* NSMutableArray+WeakReferences.m in Sources */,
+				7698E3E818038CC1007B7912 /* LGeminiTexture.m in Sources */,
 				768872FD17B08D3D0002430C /* OALTools.m in Sources */,
 				768872A717B08D3D0002430C /* llex.c in Sources */,
 				768872D117B08D3D0002430C /* OALFunction.m in Sources */,
 				760EC4E017B817830079E84E /* LGeminiNode.m in Sources */,
+				7698E3E318024871007B7912 /* GemTextureAtlas.m in Sources */,
 				7688729D17B08D3D0002430C /* ldump.c in Sources */,
 				76D081CA17B1E3D10033E3DF /* LGeminiLuaSupport.m in Sources */,
 				768872BF17B08D3D0002430C /* ltablib.c in Sources */,
@@ -1027,6 +1059,7 @@
 				7688729217B08D3D0002430C /* lcode.c in Sources */,
 				768872B817B08D3D0002430C /* lstate.c in Sources */,
 				7688729417B08D3D0002430C /* lcorolib.c in Sources */,
+				7698E3E017FD04CA007B7912 /* GemTexture.m in Sources */,
 				76D081BF17B1E3590033E3DF /* LGeminiEvent.m in Sources */,
 				760EC4E117B817830079E84E /* LGeminiNode.m in Sources */,
 				76C67A1217BDAF4600B73696 /* GemAction.m in Sources */,
@@ -1045,6 +1078,7 @@
 				760EC4C117B465870079E84E /* GemSKScene.m in Sources */,
 				7688731517B09C2D0002430C /* GemObject.m in Sources */,
 				768872DE17B08D3D0002430C /* ALBuffer.m in Sources */,
+				7698E3E918038CC1007B7912 /* LGeminiTexture.m in Sources */,
 				768872EE17B08D3D0002430C /* ALWrapper.m in Sources */,
 				768872AE17B08D3D0002430C /* loadlib.c in Sources */,
 				7688729C17B08D3D0002430C /* ldo.c in Sources */,
@@ -1084,6 +1118,8 @@
 				7688729617B08D3D0002430C /* lctype.c in Sources */,
 				768872E617B08D3D0002430C /* ALDevice.m in Sources */,
 				7688730D17B092E30002430C /* Gemini.m in Sources */,
+				7698E3F21803A535007B7912 /* GemSKSpriteNode.m in Sources */,
+				7698E3E418024871007B7912 /* GemTextureAtlas.m in Sources */,
 				768872EC17B08D3D0002430C /* ALSource.m in Sources */,
 				76C67A4317C2F78B00B73696 /* LGeminiSprite.m in Sources */,
 				768872BC17B08D3D0002430C /* lstrlib.c in Sources */,

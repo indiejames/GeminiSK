@@ -16,7 +16,9 @@
 #import "AppDelegate.h"
 #import "GemSKScene.h"
 
-@implementation GemDirector
+@implementation GemDirector {
+    NSMutableArray *sceneQueue;
+}
 
 int render_count = 0;
 
@@ -27,6 +29,7 @@ int render_count = 0;
         luaData = [[GemObject alloc] initWithLuaState:luaState];
         scenes = [[NSMutableDictionary alloc] initWithCapacity:1];
         loadingScenes = [[NSMutableSet alloc] initWithCapacity:1];
+        sceneQueue = [NSMutableArray arrayWithCapacity:1];
     }
     
     return self;
@@ -122,19 +125,39 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     
 }
 
+-(void)doPendingSceneTransition {
+    GemSKScene *scene = [sceneQueue lastObject];
+    if ([scene isReady]) {
+        GemLog(@"Transitioning to scene %@", scene.name);
+        [sceneQueue removeObject:scene];
+        
+        SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
+        [skView presentScene:scene];
+        
+        
+    }
+}
+
 -(void)gotoScene:(NSString *)sceneName withOptions:(NSDictionary *)options {
     
     // load the scene if it is not already loaded or being loaded
     [self loadScene:sceneName];
     
-    SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
+    //SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
     
-    while([scenes objectForKey:sceneName] == nil){
+   /* while([scenes objectForKey:sceneName] == nil){
         [NSThread sleepForTimeInterval:0.1];
-    }
+    }*/
     
-    SKScene *skScene = (SKScene *)[scenes objectForKey:sceneName];
-    [skView presentScene:skScene];
+    GemSKScene *scene = (GemSKScene *)[scenes objectForKey:sceneName];
+    /*[skView presentScene:skScene];*/
+    
+    GemLog(@"Adding scene %@ to scene queue", sceneName);
+    
+    [sceneQueue addObject:scene];
+    
+    // try to load it immediately
+    [self doPendingSceneTransition];
 }
 
 // choose the best file based on name and device type

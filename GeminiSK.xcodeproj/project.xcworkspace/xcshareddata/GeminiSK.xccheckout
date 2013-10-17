@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A562A446-AD73-48D9-80E5-6F34A3AA785C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GeminiSK</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</key>
+		<string>ssh://github.com/indiejames/GeminiSK.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GeminiSK.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/indiejames/GeminiSK.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GeminiSK</string>
+		</dict>
+	</array>
+</dict>
+</plist>

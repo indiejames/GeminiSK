@@ -14,6 +14,8 @@
 #import "GemObject.h"
 #import "GemDirector.h"
 #import "LGeminiLuaSupport.h"
+#import "GemSKScene.h"
+#import "AppDelegate.h"
 //#import "GemGLKViewController.h"
 //#import "GemDisplayObject.h"
 //#import "LGeminiObject.h"

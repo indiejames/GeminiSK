@@ -22,7 +22,7 @@
 -(void)loadScene:(NSString *)sceneName;
 -(void)gotoScene:(NSString *)scene withOptions:(NSDictionary *)options;
 -(void)setCurrentScene:(NSString *)scene;
--(void)doPendingSceneTransition;
+-(BOOL)doPendingSceneTransition;
 
 -(id)initWithLuaState:(lua_State *)luaState;
 

@@ -30,4 +30,4 @@ label:setPosition(200,100)
 label.zRotation = 1.5
 
 director.loadScene("scene1")
-director.gotoScene("scene1")
+director.gotoScene("scene1", {synchronous = "true"})

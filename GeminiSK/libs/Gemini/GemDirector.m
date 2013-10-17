@@ -125,17 +125,25 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     
 }
 
--(void)doPendingSceneTransition {
-    GemSKScene *scene = [sceneQueue lastObject];
-    if ([scene isReady]) {
-        GemLog(@"Transitioning to scene %@", scene.name);
-        [sceneQueue removeObject:scene];
-        
-        SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
-        [skView presentScene:scene];
-        
-        
+-(BOOL)doPendingSceneTransition {
+    BOOL transitioned = NO;
+    if ([sceneQueue count] > 0) {
+        GemSKScene *scene = [sceneQueue objectAtIndex:0];
+        if ([scene isReady]) {
+            GemLog(@"Transitioning to scene %@", scene.name);
+            [sceneQueue removeObject:scene];
+            
+            SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
+            [skView presentScene:scene];
+            transitioned = YES;
+        } else {
+            GemLog(@"Scene is not ready");
+        }
+    } else {
+        GemLog(@"No scenes in queue");
     }
+    
+    return transitioned;
 }
 
 -(void)gotoScene:(NSString *)sceneName withOptions:(NSDictionary *)options {
@@ -156,8 +164,12 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     
     [sceneQueue addObject:scene];
     
-    // try to load it immediately
-    [self doPendingSceneTransition];
+    if ([[options objectForKey:@"synchronous"] isEqualToString:@"true"]) {
+        // try to load it immediately
+        while(![self doPendingSceneTransition]){
+            [NSThread sleepForTimeInterval:0.01];
+        };
+    }
 }
 
 // choose the best file based on name and device type

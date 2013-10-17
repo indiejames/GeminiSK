@@ -7,15 +7,19 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import <GemSKSceneDelegate.h>
+#import "GemSKSceneDelegate.h"
+#import "GemAction.h"
+#import "GemLoadListener.h"
 
 
-@interface GemSKScene : SKScene <GemSKSceneDelegate>
+@interface GemSKScene : SKScene <GemSKSceneDelegate, GemLoadListener>
 
-@property (readonly) NSMutableArray *textureAtlases;
+@property (readonly) NSArray *textureAtlases;
+@property (readonly) NSArray *actions;
 
 //@property (weak) id <GemSKSceneDelegate> delegate;
 
 -(BOOL)isReady;
+-(void)addAction:(GemAction *)action;
 
 @end

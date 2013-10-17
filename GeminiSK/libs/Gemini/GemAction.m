@@ -12,6 +12,21 @@
 
 -(void)setTimingMode:(SKActionTimingMode) mode {
     self.skAction.timingMode = mode;
+    _isLoaded = NO;
+    _resources = [NSMutableArray arrayWithCapacity:1];
+}
+
+-(void)loadFinished:(id)object {
+    unsigned int resourceCount = [self.resources count];
+    BOOL loaded = YES;
+    for (int i=0; i<resourceCount; i++) {
+        id resource = [self.resources objectAtIndex:i];
+        if (![resource isLoaded]) {
+            loaded = NO;
+        }
+    }
+    
+    _isLoaded = loaded;
 }
 
 -(void)dealloc {

@@ -75,17 +75,17 @@ function scene:createScene( event )
   "runner.0010.png"
   }
   
-  animate = action.animate("runner.0001.png",
-  "runner.0002.png",
-  "runner.0003.png",
-  "runner.0004.png",
-  "runner.0005.png",
-  "runner.0006.png",
-  "runner.0007.png",
-  "runner.0008.png",
-  "runner.0009.png",
-  "runner.0010.png",
-  0.1)
+  --animate = action.animate("runner.0001.png",
+  --"runner.0002.png",
+ -- "runner.0003.png",
+  --"runner.0004.png",
+  --"runner.0005.png",
+  --"runner.0006.png",
+  --"runner.0007.png",
+  --"runner.0008.png",
+  --"runner.0009.png",
+  --"runner.0010.png",
+  --0.1)
 
   
   circle = shape.newCircle(50,200,200)
@@ -142,9 +142,9 @@ function scene:didMoveToView(  )
 
   --panNode:runAction(pan)
   
-rep = action.repeatAction(animate,-1)
+--rep = action.repeatAction(animate,-1)
 
- runner:runAction(rep)
+ --runner:runAction(rep)
 
   function goToScene2()
     director.gotoScene("scene2")

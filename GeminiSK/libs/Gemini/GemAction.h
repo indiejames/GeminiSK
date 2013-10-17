@@ -7,10 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GemLoadListener.h"
 
-@interface GemAction : NSObject
+@interface GemAction : NSObject <GemLoadListener>
 
 @property SKAction *skAction;
 @property NSMutableDictionary *userData;
+@property NSArray *resources;
+@property BOOL isLoaded;
 
 @end

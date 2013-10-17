@@ -10,17 +10,21 @@
 #import "GemSKScene.h"
 #import "GemObject.h"
 #import "GemSKSpriteNode.h"
+#import "GemAction.h"
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
 
-@implementation GemSKScene
+@implementation GemSKScene {
+    NSMutableArray *_actions;
+}
 
 // TODO - add code to delegate life events to Lua code
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         _textureAtlases = [NSMutableArray arrayWithCapacity:1];
+        _actions = [NSMutableArray arrayWithCapacity:1];
         
         // The scene should be initialized with Lua code in the createScene() method
     }
@@ -95,15 +99,45 @@
     //[self callMethodOnScene:@"didChangeSize"];
 }
 
--(BOOL)isReady {
+-(void)addAction:(GemAction *)action{
+    [_actions addObject:action];
+}
+
+-(BOOL)areChildrenLoaded:(NSArray *)children {
     BOOL ready = YES;
-    unsigned int childCount = [self.children count];
+    
+    unsigned int childCount = [children count];
     for (int i=0; i<childCount; i++) {
-        id child = [self.children objectAtIndex:i];
+        SKNode *child = [children objectAtIndex:i];
         if ([child isKindOfClass:[GemSKSpriteNode class]]) {
             if (!((GemSKSpriteNode *)child).isLoaded) {
                 ready = NO;
+                break;
             }
+        }
+        
+        if ([child.children count] > 0) {
+            BOOL childrenLoaded = [self areChildrenLoaded:child.children];
+            if (!childrenLoaded) {
+                ready = NO;
+                break;
+            }
+        }
+
+    }
+    
+    
+    return ready;
+}
+
+-(BOOL)isReady {
+    BOOL ready = [self areChildrenLoaded:self.children];
+    
+    unsigned int actionCount = [self.actions count];
+    for (int i=0; i<actionCount; i++) {
+        GemAction *action = [self.actions objectAtIndex:i];
+        if(!action.isLoaded){
+            ready = NO;
         }
     }
     

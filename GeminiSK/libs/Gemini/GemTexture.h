@@ -22,3 +22,5 @@
 -(id) initWithImageNamed:(NSString *) name textureAtlas:(GemTextureAtlas *) atlas;
 
 @end
+
+#define GEMINI_TEXTURE_LUA_KEY "GeminiLib.GEMINI_TEXTURE_LUA_KEY"

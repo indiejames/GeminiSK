@@ -19,3 +19,5 @@
 -(id) initWithAtlasNamed:(NSString *)atlasName;
 
 @end
+
+#define GEMINI_TEXTURE_ATLAS_LUA_KEY "GeminiLib.GEMINI_TEXTURE_ATLAS_LUA_KEY"

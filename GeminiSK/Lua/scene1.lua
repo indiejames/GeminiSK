@@ -75,6 +75,13 @@ function scene:createScene( event )
   "runner.0010.png"
   }
   
+textures = {}
+for i, file in ipairs(frames) do
+    textures[i] = texture.newTexture(texture_atlas, file)
+end
+  
+  animate = action.animate(textures[1], textures[2], textures[3], textures[4], textures[5], textures[6], textures[7], textures[8], textures[9], textures[10], 0.1)
+  
   --animate = action.animate("runner.0001.png",
   --"runner.0002.png",
  -- "runner.0003.png",
@@ -142,18 +149,11 @@ function scene:didMoveToView(  )
 
   --panNode:runAction(pan)
   
---rep = action.repeatAction(animate,-1)
+  rep = action.repeatAction(animate,-1)
 
- --runner:runAction(rep)
+  runner:runAction(rep)
 
-  function goToScene2()
-    director.gotoScene("scene2")
-  end
-
-  --timer.performWithDelay(1, doRotation)
-  timer.performWithDelay(7, goToScene2)
-
-  director.loadScene("scene2")
+  
 
 end
 

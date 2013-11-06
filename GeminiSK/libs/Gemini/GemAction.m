@@ -8,12 +8,19 @@
 
 #import "GemAction.h"
 
-@implementation GemAction
+@implementation GemAction {
+    NSMutableArray *_listeners;
+}
 
 -(void)setTimingMode:(SKActionTimingMode) mode {
     self.skAction.timingMode = mode;
     _isLoaded = NO;
     _resources = [NSMutableArray arrayWithCapacity:1];
+    _listeners = [NSMutableArray arrayWithCapacity:1];
+}
+
+-(void)addLoadListener:(id)listener {
+    [_listeners addObject:listener];
 }
 
 -(void)loadFinished:(id)object {
@@ -27,6 +34,15 @@
     }
     
     _isLoaded = loaded;
+    
+    if (loaded) {
+        
+        for (int i=0; i<[_listeners count]; i++) {
+            id listener = [_listeners objectAtIndex:i];
+            [listener loadFinished:self];
+            
+        }
+    }
 }
 
 -(void)dealloc {

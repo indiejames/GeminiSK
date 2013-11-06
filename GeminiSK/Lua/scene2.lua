@@ -21,7 +21,7 @@ local rotation
 -- Called when the scene is first created.
 -- Add scene elements here.
 function scene:createScene( event )
-	print("Lua: Creating scene1")
+	print("Lua: Creating scene2")
     circles = {}
     for i=1,10 do
         circles[i] = shape.newCircle(20,100, 50 + i*25)
@@ -46,7 +46,7 @@ function scene:didMoveToView(  )
 
 	-----------------------------------------------------------------------------
     
-    print("Entering scene 2")
+    print("Entering scene 1")
   
   function doRotation()
     for i=1,10 do
@@ -55,6 +55,16 @@ function scene:didMoveToView(  )
   end
 
     timer.performWithDelay(1, doRotation)
+    
+ director.loadScene("scene1")
+    
+  function goToScene1()
+    director.gotoScene("scene1")
+  end
+
+  timer.performWithDelay(5, goToScene1)
+
+  director.loadScene("scene1")
 
 end
 

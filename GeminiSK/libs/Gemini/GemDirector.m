@@ -140,7 +140,7 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
             GemLog(@"Scene is not ready");
         }
     } else {
-        GemLog(@"No scenes in queue");
+        //GemLog(@"No scenes in queue");
     }
     
     return transitioned;

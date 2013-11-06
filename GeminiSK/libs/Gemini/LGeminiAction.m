@@ -14,6 +14,9 @@
 #import "AppDelegate.h"
 #import "GemDirector.h"
 #import "GemAction.h"
+#import "GemRepeatAction.h"
+#import "GemTexture.h"
+#import "GemSpriteAnimationAction.h"
 
 static int animateSpriteWithTextures(lua_State *L){
     GemLog(@"Creating new sprite animation action");
@@ -22,20 +25,22 @@ static int animateSpriteWithTextures(lua_State *L){
     NSMutableArray *frames = [NSMutableArray arrayWithCapacity:numArgs-1];
     
     for (int i=1; i<numArgs; i++) {
-        const char *frame = luaL_checkstring(L, i);
-        SKTexture *tex = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%s",frame]];
+        //const char *frame = luaL_checkstring(L, i);
+        //SKTexture *tex = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"%s",frame]];
         // Force texture to be loaded to avoid SK bug causing sprite to be rendered twice its size
         // initially
         //CGFloat height = tex.size.height;
+        
+        __unsafe_unretained GemObject **gemObj = (__unsafe_unretained GemObject **)luaL_checkudata(L, i, GEMINI_TEXTURE_LUA_KEY);
+        
+        GemTexture *tex = (GemTexture *)(*gemObj).delegate;
         
         [frames addObject:tex];
     }
     
     double timerPerFrame = luaL_checknumber(L, numArgs);
     
-    SKAction *action = [SKAction animateWithTextures:frames timePerFrame:timerPerFrame];
-    GemAction *gemAction = [[GemAction alloc] init];
-    gemAction.skAction = action;
+    GemSpriteAnimationAction *gemAction = [[GemSpriteAnimationAction alloc] initWithTextures:frames timePerFrame:timerPerFrame];
     
     GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
     luaData.delegate = gemAction;
@@ -55,12 +60,9 @@ static int repeatAction(lua_State *L){
     __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_ACTION_LUA_KEY);
     
     GemAction *gemAction = (GemAction *)(*go).delegate;
-    SKAction *skAction = gemAction.skAction;
-    
-    SKAction *rAction;
     
     int repeatCount = luaL_checknumber(L, 2);
-    
+    /*
     if (repeatCount < 1) {
         rAction = [SKAction repeatActionForever:skAction];
     } else {
@@ -68,16 +70,18 @@ static int repeatAction(lua_State *L){
     }
     
     GemAction *newGemAction = [[GemAction alloc] init];
-    newGemAction.skAction = rAction;
+    newGemAction.skAction = rAction;*/
+    
+    GemRepeatAction *repAction = [[GemRepeatAction alloc] initWithAction:gemAction count:repeatCount];
     
     GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
-    luaData.delegate = newGemAction;
+    luaData.delegate = repAction;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    newGemAction.userData = wrapper;
+    repAction.userData = wrapper;
     
     // keep the action wrapper from being GC'ed
-    [[Gemini shared].geminiObjects addObject:newGemAction];
+    [[Gemini shared].geminiObjects addObject:repAction];
     
     return 1;
 

@@ -29,5 +29,5 @@ print("Lua: setting label position")
 label:setPosition(200,100)
 label.zRotation = 1.5
 
-director.loadScene("scene1")
-director.gotoScene("scene1", {synchronous = "true"})
+director.loadScene("scene2")
+director.gotoScene("scene2", {synchronous = "true"})

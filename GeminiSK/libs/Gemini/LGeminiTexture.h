@@ -10,5 +10,3 @@
 #include "lualib.h"
 #include "lauxlib.h"
 
-#define GEMINI_TEXTURE_ATLAS_LUA_KEY "GeminiLib.GEMINI_TEXTURE_ATLAS_LUA_KEY"
-#define GEMINI_TEXTURE_LUA_KEY "GeminiLib.GEMINI_TEXTURE_LUA_KEY"

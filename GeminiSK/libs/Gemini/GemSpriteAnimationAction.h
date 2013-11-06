@@ -10,4 +10,6 @@
 
 @interface GemSpriteAnimationAction : GemAction
 
+-(id) initWithTextures:(NSArray *)textures timePerFrame:(NSTimeInterval) tpf;
+
 @end

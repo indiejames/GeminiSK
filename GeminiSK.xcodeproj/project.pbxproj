@@ -219,6 +219,8 @@
 		76D081CF17B329840033E3DF /* LGeminiTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081CD17B329840033E3DF /* LGeminiTimer.m */; };
 		76DF479817D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 		76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
+		76FE7861181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
+		76FE7862181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -441,6 +443,8 @@
 		76D081CD17B329840033E3DF /* LGeminiTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiTimer.m; sourceTree = "<group>"; };
 		76DF479717D6C85700664D81 /* LGeminiPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPhysics.m; sourceTree = "<group>"; };
 		76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPhysics.h; sourceTree = "<group>"; };
+		76FE785F181B6A7800BF89FE /* GemRepeatAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemRepeatAction.h; sourceTree = "<group>"; };
+		76FE7860181B6A7800BF89FE /* GemRepeatAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemRepeatAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -762,6 +766,10 @@
 				7688730917B092E30002430C /* Gemini.m */,
 				76C67A0F17BDAF4600B73696 /* GemAction.h */,
 				76C67A1017BDAF4600B73696 /* GemAction.m */,
+				76FE785F181B6A7800BF89FE /* GemRepeatAction.h */,
+				76FE7860181B6A7800BF89FE /* GemRepeatAction.m */,
+				7698E3F3180B9F84007B7912 /* GemSpriteAnimationAction.h */,
+				7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */,
 				760EC4CB17B5C6D70079E84E /* GemDirector.h */,
 				760EC4CC17B5C6D80079E84E /* GemDirector.m */,
 				7688731617B09C610002430C /* GemEvent.h */,
@@ -813,8 +821,6 @@
 				7698E3E618038781007B7912 /* GemLoader.h */,
 				7698E3EF1803A535007B7912 /* GemSKSpriteNode.h */,
 				7698E3F01803A535007B7912 /* GemSKSpriteNode.m */,
-				7698E3F3180B9F84007B7912 /* GemSpriteAnimationAction.h */,
-				7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -1015,6 +1021,7 @@
 				76C67A1517BF381100B73696 /* LGeminiShape.m in Sources */,
 				768872B517B08D3D0002430C /* lparser.c in Sources */,
 				768872DF17B08D3D0002430C /* ALCaptureDevice.m in Sources */,
+				76FE7861181B6A7800BF89FE /* GemRepeatAction.m in Sources */,
 				7688709017B08BBA0002430C /* ViewController.m in Sources */,
 				768872E117B08D3D0002430C /* ALChannelSource.m in Sources */,
 				7688708717B08BBA0002430C /* AppDelegate.m in Sources */,
@@ -1073,6 +1080,7 @@
 				768872E417B08D3D0002430C /* ALContext.m in Sources */,
 				768872C817B08D3D0002430C /* lzio.c in Sources */,
 				7688729017B08D3D0002430C /* lbitlib.c in Sources */,
+				76FE7862181B6A7800BF89FE /* GemRepeatAction.m in Sources */,
 				7688731917B09C610002430C /* GemEvent.m in Sources */,
 				768872A417B08D3D0002430C /* linit.c in Sources */,
 				768872E217B08D3D0002430C /* ALChannelSource.m in Sources */,

@@ -11,7 +11,7 @@
 #import "GemTexture.h"
 
 @implementation GemSpriteAnimationAction {
-    SKAction *skAction;
+    //SKAction *skAction;
     NSTimeInterval timePerFrame;
     NSMutableArray *frames;
     BOOL _isInitialized;
@@ -39,7 +39,13 @@
             }
         }
         
+        timePerFrame = tpf;
+        
         self.isLoaded = allLoaded;
+        
+        if (allLoaded) {
+            [self handleLoadFinished];
+        }
         
         _isInitialized = YES;
     }
@@ -47,19 +53,29 @@
     return self;
 }
 
+-(void)handleLoadFinished {
+    if (self.isLoaded) {
+        // create the SKAnimation action
+        NSMutableArray *skTextures = [NSMutableArray arrayWithCapacity:[frames count]];
+        for (int i=0; i<[frames count]; i++) {
+            GemTexture *tex = [frames objectAtIndex:i];
+            [skTextures addObject:tex.texture];
+        }
+        
+        self.skAction = [SKAction animateWithTextures:skTextures timePerFrame:timePerFrame];
+        
+        [self notifyListeners];
+    }
+}
+
 -(void)loadFinished:(id)object {
     if (_isInitialized) {  // frames vs. resources ????
         [super loadFinished:object];
         
+        
+        
         if (self.isLoaded) {
-            // create the SKAnimation action
-            NSMutableArray *skTextures = [NSMutableArray arrayWithCapacity:[frames count]];
-            for (int i=0; i<[frames count]; i++) {
-                GemTexture *tex = [frames objectAtIndex:i];
-                [skTextures addObject:tex.texture];
-            }
-            
-            skAction = [SKAction animateWithTextures:frames timePerFrame:timePerFrame];
+            [self handleLoadFinished];
         }
     }
 }

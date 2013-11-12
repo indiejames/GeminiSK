@@ -12,11 +12,21 @@
     NSMutableArray *_listeners;
 }
 
+-(id)init {
+    self = [super init];
+    
+    if (self) {
+        _isLoaded = NO;
+        _resources = [NSMutableArray arrayWithCapacity:1];
+        _listeners = [NSMutableArray arrayWithCapacity:1];
+    }
+    
+    return self;
+}
+
 -(void)setTimingMode:(SKActionTimingMode) mode {
     self.skAction.timingMode = mode;
-    _isLoaded = NO;
-    _resources = [NSMutableArray arrayWithCapacity:1];
-    _listeners = [NSMutableArray arrayWithCapacity:1];
+    
 }
 
 -(void)addLoadListener:(id)listener {
@@ -30,19 +40,23 @@
         id resource = [self.resources objectAtIndex:i];
         if (![resource isLoaded]) {
             loaded = NO;
+            break;
         }
     }
     
     _isLoaded = loaded;
     
-    if (loaded) {
-        
+    
+}
+
+-(void)notifyListeners {
+    if (_isLoaded) {
         for (int i=0; i<[_listeners count]; i++) {
             id listener = [_listeners objectAtIndex:i];
             [listener loadFinished:self];
-            
         }
     }
+    
 }
 
 -(void)dealloc {

@@ -17,4 +17,6 @@
 @property NSMutableArray *resources;
 @property BOOL isLoaded;
 
+-(void)notifyListeners;
+
 @end

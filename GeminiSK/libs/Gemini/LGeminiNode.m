@@ -18,7 +18,7 @@ static int newNode(lua_State *L){
     
     SKNode *node = [[SKNode alloc] init];
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_NODE_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_NODE_LUA_KEY];
     luaData.delegate = node;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -32,8 +32,8 @@ static int newNode(lua_State *L){
 
 SKNode *getNode(lua_State *L){
     // we don't check the userdata type here because it can be anything - we just force it to
-    // GemObject
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    // GemObjectWrapper
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     return (SKNode *)(*go).delegate;
 }
 
@@ -65,7 +65,7 @@ int destroyNode(lua_State *L){
 int runAction(lua_State *L){
     SKNode *node = getNode(L);
     
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)luaL_checkudata(L, 2, GEMINI_ACTION_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 2, GEMINI_ACTION_LUA_KEY);
     
     GemAction *gemAction = (GemAction *)(*go).delegate;
     SKAction *skAction = gemAction.skAction;

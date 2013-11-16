@@ -11,7 +11,7 @@
 
 #import "ObjectAL.h"
 #import "GemEvent.h"
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 #import "GemDirector.h"
 #import "LGeminiLuaSupport.h"
 #import "GemSKScene.h"
@@ -31,7 +31,7 @@
     NSDictionary *settings;
     int x;
     double initTime;
-    GemObject *runtime;
+    GemObjectWrapper *runtime;
     GemDirector *director;
     GemTimerManager *_timerManager;
 }
@@ -57,7 +57,7 @@ int setLuaPath(lua_State *L, NSString* path );
 // add a global Runtime object
 -(void) addRuntimeObject {
     
-    runtime = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_OBJECT_LUA_KEY];
+    runtime = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_OBJECT_LUA_KEY];
     runtime.name = @"Runtime";
     
     // push the ref to the runtime object onto the lua stack
@@ -239,7 +239,7 @@ int setLuaPath(lua_State *L, NSString* path );
     ge.name = event;
     
     for (id gemObj in geminiObjects) {
-        if ([(GemObject *)gemObj handleEvent:ge]) {
+        if ([(GemObjectWrapper *)gemObj handleEvent:ge]) {
             
             return YES;
         }

@@ -38,7 +38,7 @@ static int newBezierPath(lua_State *L){
     }
     
     GemBezierPath *path = [[GemBezierPath alloc] initWithNum:numPoints Points:points];
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_PATH_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_PATH_LUA_KEY];
     luaData.delegate = path;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];

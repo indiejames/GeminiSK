@@ -40,7 +40,7 @@ static int newCircle(lua_State *L){
     CGPathRef path = CGPathCreateWithEllipseInRect(CGRectMake(x, y, radius * 2.0, radius * 2.0), NULL);
     SKShapeNode *shape = [[SKShapeNode alloc] init];
     shape.path = path;
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_CIRCLE_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_CIRCLE_LUA_KEY];
     luaData.delegate = shape;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -72,7 +72,7 @@ static int newRectangle(lua_State *L){
     CGPathRef path = CGPathCreateWithRect(CGRectMake(x, y, width, height), NULL);
     SKShapeNode *shape = [[SKShapeNode alloc] init];
     shape.path = path;
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_RECTANGLE_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_RECTANGLE_LUA_KEY];
     luaData.delegate = shape;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];

@@ -28,7 +28,7 @@
     self = [super init];
     
     if (self) {
-        luaData = [[GemObject alloc] initWithLuaState:luaState LuaKey:GEMINI_TIMER_LUA_KEY];
+        luaData = [[GemObjectWrapper alloc] initWithLuaState:luaState LuaKey:GEMINI_TIMER_LUA_KEY];
         luaData.delegate = self;
         delay = del;
         numIterations = numIters;

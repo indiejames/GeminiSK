@@ -1,18 +1,18 @@
 //
-//  GeminiObject.m
-//  Gemini
+//  GemObjectWrapper.m
+//  GeminiSK
 //
 //  Created by James Norton on 2/25/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Gemini.h"
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 #import "GemEvent.h"
 #import "GemEventManager.h"
 
 
-@implementation GemObject
+@implementation GemObjectWrapper
 
 
 -(id) initWithLuaState:(lua_State *)luaState {
@@ -30,7 +30,7 @@
 
 // NOTE - this initializer will leave the object on the top of the Lua stack  - if this method was not
 // invoked (indirectly) by Lua code, then the caller MUST empty the stack to avoid leaking
-// memory.  This should only matter for the handful of GemObjects that get created manually.
+// memory.  This should only matter for the handful of GemObjectWrappers that get created manually.
 // This behaviour is not completely desirable, but is necessary to avoid a lot of complications.
 -(id) initWithLuaState:(lua_State *)luaState LuaKey:(const char *)luaKey {
     self = [super init];
@@ -38,7 +38,7 @@
         self.L = luaState;
         if (luaState) {
             // sizeof(self) should give the size of this objects pointer (I hope)
-            __unsafe_unretained GemObject **lgo = (__unsafe_unretained GemObject **)lua_newuserdata(luaState, sizeof(self));
+            __unsafe_unretained GemObjectWrapper **lgo = (__unsafe_unretained GemObjectWrapper **)lua_newuserdata(luaState, sizeof(self));
             *lgo = self;
             
             luaL_getmetatable(luaState, luaKey);
@@ -62,7 +62,7 @@
             
             // NOTE - at this point the object is on the top of the Lua stack  - if this method was not
             // invoked (indirectly) by Lua code, then the caller MUST empty the stack to avoid leaking
-            // memory.  This should only matter for the handful of GemObjects that get created manually.
+            // memory.  This should only matter for the handful of GemObjectWrappers that get created manually.
             // This behaviour is not completely desirable, but necessary to avoid a lot of complications.
         } else {
             self.propertyTableRef = -1;
@@ -112,7 +112,7 @@
 -(BOOL)handleEvent:(GemEvent *)event {
     
     if ([event.name isEqualToString:@"applicationWillEXit"]) {
-        GemLog(@"GemObject: handling event %@", event.name);
+        GemLog(@"GemObjectWrapper: handling event %@", event.name);
         
     }
     
@@ -139,7 +139,7 @@
                 lua_insert(self.L, base);  // put it under callback function
                 
                 // push the event object onto the top of the stack as the argument to the event handler
-                GemObject *obj = [event.userData objectForKey:@"LUA_DATA"];
+                GemObjectWrapper *obj = [event.userData objectForKey:@"LUA_DATA"];
                 int eRef = obj.selfRef;
                 lua_rawgeti(self.L, LUA_REGISTRYINDEX, eRef);
                 int err = lua_pcall(self.L, 1, LUA_MULTRET, -3);
@@ -180,7 +180,7 @@
                     // the first argument
                     lua_pushvalue(self.L, -2);
                 }
-                GemObject *obj = [event.userData objectForKey:@"LUA_DATA"];
+                GemObjectWrapper *obj = [event.userData objectForKey:@"LUA_DATA"];
                 int eRef = obj.selfRef;
                 lua_rawgeti(self.L, LUA_REGISTRYINDEX, eRef); // add the event as the second param
                 

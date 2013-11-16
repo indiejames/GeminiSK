@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 
 #define GEM_TIMER_EVENT_NAME @"GEM_TIMER_EVENT"
 
@@ -18,7 +18,7 @@
     double lastUpdateTime;
     double accumulatedTime;
     BOOL paused;
-    GemObject *luaData;
+    GemObjectWrapper *luaData;
 }
 
 @property (nonatomic) BOOL paused;

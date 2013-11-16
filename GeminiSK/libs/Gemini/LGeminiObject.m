@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #import "Gemini.h"
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 #import "LGeminiObject.h"
 #import "GemTimer.h"
 #import "GemEventManager.h"
@@ -17,9 +17,9 @@
 
 
 /*static int newGeminiObject(lua_State *L){
-    GemObject *go = [[GemObject alloc] initWithLuaState:L];
+    GemObjectWrapper *go = [[GemObjectWrapper alloc] initWithLuaState:L];
     
-    __unsafe_unretained GemObject **lgo = (__unsafe_unretained GemObject **)lua_newuserdata(L, sizeof(GemObject *));
+    __unsafe_unretained GemObjectWrapper **lgo = (__unsafe_unretained GemObjectWrapper **)lua_newuserdata(L, sizeof(GemObjectWrapper *));
     *lgo = go;
     
     luaL_getmetatable(L, GEMINI_OBJECT_LUA_KEY);
@@ -54,7 +54,7 @@
 // also saves the wrapper object to prevent its GC
 /*void wrapObject(lua_State *L, NSObject *gemAction) {
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
     luaData.delegate = gemAction;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -71,7 +71,7 @@ int genericGC(lua_State *L){
 
 // method called by all bindings to remove an object
 int genericDestroy(lua_State *L){
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     [(*go).delegate setUserData:nil]; // this should eventually cause the object to be gc'ed
     [[Gemini shared].geminiObjects removeObject:*go];
     // TODO - remove object from parent node
@@ -82,7 +82,7 @@ int genericDestroy(lua_State *L){
 //
 // addEventListner - add an event listener/handler to an ojbect.  This handler will get called
 // when the objects is notified of the event.
-//  GemObjects have tables where the keys are event types and the values are other tables that
+//  GemObjectWrappers have tables where the keys are event types and the values are other tables that
 // hold events listeners.  These sub tables have the listeners as their keys and the references
 // in LUA_REGISTRYINDEX as the values.  The references are used to make sure the listeners don't
 // go out of scope and get GC'ed.  This allows anonymous functions to be used for event listeners.
@@ -90,7 +90,7 @@ int genericDestroy(lua_State *L){
 // contain a function of the same name as the event.
 int addEventListener(lua_State *L){
     // stack: 1 - object, 2 - event name, 3 - listener (function or table)
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     const char *eventName = luaL_checkstring(L, 2);
     NSString *name = [NSString stringWithFormat:@"%s", eventName];
     
@@ -146,7 +146,7 @@ int addEventListener(lua_State *L){
 
 int removeEventListener(lua_State *L){
     // stack: 1 - object, 2 - event name, 3 - listener
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     const char *eventName = luaL_checkstring(L, 2);
     
     // get the event handler table
@@ -186,7 +186,7 @@ int removeEventListener(lua_State *L){
 // generic index method for userdata types
 int genericIndex(lua_State *L){
     // first check to see if the delegate object will accept the call
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     NSObject *delegate = (*go).delegate;
     
     const char *attr = luaL_checkstring(L, 2);
@@ -264,13 +264,13 @@ int genericIndex(lua_State *L){
 // generic new index method, i.e., obj.something = some_value
 // only support primitive types (ints, float, char *, etc.) for some_value
 int genericNewIndex(lua_State *L) {
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     NSObject *delegate = (*go).delegate;
     const char *attr = luaL_checkstring(L, 2);
     
     // physicsBody property is handled separately since it is not a simple value
     if (strcmp("physicsBody", attr) == 0) {
-        __unsafe_unretained GemObject **pgo = (__unsafe_unretained GemObject **)luaL_checkudata(L, 3, GEMINI_PHYSICS_BODY_LUA_KEY);
+        __unsafe_unretained GemObjectWrapper **pgo = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 3, GEMINI_PHYSICS_BODY_LUA_KEY);
         
         GemPhysicsBody *gBody = (GemPhysicsBody *)(*pgo).delegate;
         ((SKNode*)delegate).physicsBody = gBody.skPhysicsBody;

@@ -1,6 +1,6 @@
 //
-//  GeminiObject.h
-//  Gemini
+//  GemObjectWrapper.h
+//  GeminiSK
 //
 //  Created by James Norton on 2/25/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -15,7 +15,7 @@
 
 @class GemEvent;
 
-@interface GemObject : NSObject {
+@interface GemObjectWrapper : NSObject {
     NSMutableDictionary *eventHandlers;
 }
 

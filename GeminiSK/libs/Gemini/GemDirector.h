@@ -9,14 +9,14 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 
 @interface GemDirector : NSObject {
     NSMutableDictionary *scenes;
     NSMutableArray *allScenes;
     NSString *currentScene;  // the current scene used for rendering, etc.
     NSMutableSet *loadingScenes;
-    GemObject *luaData;
+    GemObjectWrapper *luaData;
 }
 
 -(void)loadScene:(NSString *)sceneName;

@@ -18,8 +18,8 @@ void createMetatable(lua_State *L, const char *key, const struct luaL_Reg *funcs
 // Add a child node to the given node
 int addChild(lua_State *L) {
     // stack: 1 - parent object, 2 - child object
-    __unsafe_unretained GemObject **parent = (__unsafe_unretained GemObject **)lua_touserdata(L, 1);
-    __unsafe_unretained GemObject **child = (__unsafe_unretained GemObject **)lua_touserdata(L, 2);
+    __unsafe_unretained GemObjectWrapper **parent = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **child = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 2);
     
     SKNode *parentNode = (SKNode *)(*parent).delegate;
     SKNode *childNode = (SKNode *)(*child).delegate;
@@ -30,7 +30,7 @@ int addChild(lua_State *L) {
 }
 
 // generic init method
-void setupObject(lua_State *L, const char *luaKey, GemObject *obj){
+void setupObject(lua_State *L, const char *luaKey, GemObjectWrapper *obj){
     
     luaL_getmetatable(L, luaKey);
     lua_setmetatable(L, -2);

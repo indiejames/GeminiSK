@@ -24,7 +24,7 @@
 // also saves the wrapper object to prevent its GC
 void makeAction(lua_State *L, GemAction *gemAction) {
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
     luaData.delegate = gemAction;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -47,7 +47,7 @@ static int animateSpriteWithTextures(lua_State *L){
         // initially
         //CGFloat height = tex.size.height;
         
-        __unsafe_unretained GemObject **gemObj = (__unsafe_unretained GemObject **)luaL_checkudata(L, i, GEMINI_TEXTURE_LUA_KEY);
+        __unsafe_unretained GemObjectWrapper **gemObj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, i, GEMINI_TEXTURE_LUA_KEY);
         
         GemTexture *tex = (GemTexture *)(*gemObj).delegate;
         
@@ -67,7 +67,7 @@ static int animateSpriteWithTextures(lua_State *L){
 static int repeatAction(lua_State *L){
     GemLog(@"Creating new repeat action");
     
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_ACTION_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_ACTION_LUA_KEY);
     
     GemAction *gemAction = (GemAction *)(*go).delegate;
     
@@ -139,7 +139,7 @@ static int newMoveToXAction(lua_State *L){
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
     
-    /*GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
+    /*GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
     luaData.delegate = gemAction;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -155,7 +155,7 @@ static int newMoveToXAction(lua_State *L){
 
 
 static int deleteAction(lua_State *L){
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_ACTION_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_ACTION_LUA_KEY);
     
     GemAction *gemAction = (GemAction *)(*go).delegate;
     

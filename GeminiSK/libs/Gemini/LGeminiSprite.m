@@ -24,12 +24,12 @@ extern int addEventListener(lua_State *L);
 
 static int newSprite(lua_State *L){
     // stack: 1 - texture
-    __unsafe_unretained GemObject **go = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_TEXTURE_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_TEXTURE_LUA_KEY);
     GemTexture *texture = (*go).delegate;
     
     GemSKSpriteNode *sprite = [[GemSKSpriteNode alloc] initWithGemTexture:texture];
     //SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:firstTextureName]];
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_SPRITE_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_SPRITE_LUA_KEY];
     luaData.delegate = sprite;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];

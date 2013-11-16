@@ -14,7 +14,7 @@
 @synthesize timestamp;
 @synthesize name;
 
--(id) initWithTarget:(GemObject *)trgt {
+-(id) initWithTarget:(GemObjectWrapper *)trgt {
     self = [super init];
     if (self) {
         self.target = trgt;
@@ -23,11 +23,11 @@
     return self;
 }
 
--(id) initWithLuaState:(lua_State *)luaState Target:(GemObject *)trgt LuaKey:(const char *)luaKey {
+-(id) initWithLuaState:(lua_State *)luaState Target:(GemObjectWrapper *)trgt LuaKey:(const char *)luaKey {
     self = [super init];
     
     if (self) {
-        GemObject *obj = [[GemObject alloc] initWithLuaState:luaState LuaKey:luaKey];
+        GemObjectWrapper *obj = [[GemObjectWrapper alloc] initWithLuaState:luaState LuaKey:luaKey];
         obj.delegate = self;
         NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
         [wrapper setObject:obj forKey:@"LUA_DATA"];
@@ -41,11 +41,11 @@
     return self;
 }
 
--(id)initWithLuaState:(lua_State *)luaState Target:(GemObject *)trgt {
+-(id)initWithLuaState:(lua_State *)luaState Target:(GemObjectWrapper *)trgt {
     self = [super init];
     
     if (self) {
-        GemObject *obj = [[GemObject alloc] initWithLuaState:luaState LuaKey:GEMINI_EVENT_LUA_KEY];
+        GemObjectWrapper *obj = [[GemObjectWrapper alloc] initWithLuaState:luaState LuaKey:GEMINI_EVENT_LUA_KEY];
         obj.delegate = self;
         NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
         [wrapper setObject:obj forKey:@"LUA_DATA"];

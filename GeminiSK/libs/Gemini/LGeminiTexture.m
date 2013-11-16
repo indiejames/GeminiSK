@@ -30,7 +30,7 @@ static int newTextureAtlas(lua_State *L){
     
     GemTextureAtlas *atlas = [[GemTextureAtlas alloc] initWithAtlasNamed:[NSString stringWithFormat:@"%s", atlasName]];
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_TEXTURE_ATLAS_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_TEXTURE_ATLAS_LUA_KEY];
     luaData.delegate = atlas;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -44,7 +44,7 @@ static int newTextureAtlas(lua_State *L){
 static int newTexture(lua_State *L){
     // stack: 1 - texture atlas, 2 - texture image name
     
-     __unsafe_unretained GemObject **gemObj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_TEXTURE_ATLAS_LUA_KEY);
+     __unsafe_unretained GemObjectWrapper **gemObj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_TEXTURE_ATLAS_LUA_KEY);
    
     GemTextureAtlas *atlas = (GemTextureAtlas *)(*gemObj).delegate;
     
@@ -52,7 +52,7 @@ static int newTexture(lua_State *L){
     
     GemTexture *texture = [[GemTexture alloc] initWithImageNamed:[NSString stringWithFormat:@"%s",imageName] textureAtlas:atlas];
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_TEXTURE_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_TEXTURE_LUA_KEY];
     luaData.delegate = texture;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];

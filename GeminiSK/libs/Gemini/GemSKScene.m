@@ -8,7 +8,7 @@
 
 #import "Gemini.h"
 #import "GemSKScene.h"
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 #import "GemSKSpriteNode.h"
 #import "GemAction.h"
 #include "lua.h"
@@ -35,7 +35,7 @@
     
     const char *method = [methodStr cStringUsingEncoding:[NSString defaultCStringEncoding]];
     
-    GemObject *luaData = [self.userData objectForKey:@"LUA_DATA"];
+    GemObjectWrapper *luaData = [self.userData objectForKey:@"LUA_DATA"];
     lua_State *L = luaData.L;
     
     // get the top of the stack so we can clear the items we've added when we are done
@@ -78,7 +78,7 @@
     [[Gemini shared].timerManager update:currentTime];
     [[Gemini shared].director doPendingSceneTransition];
     
-    GemObject *luaData = [self.userData objectForKey:@"LUA_DATA"];
+    GemObjectWrapper *luaData = [self.userData objectForKey:@"LUA_DATA"];
     lua_State *L = luaData.L;
     lua_gc(L, LUA_GCSTEP, 1);
 }

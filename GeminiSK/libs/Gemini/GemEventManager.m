@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)addEventListener:(GemObject *)listener forEvent:(NSString *)event {
+- (void)addEventListener:(GemObjectWrapper *)listener forEvent:(NSString *)event {
     NSMutableArray *eventListeners = [listeners objectForKey:event];
     if (eventListeners == nil) {
         eventListeners = [[NSMutableArray alloc] initWithCapacity:1];
@@ -179,7 +179,7 @@
     
 }
 
--(void)setTouchFocus:(GemObject *)focus forEvent:(GemEvent *)event {
+-(void)setTouchFocus:(GemObjectWrapper *)focus forEvent:(GemEvent *)event {
     [touchFocus setObject:focus forKey:event.timestamp];
 }
 

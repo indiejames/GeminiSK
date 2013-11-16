@@ -22,7 +22,7 @@ static int newScene(lua_State *L){
     SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
     
     GemSKScene *scene = [[GemSKScene alloc] initWithSize:skView.bounds.size];
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_SCENE_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_SCENE_LUA_KEY];
     luaData.delegate = scene;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -102,7 +102,7 @@ static int deleteScene(lua_State *L){
 
 static int sceneSetBackroundColor(lua_State *L){
     int numargs = lua_gettop(L);
-    __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
     SKScene *scene = (SKScene *)(*obj).delegate;
     
     GLfloat red = luaL_checknumber(L, 2);
@@ -121,7 +121,7 @@ static int sceneSetBackroundColor(lua_State *L){
 }
 
 static int sceneSetSize(lua_State *L){
-    __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
     SKScene *scene = (SKScene *)(*obj).delegate;
     
     GLfloat width = luaL_checknumber(L, 2);
@@ -133,7 +133,7 @@ static int sceneSetSize(lua_State *L){
 }
 
 static int sceneSetPosition(lua_State *L){
-    __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
     SKScene *scene = (SKScene *)(*obj).delegate;
     
     GLfloat x = luaL_checknumber(L, 2);
@@ -146,7 +146,7 @@ static int sceneSetPosition(lua_State *L){
 
 static int setPhysicsGrvaity(lua_State *L){
     // stack: scene, gx, gy
-     __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+     __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
     SKScene *scene = (SKScene *)(*obj).delegate;
     
     float gx = luaL_checknumber(L, 2);
@@ -159,7 +159,7 @@ static int setPhysicsGrvaity(lua_State *L){
 
 static int setPhysicsSpeed(lua_State *L){
     // stack: scene, speed
-    __unsafe_unretained GemObject  **obj = (__unsafe_unretained GemObject **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
     SKScene *scene = (SKScene *)(*obj).delegate;
     
     float speed = luaL_checknumber(L, 2);

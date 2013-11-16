@@ -31,7 +31,7 @@ static int eventIndex(lua_State *L){
                 
                 rval = 1;
             } else if(strcmp("target", key) == 0) {
-                GemObject *target = (*event).target;
+                GemObjectWrapper *target = (*event).target;
                 lua_rawgeti(L, LUA_REGISTRYINDEX, target.selfRef);
                 
                 rval = 1;
@@ -101,7 +101,7 @@ static int collisionEventIndex(lua_State *L){
                 rval = 1;
                 
             } else if(strcmp("source", key) == 0) {
-                GemObject *source = (*event).source;
+                GemObjectWrapper *source = (*event).source;
                 lua_rawgeti(L, LUA_REGISTRYINDEX, (*event).source.selfRef);
                 
                 rval = 1;

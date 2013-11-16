@@ -14,7 +14,7 @@ extern "C" {
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 //#import "GemDisplayObject.h"
 //#import "GemDisplayGroup.h"
 
@@ -30,7 +30,7 @@ int removeSelf(lua_State *L);
 int genericDelete(lua_State *L);
 int isObjectTouching(lua_State *L);
 void setDefaultValues(lua_State *L);
-void setupObject(lua_State *L, const char *luaKey, GemObject *obj);
+void setupObject(lua_State *L, const char *luaKey, GemObjectWrapper *obj);
 NSDictionary *tableToDictionary(lua_State *L, int stackIndex);
 
 void lockLuaLock();

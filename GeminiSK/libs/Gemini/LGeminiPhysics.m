@@ -21,7 +21,7 @@ static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
     SKPhysicsBody *body = [SKPhysicsBody bodyWithCircleOfRadius:radius];
     GemPhysicsBody *gBody = [[GemPhysicsBody alloc] init];
     gBody.skPhysicsBody = body;
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_PHYSICS_BODY_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_PHYSICS_BODY_LUA_KEY];
     luaData.delegate = gBody;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
@@ -43,7 +43,7 @@ static int newPhysicsBodyWithEdgeLoopFromRectangle(lua_State *L){
     SKPhysicsBody *body = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(x0, y0, width, height)];
     GemPhysicsBody *gBody = [[GemPhysicsBody alloc] init];
     gBody.skPhysicsBody = body;
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_PHYSICS_BODY_LUA_KEY];
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_PHYSICS_BODY_LUA_KEY];
     luaData.delegate = gBody;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];

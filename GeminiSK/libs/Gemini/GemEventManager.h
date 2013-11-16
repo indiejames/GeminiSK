@@ -7,22 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GemObject.h"
+#import "GemObjectWrapper.h"
 
 #define GEM_TOUCH_EVENT_NAME @"touch"
 
 @class GemGLKViewController;
 
-@interface GemEventManager : GemObject
+@interface GemEventManager : GemObjectWrapper
 
 @property (weak) GemGLKViewController *parentGLKViewController;
 
-- (void)addEventListener:(GemObject *)listener forEvent:(NSString *)event;
+- (void)addEventListener:(GemObjectWrapper *)listener forEvent:(NSString *)event;
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
--(void)setTouchFocus:(GemObject *)focus forEvent:(GemEvent *)event;
--(void)removeTouchFocus:(GemObject *)focus;
+-(void)setTouchFocus:(GemObjectWrapper *)focus forEvent:(GemEvent *)event;
+-(void)removeTouchFocus:(GemObjectWrapper *)focus;
 
 @end

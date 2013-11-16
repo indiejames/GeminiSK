@@ -26,7 +26,7 @@ int render_count = 0;
     self = [super init];
     
     if (self) {
-        luaData = [[GemObject alloc] initWithLuaState:luaState];
+        luaData = [[GemObjectWrapper alloc] initWithLuaState:luaState];
         scenes = [[NSMutableDictionary alloc] initWithCapacity:1];
         loadingScenes = [[NSMutableSet alloc] initWithCapacity:1];
         sceneQueue = [NSMutableArray arrayWithCapacity:1];
@@ -71,7 +71,7 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     }
     
     // The scene should now be on the top of the stack
-    __unsafe_unretained GemObject **lscene = (__unsafe_unretained GemObject **)luaL_checkudata(L, -1, GEMINI_SCENE_LUA_KEY);
+    __unsafe_unretained GemObjectWrapper **lscene = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, -1, GEMINI_SCENE_LUA_KEY);
     
     SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
     SKScene *scene = [[GemSKScene alloc] initWithSize:skView.bounds.size];

@@ -18,6 +18,22 @@
 #import "GemTexture.h"
 #import "GemSpriteAnimationAction.h"
 
+#define VALUES_PER_POINT 2
+
+// create a Lua action form a GemAction and push it on the stack
+// also saves the wrapper object to prevent its GC
+void makeAction(lua_State *L, GemAction *gemAction) {
+    
+    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
+    luaData.delegate = gemAction;
+    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
+    [wrapper setObject:luaData forKey:@"LUA_DATA"];
+    gemAction.userData = wrapper;
+    
+    // keep the action wrapper from being GC'ed
+    [[Gemini shared].geminiObjects addObject:gemAction];
+}
+
 static int animateSpriteWithTextures(lua_State *L){
     GemLog(@"Creating new sprite animation action");
     
@@ -42,14 +58,8 @@ static int animateSpriteWithTextures(lua_State *L){
     
     GemSpriteAnimationAction *gemAction = [[GemSpriteAnimationAction alloc] initWithTextures:frames timePerFrame:timerPerFrame];
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
-    luaData.delegate = gemAction;
-    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-    [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    gemAction.userData = wrapper;
     
-    // keep the action wrapper from being GC'ed
-    [[Gemini shared].geminiObjects addObject:gemAction];
+    makeAction(L, gemAction);
     
     return 1;
 }
@@ -74,14 +84,8 @@ static int repeatAction(lua_State *L){
     
     GemRepeatAction *repAction = [[GemRepeatAction alloc] initWithAction:gemAction count:repeatCount];
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
-    luaData.delegate = repAction;
-    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-    [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    repAction.userData = wrapper;
     
-    // keep the action wrapper from being GC'ed
-    [[Gemini shared].geminiObjects addObject:repAction];
+    makeAction(L, repAction);
     
     return 1;
 
@@ -96,15 +100,31 @@ static int newRotateAction(lua_State *L){
     SKAction *action = [SKAction rotateByAngle:angle duration:duration];
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
+    makeAction(L, gemAction);
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
-    luaData.delegate = gemAction;
-    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-    [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    gemAction.userData = wrapper;
+    return 1;
+}
+
+static int newFollowPathWithDuration(lua_State *L){
+    GemLog(@"Creating new follow path with duration action");
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    NSTimeInterval duration = 2.0;
     
-    // keep the action wrapper from being GC'ed
-    [[Gemini shared].geminiObjects addObject:gemAction];
+    int numArgs = lua_gettop(L);
+    
+    int numPoints = (numArgs - 1) / VALUES_PER_POINT;
+    
+    // should be 1 point to start plus three points per move (destination + 2 control points)
+    
+    int index = 1;
+    for (int i=0; i<numPoints; i++) {
+        
+    }
+    
+    SKAction *action = [SKAction followPath:path.CGPath duration:duration];
+    GemAction *gemAction = [[GemAction alloc] init];
+    gemAction.skAction = action;
+    makeAction(L, gemAction);
     
     return 1;
 }
@@ -119,14 +139,16 @@ static int newMoveToXAction(lua_State *L){
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
     
-    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
+    /*GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
     luaData.delegate = gemAction;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
     gemAction.userData = wrapper;
     
     // keep the action wrapper from being GC'ed
-    [[Gemini shared].geminiObjects addObject:gemAction];
+    [[Gemini shared].geminiObjects addObject:gemAction];*/
+    
+    makeAction(L, gemAction);
     
     return 1;
 }

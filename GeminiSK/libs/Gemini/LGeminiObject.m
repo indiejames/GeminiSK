@@ -50,6 +50,20 @@
     
 }*/
 
+// create a Lua action form a GemAction and push it on the stack
+// also saves the wrapper object to prevent its GC
+/*void wrapObject(lua_State *L, NSObject *gemAction) {
+    
+    GemObject *luaData = [[GemObject alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
+    luaData.delegate = gemAction;
+    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
+    [wrapper setObject:luaData forKey:@"LUA_DATA"];
+    gemAction.userData = wrapper;
+    
+    // keep the action wrapper from being GC'ed
+    [[Gemini shared].geminiObjects addObject:gemAction];
+}*/
+
 int genericGC(lua_State *L){
     GemLog(@"Gemini Lua Object released");
     return 0;

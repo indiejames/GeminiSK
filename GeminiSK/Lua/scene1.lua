@@ -150,9 +150,10 @@ function scene:didMoveToView(  )
   --panNode:runAction(pan)
   
   rep = action.repeatAction(animate,-1)
+  rotation = action.rotate(7.0, 3)
 
   runner:runAction(rep)
-
+  runner:runAction(rotation)
   
 
 end

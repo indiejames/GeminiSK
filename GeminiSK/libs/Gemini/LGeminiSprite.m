@@ -28,14 +28,8 @@ static int newSprite(lua_State *L){
     GemTexture *texture = (*go).delegate;
     
     GemSKSpriteNode *sprite = [[GemSKSpriteNode alloc] initWithGemTexture:texture];
-    //SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:firstTextureName]];
-    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_SPRITE_LUA_KEY];
-    luaData.delegate = sprite;
-    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-    [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    sprite.userData = wrapper;
-    
-    [[Gemini shared].geminiObjects addObject:sprite];
+       
+    createObjectAndSaveRef(L, GEMINI_SPRITE_LUA_KEY, sprite);
     
     return 1;
 }

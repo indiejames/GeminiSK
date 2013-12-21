@@ -10,18 +10,19 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 #import "GemObjectWrapper.h"
+#import "GemSKScene.h"
 
 @interface GemDirector : NSObject {
     NSMutableDictionary *scenes;
     NSMutableArray *allScenes;
-    NSString *currentScene;  // the current scene used for rendering, etc.
+    GemSKScene *currentScene;  // the current scene used for rendering, etc.
     NSMutableSet *loadingScenes;
     GemObjectWrapper *luaData;
 }
 
 -(void)loadScene:(NSString *)sceneName;
 -(void)gotoScene:(NSString *)scene withOptions:(NSDictionary *)options;
--(void)setCurrentScene:(NSString *)scene;
+-(GemSKScene *)currentScene;
 -(BOOL)doPendingSceneTransition;
 
 -(id)initWithLuaState:(lua_State *)luaState;

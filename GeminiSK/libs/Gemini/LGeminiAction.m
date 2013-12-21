@@ -17,6 +17,7 @@
 #import "GemRepeatAction.h"
 #import "GemTexture.h"
 #import "GemSpriteAnimationAction.h"
+#import "GemBezierPath.h"
 
 #define VALUES_PER_POINT 2
 
@@ -58,8 +59,7 @@ static int animateSpriteWithTextures(lua_State *L){
     
     GemSpriteAnimationAction *gemAction = [[GemSpriteAnimationAction alloc] initWithTextures:frames timePerFrame:timerPerFrame];
     
-    
-    makeAction(L, gemAction);
+    createObjectAndSaveRef(L, GEMINI_ACTION_LUA_KEY, gemAction);
     
     return 1;
 }
@@ -85,7 +85,7 @@ static int repeatAction(lua_State *L){
     GemRepeatAction *repAction = [[GemRepeatAction alloc] initWithAction:gemAction count:repeatCount];
     
     
-    makeAction(L, repAction);
+    createObjectAndSaveRef(L, GEMINI_ACTION_LUA_KEY, repAction);
     
     return 1;
 
@@ -100,31 +100,38 @@ static int newRotateAction(lua_State *L){
     SKAction *action = [SKAction rotateByAngle:angle duration:duration];
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
-    makeAction(L, gemAction);
+    
+    createObjectAndSaveRef(L, GEMINI_ACTION_LUA_KEY, gemAction);
     
     return 1;
 }
 
 static int newFollowPathWithDuration(lua_State *L){
     GemLog(@"Creating new follow path with duration action");
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    NSTimeInterval duration = 2.0;
     
-    int numArgs = lua_gettop(L);
+    int numargs = lua_gettop(L);
     
-    int numPoints = (numArgs - 1) / VALUES_PER_POINT;
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_PATH_LUA_KEY);
+    GemBezierPath *path = (GemBezierPath *)(*go).delegate;
     
-    // should be 1 point to start plus three points per move (destination + 2 control points)
+    double duration = luaL_checknumber(L, 2);
     
-    int index = 1;
-    for (int i=0; i<numPoints; i++) {
-        
+    
+    BOOL asOffset = YES;
+    BOOL orientToPath = YES;
+    
+    if (numargs > 2) {
+        asOffset = lua_toboolean(L, 3);
     }
     
-    SKAction *action = [SKAction followPath:path.CGPath duration:duration];
+    if (numargs > 3) {
+        orientToPath = lua_toboolean(L, 4);
+    }
+  
+    SKAction *action = [SKAction followPath:path.path.CGPath asOffset:asOffset orientToPath:orientToPath duration:duration];
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
-    makeAction(L, gemAction);
+    createObjectAndSaveRef(L, GEMINI_ACTION_LUA_KEY, gemAction);
     
     return 1;
 }
@@ -138,17 +145,8 @@ static int newMoveToXAction(lua_State *L){
     SKAction *action = [SKAction moveToX:x duration:duration];
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
-    
-    /*GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_ACTION_LUA_KEY];
-    luaData.delegate = gemAction;
-    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-    [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    gemAction.userData = wrapper;
-    
-    // keep the action wrapper from being GC'ed
-    [[Gemini shared].geminiObjects addObject:gemAction];*/
-    
-    makeAction(L, gemAction);
+   
+    createObjectAndSaveRef(L, GEMINI_ACTION_LUA_KEY, gemAction);
     
     return 1;
 }
@@ -170,6 +168,7 @@ static int deleteAction(lua_State *L){
 static const struct luaL_Reg actionLib_f [] = {
     {"rotate", newRotateAction},
     {"moveToX", newMoveToXAction},
+    {"followPath", newFollowPathWithDuration},
     {"animate", animateSpriteWithTextures},
     {"repeatAction", repeatAction},
     {NULL, NULL}

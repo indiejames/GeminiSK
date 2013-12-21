@@ -135,6 +135,7 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
             
             SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
             [skView presentScene:scene];
+            currentScene = scene;
             transitioned = YES;
         } else {
             GemLog(@"Scene is not ready");
@@ -170,6 +171,10 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
             [NSThread sleepForTimeInterval:0.01];
         };
     }
+}
+
+-(GemSKScene *)currentScene {
+    return currentScene;
 }
 
 // choose the best file based on name and device type

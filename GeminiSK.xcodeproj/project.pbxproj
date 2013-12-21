@@ -193,6 +193,8 @@
 		7698E3F21803A535007B7912 /* GemSKSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F01803A535007B7912 /* GemSKSpriteNode.m */; };
 		7698E3F5180B9F84007B7912 /* GemSpriteAnimationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */; };
 		7698E3F6180B9F84007B7912 /* GemSpriteAnimationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */; };
+		769BD04818653C8E003850EE /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
+		769BD04918653C8E003850EE /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
 		76C67A0D17BDA1C200B73696 /* LGeminiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A0C17BDA1C200B73696 /* LGeminiAction.m */; };
 		76C67A0E17BDA1C200B73696 /* LGeminiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A0C17BDA1C200B73696 /* LGeminiAction.m */; };
 		76C67A1117BDAF4600B73696 /* GemAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1017BDAF4600B73696 /* GemAction.m */; };
@@ -223,6 +225,7 @@
 		76D081CF17B329840033E3DF /* LGeminiTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081CD17B329840033E3DF /* LGeminiTimer.m */; };
 		76DF479817D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 		76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
+		76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D71865481B0061480D /* big_whoosh04.wav */; };
 		76FE7861181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 		76FE7862181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 /* End PBXBuildFile section */
@@ -425,6 +428,8 @@
 		7698E3F01803A535007B7912 /* GemSKSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSKSpriteNode.m; sourceTree = "<group>"; };
 		7698E3F3180B9F84007B7912 /* GemSpriteAnimationAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemSpriteAnimationAction.h; sourceTree = "<group>"; };
 		7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSpriteAnimationAction.m; sourceTree = "<group>"; };
+		769BD04618653C8E003850EE /* LGeminiSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiSound.h; sourceTree = "<group>"; };
+		769BD04718653C8E003850EE /* LGeminiSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiSound.m; sourceTree = "<group>"; };
 		76C67A0B17BDA1C200B73696 /* LGeminiAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiAction.h; sourceTree = "<group>"; };
 		76C67A0C17BDA1C200B73696 /* LGeminiAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiAction.m; sourceTree = "<group>"; };
 		76C67A0F17BDAF4600B73696 /* GemAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemAction.h; sourceTree = "<group>"; };
@@ -451,6 +456,7 @@
 		76D081CD17B329840033E3DF /* LGeminiTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiTimer.m; sourceTree = "<group>"; };
 		76DF479717D6C85700664D81 /* LGeminiPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPhysics.m; sourceTree = "<group>"; };
 		76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPhysics.h; sourceTree = "<group>"; };
+		76E6E9D71865481B0061480D /* big_whoosh04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = big_whoosh04.wav; sourceTree = "<group>"; };
 		76FE785F181B6A7800BF89FE /* GemRepeatAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemRepeatAction.h; sourceTree = "<group>"; };
 		76FE7860181B6A7800BF89FE /* GemRepeatAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemRepeatAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -520,6 +526,7 @@
 		7688707C17B08BBA0002430C /* GeminiSK */ = {
 			isa = PBXGroup;
 			children = (
+				76E6E9D61865481A0061480D /* Sounds */,
 				76C67A1D17C2F53B00B73696 /* Artwork */,
 				76D081B017B1D2730033E3DF /* Lua */,
 				7688708517B08BBA0002430C /* AppDelegate.h */,
@@ -788,11 +795,21 @@
 				76D081BD17B1E3590033E3DF /* GemEventManager.m */,
 				7688730617B092E30002430C /* GemFileNameResolver.h */,
 				7688730717B092E30002430C /* GemFileNameResolver.m */,
+				7698E3E51802497E007B7912 /* GemLoadListener.h */,
+				7698E3E618038781007B7912 /* GemLoader.h */,
 				7688731217B09C2D0002430C /* GemObjectWrapper.h */,
 				7688731317B09C2D0002430C /* GemObjectWrapper.m */,
+				7605105417DC3BA600089A6E /* GemPhysicsBody.h */,
+				7605105517DC3BA600089A6E /* GemPhysicsBody.m */,
 				760EC4BE17B465870079E84E /* GemSKScene.h */,
 				760EC4BF17B465870079E84E /* GemSKScene.m */,
 				760EC4C217B466150079E84E /* GemSKSceneDelegate.h */,
+				7698E3EF1803A535007B7912 /* GemSKSpriteNode.h */,
+				7698E3F01803A535007B7912 /* GemSKSpriteNode.m */,
+				7698E3DD17FD04CA007B7912 /* GemTexture.h */,
+				7698E3DE17FD04CA007B7912 /* GemTexture.m */,
+				7698E3E118024871007B7912 /* GemTextureAtlas.h */,
+				7698E3E218024871007B7912 /* GemTextureAtlas.m */,
 				76D081B617B1E3590033E3DF /* GemTimer.h */,
 				76D081B717B1E3590033E3DF /* GemTimer.mm */,
 				76D081B817B1E3590033E3DF /* GemTimerManager.h */,
@@ -811,6 +828,8 @@
 				760EC4D317B7457F0079E84E /* LGeminiObject.m */,
 				76456F6E1836E9F500F91FD2 /* LGeminiPath.h */,
 				76456F6F1836E9F500F91FD2 /* LGeminiPath.m */,
+				76DF479717D6C85700664D81 /* LGeminiPhysics.m */,
+				76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */,
 				76C67A1317BF381100B73696 /* LGeminiShape.h */,
 				76C67A1417BF381100B73696 /* LGeminiShape.m */,
 				76C67A4017C2F78B00B73696 /* LGeminiSprite.h */,
@@ -821,18 +840,8 @@
 				76D081CD17B329840033E3DF /* LGeminiTimer.m */,
 				760EC4DA17B7E4730079E84E /* LGeminiUI.h */,
 				760EC4DB17B7E4730079E84E /* LGeminiUI.m */,
-				76DF479717D6C85700664D81 /* LGeminiPhysics.m */,
-				76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */,
-				7605105417DC3BA600089A6E /* GemPhysicsBody.h */,
-				7605105517DC3BA600089A6E /* GemPhysicsBody.m */,
-				7698E3DD17FD04CA007B7912 /* GemTexture.h */,
-				7698E3DE17FD04CA007B7912 /* GemTexture.m */,
-				7698E3E118024871007B7912 /* GemTextureAtlas.h */,
-				7698E3E218024871007B7912 /* GemTextureAtlas.m */,
-				7698E3E51802497E007B7912 /* GemLoadListener.h */,
-				7698E3E618038781007B7912 /* GemLoader.h */,
-				7698E3EF1803A535007B7912 /* GemSKSpriteNode.h */,
-				7698E3F01803A535007B7912 /* GemSKSpriteNode.m */,
+				769BD04618653C8E003850EE /* LGeminiSound.h */,
+				769BD04718653C8E003850EE /* LGeminiSound.m */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -854,6 +863,14 @@
 				76C67A1717C11B6F00B73696 /* scene2.lua */,
 			);
 			path = Lua;
+			sourceTree = "<group>";
+		};
+		76E6E9D61865481A0061480D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				76E6E9D71865481B0061480D /* big_whoosh04.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -904,7 +921,7 @@
 				ORGANIZATIONNAME = "James Norton";
 				TargetAttributes = {
 					7688709B17B08BBA0002430C = {
-						TestTargetID = 7688707017B08BBA0002430C /* GeminiSK */;
+						TestTargetID = 7688707017B08BBA0002430C;
 					};
 				};
 			};
@@ -941,6 +958,7 @@
 				7688728517B08D3D0002430C /* LICENSE_ObjectAL.txt in Resources */,
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
+				76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */,
 				76C67A2E17C2F5D000B73696 /* marios.atlas in Resources */,
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688727F17B08D3D0002430C /* LICENSE_Gemini.txt in Resources */,
@@ -1007,6 +1025,7 @@
 				76D081C217B1E3590033E3DF /* GemTimerManager.m in Sources */,
 				768872AF17B08D3D0002430C /* lobject.c in Sources */,
 				768872CF17B08D3D0002430C /* OALAudioActions.m in Sources */,
+				769BD04818653C8E003850EE /* LGeminiSound.m in Sources */,
 				76D081C617B1E3590033E3DF /* GemEventManager.m in Sources */,
 				768872FB17B08D3D0002430C /* OALAudioFile.m in Sources */,
 				7688728917B08D3D0002430C /* lapi.c in Sources */,
@@ -1122,6 +1141,7 @@
 				76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */,
 				76D081C717B1E3590033E3DF /* GemEventManager.m in Sources */,
 				768872D817B08D3D0002430C /* OALAudioTrackNotifications.m in Sources */,
+				769BD04918653C8E003850EE /* LGeminiSound.m in Sources */,
 				768872DA17B08D3D0002430C /* OALAudioTracks.m in Sources */,
 				768872BA17B08D3D0002430C /* lstring.c in Sources */,
 				768872C417B08D3D0002430C /* lundump.c in Sources */,

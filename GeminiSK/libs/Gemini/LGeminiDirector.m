@@ -22,18 +22,9 @@ static int newScene(lua_State *L){
     SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
     
     GemSKScene *scene = [[GemSKScene alloc] initWithSize:skView.bounds.size];
-    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_SCENE_LUA_KEY];
-    luaData.delegate = scene;
-    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-    [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    scene.userData = wrapper;
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    [[Gemini shared].geminiObjects addObject:scene];
-    
-    // Present the scene.
-    //[skView presentScene:scene];
-    
+    createObjectAndSaveRef(L, GEMINI_SCENE_LUA_KEY, scene);
     
     return 1;
 }
@@ -53,7 +44,6 @@ static int directorLoadScene(lua_State *L){
     const char *sceneName = luaL_checkstring(L, 1);
     NSString *sceneNameStr = [NSString stringWithUTF8String:sceneName];
     NSLog(@"Loading scene");
-  //  [((GemGLKViewController *)[Gemini shared].viewController).director loadScene:sceneNameStr];
     [[Gemini shared].director loadScene:sceneNameStr];
     
     

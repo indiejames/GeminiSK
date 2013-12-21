@@ -26,11 +26,8 @@ static int newLabel(lua_State *L){
     const char *fontStr = luaL_checkstring(L, 1);
      
     SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:[NSString stringWithFormat:@"%s", fontStr]];
-    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:GEMINI_LABEL_LUA_KEY];
-    luaData.delegate = label;
-    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
-    [wrapper setObject:luaData forKey:@"LUA_DATA"];
-    label.userData = wrapper;
+    
+    createObjectAndSaveRef(L, GEMINI_LABEL_LUA_KEY, label);
     
     return 1;
 }

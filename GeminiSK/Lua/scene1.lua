@@ -11,8 +11,10 @@ local timer = require("timer")
 local shape = require("shape")
 local node = require("node")
 local sprite = require("sprite")
+local sound = require("sound")
 local physics = require("physics")
 local texture = require("texture")
+local path = require("path")
 local scene = director.newScene()
 scene:setSize(1280,960)
 
@@ -28,6 +30,8 @@ local animate
 local rep
 local pbody
 local sceneBodby
+local myPath
+local mySound
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -47,12 +51,12 @@ function scene:createScene( event )
   
   
   texture_atlas = texture.newTextureAtlas("runner")
- texture1 = texture.newTexture(texture_atlas, "runner.0001.png")
+  texture1 = texture.newTexture(texture_atlas, "runner.0001.png")
   
   --runner = sprite.newSprite("runner")
- runner = sprite.newSprite(texture1)
+  runner = sprite.newSprite(texture1)
   zoomNode:addChild(runner)
-  runner:setPosition(150, 400)
+  runner:setPosition(0, 0)
   
   --pbody = physics.newBodyFromCircle(30)
   --runner.physicsBody = pbody
@@ -81,19 +85,8 @@ for i, file in ipairs(frames) do
 end
   
   animate = action.animate(textures[1], textures[2], textures[3], textures[4], textures[5], textures[6], textures[7], textures[8], textures[9], textures[10], 0.1)
-  
-  --animate = action.animate("runner.0001.png",
-  --"runner.0002.png",
- -- "runner.0003.png",
-  --"runner.0004.png",
-  --"runner.0005.png",
-  --"runner.0006.png",
-  --"runner.0007.png",
-  --"runner.0008.png",
-  --"runner.0009.png",
-  --"runner.0010.png",
-  --0.1)
 
+ myPath = path.newBezierPath(0, 0, 200, 200, 0, 200, 200, 0)
   
   circle = shape.newCircle(50,200,200)
   circle.lineWidth = 1
@@ -124,7 +117,7 @@ end
   -- panNode:addChild(circle)
   -- panNode:addChild(rectangle)
 
-
+    mySound = sound.newSound("big_whoosh04.wav")
 
 end
 
@@ -151,10 +144,12 @@ function scene:didMoveToView(  )
   
   rep = action.repeatAction(animate,-1)
   rotation = action.rotate(7.0, 3)
+ followPath = action.followPath(myPath, 3, true, false)
 
   runner:runAction(rep)
-  runner:runAction(rotation)
-  
+  --runner:runAction(rotation)
+  runner:runAction(followPath)
+  sound.play(mySound)
 
 end
 

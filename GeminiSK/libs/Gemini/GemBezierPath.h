@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define GEMINI_PATH_LUA_KEY "GeminiLib.GEMINI_PATH_LUA_KEY"
+
+
 @interface GemBezierPath : NSObject
 
 @property (readonly) UIBezierPath *path;
+@property NSMutableDictionary *userData;
 
 -(id)initWithNum:(int) num Points:(CGPoint *)points;
 

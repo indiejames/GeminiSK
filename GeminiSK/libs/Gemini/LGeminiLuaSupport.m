@@ -7,6 +7,7 @@
 //
 
 #import "LGeminiLuaSupport.h"
+#import "Gemini.h"
 
 NSLock *globalLuaLock;
 
@@ -116,6 +117,30 @@ NSDictionary *tableToDictionary(lua_State *L, int stackIndex){
     return rval;
 
 }
+
+// prevents objects from being garbage collected when Lua is still using them
+void saveObjectReference(id object){
+    [[Gemini shared].geminiObjects addObject:object];
+}
+
+
+// wraps objects in a generic type that can be used with Lua
+GemObjectWrapper *createObjectWrapper(lua_State *L, const char *objectType, id object) {
+    GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:objectType];
+    luaData.delegate = object;
+    NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
+    [wrapper setObject:luaData forKey:@"LUA_DATA"];
+    [object setUserData:wrapper];
+    return luaData;
+}
+
+
+// convenience method to help with creating objects used by Lua code
+void createObjectAndSaveRef(lua_State *L, const char *objectType, id object){
+    createObjectWrapper(L, objectType, object);
+    saveObjectReference(object);
+}
+
 
 
 // mutex for Lua

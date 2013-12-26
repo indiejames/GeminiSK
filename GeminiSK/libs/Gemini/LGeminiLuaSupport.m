@@ -141,6 +141,42 @@ void createObjectAndSaveRef(lua_State *L, const char *objectType, id object){
     saveObjectReference(object);
 }
 
+// convenience method to read a table off the stack as an NSDictionary
+NSDictionary *getTableFromStack(lua_State *L, int index){
+    NSMutableDictionary *rval = [NSMutableDictionary dictionaryWithCapacity:1];
+    lua_pushnil(L);  // first key
+    while (lua_next(L, index) != 0) {
+        /* uses 'key' (at index -2) and 'value' (at index -1) */
+        printf("%s - %s\n",
+               lua_typename(L, lua_type(L, -2)),
+               lua_typename(L, lua_type(L, -1)));
+        const char *ckey = lua_tostring(L, -2);
+        NSString *key = [NSString stringWithFormat:@"%s",ckey];
+        if (lua_istable(L, -1)) {
+            NSDictionary *val = getTableFromStack(L, lua_gettop(L));
+            [rval setValue:val forKey:key];
+        } else if (lua_isboolean(L, -1)) {
+            bool bval = luaL_checknumber(L, -1);
+            NSNumber *val = [NSNumber numberWithBool:bval];
+            [rval setValue:val forKey:key];
+        } else if (lua_isnumber(L, -1)){
+            double dval = luaL_checknumber(L, -1);
+            NSNumber *val = [NSNumber numberWithDouble:dval];
+            [rval setValue:val forKey:key];
+        } else {
+            // string
+            const char* cval = lua_tostring(L, -1);
+            [rval setValue:[NSString stringWithFormat:@"%s",cval] forKey:key];
+        }
+        
+        /* removes 'value'; keeps 'key' for next iteration */
+        lua_pop(L, 1);
+    }
+    
+    
+    return rval;
+}
+
 
 
 // mutex for Lua

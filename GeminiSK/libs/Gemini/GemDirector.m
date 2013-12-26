@@ -125,16 +125,58 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     
 }
 
+SKTransition *transitionFromParams(NSDictionary *params){
+    NSString *transitionType = [params objectForKey:TRANSITION_TYPE_KEY];
+    
+    SKTransition *trans;
+    
+    double duration = 1.5;
+    if ([params objectForKey:DURATION_KEY]) {
+        NSNumber *dnum = [params objectForKey:DURATION_KEY];
+        duration = [dnum doubleValue];
+    }
+    
+    if ([transitionType isEqualToString:CI_FILTER_TYPE]) {
+        NSString *ciFilterName = [params objectForKey:CI_FILTER_NAME];
+        CIFilter *filter = [CIFilter filterWithName:ciFilterName];
+        NSDictionary *filterParams = [params objectForKey:FILTER_PARAMS_KEY];
+        if (filterParams != nil) {
+            for(id key in filterParams){
+                [filter setValue:[filterParams objectForKey:key] forKey:key];
+            }
+        }
+        
+        trans = [SKTransition transitionWithCIFilter:filter duration:duration];
+    } else {
+        // default
+        trans = [SKTransition fadeWithDuration:duration];
+    }
+    
+    
+    return trans;
+}
+
 -(BOOL)doPendingSceneTransition {
     BOOL transitioned = NO;
     if ([sceneQueue count] > 0) {
-        GemSKScene *scene = [sceneQueue objectAtIndex:0];
+        NSArray *queObj = [sceneQueue objectAtIndex:0];
+        GemSKScene *sceneName = [queObj objectAtIndex:0];
+        GemSKScene *scene = (GemSKScene *)[scenes objectForKey:sceneName];
+        
         if ([scene isReady]) {
             GemLog(@"Transitioning to scene %@", scene.name);
-            [sceneQueue removeObject:scene];
+            NSDictionary *options = [queObj objectAtIndex:1];
+            SKTransition *trans = transitionFromParams(options);
+            
+            [sceneQueue removeObject:queObj];
             
             SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
-            [skView presentScene:scene];
+            
+            //[skView presentScene:scene];
+            if (trans == nil) {
+                GemLog(@"Transition is nil");
+            }
+            [skView presentScene:scene transition:trans];
             currentScene = scene;
             transitioned = YES;
         } else {
@@ -153,17 +195,13 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     [self loadScene:sceneName];
     
     //SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
+    NSArray *queuObj = [NSArray arrayWithObjects:sceneName, options, nil];
     
-   /* while([scenes objectForKey:sceneName] == nil){
-        [NSThread sleepForTimeInterval:0.1];
-    }*/
-    
-    GemSKScene *scene = (GemSKScene *)[scenes objectForKey:sceneName];
-    /*[skView presentScene:skScene];*/
+    //GemSKScene *scene = (GemSKScene *)[scenes objectForKey:sceneName];
     
     GemLog(@"Adding scene %@ to scene queue", sceneName);
     
-    [sceneQueue addObject:scene];
+    [sceneQueue addObject:queuObj];
     
     if ([[options objectForKey:@"synchronous"] isEqualToString:@"true"]) {
         // try to load it immediately

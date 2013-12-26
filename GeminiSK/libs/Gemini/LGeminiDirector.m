@@ -55,23 +55,12 @@ static int directorGotoScene(lua_State *L){
     const char *sceneName = luaL_checkstring(L, 1);
     NSString *sceneNameStr = [NSString stringWithUTF8String:sceneName];
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
+    NSDictionary *params = [NSMutableDictionary dictionaryWithCapacity:1];
     
     if (lua_istable(L, 2)) {
-        lua_pushnil(L);  /* first key */
-        while (lua_next(L, 2) != 0) {
-            /* uses 'key' (at index -2) and 'value' (at index -1) */
-            printf("%s - %s\n",
-                   lua_typename(L, lua_type(L, -2)),
-                   lua_typename(L, lua_type(L, -1)));
-            const char *key = lua_tostring(L, -2);
-            const char *value = lua_tostring(L, -1);
-            [params setObject:[NSString stringWithUTF8String:value] forKey:[NSString stringWithUTF8String:key]];
-                        
-            /* removes 'value'; keeps 'key' for next iteration */
-            lua_pop(L, 1);
-        }
+        params = getTableFromStack(L, 2);
     }
+    
     
     [[Gemini shared].director gotoScene:sceneNameStr withOptions:params];
     

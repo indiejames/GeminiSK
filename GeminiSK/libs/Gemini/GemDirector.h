@@ -29,3 +29,9 @@
 
 
 @end
+
+#define TRANSITION_TYPE_KEY @"transition_type"
+#define CI_FILTER_TYPE @"CIFilter"
+#define CI_FILTER_NAME @"filter_name"
+#define FILTER_PARAMS_KEY @"filter_params"
+#define DURATION_KEY @"duration"

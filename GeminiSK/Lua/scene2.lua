@@ -59,7 +59,7 @@ function scene:didMoveToView(  )
  director.loadScene("scene1")
     
   function goToScene1()
-    director.gotoScene("scene1")
+    director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=1.5})
   end
 
   timer.performWithDelay(5, goToScene1)

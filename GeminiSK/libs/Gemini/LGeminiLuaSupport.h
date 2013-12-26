@@ -30,6 +30,7 @@ NSDictionary *tableToDictionary(lua_State *L, int stackIndex);
 GemObjectWrapper *createObjectWrapper(lua_State *L, const char *objectType, id object);
 void saveObjectReference(id object);
 void createObjectAndSaveRef(lua_State *L, const char *objectType, id object);
+NSDictionary *getTableFromStack(lua_State *L, int index);
 void lockLuaLock();
 void unlockLuaLock();
 

@@ -226,6 +226,8 @@
 		76DF479817D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 		76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 		76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D71865481B0061480D /* big_whoosh04.wav */; };
+		76E6E9DA186AA1740061480D /*  background.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D9186AA1740061480D /*  background.png */; };
+		76E6E9DC186AA6A50061480D /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E6E9DB186AA6A50061480D /* CoreImage.framework */; };
 		76FE7861181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 		76FE7862181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 /* End PBXBuildFile section */
@@ -457,6 +459,8 @@
 		76DF479717D6C85700664D81 /* LGeminiPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPhysics.m; sourceTree = "<group>"; };
 		76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPhysics.h; sourceTree = "<group>"; };
 		76E6E9D71865481B0061480D /* big_whoosh04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = big_whoosh04.wav; sourceTree = "<group>"; };
+		76E6E9D9186AA1740061480D /*  background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " background.png"; sourceTree = "<group>"; };
+		76E6E9DB186AA6A50061480D /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		76FE785F181B6A7800BF89FE /* GemRepeatAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemRepeatAction.h; sourceTree = "<group>"; };
 		76FE7860181B6A7800BF89FE /* GemRepeatAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemRepeatAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -466,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E6E9DC186AA6A50061480D /* CoreImage.framework in Frameworks */,
 				7688730417B08E0A0002430C /* libsqlite3.0.dylib in Frameworks */,
 				7688730217B08DE60002430C /* AudioToolbox.framework in Frameworks */,
 				7688730017B08DD70002430C /* OpenAL.framework in Frameworks */,
@@ -511,6 +516,7 @@
 		7688707317B08BBA0002430C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76E6E9DB186AA6A50061480D /* CoreImage.framework */,
 				7688730317B08E0A0002430C /* libsqlite3.0.dylib */,
 				7688730117B08DE60002430C /* AudioToolbox.framework */,
 				768872FF17B08DD70002430C /* OpenAL.framework */,
@@ -849,6 +855,7 @@
 		76C67A1D17C2F53B00B73696 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				76E6E9D9186AA1740061480D /*  background.png */,
 				76C67A4417C3084700B73696 /* runner.atlas */,
 				76C67A2517C2F5D000B73696 /* marios.atlas */,
 			);
@@ -957,6 +964,7 @@
 				760EC4D017B5D12D0079E84E /* scene1.lua in Resources */,
 				7688728517B08D3D0002430C /* LICENSE_ObjectAL.txt in Resources */,
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
+				76E6E9DA186AA1740061480D /*  background.png in Resources */,
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
 				76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */,
 				76C67A2E17C2F5D000B73696 /* marios.atlas in Resources */,

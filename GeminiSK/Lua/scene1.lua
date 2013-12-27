@@ -149,6 +149,11 @@ function scene:didMoveToView(  )
   runner:runAction(rep)
   --runner:runAction(rotation)
   runner:runAction(followPath)
+
+  function runner:touchesBegan ()
+    print ("Runner touched")
+  end
+
   sound.play(mySound)
 
 end
@@ -179,7 +184,7 @@ end
 
 -- Called when scenes actions have been updated
 function scene:didEvaluateActions()
-
+    
 end
 
 -- Called when the scene's size changes

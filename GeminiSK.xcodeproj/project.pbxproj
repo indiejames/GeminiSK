@@ -44,8 +44,8 @@
 		768870A017B08BBA0002430C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707817B08BBA0002430C /* UIKit.framework */; };
 		768870A817B08BBA0002430C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 768870A617B08BBA0002430C /* InfoPlist.strings */; };
 		768870AA17B08BBA0002430C /* GeminiSKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768870A917B08BBA0002430C /* GeminiSKTests.m */; };
-		7688727F17B08D3D0002430C /* LICENSE_Gemini.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715A17B08D3D0002430C /* LICENSE_Gemini.txt */; };
-		7688728017B08D3D0002430C /* LICENSE_Gemini.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715A17B08D3D0002430C /* LICENSE_Gemini.txt */; };
+		7688727F17B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715A17B08D3D0002430C /* LICENSE_GeminiSK.txt */; };
+		7688728017B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715A17B08D3D0002430C /* LICENSE_GeminiSK.txt */; };
 		7688728117B08D3D0002430C /* LICENSE_Lua.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715B17B08D3D0002430C /* LICENSE_Lua.txt */; };
 		7688728217B08D3D0002430C /* LICENSE_Lua.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715B17B08D3D0002430C /* LICENSE_Lua.txt */; };
 		7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715C17B08D3D0002430C /* LICENSE_LuaSQLite3.txt */; };
@@ -226,7 +226,7 @@
 		76DF479817D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 		76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 		76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D71865481B0061480D /* big_whoosh04.wav */; };
-		76E6E9DA186AA1740061480D /*  background.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D9186AA1740061480D /*  background.png */; };
+		76E6E9DA186AA1740061480D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D9186AA1740061480D /* background.png */; };
 		76E6E9DC186AA6A50061480D /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E6E9DB186AA6A50061480D /* CoreImage.framework */; };
 		76FE7861181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 		76FE7862181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
@@ -285,7 +285,7 @@
 		768870A517B08BBA0002430C /* GeminiSKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GeminiSKTests-Info.plist"; sourceTree = "<group>"; };
 		768870A717B08BBA0002430C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		768870A917B08BBA0002430C /* GeminiSKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeminiSKTests.m; sourceTree = "<group>"; };
-		7688715A17B08D3D0002430C /* LICENSE_Gemini.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_Gemini.txt; sourceTree = "<group>"; };
+		7688715A17B08D3D0002430C /* LICENSE_GeminiSK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_GeminiSK.txt; sourceTree = "<group>"; };
 		7688715B17B08D3D0002430C /* LICENSE_Lua.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_Lua.txt; sourceTree = "<group>"; };
 		7688715C17B08D3D0002430C /* LICENSE_LuaSQLite3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_LuaSQLite3.txt; sourceTree = "<group>"; };
 		7688715D17B08D3D0002430C /* LICENSE_ObjectAL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_ObjectAL.txt; sourceTree = "<group>"; };
@@ -459,7 +459,7 @@
 		76DF479717D6C85700664D81 /* LGeminiPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPhysics.m; sourceTree = "<group>"; };
 		76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPhysics.h; sourceTree = "<group>"; };
 		76E6E9D71865481B0061480D /* big_whoosh04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = big_whoosh04.wav; sourceTree = "<group>"; };
-		76E6E9D9186AA1740061480D /*  background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " background.png"; sourceTree = "<group>"; };
+		76E6E9D9186AA1740061480D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		76E6E9DB186AA6A50061480D /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		76FE785F181B6A7800BF89FE /* GemRepeatAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemRepeatAction.h; sourceTree = "<group>"; };
 		76FE7860181B6A7800BF89FE /* GemRepeatAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemRepeatAction.m; sourceTree = "<group>"; };
@@ -581,8 +581,8 @@
 		768870B417B08C9C0002430C /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				7688730517B092E30002430C /* Gemini */,
-				7688715A17B08D3D0002430C /* LICENSE_Gemini.txt */,
+				7688730517B092E30002430C /* GeminiSK */,
+				7688715A17B08D3D0002430C /* LICENSE_GeminiSK.txt */,
 				7688715B17B08D3D0002430C /* LICENSE_Lua.txt */,
 				7688715C17B08D3D0002430C /* LICENSE_LuaSQLite3.txt */,
 				7688715D17B08D3D0002430C /* LICENSE_ObjectAL.txt */,
@@ -780,7 +780,7 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		7688730517B092E30002430C /* Gemini */ = {
+		7688730517B092E30002430C /* GeminiSK */ = {
 			isa = PBXGroup;
 			children = (
 				7688730817B092E30002430C /* Gemini.h */,
@@ -849,13 +849,13 @@
 				769BD04618653C8E003850EE /* LGeminiSound.h */,
 				769BD04718653C8E003850EE /* LGeminiSound.m */,
 			);
-			path = Gemini;
+			path = GeminiSK;
 			sourceTree = "<group>";
 		};
 		76C67A1D17C2F53B00B73696 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
-				76E6E9D9186AA1740061480D /*  background.png */,
+				76E6E9D9186AA1740061480D /* background.png */,
 				76C67A4417C3084700B73696 /* runner.atlas */,
 				76C67A2517C2F5D000B73696 /* marios.atlas */,
 			);
@@ -964,12 +964,12 @@
 				760EC4D017B5D12D0079E84E /* scene1.lua in Resources */,
 				7688728517B08D3D0002430C /* LICENSE_ObjectAL.txt in Resources */,
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
-				76E6E9DA186AA1740061480D /*  background.png in Resources */,
+				76E6E9DA186AA1740061480D /* background.png in Resources */,
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
 				76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */,
 				76C67A2E17C2F5D000B73696 /* marios.atlas in Resources */,
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
-				7688727F17B08D3D0002430C /* LICENSE_Gemini.txt in Resources */,
+				7688727F17B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,
 				76C67A4517C3084700B73696 /* runner.atlas in Resources */,
 				7688728117B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
 				76C67A1817C11B6F00B73696 /* scene2.lua in Resources */,
@@ -990,7 +990,7 @@
 				7688728617B08D3D0002430C /* LICENSE_ObjectAL.txt in Resources */,
 				7688728817B08D3D0002430C /* LICENSE_QSUtils.txt in Resources */,
 				76C67A4617C3084700B73696 /* runner.atlas in Resources */,
-				7688728017B08D3D0002430C /* LICENSE_Gemini.txt in Resources */,
+				7688728017B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1262,6 +1262,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1299,6 +1301,8 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;

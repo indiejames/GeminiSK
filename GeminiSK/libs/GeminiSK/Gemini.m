@@ -8,8 +8,6 @@
 
 #import "Gemini.h"
 
-
-#import "ObjectAL.h"
 #import "GemEvent.h"
 #import "GemObjectWrapper.h"
 #import "GemDirector.h"

@@ -73,9 +73,20 @@
     
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    GemLog(@"Sprite touched");
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self callMethodOnSprite:@"touchesBegan"];
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self callMethodOnSprite:@"touchesEndend"];
+}
+
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self callMethodOnSprite:@"touchesCancelled"];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self callMethodOnSprite:@"touchesMoved"];
 }
 
 

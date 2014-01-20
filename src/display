@@ -1,0 +1,54 @@
+#!lua
+local display = {}
+
+--[[
+  	Function: display.newRect
+  	Creates a rectangle.
+  
+  	Parameters:
+		x - The x coordinate of the center of the rectangle
+		y - The y coordinate of the center of the rectangle
+		width - The width of the rectangle
+		height - The height of the rectangle
+
+  	Returns:
+		The created rectangle.
+  
+  	See Also:
+		<rectangle>
+]]
+function display.newRect( x, y, width, height )
+end
+
+--[[
+	Function: display.newCircle
+	Create a circle.
+	
+	Parameters:
+		x - The x coordinate of the center of the circle
+		y - The y coordinate of the center of the circle
+		radius - The radius of the circle
+
+	See Also:
+		<circle> 
+]]
+function display.newCircle( x1, y1, x2, y2 )
+end
+
+--[[
+	Function: display.newLine
+	Create a polyline.
+	
+	Parameters:
+		x1 - The x coordinate of the start of the line
+		y1 - The y coordinate of the start of the line
+		x2 - The x coordinage of the end of the line
+		y2 - The y coordinate of the end of the line
+
+	See Also:
+		<line> 
+]]
+function display.newLine( x1, y1, x2, y2 )
+end
+
+return display

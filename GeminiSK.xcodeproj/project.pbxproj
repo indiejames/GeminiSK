@@ -27,9 +27,11 @@
 		76456F6D1835B96800F91FD2 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
 		76456F701836E9F500F91FD2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
 		76456F711836E9F500F91FD2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
+		767B101E188E0A710054C2B0 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688730317B08E0A0002430C /* libsqlite3.0.dylib */; };
+		767B101F188E35680054C2B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707617B08BBA0002430C /* CoreGraphics.framework */; };
 		7688707517B08BBA0002430C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707417B08BBA0002430C /* Foundation.framework */; };
 		7688707717B08BBA0002430C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707617B08BBA0002430C /* CoreGraphics.framework */; };
-		7688707917B08BBA0002430C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707817B08BBA0002430C /* UIKit.framework */; };
+		7688707917B08BBA0002430C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707817B08BBA0002430C /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		7688707B17B08BBA0002430C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707A17B08BBA0002430C /* SpriteKit.framework */; };
 		7688708117B08BBA0002430C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7688707F17B08BBA0002430C /* InfoPlist.strings */; };
 		7688708317B08BBA0002430C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708217B08BBA0002430C /* main.m */; };
@@ -174,7 +176,7 @@
 		768872FE17B08D3D0002430C /* OALTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 768871DA17B08D3D0002430C /* OALTools.m */; };
 		7688730017B08DD70002430C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768872FF17B08DD70002430C /* OpenAL.framework */; };
 		7688730217B08DE60002430C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688730117B08DE60002430C /* AudioToolbox.framework */; };
-		7688730417B08E0A0002430C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688730317B08E0A0002430C /* libsqlite3.0.dylib */; };
+		7688730417B08E0A0002430C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688730317B08E0A0002430C /* libsqlite3.0.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
 		7688730A17B092E30002430C /* GemFileNameResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688730717B092E30002430C /* GemFileNameResolver.m */; };
 		7688730B17B092E30002430C /* GemFileNameResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688730717B092E30002430C /* GemFileNameResolver.m */; };
 		7688730C17B092E30002430C /* Gemini.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688730917B092E30002430C /* Gemini.m */; };
@@ -485,8 +487,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				767B101F188E35680054C2B0 /* CoreGraphics.framework in Frameworks */,
 				7688709E17B08BBA0002430C /* XCTest.framework in Frameworks */,
 				768870A017B08BBA0002430C /* UIKit.framework in Frameworks */,
+				767B101E188E0A710054C2B0 /* libsqlite3.0.dylib in Frameworks */,
 				7688709F17B08BBA0002430C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

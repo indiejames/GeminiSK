@@ -3,8 +3,7 @@ local director = {}
 
 --[[
   	Function: director.loadScene
-  	Loads a scene but doesn't display it yet.  The created scene will receive
-  	the createScene event.
+  	Loads a scene but doesn't display it yet.  The createScene method will be called on the scene.  Any textures created in this method call are loaded in the background.
   
   	Parameters:
 		file - The name of the file to load.

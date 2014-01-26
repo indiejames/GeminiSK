@@ -1,0 +1,44 @@
+#!lua
+
+--[[
+	Title: Non Display Types
+]]
+
+--[[
+	Type: Path
+	A mathematical description of a series of shapes or lines.  The elements of a
+	Path are constructed from a series of connected lines or Bezier curves.  Paths
+	are used to create shapes or to describe motion paths for <Node> objects.
+
+	Inherits from: <GeminiObject>
+]]
+
+--[[
+	Type: GeminiObject
+	The base object type for all objects in Gemini SK.
+
+]]
+
+--[[	
+	Method: GeminiObject:addEventListener(name, listener)
+	Add an event listener for the named type of event.
+
+	Parameters:
+		name - the name of the event type
+		listener - a function or table containing a function with the same name as the event that will be called when the object
+		receives the event.
+
+		The listener function should accecpt the <event> object as a parameter.  See the <Scene Template> file for examples.
+]]
+
+
+--[[	
+	Method: geminiObject:removeEventListener(name, listener)
+	Remove an event listener for the named type of event.
+
+	Parameters:
+		name - the name of the event type
+		listener - a function or table that is the event handler
+
+]]
+

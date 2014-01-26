@@ -1,0 +1,47 @@
+#!lua
+local action = {}
+
+--[[
+  	Function: action.rotate
+  	Creates an action to rotate a <Node>.
+  
+  	Parameters:
+		angle - The angle by which to rotate the target Node
+		duration - The duration of the action
+		
+  	Returns:
+		The created Action.
+  
+]]
+
+
+--[[
+	Function: action.followPath
+	Create an action that causes the target <Node> to move along a 
+	given <Path>.
+	
+	Parameters:
+		path - A <Path> object that the target <Node> will follow
+		duration - The duration of the action
+		asOffset - An optional boolean indicating whether or not the path is offset from the Node location (default false)
+		orientToPath - An optional boolean indicating whether or not the Node turns with the path (default false)
+
+]]
+
+
+--[[
+	Function: action.repeatAction
+	Create a polyline.
+	
+	Parameters:
+		x1 - The x coordinate of the start of the line
+		y1 - The y coordinate of the start of the line
+		x2 - The x coordinage of the end of the line
+		y2 - The y coordinate of the end of the line
+
+	See Also:
+		<line> 
+]]
+
+
+return action

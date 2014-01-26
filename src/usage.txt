@@ -1,4 +1,4 @@
 Title: Introduction
 
 
-Gemini SK is a framework that provides Lua bindings to the iOS Sprit Kit.
+Gemini SK is a framework that provides Lua bindings to the iOS Sprit Kit framework.  It allows developers to code entire Sprite Kit games in Lua.

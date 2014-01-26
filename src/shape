@@ -1,8 +1,8 @@
 #!lua
-local display = {}
+local shape = {}
 
 --[[
-  	Function: display.newRect
+  	Function: shape.newRect
   	Creates a rectangle.
   
   	Parameters:
@@ -17,11 +17,11 @@ local display = {}
   	See Also:
 		<rectangle>
 ]]
-function display.newRect( x, y, width, height )
+function shape.newRect( x, y, width, height )
 end
 
 --[[
-	Function: display.newCircle
+	Function: shape.newCircle
 	Create a circle.
 	
 	Parameters:
@@ -32,11 +32,11 @@ end
 	See Also:
 		<circle> 
 ]]
-function display.newCircle( x1, y1, x2, y2 )
+function shape.newCircle( x1, y1, x2, y2 )
 end
 
 --[[
-	Function: display.newLine
+	Function: shape.newLine
 	Create a polyline.
 	
 	Parameters:
@@ -48,7 +48,7 @@ end
 	See Also:
 		<line> 
 ]]
-function display.newLine( x1, y1, x2, y2 )
+function shape.newLine( x1, y1, x2, y2 )
 end
 
-return display
+return shape

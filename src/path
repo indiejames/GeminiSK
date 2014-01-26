@@ -1,0 +1,38 @@
+#!lua
+
+local path = {}
+
+--[[
+  	Function: node.newBezierPath(x0, y0, x1, y1, a0x, a0y, a1x, a1y [,...] )
+  	Creates a Bezier <Path> that can be used as the basis for shapes or
+  	actions that move nodes.
+  
+  	Parameters:
+		x0 - the x-coordinate of the first point on the path
+		y0 - the y-coordinate of the second point on the path, x1, y1, a0x, a0y
+		x1 - the x-coordinate of the second point on the path
+		y1 - the y-coordinate of the second point on the path
+		a0x - the x-coordinate of the first anchor point
+		a0y - the y-coordinate of the first anchor point
+		a1x - the x-coordinate of the second anchor point
+		a1y - the y-coordinate of the second anchor point
+
+		Expects 3N + 1 points (x,y).  1 start point plus N movements consisting
+		of destination plut two 2 control points.
+
+  	Returns:
+		The created Path.
+
+		Example:
+
+		(code)
+		-- Creates a curved path from point (0,0) to point (200, 200)
+		local myPath = path.newBezierPath(0, 0, 200, 200, 0, 200, 200, 0)
+		(end)
+  
+ 
+]]
+
+
+
+return path

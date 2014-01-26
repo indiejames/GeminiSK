@@ -1,10 +1,10 @@
 Format: 1.52
 
 
-Title: Gemini SDK
+Title: Gemini SK
 SubTitle: Lua API
 
-Footer: Copyright James Norton, 2013
+Footer: Copyright James Norton, 2014
 Timestamp: Generated on month day, year
 #   m     - One or two digit month.  January is "1"
 #   mm    - Always two digit month.  January is "01"
@@ -44,14 +44,18 @@ Group: Lua API  {
 
    Group: Libraries  {
 
-      File: director  (director)
-      File: display  (no auto-title, display)
+      File: node  (no auto-title, node)
+      File: action  (no auto-title, action)
+      File: director  (no auto-title, director)
+      File: path  (no auto-title, path)
+      File: shape  (no auto-title, shape)
       File: sprite  (no auto-title, sprite)
       }  # Group: Libraries
 
    Group: Types  {
 
       File: Display Types  (no auto-title, display_types)
+      File: Non Display Types  (no auto-title, non_display_types)
       File: Native UI Types  (no auto-title, ui_types)
       }  # Group: Types
 
@@ -60,10 +64,10 @@ Group: Lua API  {
       File: Scene Events  (no auto-title, scene_events)
       }  # Group: Events
 
-   Group: Sample Code  {
+   Group: Example Code  {
 
-      File: Scene Template  (no auto-title, scene_template.txt)
-      }  # Group: Sample Code
+      File: Scene Template  (scene_template.txt)
+      }  # Group: Example Code
 
    }  # Group: Lua API
 

@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "GemDirector.h"
 #import "GemSKScene.h"
+#import "LGeminiNode.h"
 
 
 static int newScene(lua_State *L){
@@ -71,7 +72,7 @@ static int deleteScene(lua_State *L){
     const char *sceneName = luaL_checkstring(L, 1);
     NSString *sceneNameStr = [NSString stringWithUTF8String:sceneName];
     NSLog(@"LGeminiDirector deleting scene %@", sceneNameStr);
-  //  [((GemGLKViewController *)[Gemini shared].viewController).director destroyScene:sceneNameStr];
+     [[Gemini shared].director destroyScene:sceneNameStr];
     
     return 0;
     

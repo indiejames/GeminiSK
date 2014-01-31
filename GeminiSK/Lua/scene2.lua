@@ -85,7 +85,7 @@ function scene:willMoveFromView(  )
     rotation:delete()
     rotation = nil
     
-    print("Exiting scene 1")
+    print("Exiting scene 2")
 
 end
 
@@ -117,7 +117,7 @@ end
 
 -- Called when scene is deallocated
 function scene:destroyScene(  )
-	
+	print "scene2 destroyed"
 
 	-----------------------------------------------------------------------------
 

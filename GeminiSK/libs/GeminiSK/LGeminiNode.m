@@ -12,6 +12,20 @@
 #import "Gemini.h"
 #import "GemAction.h"
 
+// Add a child node to the given node
+int addChild(lua_State *L) {
+    // stack: 1 - parent object, 2 - child object
+    __unsafe_unretained GemObjectWrapper **parent = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **child = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 2);
+    
+    SKNode *parentNode = (SKNode *)(*parent).delegate;
+    SKNode *childNode = (SKNode *)(*child).delegate;
+    
+    [parentNode addChild:childNode];
+    
+    return 0;
+}
+
 static int newNode(lua_State *L){
     
     GemLog(@"Creating new node");

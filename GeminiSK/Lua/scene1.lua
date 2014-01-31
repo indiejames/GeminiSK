@@ -109,13 +109,15 @@ end
   -- pan.timingMode = SKActionTimingEaseInEaseOut
 
   
-  -- rectangle = shape.newRectangle(200,100)
+  rectangle = shape.newRectangle(200,100)
   -- rectangle:setFillColor(0,0.5,0)
   -- rectangle.zRotation = 1.5
   -- rectangle:setPosition(0, 300)
   
   -- panNode:addChild(circle)
   -- panNode:addChild(rectangle)
+  
+  runner:addChild(rectangle)
 
     mySound = sound.newSound("big_whoosh04.wav")
 
@@ -133,6 +135,8 @@ function scene:didMoveToView(  )
   -----------------------------------------------------------------------------
   
   print("Entering scene 1")
+  
+director.destroyScene("scene2")
 
   function doRotation()
     label2:runAction(rotation)

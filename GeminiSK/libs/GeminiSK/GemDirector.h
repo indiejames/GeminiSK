@@ -14,7 +14,6 @@
 
 @interface GemDirector : NSObject {
     NSMutableDictionary *scenes;
-    NSMutableArray *allScenes;
     GemSKScene *currentScene;  // the current scene used for rendering, etc.
     NSMutableSet *loadingScenes;
     GemObjectWrapper *luaData;
@@ -24,6 +23,7 @@
 -(void)gotoScene:(NSString *)scene withOptions:(NSDictionary *)options;
 -(GemSKScene *)currentScene;
 -(BOOL)doPendingSceneTransition;
+-(void)destroyScene:(NSString *)sceneName;
 
 -(id)initWithLuaState:(lua_State *)luaState;
 

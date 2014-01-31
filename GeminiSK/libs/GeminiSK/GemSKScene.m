@@ -144,4 +144,13 @@
     return ready;
 }
 
+-(void)dealloc {
+    [self callMethodOnScene:@"destroyScene"];
+    // remove children from global reference to allow them to be deleted
+    for(int i=0; i< [self.children count]; i++) {
+        id obj = [self.children objectAtIndex:i];
+        [[Gemini shared].geminiObjects removeObject:obj];
+    }
+}
+
 @end

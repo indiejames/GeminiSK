@@ -20,7 +20,6 @@ extern "C" {
 void createMetatable(lua_State *L, const char *key, const struct luaL_Reg *funcs);
 int genericNodeIndex(lua_State *L, SKNode *obj);
 int genericNodeNewIndex(lua_State *L, SKNode *obj);
-int addChild(lua_State *L);
 int removeSelf(lua_State *L);
 int genericDelete(lua_State *L);
 int isObjectTouching(lua_State *L);

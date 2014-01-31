@@ -16,3 +16,4 @@ SKNode *getNode(lua_State *L); // get the node from the object on the top of the
 int setPosition(lua_State *L); // used everywhere
 int destroyNode(lua_State *L); //
 int runAction(lua_State *L);
+int addChild(lua_State *L);

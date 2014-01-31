@@ -21,7 +21,7 @@
 
 #define VALUES_PER_POINT 2
 
-// create a Lua action form a GemAction and push it on the stack
+// create a Lua action from a GemAction and push it on the stack
 // also saves the wrapper object to prevent its GC
 void makeAction(lua_State *L, GemAction *gemAction) {
     
@@ -106,7 +106,7 @@ static int newRotateAction(lua_State *L){
     return 1;
 }
 
-static int newFollowPathWithDuration(lua_State *L){
+static int newFollowPath(lua_State *L){
     GemLog(@"Creating new follow path with duration action");
     
     int numargs = lua_gettop(L);
@@ -168,7 +168,7 @@ static int deleteAction(lua_State *L){
 static const struct luaL_Reg actionLib_f [] = {
     {"rotate", newRotateAction},
     {"moveToX", newMoveToXAction},
-    {"followPath", newFollowPathWithDuration},
+    {"followPath", newFollowPath},
     {"animate", animateSpriteWithTextures},
     {"repeatAction", repeatAction},
     {NULL, NULL}

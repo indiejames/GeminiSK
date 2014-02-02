@@ -10,13 +10,17 @@ Title: Scene Template
 
 local director = require( "director" )
 local scene = director.newScene()
-scene:setSize(1280,960)
+scene:setSize(1280,960) -- set this to the desired scene size (not screen size)
 
 
 -- Called when the scene is first created.
--- Add scene elements here.
 function scene:createScene( event )
   
+  -----------------------------------------------------------------------------
+
+  --  add scene elements here
+
+  -----------------------------------------------------------------------------
 
 end
 
@@ -27,11 +31,10 @@ function scene:didMoveToView(  )
 
   -----------------------------------------------------------------------------
 
-  --  INSERT code here (e.g. start timers, play audio, start actinos, etc.)
+  --  start timers, play audio, start actions, etc.
 
   -----------------------------------------------------------------------------
-  
-  
+ 
 
 end
 
@@ -42,7 +45,7 @@ function scene:willMoveFromView(  )
 
   -----------------------------------------------------------------------------
 
-  --  INSERT code here (e.g. stop timers, remove listeners, unload sounds, etc.)
+  --  stop timers, remove listeners, unload sounds, etc.
 
   -----------------------------------------------------------------------------
   
@@ -66,13 +69,13 @@ end
 
 -- Called once every frame
 function scene:update(currentTime)
-    -----------------------------------------
+    ------------------------------------------
     
     --  It is not recommended to use this   --
-    --  method for animation - use physics --
-    --  and actions instead.                   --
+    --  method for animation - use physics  --
+    --  and actions instead.                --
     
-    -----------------------------------------
+    ------------------------------------------
  end
 
 -- Called when scene is deallocated
@@ -81,7 +84,7 @@ function scene:destroyScene(  )
 
   -----------------------------------------------------------------------------
 
-  --  INSERT code here (e.g. remove listeners, widgets, save state, etc.)
+  --  remove listeners, save state, etc.
 
   -----------------------------------------------------------------------------
 

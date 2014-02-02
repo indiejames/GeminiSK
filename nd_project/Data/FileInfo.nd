@@ -3,7 +3,7 @@ Lua
 /Users/jnorton/Documents/GeminiSKGHPages/src/path	1390703261	1	node.newBezierPath(x0, y0, x1, y1, a0x, a0y, a1x, a1y [,...] )
 /Users/jnorton/Documents/GeminiSKGHPages/src/usage.txt	1390682434	1	Introduction
 /Users/jnorton/Documents/GeminiSKGHPages/src/ui_types	1390252265	1	Native UI Types
-/Users/jnorton/Documents/GeminiSKGHPages/src/display_types	1390704905	1	Display Types
+/Users/jnorton/Documents/GeminiSKGHPages/src/display_types	1390704999	1	Display Types
 /Users/jnorton/Documents/GeminiSKGHPages/src/shape	1390440574	1	/Users/jnorton/Documents/GeminiSKGHPages/src/shape
 /Users/jnorton/Documents/GeminiSKGHPages/src/node	1390695842	1	function node.newBezierPath(x0, y0, x1, y1, a0x, a0y [,...] )
 /Users/jnorton/Documents/GeminiSKGHPages/src/sprite	1390252265	1	sprite library
@@ -11,4 +11,4 @@ Lua
 /Users/jnorton/Documents/GeminiSKGHPages/src/director	1390268555	1	/Users/jnorton/Documents/GeminiSKGHPages/src/director
 /Users/jnorton/Documents/GeminiSKGHPages/src/action	1390540711	1	/Users/jnorton/Documents/GeminiSKGHPages/src/action
 /Users/jnorton/Documents/GeminiSKGHPages/src/non_display_types	1390703754	1	Non Display Types
-/Users/jnorton/Documents/GeminiSKGHPages/src/scene_template.txt	1390532422	1	Scene Template
+/Users/jnorton/Documents/GeminiSKGHPages/src/scene_template.txt	1390789029	1	Scene Template

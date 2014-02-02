@@ -227,9 +227,9 @@
 		76D081CF17B329840033E3DF /* LGeminiTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081CD17B329840033E3DF /* LGeminiTimer.m */; };
 		76DF479817D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
 		76DF479917D6C85700664D81 /* LGeminiPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.m */; };
-		76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D71865481B0061480D /* big_whoosh04.wav */; };
 		76E6E9DA186AA1740061480D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D9186AA1740061480D /* background.png */; };
 		76E6E9DC186AA6A50061480D /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E6E9DB186AA6A50061480D /* CoreImage.framework */; };
+		76E7A468189C9AC8004D128D /* wipe1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76E7A467189C9AC8004D128D /* wipe1.wav */; };
 		76FE7861181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 		76FE7862181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 /* End PBXBuildFile section */
@@ -460,9 +460,9 @@
 		76D081CD17B329840033E3DF /* LGeminiTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiTimer.m; sourceTree = "<group>"; };
 		76DF479717D6C85700664D81 /* LGeminiPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPhysics.m; sourceTree = "<group>"; };
 		76DF479A17D6C87D00664D81 /* LGeminiPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPhysics.h; sourceTree = "<group>"; };
-		76E6E9D71865481B0061480D /* big_whoosh04.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = big_whoosh04.wav; sourceTree = "<group>"; };
 		76E6E9D9186AA1740061480D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		76E6E9DB186AA6A50061480D /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		76E7A467189C9AC8004D128D /* wipe1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wipe1.wav; sourceTree = "<group>"; };
 		76FE785F181B6A7800BF89FE /* GemRepeatAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemRepeatAction.h; sourceTree = "<group>"; };
 		76FE7860181B6A7800BF89FE /* GemRepeatAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemRepeatAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -879,7 +879,7 @@
 		76E6E9D61865481A0061480D /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				76E6E9D71865481B0061480D /* big_whoosh04.wav */,
+				76E7A467189C9AC8004D128D /* wipe1.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -970,7 +970,7 @@
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
 				76E6E9DA186AA1740061480D /* background.png in Resources */,
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
-				76E6E9D81865481B0061480D /* big_whoosh04.wav in Resources */,
+				76E7A468189C9AC8004D128D /* wipe1.wav in Resources */,
 				76C67A2E17C2F5D000B73696 /* marios.atlas in Resources */,
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688727F17B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,

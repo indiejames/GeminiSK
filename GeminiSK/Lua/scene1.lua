@@ -31,7 +31,6 @@ local rep
 local pbody
 local sceneBodby
 local myPath
-local mySound
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -119,8 +118,6 @@ end
   
   runner:addChild(rectangle)
 
-    mySound = sound.newSound("big_whoosh04.wav")
-
 end
 
 
@@ -158,7 +155,6 @@ director.destroyScene("scene2")
     print ("Runner touched")
   end
 
-  sound.play(mySound)
 
 end
 

@@ -11,6 +11,7 @@ local timer = require("timer")
 local shape = require("shape")
 local scene = director.newScene()
 
+local mySound
 local circles
 local rotation
 
@@ -20,8 +21,14 @@ local rotation
 
 -- Called when the scene is first created.
 -- Add scene elements here.
+
+
+
 function scene:createScene( event )
 	print("Lua: Creating scene2")
+    
+    mySound = sound.newSound("wipe1.wav")
+
     circles = {}
     for i=1,10 do
         circles[i] = shape.newCircle(20,100, 50 + i*25)
@@ -59,8 +66,9 @@ function scene:didMoveToView(  )
  director.loadScene("scene1")
     
   function goToScene1()
-    --director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=1.5})
-  director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CIFlashq   AQTransition", duration=1.5})
+    sound.play(mySound)
+    director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=0.75})
+    --director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CIFlashTransition", duration=1.5})
 
   end
 

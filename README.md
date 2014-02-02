@@ -16,7 +16,7 @@ While Gemini SK will eventually expose the entirety of the Sprite Kit APIs, for 
 
 ## Installation
 
-The zip file containing the templates can be found [here](https://s3.amazonaws.com/GeminiSDK_Templates/xcode4_templates.zip).  This file has been signed with OpenPGP and the signature file is [here](https://s3.amazonaws.com/GeminiSDK_Templates/xcode4_templates.zip.sig).  After validating the zip file, uncompress it and copy the contents into ~/Library/Developer/Xcode/Templates/Gemini/ then restart Xcode.  You should now be able to choose a Gemini project when you choose File->New->Project in Xcode.
+The zip file containing the templates can be found [here](https://s3.amazonaws.com/Gemini_SK_Templates/gemini_sk_templates.zip).  This file has been signed with OpenPGP and the signature file is [here](https://s3.amazonaws.com/Gemini_SK_Templates/gemini_sk_templates.zip.gpg).  After validating the zip file using `gpg2 --verify gemini_sk_templates.zip.gpg`, unzip it and copy the contents into ~/Library/Developer/Xcode/Templates/Gemini/ then restart Xcode.  You should now be able to choose a Gemini project when you choose File->New->Project in Xcode.
 
 ## Documentation
 

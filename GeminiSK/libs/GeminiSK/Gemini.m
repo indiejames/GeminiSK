@@ -19,7 +19,6 @@
 //#import "LGeminiObject.h"
 //#import "LGeminiDisplay.h"
 //#import "GemTransitionManager.h"
-//#import "GemPhysics.h"
 
 
 
@@ -32,6 +31,7 @@
     GemObjectWrapper *runtime;
     GemDirector *director;
     GemTimerManager *_timerManager;
+    
 }
 @end
 
@@ -42,7 +42,7 @@
 @synthesize geminiObjects;
 @synthesize viewController;
 @synthesize initTime;
-//@synthesize physics;
+@synthesize physics;
 @synthesize fileNameResolver;
 @synthesize settings;
 @synthesize director;
@@ -147,6 +147,7 @@ int setLuaPath(lua_State *L, NSString* path );
         CGSize bounds = [[UIScreen mainScreen] bounds].size;
         int w = bounds.width * scale;
         int h = bounds.height * scale;
+        
         
         NSString *localizedPath = [[NSBundle mainBundle] pathForResource:@"gemini" ofType:@"plist"];
         //NSString *myId = [NSString stringWithFormat:@"%dx%d",w,h];

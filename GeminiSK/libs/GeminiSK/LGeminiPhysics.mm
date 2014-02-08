@@ -10,11 +10,28 @@
 #import <UIKit/UIKit.h>
 #import "GemPhysicsBody.h"
 #import "LGeminiPhysics.h"
-#import "LGeminiObject.h"
 #import "Gemini.h"
+#include "Box2D.h"
+
+static int setGravity(lua_State *L){
+    
+    float gx = lua_tonumber(L, 1);
+    float gy = lua_tonumber(L, 2);
+    [[[Gemini shared].director currentScene].physics setGravityGx:gx Gy:gy];
+    
+    return 0;
+}
 
 
 static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
+    CGFloat radius = luaL_checknumber(L, 1);
+    
+    
+    
+    return 1;
+}
+
+/*static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
     // stack: 1 - radius,
 
     CGFloat radius = luaL_checknumber(L, 1);
@@ -30,7 +47,7 @@ static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
     [[Gemini shared].geminiObjects addObject:gBody];
     
     return 1;
-}
+}*/
 
 static int newPhysicsBodyWithEdgeLoopFromRectangle(lua_State *L){
     // stack: x0, y0, width, height
@@ -59,10 +76,11 @@ static int newPhysicsBodyWithEdgeLoopFromRectangle(lua_State *L){
 static const struct luaL_Reg physicsLib_f [] = {
     {"newBodyFromCircle", newPhysicsBodyFromCircleWithRadius},
     {"newBodyWidthEdgeLoopFromRect", newPhysicsBodyWithEdgeLoopFromRectangle},
+    {"setGravity", setGravity},
     {NULL, NULL}
 };
 
-// mappings for the sprite methods
+// mappings for the physics body methods
 static const struct luaL_Reg body_m [] = {
     {"__gc", genericGC},
     {"__index", genericIndex},
@@ -75,7 +93,7 @@ static const struct luaL_Reg body_m [] = {
 };
 
 // the registration function
-int luaopen_physics_lib (lua_State *L){
+extern "C" int luaopen_physics_lib (lua_State *L){
     // create meta tables for our various types /////////
     
     // physics body

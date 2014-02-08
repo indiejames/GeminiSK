@@ -13,7 +13,7 @@
 #include "lauxlib.h"
 #import "GemEvent.h"
 #import "GemDirector.h"
-//#import "GemPhysics.h"
+#import "GemPhysics.h"
 #import "GemTimerManager.h"
 #import "GemFileNameResolver.h"
 //#import "GemSoundManager.h"
@@ -25,7 +25,7 @@
 @property (readonly) NSMutableArray *geminiObjects;
 @property (readonly) GLKViewController *viewController;
 @property (readonly) double initTime;
-//@property (readonly) GemPhysics *physics;
+@property (readonly) GemPhysics *physics;
 @property (readonly) NSString *deviceString;
 @property (readonly) GemFileNameResolver *fileNameResolver;
 @property (readonly) NSDictionary *settings;

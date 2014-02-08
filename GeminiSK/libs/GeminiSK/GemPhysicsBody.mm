@@ -7,6 +7,18 @@
 //
 
 #import "GemPhysicsBody.h"
+#include "Box2D.h"
+
+@interface GemPhysicsBody () {
+    
+    b2World *world;
+    b2BodyDef bodyDef;
+    b2Body *body;
+    b2Fixture *fixtures;
+    
+}
+
+@end
 
 @implementation GemPhysicsBody
 

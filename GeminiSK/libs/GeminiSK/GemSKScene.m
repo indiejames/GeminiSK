@@ -11,26 +11,30 @@
 #import "GemObjectWrapper.h"
 #import "GemSKSpriteNode.h"
 #import "GemAction.h"
+#import "GemPhysics.h"
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
 
 @implementation GemSKScene {
     NSMutableArray *_actions;
+    double lastPhysicsUpdate;
 }
-
-// TODO - add code to delegate life events to Lua code
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         _textureAtlases = [NSMutableArray arrayWithCapacity:1];
         _actions = [NSMutableArray arrayWithCapacity:1];
+        lastPhysicsUpdate = 0;
+        
+        _physics = [[GemPhysics alloc] init];
         
         // The scene should be initialized with Lua code in the createScene() method
     }
     return self;
 }
 
+// Call a Lua method attached to the scene table by name
 -(void)callMethodOnScene:(NSString *)methodStr {
     
     const char *method = [methodStr cStringUsingEncoding:[NSString defaultCStringEncoding]];
@@ -88,6 +92,14 @@
 }
 
 -(void)didSimulatePhysics {
+    // do our own simulation using Box2d
+    double deltaT = [NSDate timeIntervalSinceReferenceDate] - lastPhysicsUpdate;
+    if (lastPhysicsUpdate == 0) {
+        lastPhysicsUpdate = deltaT;
+        deltaT = 0;
+    }
+    [_physics update:deltaT];
+    
     [self callMethodOnScene:@"didSimulatePhysics"];
 }
 

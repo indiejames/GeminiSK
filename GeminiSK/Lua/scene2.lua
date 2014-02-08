@@ -8,6 +8,7 @@ local director = require( "director" )
 local ui = require("ui")
 local action = require("action")
 local timer = require("timer")
+local physics = require("physics")
 local shape = require("shape")
 local scene = director.newScene()
 
@@ -26,6 +27,8 @@ local rotation
 
 function scene:createScene( event )
 	print("Lua: Creating scene2")
+    
+  physics.setGravity(0,-9.8)
     
     mySound = sound.newSound("wipe1.wav")
 
@@ -99,7 +102,7 @@ end
 
 -- Called when the scene physics have been simulated
 function scene:didSimulatePhysics()
-
+    print "physics simulated..."
 end
 
 -- Called when scenes actions have been updated

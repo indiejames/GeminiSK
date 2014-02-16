@@ -269,7 +269,7 @@ int genericNewIndex(lua_State *L) {
     const char *attr = luaL_checkstring(L, 2);
     
     // physicsBody property is handled separately since it is not a simple value
-    if (strcmp("physicsBody", attr) == 0) {
+    /*if (strcmp("physicsBody", attr) == 0) {
         __unsafe_unretained GemObjectWrapper **pgo = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 3, GEMINI_PHYSICS_BODY_LUA_KEY);
         
         GemPhysicsBody *gBody = (GemPhysicsBody *)(*pgo).delegate;
@@ -282,7 +282,7 @@ int genericNewIndex(lua_State *L) {
         return 0;
         
         // TODO - refactor this
-    }
+    }*/
     
     NSString *attrStr = [NSString stringWithFormat:@"%s", attr];
     // check to see if the delgate object can handle the call

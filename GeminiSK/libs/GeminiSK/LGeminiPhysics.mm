@@ -149,8 +149,10 @@ int applyForce(lua_State *L){
     float fx = luaL_checknumber(L, 2);
     float fy = luaL_checknumber(L, 3);
     
+    GemPhysicsBody *gBody = [node.userData objectForKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY]];
     
-    b2Body *body = [node.userData objectForKey:GEM]
+    b2Body *body = (b2Body *)gBody.body;
+    
     if (body == NULL) {
         lua_pushstring(L, "LUA ERROR: Object does not have a physics body attached");
         lua_error(L);
@@ -159,9 +161,9 @@ int applyForce(lua_State *L){
         if (lua_gettop(L) == 5) {
             float x = luaL_checknumber(L, 4) / scale;
             float y = luaL_checknumber(L, 5) / scale;
-            body->ApplyForce(b2Vec2(fx,fy), b2Vec2(x,y));
+            body->ApplyForce(b2Vec2(fx,fy), b2Vec2(x,y), true);
         } else {
-            body->ApplyForceToCenter(b2Vec2(fx,fy));
+            body->ApplyForceToCenter(b2Vec2(fx,fy), true);
         }
         
     }
@@ -169,64 +171,6 @@ int applyForce(lua_State *L){
     return 0;
 }
 
-
-static int newPhysicsBodyFromRectangle(lua_State *L){
-    float width = luaL_checknumber(L, 1);
-    float height = luaL_checknumber(L, 2);
-    
-    GemSKScene *scene = [Gemini shared].director.activeScene;
-    float scale = [scene.physics getScale];
-    
-    float hw = 0.5 * (width / scale - 2*RENDER_PADDING);
-    float hh = 0.5 * (height / scale - 2*RENDER_PADDING);
-    
-    GemPhysicsBody *body = [[GemPhysicsBody alloc] init];
-    //body.dynamic = false;
-    
-    b2PolygonShape *shape = new b2PolygonShape; // this will be freed when body is dealloced
-    shape->SetAsBox(hw, hh);
-    
-    b2FixtureDef fixtureDef;
-    
-    fixtureDef.shape = shape;
-    
-    [body addFixture:&fixtureDef];
-    
-    createObjectAndSaveRef(L, GEMINI_PHYSICS_BODY_LUA_KEY, body);
-    
-    return 1;
-}
-
-static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
-    float radius = luaL_checknumber(L, 1);
-    
-    GemSKScene *scene = [Gemini shared].director.activeScene;
-    float scale = [scene.physics getScale];
-    radius = radius / scale - RENDER_PADDING;
-    
-    GemPhysicsBody *body = [[GemPhysicsBody alloc] init];
-    
-    b2CircleShape *shape = new b2CircleShape; // this will be freed when body is dealloced
-    shape->m_p.Set(0,0);
-    shape->m_radius = radius;
-    //b2FixtureDef *fixtureDef = (b2FixtureDef *)malloc(sizeof(b2FixtureDef));
-    b2FixtureDef fixtureDef;
-    
-    fixtureDef.shape = shape;
-    fixtureDef.isSensor = false;
-    fixtureDef.filter.categoryBits = 0xFF;
-    fixtureDef.filter.maskBits = 0xFF;
-    fixtureDef.density = 0;
-    
-    [body addFixture:&fixtureDef];
-    
-    //free(fixtureDef);
-    
-    createObjectAndSaveRef(L, GEMINI_PHYSICS_BODY_LUA_KEY, body);
-    
-    
-    return 1;
-}
 
 /*static int newPhysicsBodyFromCircleWithRadius(lua_State *L){
     // stack: 1 - radius,
@@ -271,9 +215,6 @@ static int newPhysicsBodyWithEdgeLoopFromRectangle(lua_State *L){
 
 // the mappings for the library functions
 static const struct luaL_Reg physicsLib_f [] = {
-    {"newBodyFromCircle", newPhysicsBodyFromCircleWithRadius},
-    {"newBodyWidthEdgeLoopFromRect", newPhysicsBodyWithEdgeLoopFromRectangle},
-    {"newBodyFromRectangle", newPhysicsBodyFromRectangle},
     {"addBody", addBody},
     {"applyForce", applyForce},
     {"setGravity", setGravity},

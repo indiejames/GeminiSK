@@ -29,21 +29,19 @@ function makeWalls()
 
   scene:addChild(floor)
   
-  local floor_body = physics.newBodyFromRectangle(1136, wall_thickness)
-  floor_body.dynamic = false
-  floor.physicsBody = floor_body
+
+  physics.addBody(floor)
 
   -- ceiling
 
-  local floor = shape.newRectangle(1136, wall_thickness, 1136/2, 640 - wall_thickness/2)
-  floor:setFillColor(0,1.0,0)
-  floor.lineWidth = 0
+  local ceiling = shape.newRectangle(1136, wall_thickness, 1136/2, 640 - wall_thickness/2)
+  ceiling:setFillColor(0,1.0,0)
+  ceiling.lineWidth = 0
 
-  scene:addChild(floor)
+  scene:addChild(ceiling)
   
-  local floor_body = physics.newBodyFromRectangle(1136, wall_thickness)
-  floor_body.dynamic = false
-  floor.physicsBody = floor_body
+physics.addBody(ceiling)
+
 
   -- left wall
 
@@ -53,9 +51,7 @@ function makeWalls()
 
   scene:addChild(left_wall)
   
-  local left_wall_body = physics.newBodyFromRectangle(wall_thickness, 640)
-  left_wall_body.dynamic = false
-  left_wall.physicsBody = left_wall_body
+  physics.addBody(left_wall)
 
   -- right wall
 
@@ -65,9 +61,8 @@ function makeWalls()
 
   scene:addChild(right_wall)
   
-  local right_wall_body = physics.newBodyFromRectangle(wall_thickness, 640)
-  right_wall_body.dynamic = false
-  right_wall.physicsBody = right_wall_body
+  physics.addBody(right_wall)
+
 
 end
 
@@ -98,7 +93,13 @@ function scene:createScene( event )
     
     rotation = action.rotate(7.0, 13)
 
--- big_circle = shape.newCircle(20, 200, 200)
+ big_circle = shape.newCircle(20, 200, 200)
+ big_circle:setFillColor(0,1.0, 1.0)
+ big_circle.lineWidth = 0
+ scene:addChild(big_circle)
+ physics.addBody(big_circle, "dynamic", {restituiion=1, friction=0.5, density=10})
+ 
+ physics.applyForce(big_circle, 300,0)
   
   big_box = shape.newRectangle(box_width, box_width, 200, 500)
  big_box.name = "Big Box"

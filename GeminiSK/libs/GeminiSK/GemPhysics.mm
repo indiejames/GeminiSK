@@ -10,6 +10,7 @@
 #include "Box2D.h"
 #import "GemEvent.h"
 #include "LGeminiShape.h"
+#import "GemPhysicsBody.h"
 //#import "GemCollisionEvent.h"
 //#import "GemCircle.h"
 //#import "GemRectangle.h"
@@ -261,8 +262,10 @@ public:
     
     body->SetUserData((__bridge void*)node);
     NSMutableDictionary *wrapper = node.userData;
+    GemPhysicsBody *gBody = [[GemPhysicsBody alloc] init];
+    gBody.body = body;
     [wrapper setObject:gBody forKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY ]];
-    node.physicsBody = body;
+    
 }
 
 /*-(void)deleteBodyForObject:(GemDisplayObject *)obj {
@@ -323,7 +326,7 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
                     
                     node.position = CGPointMake(x, y);
                     
-                    GemLog(@"(name: x,y,theta) = (%@R: %4.2f, %4.2f, %4.2f)\n", node.name, position.x, position.y, angle);
+                    //GemLog(@"(name: x,y,theta) = (%@R: %4.2f, %4.2f, %4.2f)\n", node.name, position.x, position.y, angle);
                 }
             });
             

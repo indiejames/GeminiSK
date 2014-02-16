@@ -18,6 +18,7 @@
 
 @implementation GemDirector {
     NSMutableArray *sceneQueue;
+    GemSKScene *activeScene;
 }
 
 int render_count = 0;
@@ -30,13 +31,22 @@ int render_count = 0;
         scenes = [[NSMutableDictionary alloc] initWithCapacity:1];
         loadingScenes = [[NSMutableSet alloc] initWithCapacity:1];
         sceneQueue = [NSMutableArray arrayWithCapacity:1];
+        activeScene = nil;
     }
     
     return self;
 }
 
+-(void)setActiveScene:(GemSKScene *)activeScn {
+    activeScene = activeScn;
+}
+
+-(GemSKScene *)activeScene {
+    return activeScene;
+}
+
 // block for loading scenes
-SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSString * sceneName, lua_State *L) {
+SKScene * (^sceneLoader)(GemDirector *self, NSString *sceneName, lua_State *L) = ^SKScene *(GemDirector *self, NSString * sceneName, lua_State *L) {
     int err;
     
     GemLog(@"Gem: Loading scene %@", sceneName);
@@ -73,8 +83,11 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     // The scene should now be on the top of the stack
     __unsafe_unretained GemObjectWrapper **lscene = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, -1, GEMINI_SCENE_LUA_KEY);
     
-    SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
-    SKScene *scene = [[GemSKScene alloc] initWithSize:skView.bounds.size];
+    //SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
+    CGRect bounds = CGRectMake(0, 0, self.sceneWidth, self.sceneHeight);
+    bounds.size.width = 1136;
+    bounds.size.height = 640;
+    GemSKScene *scene = [[GemSKScene alloc] initWithSize:bounds.size];
     scene.name = sceneName;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:*lscene forKey:@"LUA_DATA"];
@@ -82,8 +95,9 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
     scene.scaleMode = SKSceneScaleModeAspectFill;
     (*lscene).delegate = scene;
 
+    self.activeScene = scene;
     
-    //[scenes setObject:scene forKey:sceneName];
+    // TODO - can I replace the rest of this with a call to callMethodOnScene on the new scene?
     
     // this gets a pointer to the "createScene" method on the new scene
     lua_getfield(L, -1, "createScene");
@@ -106,7 +120,7 @@ SKScene * (^sceneLoader)(NSString *sceneName, lua_State *L) = ^SKScene *(NSStrin
         
         [loadingScenes addObject:sceneName];
         
-        SKScene *newScene = sceneLoader(sceneName, luaData.L);
+        SKScene *newScene = sceneLoader(self, sceneName, luaData.L);
         [scenes setObject:newScene forKey:sceneName];
         [loadingScenes removeObject:sceneName];
 

@@ -117,6 +117,7 @@ GemObjectWrapper *createObjectWrapper(lua_State *L, const char *objectType, id o
     luaData.delegate = object;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:luaData forKey:@"LUA_DATA"];
+    [wrapper setObject:[NSString stringWithFormat:@"%s", objectType] forKey:@"LUA_TYPE"];
     [object setUserData:wrapper];
     return luaData;
 }

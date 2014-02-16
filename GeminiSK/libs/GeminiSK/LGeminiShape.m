@@ -14,7 +14,7 @@
 #import "AppDelegate.h"
 #import "LGeminiNode.h"
 #import "LGeminiObject.h"
-#import "LGeminiNode.h"
+
 
 extern int removeEventListener(lua_State *L);
 extern int addEventListener(lua_State *L);
@@ -37,10 +37,13 @@ static int newCircle(lua_State *L){
     }
     
     
-    CGPathRef path = CGPathCreateWithEllipseInRect(CGRectMake(x, y, radius * 2.0, radius * 2.0), NULL);
+    CGPathRef path = CGPathCreateWithEllipseInRect(CGRectMake(-radius, -radius, radius * 2.0, radius * 2.0), NULL);
     SKShapeNode *shape = [[SKShapeNode alloc] init];
     shape.path = path;
+    shape.position = CGPointMake(x, y);
     createObjectAndSaveRef(L, GEMINI_CIRCLE_LUA_KEY, shape);
+    
+    [shape.userData setObject:[NSNumber numberWithFloat:radius] forKey:@"RADIUS"];
     
     [[Gemini shared].geminiObjects addObject:shape];
     
@@ -54,23 +57,26 @@ static int newRectangle(lua_State *L){
     float width = luaL_checknumber(L, 1);
     float height = luaL_checknumber(L, 2);
     
-    float x = -width/2.0;
-    float y = -height/2.0;
+    float x = 0;
+    float y = 0;
     
     if (lua_gettop(L) > 2) {
-        x = luaL_checknumber(L, 2);
+        x = luaL_checknumber(L, 3);
     }
     
     if (lua_gettop(L) > 3) {
-        y = luaL_checknumber(L, 3);
+        y = luaL_checknumber(L, 4);
     }
     
-    CGPathRef path = CGPathCreateWithRect(CGRectMake(x, y, width, height), NULL);
+    CGPathRef path = CGPathCreateWithRect(CGRectMake(-width/2.0, -height/2.0, width, height), NULL);
     SKShapeNode *shape = [[SKShapeNode alloc] init];
     shape.path = path;
+    shape.position = CGPointMake(x, y);
     
     createObjectAndSaveRef(L, GEMINI_RECTANGLE_LUA_KEY, shape);
     
+    [shape.userData setObject:[NSNumber numberWithFloat:width] forKey:@"WIDTH"];
+    [shape.userData setObject:[NSNumber numberWithFloat:height] forKey:@"HEIGHT"];
     
     return 1;
 }
@@ -140,6 +146,7 @@ static const struct luaL_Reg rectangle_m [] = {
     {"setFillColor", setFillColor},
     {"setStrokeColor", setStrokeColor},
     {"addChild", addChild},
+    {"removeFromParent", removeFromParent},
     {"runAction", runAction},
     {NULL, NULL}
 };

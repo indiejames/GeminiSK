@@ -47,6 +47,7 @@ static const struct luaL_Reg label_m [] = {
     {"addEventListener", addEventListener},
     {"setPosition", setPosition},
     {"addChild", addChild},
+    {"removeFromParent", removeFromParent},
     {"runAction", runAction},
     {NULL, NULL}
 };

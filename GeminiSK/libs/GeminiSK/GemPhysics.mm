@@ -9,12 +9,16 @@
 #import "GemPhysics.h"
 #include "Box2D.h"
 #import "GemEvent.h"
+#include "LGeminiShape.h"
 //#import "GemCollisionEvent.h"
 //#import "GemCircle.h"
 //#import "GemRectangle.h"
 //#import "GemConvexShape.h"
 //#import "GemPhysicsJoint.h"
 //#include "GemMathUtils.h"
+
+#define RAD_TO_DEG(x) (x * M_PI / 180.0)
+#define PIXELS_PER_METER (100.0)
 
 // handles collisions between objects
 class GemContactListener : public b2ContactListener {
@@ -83,7 +87,7 @@ public:
         GemContactListener *listener = new GemContactListener();
         world->SetContactListener(listener);
         
-        scale = 50.0; // pixels per meter
+        scale = PIXELS_PER_METER; // pixels per meter
         timeStep = 1.0 / 60.0; // sec
         accumulator = 0;
         paused = NO;
@@ -95,14 +99,15 @@ public:
     
 }
 
-/*-(void)addBodyForObject:(GemDisplayObject *)obj WithParams:(NSDictionary *)params {
+-(void)addBodyToNode:(SKNode *)node WithParams:(NSDictionary *)params {
     b2BodyDef bodyDef;
-    GemPoint p = {obj.x, obj.y};
+    GemPoint p = {node.position.x, node.position.y};
     GemPoint pp = [self toPhysicsCoord:p];
     bodyDef.position.Set(pp.x, pp.y);
-    bodyDef.angle = DEG_TO_RAD(obj.rotation);
+    bodyDef.angle = node.zRotation; // TODO - should this be cascaded?
     
     b2BodyType type = b2_staticBody;
+    //b2BodyType type = b2_dynamicBody;
     
     if ([params objectForKey:@"type"] != nil) {
         NSString *typeStr = [params objectForKey:@"type"];
@@ -117,6 +122,8 @@ public:
     
     bodyDef.linearDamping = 0;
     bodyDef.angularDamping = 0.1;
+    bodyDef.fixedRotation = false;
+    bodyDef.angle = node.zRotation;
     
     b2Body* body = world->CreateBody(&bodyDef);
     
@@ -163,23 +170,16 @@ public:
             fixtureDef.shape = &polyShape;
             
         } else {
+            NSString *luaType = [node.userData objectForKey:@"LUA_TYPE"];
             
-            if (obj.class == GemCircle.class) {
-                circle.m_radius = (((GemCircle *)obj).radius) / scale - RENDER_PADDING;
+            if ([luaType isEqualToString:[NSString stringWithFormat:@"%s", GEMINI_CIRCLE_LUA_KEY]]) {
+                NSNumber *radius = [node.userData objectForKey:@"RADIUS"];
+                circle.m_radius = [radius floatValue] / scale - RENDER_PADDING;
                 fixtureDef.shape = &circle;
-            } else if (obj.class == GemRectangle.class){
-                // us a box shape and account for the border on the rectange
-                GemRectangle *rect = (GemRectangle *)obj;
-                float width = (rect.width) / scale - 2*RENDER_PADDING;
-                float height = (rect.height) / scale - 2*RENDER_PADDING;
-                
-                polyShape.SetAsBox(width / 2.0, height / 2.0);
-                fixtureDef.shape = &polyShape;
-                
             } else {
                 // use box shape for everything else
-                float width = (obj.width) / scale - 2*RENDER_PADDING;
-                float height = (obj.height) / scale - 2*RENDER_PADDING;
+                float width = (node.frame.size.width) / scale - 2*RENDER_PADDING;
+                float height = (node.frame.size.height) / scale - 2*RENDER_PADDING;
                 
                 polyShape.SetAsBox(width / 2.0, height / 2.0);
                 fixtureDef.shape = &polyShape;
@@ -225,13 +225,31 @@ public:
         b2CircleShape circleShape;
         b2PolygonShape polyShape;
         
-        if (obj.class == GemCircle.class) {
-            circleShape.m_radius = ((GemCircle *)obj).radius / scale;
+        fixtureDef.density = 1.0;
+        fixtureDef.friction = 0.1;
+        fixtureDef.restitution = 0.5;
+        
+        NSString *luaType = [node.userData objectForKey:@"LUA_TYPE"];
+        
+        if ([luaType isEqualToString:[NSString stringWithFormat:@"%s", GEMINI_CIRCLE_LUA_KEY]]) {
+            NSNumber *radius = [node.userData objectForKey:@"RADIUS"];
+            
+            circleShape.m_radius = [radius floatValue] / scale;
             fixtureDef.shape = &circleShape;
+        } else if ([luaType isEqualToString:[NSString stringWithFormat:@"%s", GEMINI_RECTANGLE_LUA_KEY]]) {
+            NSNumber *width = [node.userData objectForKey:@"WIDTH"];
+            NSNumber *height = [node.userData objectForKey:@"HEIGHT"];
+            
+            float w = [width floatValue] / scale;
+            float h = [height floatValue] /scale;
+            
+            polyShape.SetAsBox(w / 2.0, h / 2.0);
+            fixtureDef.shape = &polyShape;
+            
         } else {
             // use box shape for everything else
-            float width = obj.width / scale;
-            float height = obj.height / scale;
+            float width = node.frame.size.width / scale;
+            float height = node.frame.size.height / scale;
             
             polyShape.SetAsBox(width / 2.0, height / 2.0);
             fixtureDef.shape = &polyShape;
@@ -241,15 +259,13 @@ public:
 
     }
     
-    if (obj.fixedRotation) {
-        body->SetFixedRotation(true);
-    }
-    
-    body->SetUserData((__bridge void*)obj);
-    obj.physicsBody = body;
+    body->SetUserData((__bridge void*)node);
+    NSMutableDictionary *wrapper = node.userData;
+    [wrapper setObject:gBody forKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY ]];
+    node.physicsBody = body;
 }
 
--(void)deleteBodyForObject:(GemDisplayObject *)obj {
+/*-(void)deleteBodyForObject:(GemDisplayObject *)obj {
     if (obj.physicsBody != NULL) {
         world->DestroyBody((b2Body *)obj.physicsBody);
     }
@@ -300,12 +316,14 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
                     GemPoint point = [self fromPhysicsCoord:pPoint];
                     float32 angle = b->GetAngle();
                     
-//                    GemDisplayObject *gdo = (__bridge GemDisplayObject *)b->GetUserData();
-//                    gdo.rotation = RAD_TO_DEG(angle);
-//                    gdo.x = point.x;
-//                    gdo.y = point.y;
+                    SKNode *node = (__bridge  SKNode *)b->GetUserData();
+                    node.zRotation = angle;
+                    double x = point.x;
+                    double y = point.y;
                     
-                    //GemLog(@"(x,y,theta) = (%4.2f, %4.2f, %4.2f)\n", position.x, position.y, angle);
+                    node.position = CGPointMake(x, y);
+                    
+                    GemLog(@"(name: x,y,theta) = (%@R: %4.2f, %4.2f, %4.2f)\n", node.name, position.x, position.y, angle);
                 }
             });
             
@@ -332,9 +350,12 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
         float32 angle = b->GetAngle();
         
 //        GemDisplayObject *gdo = (__bridge GemDisplayObject *)b->GetUserData();
-//        gdo.rotation = alpha * RAD_TO_DEG(angle) + (1.0-alpha)*gdo.rotation;
-//        gdo.x = alpha * point.x + (1.0 - alpha)*gdo.x;
-//        gdo.y = alpha * point.y + (1.0-alpha)*gdo.y;
+        SKNode *node = (__bridge  SKNode *)b->GetUserData();
+        node.zRotation = alpha * angle + (1.0-alpha)*node.zRotation;
+        double x = alpha * point.x + (1.0 - alpha)*node.position.x;
+        double y = alpha * point.y + (1.0-alpha)*node.position.y;
+        
+        node.position = CGPointMake(x, y);
         
     }
     });
@@ -391,6 +412,10 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
 
 -(float)getScale {
     return scale;
+}
+
+-(void *)getWorld {
+    return world;
 }
 
 -(void)setContinous:(bool) cont{

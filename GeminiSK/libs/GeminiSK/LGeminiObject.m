@@ -273,7 +273,11 @@ int genericNewIndex(lua_State *L) {
         __unsafe_unretained GemObjectWrapper **pgo = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 3, GEMINI_PHYSICS_BODY_LUA_KEY);
         
         GemPhysicsBody *gBody = (GemPhysicsBody *)(*pgo).delegate;
-        ((SKNode*)delegate).physicsBody = gBody.skPhysicsBody;
+        [gBody initb2BodyForNode:(SKNode *)delegate];
+        
+        NSMutableDictionary *wrapper = ((SKNode *)delegate).userData;
+        [wrapper setObject:gBody forKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY ]];
+       // ((SKNode*)delegate).physicsBody = gBody.skPhysicsBody;
         
         return 0;
         
@@ -293,15 +297,17 @@ int genericNewIndex(lua_State *L) {
         NSInvocation *invoke = [NSInvocation invocationWithMethodSignature:sig];
         [invoke setTarget:delegate];
         NSString *sVal;
-        char *cVal;
+        char *cStrVal;
+        char cVal;
         double dVal;
         float fVal;
         int iVal;
         unsigned int uVal;
+        BOOL bVal;
         
         if (strcmp("*", argType) == 0) {
             // char * string
-            cVal = (char *)luaL_checkstring(L, 3);
+            cStrVal = (char *)luaL_checkstring(L, 3);
             [invoke setArgument:&cVal atIndex:2];
         } else if (strcmp("f", argType) == 0){
             fVal = luaL_checknumber(L, 3);
@@ -315,10 +321,19 @@ int genericNewIndex(lua_State *L) {
         } else if (strcmp("d", argType) == 0) {
             dVal = luaL_checknumber(L, 3);
             [invoke setArgument:&dVal atIndex:2];
+        } else if (strcmp("B", argType) == 0) {
+            bVal = lua_toboolean(L, 3);
+            [invoke setArgument:&bVal atIndex:2];
+        } else if (strcmp("c", argType) == 0){ // TODO - this is kind of weak, BOOL looks like char
+            bVal = lua_toboolean(L, 3);
+            [invoke setArgument:&bVal atIndex:2];
+        } else if (strcmp("C", argType) == 0){
+            cVal = luaL_checkinteger(L, 3);
+            [invoke setArgument:&cVal atIndex:2];
         } else {
             // everything else is treated as a string
-            cVal = (char *)luaL_checkstring(L, 3);
-            sVal = [NSString stringWithFormat:@"%s", cVal];
+            cStrVal = (char *)luaL_checkstring(L, 3);
+            sVal = [NSString stringWithFormat:@"%s", cStrVal];
             [invoke setArgument:&sVal atIndex:2];
         }
         switch (lua_type(L, 3)) {

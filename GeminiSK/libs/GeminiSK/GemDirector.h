@@ -14,10 +14,14 @@
 
 @interface GemDirector : NSObject {
     NSMutableDictionary *scenes;
-    GemSKScene *currentScene;  // the current scene used for rendering, etc.
+    GemSKScene *currentScene;  // the current scene used for rendering
     NSMutableSet *loadingScenes;
     GemObjectWrapper *luaData;
 }
+
+@property GemSKScene *activeScene; // the scene that is currently having Lua code called against it, for initialization or other event handling
+@property float sceneWidth;
+@property float sceneHeight;
 
 -(void)loadScene:(NSString *)sceneName;
 -(void)gotoScene:(NSString *)scene withOptions:(NSDictionary *)options;

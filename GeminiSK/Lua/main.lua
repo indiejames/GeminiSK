@@ -27,7 +27,7 @@ label.fontSize = 30
 label.text = "Hello, James!"
 print("Lua: setting label position")
 label:setPosition(200,100)
-label.zRotation = 1.5
+--label.zRotation = 1.5
 
 director.loadScene("scene2")
 director.gotoScene("scene2", {synchronous = "true"})

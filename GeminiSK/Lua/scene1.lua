@@ -93,10 +93,7 @@ end
   circle:setFillColor(0.5,0,0.5)
  --circle.glowWidth = 2
  scene:setBackgroundColor(1.0,0,0)
- print("Lua: Adding label to scene")
- panNode:addChild(label)
- label.zzz = "A Test"
- print("Lua: zzz = " .. label.zzz)
+
   --ui.destroyLabel(label)
   --label = nil
   label2 = ui.newLabel("Chalkduster")
@@ -132,6 +129,12 @@ function scene:didMoveToView(  )
   -----------------------------------------------------------------------------
   
   print("Entering scene 1")
+  
+  print("Lua: Adding label to scene")
+ panNode:addChild(label)
+ label.zzz = "A Test"
+ print("Lua: zzz = " .. label.zzz)
+ label.text = "New Text!!!"
   
 director.destroyScene("scene2")
 

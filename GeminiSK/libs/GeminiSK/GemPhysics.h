@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
-#define RENDER_PADDING (0.01)
+#define RENDER_PADDING (0.0)
 
 typedef enum {
     GEM_PHYSICS_NORMAL,
@@ -22,7 +23,7 @@ typedef struct {
 } GemPoint;
 
 @interface GemPhysics : NSObject {
-    double scale;
+    double scale;  // pixes per meter
     GemPhysicsDrawMode drawMode;
     NSMutableArray *joints;
 }
@@ -31,13 +32,15 @@ typedef struct {
 
 -(void)setScale:(double)s;
 -(float)getScale;
+-(void *)getWorld; // cheap, but I need to let GemPhysicsBody use the world to make things and I don't
+                  // want to pollute everything with C++
 -(void)setContinous:(bool) cont;
 -(void)setGravityGx:(float)gx Gy:(float)gy;
 -(void)pause;
 -(void)start;
 -(GemPoint)toPhysicsCoord:(GemPoint)point;
 -(GemPoint)fromPhysicsCoord:(GemPoint)point;
-//-(void)addBodyForObject:(GemDisplayObject *)obj WithParams:(NSDictionary *)params;
+-(void)addBodyToNode:(SKNode *)node WithParams:(NSDictionary *)params;
 //-(void)deleteBodyForObject:(GemDisplayObject *)obj;
 //-(id)addJoint:(void *)jointDef forLuaState:(lua_State *)L;
 -(void)update:(double)deltaT;

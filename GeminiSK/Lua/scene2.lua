@@ -11,14 +11,66 @@ local timer = require("timer")
 local physics = require("physics")
 local shape = require("shape")
 local scene = director.newScene()
+scene:setSize(1136,640)
 
 local mySound
 local circles
 local rotation
 
----------------------------------------------------------------------------------
--- BEGINNING OF YOUR IMPLEMENTATION
----------------------------------------------------------------------------------
+local wall_thickness = 10
+local box_width = 75
+
+
+function makeWalls()
+  -- floor
+  local floor = shape.newRectangle(1136, wall_thickness, 1136/2, wall_thickness/2)
+  floor:setFillColor(0,1.0,0)
+  floor.lineWidth = 0
+
+  scene:addChild(floor)
+  
+  local floor_body = physics.newBodyFromRectangle(1136, wall_thickness)
+  floor_body.dynamic = false
+  floor.physicsBody = floor_body
+
+  -- ceiling
+
+  local floor = shape.newRectangle(1136, wall_thickness, 1136/2, 640 - wall_thickness/2)
+  floor:setFillColor(0,1.0,0)
+  floor.lineWidth = 0
+
+  scene:addChild(floor)
+  
+  local floor_body = physics.newBodyFromRectangle(1136, wall_thickness)
+  floor_body.dynamic = false
+  floor.physicsBody = floor_body
+
+  -- left wall
+
+  local left_wall = shape.newRectangle(wall_thickness, 640, wall_thickness/2, 320)
+  left_wall:setFillColor(0,1.0,0)
+  left_wall.lineWidth = 0
+
+  scene:addChild(left_wall)
+  
+  local left_wall_body = physics.newBodyFromRectangle(wall_thickness, 640)
+  left_wall_body.dynamic = false
+  left_wall.physicsBody = left_wall_body
+
+  -- right wall
+
+  local right_wall = shape.newRectangle(wall_thickness, 640, 1136-wall_thickness/2, 320)
+  right_wall:setFillColor(0,1.0,0)
+  right_wall.lineWidth = 0
+
+  scene:addChild(right_wall)
+  
+  local right_wall_body = physics.newBodyFromRectangle(wall_thickness, 640)
+  right_wall_body.dynamic = false
+  right_wall.physicsBody = right_wall_body
+
+end
+
 
 -- Called when the scene is first created.
 -- Add scene elements here.
@@ -27,21 +79,46 @@ local rotation
 
 function scene:createScene( event )
 	print("Lua: Creating scene2")
+
     
-  physics.setGravity(0,-9.8)
+  physics.setGravity(0,-1.5)
     
     mySound = sound.newSound("wipe1.wav")
 
     circles = {}
     for i=1,10 do
-        circles[i] = shape.newCircle(20,100, 50 + i*25)
-        circles[i].lineWidth = 1
+        --circles[i] = shape.newCircle(20,100, 50 + i*25)
+
+   circles[i] = shape.newRectangle(50, 20, 100, 50 + i*50)
+        circles[i].lineWidth = 0
         circles[i]:setStrokeColor(0,0,0.75)
         circles[i]:setFillColor(0.5,0,0.5)
         scene:addChild(circles[i])
     end
     
-    rotation = action.rotate(7.0, 3)
+    rotation = action.rotate(7.0, 13)
+
+-- big_circle = shape.newCircle(20, 200, 200)
+  
+  big_box = shape.newRectangle(box_width, box_width, 200, 500)
+ big_box.name = "Big Box"
+ big_box:setFillColor(1.0, 0, 0)
+ scene:addChild(big_box)
+    
+  --physBody = physics.newBodyFromCircle(20.0)
+  --box_body = physics.newBodyFromRectangle(box_width,box_width)
+  --box_body.restitution = 0.75
+  --box_body.density = 1.0
+  --box_body.friction = 0.1
+  --box_body.angularDamping = 0.25
+  --box_body.linearDamping = 0.25
+  --big_box.physicsBody = box_body
+  --box_body.angle = -0.77
+  big_box.zRotation = -0.77
+
+  physics.addBody(big_box, "dynamic")
+  
+  makeWalls()
 
 end
 
@@ -57,10 +134,12 @@ function scene:didMoveToView(  )
 	-----------------------------------------------------------------------------
     
     print("Entering scene 1")
+    
+  scene:addChild(label)
   
   function doRotation()
     for i=1,10 do
-        circles[i]:runAction(rotation)
+        --circles[i]:runAction(rotation)
     end
   end
 
@@ -75,7 +154,7 @@ function scene:didMoveToView(  )
 
   end
 
-  timer.performWithDelay(5, goToScene1)
+ timer.performWithDelay(15, goToScene1)
 
   director.loadScene("scene1")
 
@@ -102,7 +181,7 @@ end
 
 -- Called when the scene physics have been simulated
 function scene:didSimulatePhysics()
-    print "physics simulated..."
+   
 end
 
 -- Called when scenes actions have been updated

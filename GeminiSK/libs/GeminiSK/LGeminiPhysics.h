@@ -10,6 +10,8 @@
 #define GEMINI_PHYSICS_BODY_LUA_KEY "GeminiLib.GEMINI_PHYSICS_BODY_LUA_KEY"
 #define GEMINI_PHYSICS_WORLD_LUA_KEY "GeminiLib.GEMINI_PHYSICS_WORLD_LUA_KEY"
 
+#define RENDER_PADDING (0.0)
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -24,6 +24,18 @@
     
 }
 
+-(void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    // capture our width and height
+    CGRect bounds = self.view.bounds;
+    float screenScale = [[UIScreen mainScreen] scale];
+    bounds.size.height = bounds.size.height*screenScale;
+    bounds.size.width = bounds.size.width*screenScale;
+    [Gemini shared].director.sceneHeight = bounds.size.height;
+    [Gemini shared].director.sceneWidth = bounds.size.width;
+}
+
 - (BOOL)shouldAutorotate
 {
     return YES;

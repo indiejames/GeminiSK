@@ -51,6 +51,7 @@ static const struct luaL_Reg sprite_m [] = {
     {"addEventListener", addEventListener},
     {"setPosition", setPosition},
     {"addChild", addChild},
+    {"removeFromParent", removeFromParent},
     {"runAction", runAction},
     {NULL, NULL}
 };

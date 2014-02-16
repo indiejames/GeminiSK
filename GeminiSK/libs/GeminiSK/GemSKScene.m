@@ -28,6 +28,7 @@
         lastPhysicsUpdate = 0;
         
         _physics = [[GemPhysics alloc] init];
+        self.scaleMode = SKSceneScaleModeAspectFit;
         
         // The scene should be initialized with Lua code in the createScene() method
     }
@@ -36,6 +37,9 @@
 
 // Call a Lua method attached to the scene table by name
 -(void)callMethodOnScene:(NSString *)methodStr {
+    //GemLog(@"Calling method %@ for scene %@", methodStr, self.name);
+    // tell the director that this scene is now the active scene
+    [Gemini shared].director.activeScene = self;
     
     const char *method = [methodStr cStringUsingEncoding:[NSString defaultCStringEncoding]];
     
@@ -70,6 +74,8 @@
     }
     
     lua_pop(L, lua_gettop(L) - top);
+    
+    [Gemini shared].director.activeScene = nil;
     
 }
 

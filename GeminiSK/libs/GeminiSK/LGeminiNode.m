@@ -21,7 +21,24 @@ int addChild(lua_State *L) {
     SKNode *parentNode = (SKNode *)(*parent).delegate;
     SKNode *childNode = (SKNode *)(*child).delegate;
     
+    // nodes can only be children of one parent (sad, really)
+    if (childNode.parent) {
+        [childNode removeFromParent];
+    }
+    
     [parentNode addChild:childNode];
+    
+    return 0;
+}
+
+// Remove child nodes from a parent node
+int removeFromParent(lua_State *L){
+    // stack: 1 - child object
+   __unsafe_unretained GemObjectWrapper **child = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
+    
+    SKNode *childNode = (SKNode *)(*child).delegate;
+    
+    [childNode removeFromParent];
     
     return 0;
 }

@@ -18,7 +18,7 @@ local circles
 local rotation
 
 local wall_thickness = 10
-local box_width = 75
+local box_width = 100
 
 
 function makeWalls()
@@ -93,32 +93,36 @@ function scene:createScene( event )
     
     rotation = action.rotate(7.0, 13)
 
- big_circle = shape.newCircle(20, 200, 200)
- big_circle:setFillColor(0,1.0, 1.0)
- big_circle.lineWidth = 0
- scene:addChild(big_circle)
- physics.addBody(big_circle, "dynamic", {restituiion=1, friction=0.5, density=10})
+-- big_circle = shape.newCircle(20, 200, 200)
+ --big_circle:setFillColor(0,1.0, 1.0)
+ --big_circle.lineWidth = 0
+ --scene:addChild(big_circle)
+ --physics.addBody(big_circle, "dynamic", {restituiion=1, friction=0.5, density=10})
  
- physics.applyForce(big_circle, 300,0)
+ --physics.applyForce(big_circle, 300,0)
   
-  big_box = shape.newRectangle(box_width, box_width, 200, 500)
+  big_box = shape.newRectangle(box_width, box_width/2, 105, 205)
  big_box.name = "Big Box"
  big_box:setFillColor(1.0, 0, 0)
  scene:addChild(big_box)
-    
-  --physBody = physics.newBodyFromCircle(20.0)
-  --box_body = physics.newBodyFromRectangle(box_width,box_width)
-  --box_body.restitution = 0.75
-  --box_body.density = 1.0
-  --box_body.friction = 0.1
-  --box_body.angularDamping = 0.25
-  --box_body.linearDamping = 0.25
-  --big_box.physicsBody = box_body
-  --box_body.angle = -0.77
-  big_box.zRotation = -0.77
+ 
+ physics.addBody(big_box, "dynamic")
 
-  physics.addBody(big_box, "dynamic")
-  
+ -- big_box.zRotation = -0.77
+ 
+ back_wheel = shape.newCircle(15, 70, 190)
+ back_wheel:setFillColor(0,1.0, 1.0)
+ scene:addChild(back_wheel)
+ physics.addBody(back_wheel, "dynamic", {friction=0.5})
+ physics.addJoint("revolute", big_box, back_wheel, 70, 190, {enableMotor=true, motorSpeed=-10,maxMotorTorque = 10})
+ 
+ front_wheel = shape.newCircle(15, 140, 190)
+ front_wheel:setFillColor(0,1.0, 1.0)
+ scene:addChild(front_wheel)
+ physics.addBody(front_wheel, "dynamic", {friction=0.5})
+ physics.addJoint("revolute", big_box, front_wheel, 140, 190)
+
+
   makeWalls()
 
 end

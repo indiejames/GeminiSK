@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-#import "GemSKScene.h"
 
 #define GEMINI_PHYSICS_BODY_LUA_KEY "GeminiLib.GEMINI_PHYSICS_BODY_LUA_KEY"
 

@@ -143,6 +143,8 @@
 		7698E3F6180B9F84007B7912 /* GemSpriteAnimationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */; };
 		769BD04818653C8E003850EE /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
 		769BD04918653C8E003850EE /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
+		769E8C9818B19C850042AF75 /* GemPhysicsJoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */; };
+		769E8C9918B19C850042AF75 /* GemPhysicsJoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */; };
 		76C22BDC18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDD18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDE18A2EE83006FD3E2 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7818A2EE83006FD3E2 /* b2CollideCircle.cpp */; };
@@ -415,6 +417,8 @@
 		7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSpriteAnimationAction.m; sourceTree = "<group>"; };
 		769BD04618653C8E003850EE /* LGeminiSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiSound.h; sourceTree = "<group>"; };
 		769BD04718653C8E003850EE /* LGeminiSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiSound.m; sourceTree = "<group>"; };
+		769E8C9618B19C850042AF75 /* GemPhysicsJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemPhysicsJoint.h; sourceTree = "<group>"; };
+		769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GemPhysicsJoint.mm; sourceTree = "<group>"; };
 		76C22B7218A2EE83006FD3E2 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
 		76C22B7718A2EE83006FD3E2 /* b2BroadPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BroadPhase.h; sourceTree = "<group>"; };
@@ -774,6 +778,8 @@
 				7688731317B09C2D0002430C /* GemObjectWrapper.m */,
 				76C22C3A18A5CF4C006FD3E2 /* GemPhysics.h */,
 				76C22C3B18A5CF4C006FD3E2 /* GemPhysics.mm */,
+				769E8C9618B19C850042AF75 /* GemPhysicsJoint.h */,
+				769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */,
 				7605105417DC3BA600089A6E /* GemPhysicsBody.h */,
 				7605105517DC3BA600089A6E /* GemPhysicsBody.mm */,
 				760EC4BE17B465870079E84E /* GemSKScene.h */,
@@ -1132,6 +1138,7 @@
 				7688728F17B08D3D0002430C /* lbitlib.c in Sources */,
 				768872BB17B08D3D0002430C /* lstrlib.c in Sources */,
 				7688729917B08D3D0002430C /* ldebug.c in Sources */,
+				769E8C9818B19C850042AF75 /* GemPhysicsJoint.mm in Sources */,
 				768872A317B08D3D0002430C /* linit.c in Sources */,
 				76C22C1A18A2EE83006FD3E2 /* b2PolygonAndCircleContact.cpp in Sources */,
 				76C22C2218A2EE83006FD3E2 /* b2GearJoint.cpp in Sources */,
@@ -1314,6 +1321,7 @@
 				7688729817B08D3D0002430C /* ldblib.c in Sources */,
 				760EC4D517B7457F0079E84E /* LGeminiObject.m in Sources */,
 				768872A017B08D3D0002430C /* lfunc.c in Sources */,
+				769E8C9918B19C850042AF75 /* GemPhysicsJoint.mm in Sources */,
 				760EC4C617B46DE10079E84E /* LGeminiDirector.m in Sources */,
 				768872B017B08D3D0002430C /* lobject.c in Sources */,
 				76C22C0118A2EE83006FD3E2 /* b2Body.cpp in Sources */,

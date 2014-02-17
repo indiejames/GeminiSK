@@ -7,12 +7,7 @@
 //
 
 #import "GemPhysicsBody.h"
-#import "Gemini.h"
-#include "Box2D.h"
 
-@interface GemPhysicsBody () {
-}
-@end
 
 @implementation GemPhysicsBody
 

@@ -61,12 +61,18 @@ static int newNode(lua_State *L){
 }
 
 
-SKNode *getNode(lua_State *L){
+
+SKNode *getNodeAtIndex(lua_State *L, int index){
     // we don't check the userdata type here because it can be anything - we just force it to
     // GemObjectWrapper
-    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, index);
     return (SKNode *)(*go).delegate;
 }
+
+SKNode *getNode(lua_State *L){
+    return getNodeAtIndex(L, 1);
+}
+
 
 int setPosition(lua_State *L) {
     // stack - 1 - object, 2 - x, 3 - y

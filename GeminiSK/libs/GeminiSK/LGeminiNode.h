@@ -13,6 +13,8 @@
 #define GEMINI_NODE_LUA_KEY "GeminiLib.GEMINI_NODE_LUA_KEY"
 
 SKNode *getNode(lua_State *L); // get the node from the object on the top of the Lua stack
+SKNode *getNodeAtIndex(lua_State *L, int index); // get a node from the object at the given index on the
+                                                // Lua stack
 int setPosition(lua_State *L); // used everywhere
 int destroyNode(lua_State *L); //
 int runAction(lua_State *L);

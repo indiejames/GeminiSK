@@ -44,8 +44,8 @@ static int newCircle(lua_State *L){
     createObjectAndSaveRef(L, GEMINI_CIRCLE_LUA_KEY, shape);
     
     [shape.userData setObject:[NSNumber numberWithFloat:radius] forKey:@"RADIUS"];
+    [shape.userData setObject:@"CIRCLE" forKey:@"TYPE"];
     
-    [[Gemini shared].geminiObjects addObject:shape];
     
     return 1;
 }
@@ -77,6 +77,41 @@ static int newRectangle(lua_State *L){
     
     [shape.userData setObject:[NSNumber numberWithFloat:width] forKey:@"WIDTH"];
     [shape.userData setObject:[NSNumber numberWithFloat:height] forKey:@"HEIGHT"];
+    [shape.userData setObject:@"RECTANGLE" forKey:@"TYPE"];
+    
+    return 1;
+}
+
+static int newPolygon(lua_State *L) {
+    // stack - x0, y0, x1, y1, ... , xN, yN where N > 1
+    int numCoords = lua_gettop(L);
+    
+    if (numCoords < 6 || numCoords % 2 != 0){
+        lua_pushstring(L, "Lua: Error: Wrong number of coordinates for polygon");
+        lua_error(L);
+    }
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    
+    for (int i=0; i < numCoords / 2; i++) {
+        float x = luaL_checknumber(L, i*2 + 1);
+        float y = luaL_checknumber(L, i*2 + 2);
+        if (i == 0) {
+            CGPathMoveToPoint(path, nil, x, y);
+        } else {
+            CGPathAddLineToPoint(path, nil, x, y);
+
+        }
+    }
+    
+    SKShapeNode *shape = [[SKShapeNode alloc] init];
+    shape.path = path;
+    
+    
+    createObjectAndSaveRef(L, GEMINI_POLYGON_LUA_KEY, shape);
+    
+    [shape.userData setObject:@"POLYGON" forKey:@"TYPE"];
+    
     
     return 1;
 }
@@ -119,6 +154,8 @@ static const struct luaL_Reg shapeLib_f [] = {
     {"newRectangle", newRectangle},
     {"destroyCircle", destroyNode},
     {"destroyRectangle", destroyNode},
+    {"newPolygon", newPolygon},
+    {"destroyPolygon", destroyNode},
     {NULL, NULL}
 };
 
@@ -151,6 +188,21 @@ static const struct luaL_Reg rectangle_m [] = {
     {NULL, NULL}
 };
 
+// mappings for the polygon methods
+static const struct luaL_Reg polygon_m [] = {
+    {"__gc", genericGC},
+    {"__index", genericIndex},
+    {"__newindex", genericNewIndex},
+    {"addEventListener", addEventListener},
+    {"setPosition", setPosition},
+    {"setFillColor", setFillColor},
+    {"setStrokeColor", setStrokeColor},
+    {"addChild", addChild},
+    {"removeFromParent", removeFromParent},
+    {"runAction", runAction},
+    {NULL, NULL}
+};
+
 
 // the registration function
 int luaopen_shape_lib (lua_State *L){
@@ -158,8 +210,10 @@ int luaopen_shape_lib (lua_State *L){
     
     // circle
     createMetatable(L, GEMINI_CIRCLE_LUA_KEY, circle_m);
-    //rectangle
+    // rectangle
     createMetatable(L, GEMINI_RECTANGLE_LUA_KEY, rectangle_m);
+    // polygon
+    createMetatable(L, GEMINI_POLYGON_LUA_KEY, polygon_m);
        
     /////// finished with metatables ///////////
     

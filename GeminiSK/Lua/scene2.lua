@@ -113,14 +113,22 @@ function scene:createScene( event )
  back_wheel = shape.newCircle(15, 70, 190)
  back_wheel:setFillColor(0,1.0, 1.0)
  scene:addChild(back_wheel)
- physics.addBody(back_wheel, "dynamic", {friction=0.5})
- physics.addJoint("revolute", big_box, back_wheel, 70, 190, {enableMotor=true, motorSpeed=-10,maxMotorTorque = 10})
+ physics.addBody(back_wheel, "dynamic", {friction=1.0})
+ physics.addJoint("revolute", big_box, back_wheel, 70, 190, {enableMotor=true, motorSpeed=-50,maxMotorTorque = 50})
  
  front_wheel = shape.newCircle(15, 140, 190)
  front_wheel:setFillColor(0,1.0, 1.0)
  scene:addChild(front_wheel)
  physics.addBody(front_wheel, "dynamic", {friction=0.5})
  physics.addJoint("revolute", big_box, front_wheel, 140, 190)
+ 
+ ramp = shape.newPolygon(0,0, 200, 0, 200, 100)
+ ramp:setFillColor(1,1,0)
+ ramp:setPosition(500, 10)
+ 
+ scene:addChild(ramp)
+
+ physics.addBody(ramp, "static", {shape={0,0,200,0,200,100}})
 
 
   makeWalls()

@@ -143,7 +143,7 @@ public:
             b2Vec2 *verts = (b2Vec2 *)malloc([points count]/ 2 * sizeof(b2Vec2));
             for (int i=0; i<[points count]/2; i++) {
                 float x = [(NSNumber *)[points objectAtIndex:i*2] floatValue] / scale;
-                float y = -[(NSNumber *)[points objectAtIndex:i*2+1] floatValue] / scale;
+                float y = [(NSNumber *)[points objectAtIndex:i*2+1] floatValue] / scale;
                 verts[i].Set(x, y);
             }
             
@@ -156,7 +156,7 @@ public:
             
             NSArray *posArray = (NSArray *)[fixtureParams objectForKey:@"position"];
             float x = [(NSNumber *)[posArray objectAtIndex:0] floatValue] / scale;
-            float y = -[(NSNumber *)[posArray objectAtIndex:1] floatValue] / scale;
+            float y = [(NSNumber *)[posArray objectAtIndex:1] floatValue] / scale;
             
             circle.m_p.Set(x, y);
             circle.m_radius = radius;

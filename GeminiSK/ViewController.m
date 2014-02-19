@@ -56,4 +56,9 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+// turn off status bar
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 @end

@@ -14,11 +14,26 @@ local scene = director.newScene()
 scene:setSize(1136,640)
 
 local mySound
-local circles
+local boxes
 local rotation
 
 local wall_thickness = 10
-local box_width = 100
+local car_with = 100
+local box_height = 50
+local box_width = box_height / 2
+local box_spacing = box_width + 2
+local box_bottom_row_start = 900
+local box_middle_row_start = box_bottom_row_start + 0.6 * box_width
+local box_top_row_start = box_middle_row_start + 0.6 * box_width
+local box_bottom_row_y = box_height / 2 + wall_thickness
+local box_middle_row_y = box_bottom_row_y + box_height + 2
+local box_top_row_y = box_middle_row_y + box_height + 2
+
+local box_positions = {
+  box_bottom_row_start, box_bottom_row_y, box_bottom_row_start + box_spacing, box_bottom_row_y, box_bottom_row_start + 2 * box_spacing, box_bottom_row_y,
+  box_middle_row_start, box_middle_row_y, box_middle_row_start + box_spacing, box_middle_row_y,
+  box_top_row_start, box_top_row_y
+}
 
 
 function makeWalls()
@@ -40,7 +55,7 @@ function makeWalls()
 
   scene:addChild(ceiling)
   
-physics.addBody(ceiling)
+  physics.addBody(ceiling)
 
 
   -- left wall
@@ -66,6 +81,50 @@ physics.addBody(ceiling)
 
 end
 
+function makeBoxes()
+  boxes = {}
+  for i=1,6 do
+      local x = box_positions[i*2 - 1]
+      local y = box_positions[i*2]
+      boxes[i] = shape.newRectangle(box_width, box_height, x, y)
+      boxes[i]:setFillColor(0.5,0,0.5)
+      scene:addChild(boxes[i])
+      physics.addBody(boxes[i], "dynamic")
+  end
+end
+
+function makeCar()
+  big_box = shape.newRectangle(car_with, car_with/2, 105, 205)
+  big_box.name = "Big Box"
+  big_box:setFillColor(1.0, 0, 0)
+  scene:addChild(big_box)
+
+  physics.addBody(big_box, "dynamic")
+
+  -- big_box.zRotation = -0.77
+
+  back_wheel = shape.newCircle(15, 70, 190)
+  back_wheel:setFillColor(0,1.0, 1.0)
+  scene:addChild(back_wheel)
+  physics.addBody(back_wheel, "dynamic", {friction=1.0})
+  physics.addJoint("revolute", big_box, back_wheel, 70, 190, {enableMotor=true, motorSpeed=-50,maxMotorTorque = 50})
+
+  front_wheel = shape.newCircle(15, 140, 190)
+  front_wheel:setFillColor(0,1.0, 1.0)
+  scene:addChild(front_wheel)
+  physics.addBody(front_wheel, "dynamic", {friction=0.5})
+  physics.addJoint("revolute", big_box, front_wheel, 140, 190)
+end
+
+function makeRamp()
+  ramp = shape.newPolygon(0,0, 200,0, 200,100, 0,0)
+  ramp:setFillColor(1,1,0)
+  ramp:setPosition(500, 10)
+   
+  scene:addChild(ramp)
+
+  physics.addBody(ramp, "static", {shape={0,0,200,0,200,100,0,0}})
+end
 
 -- Called when the scene is first created.
 -- Add scene elements here.
@@ -78,60 +137,18 @@ function scene:createScene( event )
     
   physics.setGravity(0,-1.5)
     
-    mySound = sound.newSound("wipe1.wav")
-
-    circles = {}
-    for i=1,10 do
-        --circles[i] = shape.newCircle(20,100, 50 + i*25)
-
-   circles[i] = shape.newRectangle(50, 20, 100, 50 + i*50)
-        circles[i].lineWidth = 0
-        circles[i]:setStrokeColor(0,0,0.75)
-        circles[i]:setFillColor(0.5,0,0.5)
-        scene:addChild(circles[i])
-    end
+  mySound = sound.newSound("wipe1.wav")
     
-    rotation = action.rotate(7.0, 13)
-
--- big_circle = shape.newCircle(20, 200, 200)
- --big_circle:setFillColor(0,1.0, 1.0)
- --big_circle.lineWidth = 0
- --scene:addChild(big_circle)
- --physics.addBody(big_circle, "dynamic", {restituiion=1, friction=0.5, density=10})
- 
- --physics.applyForce(big_circle, 300,0)
-  
-  big_box = shape.newRectangle(box_width, box_width/2, 105, 205)
- big_box.name = "Big Box"
- big_box:setFillColor(1.0, 0, 0)
- scene:addChild(big_box)
- 
- physics.addBody(big_box, "dynamic")
-
- -- big_box.zRotation = -0.77
- 
- back_wheel = shape.newCircle(15, 70, 190)
- back_wheel:setFillColor(0,1.0, 1.0)
- scene:addChild(back_wheel)
- physics.addBody(back_wheel, "dynamic", {friction=1.0})
- physics.addJoint("revolute", big_box, back_wheel, 70, 190, {enableMotor=true, motorSpeed=-50,maxMotorTorque = 50})
- 
- front_wheel = shape.newCircle(15, 140, 190)
- front_wheel:setFillColor(0,1.0, 1.0)
- scene:addChild(front_wheel)
- physics.addBody(front_wheel, "dynamic", {friction=0.5})
- physics.addJoint("revolute", big_box, front_wheel, 140, 190)
- 
- ramp = shape.newPolygon(0,0, 200, 0, 200, 100)
- ramp:setFillColor(1,1,0)
- ramp:setPosition(500, 10)
- 
- scene:addChild(ramp)
-
- physics.addBody(ramp, "static", {shape={0,0,200,0,200,100}})
+  rotation = action.rotate(7.0, 13)
 
 
   makeWalls()
+
+  makeRamp()
+
+  makeBoxes()
+
+  makeCar()
 
 end
 
@@ -167,7 +184,7 @@ function scene:didMoveToView(  )
 
   end
 
- timer.performWithDelay(15, goToScene1)
+  timer.performWithDelay(15, goToScene1)
 
   director.loadScene("scene1")
 

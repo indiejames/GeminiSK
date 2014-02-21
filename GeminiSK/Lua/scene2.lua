@@ -184,7 +184,7 @@ function scene:didMoveToView(  )
 
   end
 
-  timer.performWithDelay(15, goToScene1)
+  timer.performWithDelay(5, goToScene1)
 
   director.loadScene("scene1")
 

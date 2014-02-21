@@ -100,6 +100,7 @@ static int newRotateAction(lua_State *L){
     SKAction *action = [SKAction rotateByAngle:angle duration:duration];
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
+    [gemAction loadFinished:nil];
     
     createObjectAndSaveRef(L, GEMINI_ACTION_LUA_KEY, gemAction);
     
@@ -131,6 +132,7 @@ static int newFollowPath(lua_State *L){
     SKAction *action = [SKAction followPath:path.path.CGPath asOffset:asOffset orientToPath:orientToPath duration:duration];
     GemAction *gemAction = [[GemAction alloc] init];
     gemAction.skAction = action;
+    [gemAction loadFinished:nil];
     createObjectAndSaveRef(L, GEMINI_ACTION_LUA_KEY, gemAction);
     
     return 1;

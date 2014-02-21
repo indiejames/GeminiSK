@@ -13,7 +13,7 @@
 }
 
 // expect 3N + 1 points (1 start point plus N movements consisting of destinations plus 2 control points)
--(id) initWithNum:(int) num Points:(CGPoint *)points {
+-(id) initWithNum:(int) num Points:(CGPoint *)points ClosePath:(BOOL)closePath{
     NSAssert(num % 3 == 1, @"Path must consit of 3N + 1 points");
     
     self = [super init];
@@ -31,6 +31,10 @@
             [_path addCurveToPoint:dest controlPoint1:controlA controlPoint2:controlB];
         }
         
+    }
+    
+    if (closePath) {
+        [_path closePath];
     }
     
     return self;

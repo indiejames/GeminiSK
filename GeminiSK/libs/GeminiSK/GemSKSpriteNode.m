@@ -30,7 +30,10 @@
     GemLog(@"Texture data is now available");
     
     self.texture = gemTexture.texture;
-    self.size = gemTexture.texture.size;
+    CGFloat width = gemTexture.texture.size.width * self.xScale;
+    CGFloat height = gemTexture.texture.size.height * self.yScale;
+    CGSize size = CGSizeMake(width, height);
+    self.size = size;
     _isLoaded = YES;
     
 }

@@ -34,7 +34,12 @@
 -(void)createSKAction {
     if (self.isLoaded) {
         SKAction *action = _gemAction.skAction;
-        self.skAction = [SKAction repeatAction:action count:_actionCount];
+        if (_actionCount > 0) {
+            self.skAction = [SKAction repeatAction:action count:_actionCount];
+        } else {
+            self.skAction = [SKAction repeatActionForever:action];
+        }
+        
         [self notifyListeners];
         
     }

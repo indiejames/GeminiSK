@@ -16,7 +16,7 @@ local physics = require("physics")
 local texture = require("texture")
 local path = require("path")
 local scene = director.newScene()
-scene:setSize(1280,960)
+scene:setSize(1136,640)
 
 local zoomNode
 local panNode
@@ -31,6 +31,9 @@ local rep
 local pbody
 local sceneBodby
 local myPath
+local ship
+local shipPath
+local shipPath2
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -56,6 +59,42 @@ function scene:createScene( event )
   runner = sprite.newSprite(texture1)
   zoomNode:addChild(runner)
   runner:setPosition(0, 0)
+  
+  ship_texture_atlas = texture.newTextureAtlas("spaceship")
+  ship_texture = texture.newTexture(ship_texture_atlas, "Spaceship.png")
+  
+  --runner = sprite.newSprite("runner")
+  --runner = sprite.newSprite(texture1)
+  
+  ship = sprite.newSprite(ship_texture)
+
+  zoomNode:addChild(ship)
+  ship:setPosition(300,300)
+  ship.scale = 0.3
+
+  middleX = 600
+  left = middleX + 500
+  right = middleX + 500
+  bottom = 100
+  middleY = bottom + 200
+  top = middleY + 200
+  shipPath = path.newBezierPath(
+      middleX, bottom,
+      right, bottom, right, middleY, middleX, middleY,
+      left, middleY, left, top, middleX, top,
+      right, top , right, middleY, middleX, middleY,
+      left, middleY, left, bottom, middleX, bottom,
+      true
+    )
+
+  shipPath2 = path.newBezierPath(
+      526.5, 304.5,
+      930.5, 311.5, 704.5, 598.5, 911.27, 456.5,
+      529.5, 298.5, 949.73, 166.5, 671.13, -10.36,
+      173.5, 306.5, 387.87, 607.36, 191.86, 529.08,
+      522.5, 294.5, 155.14, 83.92, 364.4, 56.15,
+      true
+    )
   
   --pbody = physics.newBodyFromCircle(30)
   --runner.physicsBody = pbody
@@ -115,6 +154,8 @@ end
   
   runner:addChild(rectangle)
 
+  shipFollow = action.followPath(shipPath2, 4, false, true)
+
 end
 
 
@@ -148,7 +189,11 @@ director.destroyScene("scene2")
   
   rep = action.repeatAction(animate,-1)
   rotation = action.rotate(7.0, 3)
- followPath = action.followPath(myPath, 3, true, false)
+  followPath = action.followPath(myPath, 3, true, false)
+
+  
+  shipRep = action.repeatAction(shipFollow, -1)
+  ship:runAction(shipRep)
 
   runner:runAction(rep)
   --runner:runAction(rotation)

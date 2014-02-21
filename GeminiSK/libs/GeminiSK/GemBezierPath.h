@@ -16,6 +16,6 @@
 @property (readonly) UIBezierPath *path;
 @property NSMutableDictionary *userData;
 
--(id)initWithNum:(int) num Points:(CGPoint *)points;
+-(id)initWithNum:(int) num Points:(CGPoint *)points ClosePath:(BOOL)closePath;
 
 @end

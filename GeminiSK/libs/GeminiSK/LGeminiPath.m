@@ -37,7 +37,13 @@ static int newBezierPath(lua_State *L){
         points[i] = CGPointMake(x, y);
     }
     
-    GemBezierPath *path = [[GemBezierPath alloc] initWithNum:numPoints Points:points];
+    BOOL closePath = NO;
+    
+    if (lua_gettop(L) == index) {
+        closePath = lua_toboolean(L, index);
+    }
+    
+    GemBezierPath *path = [[GemBezierPath alloc] initWithNum:numPoints Points:points ClosePath:closePath];
     createObjectAndSaveRef(L, GEMINI_PATH_LUA_KEY, path);
     
     free(points);

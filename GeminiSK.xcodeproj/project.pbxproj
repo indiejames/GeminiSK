@@ -145,6 +145,8 @@
 		769BD04918653C8E003850EE /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
 		769E8C9818B19C850042AF75 /* GemPhysicsJoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */; };
 		769E8C9918B19C850042AF75 /* GemPhysicsJoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */; };
+		769E8C9B18B6CEC50042AF75 /* spaceship.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8C9A18B6CEC50042AF75 /* spaceship.atlas */; };
+		769E8C9C18B6CEC50042AF75 /* spaceship.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8C9A18B6CEC50042AF75 /* spaceship.atlas */; };
 		76C22BDC18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDD18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDE18A2EE83006FD3E2 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7818A2EE83006FD3E2 /* b2CollideCircle.cpp */; };
@@ -323,7 +325,7 @@
 		7688708C17B08BBA0002430C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		7688708E17B08BBA0002430C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7688708F17B08BBA0002430C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7688709417B08BBA0002430C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		7688709417B08BBA0002430C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = ../Spaceship.png; sourceTree = "<group>"; };
 		7688709617B08BBA0002430C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7688709C17B08BBA0002430C /* GeminiSKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeminiSKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7688709D17B08BBA0002430C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -419,6 +421,7 @@
 		769BD04718653C8E003850EE /* LGeminiSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiSound.m; sourceTree = "<group>"; };
 		769E8C9618B19C850042AF75 /* GemPhysicsJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemPhysicsJoint.h; sourceTree = "<group>"; };
 		769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GemPhysicsJoint.mm; sourceTree = "<group>"; };
+		769E8C9A18B6CEC50042AF75 /* spaceship.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spaceship.atlas; sourceTree = "<group>"; };
 		76C22B7218A2EE83006FD3E2 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
 		76C22B7718A2EE83006FD3E2 /* b2BroadPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BroadPhase.h; sourceTree = "<group>"; };
@@ -626,7 +629,6 @@
 				7688708B17B08BBA0002430C /* Main_iPad.storyboard */,
 				7688708E17B08BBA0002430C /* ViewController.h */,
 				7688708F17B08BBA0002430C /* ViewController.m */,
-				7688709417B08BBA0002430C /* Spaceship.png */,
 				7688709617B08BBA0002430C /* Images.xcassets */,
 				7688707D17B08BBA0002430C /* Supporting Files */,
 				768870B417B08C9C0002430C /* libs */,
@@ -986,6 +988,8 @@
 		76C67A1D17C2F53B00B73696 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				7688709417B08BBA0002430C /* Spaceship.png */,
+				769E8C9A18B6CEC50042AF75 /* spaceship.atlas */,
 				76E6E9D9186AA1740061480D /* background.png */,
 				76C67A4417C3084700B73696 /* runner.atlas */,
 				76C67A2517C2F5D000B73696 /* marios.atlas */,
@@ -1099,6 +1103,7 @@
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
 				76E7A468189C9AC8004D128D /* wipe1.wav in Resources */,
 				76C67A2E17C2F5D000B73696 /* marios.atlas in Resources */,
+				769E8C9B18B6CEC50042AF75 /* spaceship.atlas in Resources */,
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688727F17B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,
 				76C67A4517C3084700B73696 /* runner.atlas in Resources */,
@@ -1111,6 +1116,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769E8C9C18B6CEC50042AF75 /* spaceship.atlas in Resources */,
 				76C67A2F17C2F5D000B73696 /* marios.atlas in Resources */,
 				768870A817B08BBA0002430C /* InfoPlist.strings in Resources */,
 				760EC4D117B5D12D0079E84E /* scene1.lua in Resources */,

@@ -147,6 +147,12 @@
 		769E8C9918B19C850042AF75 /* GemPhysicsJoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */; };
 		769E8C9B18B6CEC50042AF75 /* spaceship.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8C9A18B6CEC50042AF75 /* spaceship.atlas */; };
 		769E8C9C18B6CEC50042AF75 /* spaceship.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8C9A18B6CEC50042AF75 /* spaceship.atlas */; };
+		769E8C9F18B83C260042AF75 /* LGeminiEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9E18B83C260042AF75 /* LGeminiEmitter.m */; };
+		769E8CA018B83C260042AF75 /* LGeminiEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9E18B83C260042AF75 /* LGeminiEmitter.m */; };
+		769E8CB018B84A900042AF75 /* ShipFlame.sks in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CAE18B84A900042AF75 /* ShipFlame.sks */; };
+		769E8CB118B84A900042AF75 /* ShipFlame.sks in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CAE18B84A900042AF75 /* ShipFlame.sks */; };
+		769E8CB218B84A900042AF75 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CAF18B84A900042AF75 /* spark.png */; };
+		769E8CB318B84A900042AF75 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CAF18B84A900042AF75 /* spark.png */; };
 		76C22BDC18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDD18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDE18A2EE83006FD3E2 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7818A2EE83006FD3E2 /* b2CollideCircle.cpp */; };
@@ -422,6 +428,10 @@
 		769E8C9618B19C850042AF75 /* GemPhysicsJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemPhysicsJoint.h; sourceTree = "<group>"; };
 		769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GemPhysicsJoint.mm; sourceTree = "<group>"; };
 		769E8C9A18B6CEC50042AF75 /* spaceship.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spaceship.atlas; sourceTree = "<group>"; };
+		769E8C9D18B83C260042AF75 /* LGeminiEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiEmitter.h; sourceTree = "<group>"; };
+		769E8C9E18B83C260042AF75 /* LGeminiEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiEmitter.m; sourceTree = "<group>"; };
+		769E8CAE18B84A900042AF75 /* ShipFlame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ShipFlame.sks; sourceTree = "<group>"; };
+		769E8CAF18B84A900042AF75 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		76C22B7218A2EE83006FD3E2 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
 		76C22B7718A2EE83006FD3E2 /* b2BroadPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BroadPhase.h; sourceTree = "<group>"; };
@@ -620,8 +630,9 @@
 		7688707C17B08BBA0002430C /* GeminiSK */ = {
 			isa = PBXGroup;
 			children = (
-				76E6E9D61865481A0061480D /* Sounds */,
+				769E8CAD18B84A900042AF75 /* Emitters */,
 				76C67A1D17C2F53B00B73696 /* Artwork */,
+				76E6E9D61865481A0061480D /* Sounds */,
 				76D081B017B1D2730033E3DF /* Lua */,
 				7688708517B08BBA0002430C /* AppDelegate.h */,
 				7688708617B08BBA0002430C /* AppDelegate.m */,
@@ -760,6 +771,12 @@
 				7688730917B092E30002430C /* Gemini.m */,
 				76C67A0F17BDAF4600B73696 /* GemAction.h */,
 				76C67A1017BDAF4600B73696 /* GemAction.m */,
+				7688731717B09C610002430C /* GemEvent.m */,
+				76D081BC17B1E3590033E3DF /* GemEventManager.h */,
+				76D081BD17B1E3590033E3DF /* GemEventManager.m */,
+				7688730617B092E30002430C /* GemFileNameResolver.h */,
+				7688730717B092E30002430C /* GemFileNameResolver.m */,
+				7698E3E51802497E007B7912 /* GemLoadListener.h */,
 				76456F6A1835B96800F91FD2 /* GemBezierPath.h */,
 				76456F6B1835B96800F91FD2 /* GemBezierPath.m */,
 				76FE785F181B6A7800BF89FE /* GemRepeatAction.h */,
@@ -769,12 +786,6 @@
 				760EC4CB17B5C6D70079E84E /* GemDirector.h */,
 				760EC4CC17B5C6D80079E84E /* GemDirector.m */,
 				7688731617B09C610002430C /* GemEvent.h */,
-				7688731717B09C610002430C /* GemEvent.m */,
-				76D081BC17B1E3590033E3DF /* GemEventManager.h */,
-				76D081BD17B1E3590033E3DF /* GemEventManager.m */,
-				7688730617B092E30002430C /* GemFileNameResolver.h */,
-				7688730717B092E30002430C /* GemFileNameResolver.m */,
-				7698E3E51802497E007B7912 /* GemLoadListener.h */,
 				7698E3E618038781007B7912 /* GemLoader.h */,
 				7688731217B09C2D0002430C /* GemObjectWrapper.h */,
 				7688731317B09C2D0002430C /* GemObjectWrapper.m */,
@@ -801,6 +812,8 @@
 				76C67A0C17BDA1C200B73696 /* LGeminiAction.m */,
 				760EC4C317B46DE10079E84E /* LGeminiDirector.h */,
 				760EC4C417B46DE10079E84E /* LGeminiDirector.m */,
+				769E8C9D18B83C260042AF75 /* LGeminiEmitter.h */,
+				769E8C9E18B83C260042AF75 /* LGeminiEmitter.m */,
 				76D081B417B1E3590033E3DF /* LGeminiEvent.h */,
 				76D081B517B1E3590033E3DF /* LGeminiEvent.m */,
 				76D081C817B1E3D10033E3DF /* LGeminiLuaSupport.h */,
@@ -827,6 +840,15 @@
 				769BD04718653C8E003850EE /* LGeminiSound.m */,
 			);
 			path = GeminiSK;
+			sourceTree = "<group>";
+		};
+		769E8CAD18B84A900042AF75 /* Emitters */ = {
+			isa = PBXGroup;
+			children = (
+				769E8CAE18B84A900042AF75 /* ShipFlame.sks */,
+				769E8CAF18B84A900042AF75 /* spark.png */,
+			);
+			path = Emitters;
 			sourceTree = "<group>";
 		};
 		76C22B7118A2EE83006FD3E2 /* Box2D */ = {
@@ -1096,6 +1118,8 @@
 				7688708D17B08BBA0002430C /* Main_iPad.storyboard in Resources */,
 				7688708A17B08BBA0002430C /* Main_iPhone.storyboard in Resources */,
 				7688728717B08D3D0002430C /* LICENSE_QSUtils.txt in Resources */,
+				769E8CB218B84A900042AF75 /* spark.png in Resources */,
+				769E8CB018B84A900042AF75 /* ShipFlame.sks in Resources */,
 				760EC4D017B5D12D0079E84E /* scene1.lua in Resources */,
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
 				76C22C3918A2EEB1006FD3E2 /* LICENSE_Box2D.txt in Resources */,
@@ -1117,9 +1141,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				769E8C9C18B6CEC50042AF75 /* spaceship.atlas in Resources */,
+				769E8CB118B84A900042AF75 /* ShipFlame.sks in Resources */,
 				76C67A2F17C2F5D000B73696 /* marios.atlas in Resources */,
 				768870A817B08BBA0002430C /* InfoPlist.strings in Resources */,
 				760EC4D117B5D12D0079E84E /* scene1.lua in Resources */,
+				769E8CB318B84A900042AF75 /* spark.png in Resources */,
 				7688728417B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688728217B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
 				76C67A1917C11B6F00B73696 /* scene2.lua in Resources */,
@@ -1167,6 +1193,7 @@
 				7688731417B09C2D0002430C /* GemObjectWrapper.m in Sources */,
 				76C22C2818A2EE83006FD3E2 /* b2MouseJoint.cpp in Sources */,
 				7688730C17B092E30002430C /* Gemini.m in Sources */,
+				769E8C9F18B83C260042AF75 /* LGeminiEmitter.m in Sources */,
 				7688728B17B08D3D0002430C /* lauxlib.c in Sources */,
 				7698E3F5180B9F84007B7912 /* GemSpriteAnimationAction.m in Sources */,
 				76D081CE17B329840033E3DF /* LGeminiTimer.m in Sources */,
@@ -1277,6 +1304,7 @@
 				760EC4E117B817830079E84E /* LGeminiNode.m in Sources */,
 				76C67A1217BDAF4600B73696 /* GemAction.m in Sources */,
 				76C22C0318A2EE83006FD3E2 /* b2ContactManager.cpp in Sources */,
+				769E8CA018B83C260042AF75 /* LGeminiEmitter.m in Sources */,
 				768872C817B08D3D0002430C /* lzio.c in Sources */,
 				7688729017B08D3D0002430C /* lbitlib.c in Sources */,
 				76C22BF118A2EE83006FD3E2 /* b2EdgeShape.cpp in Sources */,

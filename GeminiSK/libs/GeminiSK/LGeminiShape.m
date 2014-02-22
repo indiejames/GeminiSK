@@ -1,8 +1,8 @@
 //
-//  LGeminiDirector.m
-//  GeminiSDK
+//  LGeminiShape.m
+//  GeminiSK
 //
-//  Created by James Norton on 8/22/12.
+//  Created by James Norton on 10/12/2013.
 //
 //
 

@@ -15,6 +15,7 @@ local sound = require("sound")
 local physics = require("physics")
 local texture = require("texture")
 local path = require("path")
+local emitter = require("emitter")
 local scene = director.newScene()
 scene:setSize(1136,640)
 
@@ -131,7 +132,7 @@ end
   circle:setStrokeColor(0,0,0.75)
   circle:setFillColor(0.5,0,0.5)
  --circle.glowWidth = 2
- scene:setBackgroundColor(1.0,0,0)
+ scene:setBackgroundColor(0,0,0)
 
   --ui.destroyLabel(label)
   --label = nil
@@ -155,6 +156,12 @@ end
   runner:addChild(rectangle)
 
   shipFollow = action.followPath(shipPath2, 4, false, true)
+
+  shipFlame = emitter.newEmitter("ShipFlame", 0, 0)
+  ship:addChild(shipFlame)
+  shipFlame:setPosition(0, -200)
+  shipFlame:setTarget(scene)
+  --shipFlame:setScale(10)
 
 end
 

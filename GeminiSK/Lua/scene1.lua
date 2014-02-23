@@ -67,6 +67,8 @@ function scene:createScene( event )
   
   --runner = sprite.newSprite("runner")
   runner = sprite.newSprite(texture1)
+  runner.scale = 2
+  runner.xScale = -1 * runner.xScale
   runner.name = "Mario"
   zoomNode:addChild(runner)
   runner:setPosition(0, 0)

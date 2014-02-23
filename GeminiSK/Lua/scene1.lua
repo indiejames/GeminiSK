@@ -62,11 +62,12 @@ function scene:createScene( event )
   soundPlayer:prepareToPlay()
   
   
-  texture_atlas = texture.newTextureAtlas("runner")
-  texture1 = texture.newTexture(texture_atlas, "runner.0001.png")
+  texture_atlas = texture.newTextureAtlas("8bit")
+  texture1 = texture.newTexture(texture_atlas, "mario.01.png")
   
   --runner = sprite.newSprite("runner")
   runner = sprite.newSprite(texture1)
+  runner.name = "Mario"
   zoomNode:addChild(runner)
   runner:setPosition(0, 0)
   
@@ -77,6 +78,7 @@ function scene:createScene( event )
   --runner = sprite.newSprite(texture1)
   
   ship = sprite.newSprite(ship_texture)
+  ship.name = "Ship"
 
   zoomNode:addChild(ship)
   ship:setPosition(300,300)
@@ -115,16 +117,14 @@ function scene:createScene( event )
   scene:setPhysicsGravity(0,-4.5)
   
   frames =  {
-  "runner.0001.png",
-  "runner.0002.png",
-  "runner.0003.png",
-  "runner.0004.png",
-  "runner.0005.png",
-  "runner.0006.png",
-  "runner.0007.png",
-  "runner.0008.png",
-  "runner.0009.png",
-  "runner.0010.png"
+  "mario.01.png",
+  "mario.02.png",
+  "mario.03.png",
+  "mario.02.png",
+  "mario.01.png",
+  "mario.04.png",
+  "mario.05.png",
+  "mario.04.png"
   }
   
 textures = {}
@@ -132,7 +132,7 @@ for i, file in ipairs(frames) do
     textures[i] = texture.newTexture(texture_atlas, file)
 end
   
-  animate = action.animate(textures[1], textures[2], textures[3], textures[4], textures[5], textures[6], textures[7], textures[8], textures[9], textures[10], 0.1)
+  animate = action.animate(textures[1], textures[2], textures[3], textures[4], textures[5], textures[6], textures[7], textures[8], 0.1)
 
  myPath = path.newBezierPath(0, 0, 200, 200, 0, 200, 200, 0)
   
@@ -162,7 +162,7 @@ end
   -- panNode:addChild(circle)
   -- panNode:addChild(rectangle)
   
-  runner:addChild(rectangle)
+  --runner:addChild(rectangle)
 
   shipFollow = action.followPath(shipPath2, 8, false, true)
 

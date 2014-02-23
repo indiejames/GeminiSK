@@ -27,7 +27,7 @@
 }
 
 -(void)loadFinished:(id)texture {
-    GemLog(@"Texture data is now available");
+    GemLog(@"Texture data is now available for sprite %@", self.name);
     
     self.texture = gemTexture.texture;
     CGFloat width = gemTexture.texture.size.width * self.xScale;

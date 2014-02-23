@@ -43,8 +43,11 @@
 }
 
 -(void)loadFinished:(id)texture {
-    GemLog(@"Texture data is now available");
+    GemLog(@"Texture data is now available for %@", _imageName);
     _texture = [_atlas.atlas textureNamed:_imageName];
+    
+    CGSize size = [_texture size];
+    GemLog(@"Texture %@ has size %f x %f", _imageName, size.width, size.height);
     
     _isLoaded = YES;
     [loadListeners enumerateObjectsUsingBlock:^(id listener, NSUInteger index, BOOL *stop){

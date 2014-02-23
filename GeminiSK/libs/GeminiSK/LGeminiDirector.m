@@ -16,6 +16,16 @@
 #import "GemSKScene.h"
 #import "LGeminiNode.h"
 
+#pragma mark Utitly Methods
+GemSKScene *getScene(lua_State *L){
+    __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
+    return (GemSKScene *)(*obj).delegate;
+}
+
+#pragma  mark -
+
+
+#pragma mark Factory Methods
 
 static int newScene(lua_State *L){
     GemLog(@"Creating new scene");
@@ -29,6 +39,8 @@ static int newScene(lua_State *L){
     
     return 1;
 }
+
+#pragma  mark -
 
 static int sceneGC (lua_State *L){
     //NSLog(@"lineGC called");
@@ -78,12 +90,11 @@ static int deleteScene(lua_State *L){
     
 }
 
-// scene methods
+#pragma mark Scene Methods
 
 static int sceneSetBackroundColor(lua_State *L){
     int numargs = lua_gettop(L);
-    __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
-    SKScene *scene = (SKScene *)(*obj).delegate;
+    GemSKScene *scene = getScene(L);
     
     GLfloat red = luaL_checknumber(L, 2);
     GLfloat green = luaL_checknumber(L, 3);
@@ -97,6 +108,20 @@ static int sceneSetBackroundColor(lua_State *L){
     
     scene.backgroundColor = backgroundColor;
     
+    return 0;
+}
+
+static int sceneSetBackgroundImage(lua_State *L){
+    GemSKScene *scene = getScene(L);
+    const char *imageFile = luaL_checkstring(L, 2);
+    NSString *imageFileStr = [NSString stringWithFormat:@"%s", imageFile];
+    
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:imageFileStr];
+    sprite.position = CGPointMake(CGRectGetMidX(scene.frame), CGRectGetMidY(scene.frame));
+    sprite.name = @"Background";
+    sprite.size = scene.size;
+    [scene addChild:sprite];
+               
     return 0;
 }
 
@@ -165,8 +190,7 @@ static const struct luaL_Reg scene_m [] = {
     {"__index", genericIndex},
     {"__newindex", genericNewIndex},
     {"setBackgroundColor", sceneSetBackroundColor},
-    /*{"addLayer", addLayerToScene},
-    {"addNativeObject", addNativeObjectToScene},*/
+    {"setBackgroundImage", sceneSetBackgroundImage},
     {"addEventListener", addEventListener},
     {"addChild", addChild},
     {"setSize", sceneSetSize},

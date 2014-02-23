@@ -113,6 +113,7 @@ void saveObjectReference(id object){
 
 // wraps objects in a generic type that can be used with Lua
 GemObjectWrapper *createObjectWrapper(lua_State *L, const char *objectType, id object) {
+    
     GemObjectWrapper *luaData = [[GemObjectWrapper alloc] initWithLuaState:L LuaKey:objectType];
     luaData.delegate = object;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];

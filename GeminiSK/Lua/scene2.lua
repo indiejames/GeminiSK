@@ -178,9 +178,9 @@ function scene:didMoveToView(  )
  director.loadScene("scene1")
     
   function goToScene1()
-    sound.play(mySound)
-    director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=0.75})
-    --director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CIFlashTransition", duration=1.5})
+    --sound.play(mySound)
+    --director.gotoScene("scene1", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=0.75})
+    director.gotoScene("scene1", {transition_type = "push", direction = "up", duration=1.5})
 
   end
 

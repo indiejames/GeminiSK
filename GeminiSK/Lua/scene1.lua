@@ -35,6 +35,8 @@ local myPath
 local ship
 local shipPath
 local shipPath2
+local shipSound
+local soundPlayer
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -46,11 +48,18 @@ function scene:createScene( event )
   print("Lua: Creating scene1")
   
 
+  scene:setBackgroundImage("space2.jpg")
+
   
   zoomNode = node.newNode()
   scene:addChild(zoomNode)
   panNode = node.newNode()
   zoomNode:addChild(panNode)
+
+  --shipSound = sound.newSound("rocket.wav")
+  soundPlayer = sound.newAudioPlayer("rocket.wav")
+  soundPlayer.numberOfLoops = -1
+  soundPlayer:prepareToPlay()
   
   
   texture_atlas = texture.newTextureAtlas("runner")
@@ -155,7 +164,7 @@ end
   
   runner:addChild(rectangle)
 
-  shipFollow = action.followPath(shipPath2, 4, false, true)
+  shipFollow = action.followPath(shipPath2, 8, false, true)
 
   shipFlame = emitter.newEmitter("ShipFlame", 0, 0)
   ship:addChild(shipFlame)
@@ -177,6 +186,11 @@ function scene:didMoveToView(  )
   -----------------------------------------------------------------------------
   
   print("Entering scene 1")
+
+--sound.play(shipSound)
+
+  
+  soundPlayer:play(1.5)
   
   print("Lua: Adding label to scene")
  panNode:addChild(label)

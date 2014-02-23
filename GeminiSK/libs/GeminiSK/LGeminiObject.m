@@ -185,7 +185,33 @@ int removeEventListener(lua_State *L){
 
 // generic index method for userdata types
 int genericIndex(lua_State *L){
-    // first check to see if the delegate object will accept the call
+    
+    
+    // first check the uservalue
+    lua_getuservalue( L, -2 );
+    if(lua_isnil(L,-1)){
+        // GemLog(@"user value for user data is nil");
+    }
+    lua_pushvalue( L, -2 );
+    
+    lua_rawget( L, -2 );
+    if( lua_isnoneornil( L, -1 ) == 0 )
+    {
+        return 1;
+    }
+    
+    lua_pop( L, 2 );
+    
+    // second check the metatable
+    lua_getmetatable( L, -2 );
+    lua_pushvalue( L, -2 );
+    lua_rawget( L, -2 );
+    
+    if (lua_isnoneornil(L,-1) == 0) {
+        return 1;
+    }
+    
+    // finally check to see if the delegate object will accept the call
     __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     NSObject *delegate = (*go).delegate;
     
@@ -229,28 +255,6 @@ int genericIndex(lua_State *L){
             lua_pushstring(L, [sVal cStringUsingEncoding:[NSString defaultCStringEncoding]]);
         }
         
-        
-    } else {
-
-        // first check the uservalue
-        lua_getuservalue( L, -2 );
-        if(lua_isnil(L,-1)){
-            // GemLog(@"user value for user data is nil");
-        }
-        lua_pushvalue( L, -2 );
-        
-        lua_rawget( L, -2 );
-        if( lua_isnoneornil( L, -1 ) == 0 )
-        {
-            return 1;
-        }
-        
-        lua_pop( L, 2 );
-        
-        // second check the metatable
-        lua_getmetatable( L, -2 );
-        lua_pushvalue( L, -2 );
-        lua_rawget( L, -2 );
         
     }
     

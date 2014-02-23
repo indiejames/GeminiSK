@@ -57,6 +57,7 @@ static int setTargetNode(lua_State *L){
     SKNode *target = (SKEmitterNode *)getNodeAtIndex(L, 2);
     
     [emitter setTargetNode:target];
+    //emitter.particleLifetime = 50;
     
     return 0;
 }

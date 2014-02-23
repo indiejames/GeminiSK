@@ -11,5 +11,6 @@
 #include "lauxlib.h"
 
 #define GEMINI_SOUND_LUA_KEY "GeminiLib.GEMINI_SOUND_LUA_KEY"
+#define GEMINI_AUDIO_PLAYER_LUA_KEY "GeminiLib.GEMINI_AUDIO_PLAYER_LUA_KEY"
 
 int luaopen_soundlib (lua_State *L);

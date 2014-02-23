@@ -150,6 +150,19 @@ SKTransition *transitionFromParams(NSDictionary *params){
         }
         
         trans = [SKTransition transitionWithCIFilter:filter duration:duration];
+    } else if ([transitionType isEqualToString:PUSH]) {
+        SKTransitionDirection direction = SKTransitionDirectionLeft;
+        
+        NSString *directionStr = [params objectForKey:DIRECTION];
+        if ([directionStr isEqualToString:UP]) {
+            direction = SKTransitionDirectionUp;
+        } else if ([directionStr isEqualToString:DOWN]){
+            direction = SKTransitionDirectionDown;
+        } else if ([directionStr isEqualToString:RIGHT]) {
+            direction = SKTransitionDirectionLeft;
+        }
+        
+        trans = [SKTransition pushWithDirection:direction duration:duration];
     } else {
         // default
         trans = [SKTransition fadeWithDuration:duration];

@@ -35,8 +35,9 @@
     return self;
 }
 
-// Call a Lua method attached to the scene table by name
--(void)callMethodOnScene:(NSString *)methodStr {
+// Call a Lua method attached to the scene table by name if available
+-(BOOL)callMethodOnScene:(NSString *)methodStr {
+    BOOL rval = NO;
     //GemLog(@"Calling method %@ for scene %@", methodStr, self.name);
     // tell the director that this scene is now the active scene
     [Gemini shared].director.activeScene = self;
@@ -71,13 +72,19 @@
             const char *msg = lua_tostring(L, -1);
             NSLog(@"Error executing method: %s", msg);
         }
+        
+        rval = YES;
     }
     
     lua_pop(L, lua_gettop(L) - top);
     
     [Gemini shared].director.activeScene = nil;
     
+    return rval;
+    
 }
+
+#pragma mark Lifecycle Methods
 
 -(void)didMoveToView:(SKView *)view {
     GemLog(@"Scene %@ moved to view", self.name);
@@ -117,6 +124,35 @@
     //[self callMethodOnScene:@"didChangeSize"];
 }
 
+#pragma mark -
+
+#pragma mark Touch events
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![self callMethodOnScene:@"touchesBegan"]){
+        [super touchesBegan:touches withEvent:event];
+    }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if(![self callMethodOnScene:@"touchesEndend"]){
+        [super touchesEnded:touches withEvent:event];
+    }
+}
+
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    if(![self callMethodOnScene:@"touchesCancelled"]){
+        [super touchesCancelled:touches withEvent:event];
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    if(![self callMethodOnScene:@"touchesMoved"]){
+        [super touchesMoved:touches withEvent:event];
+    }
+}
+
+
+
 -(void)addAction:(GemAction *)action{
     [_actions addObject:action];
 }
@@ -146,6 +182,14 @@
     
     
     return ready;
+}
+
+-(CGFloat)width {
+    return self.size.width;
+}
+
+-(CGFloat)height {
+    return self.size.height;
 }
 
 -(BOOL)isReady {

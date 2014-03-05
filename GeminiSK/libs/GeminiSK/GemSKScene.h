@@ -18,8 +18,8 @@
 @property (readonly) NSArray *textureAtlases;
 @property (readonly) NSArray *actions;
 @property (readonly) GemPhysics *physics;
-
-//@property (weak) id <GemSKSceneDelegate> delegate;
+@property (readonly) CGFloat width;
+@property (readonly) CGFloat height;
 
 -(BOOL)isReady;
 -(void)addAction:(GemAction *)action;

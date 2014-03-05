@@ -29,6 +29,37 @@ static int setGravity(lua_State *L){
     return 0;
 }
 
+static int setScale(lua_State *L){
+    float scale = luaL_checknumber(L, 1);
+    GemSKScene *scene = [Gemini shared].director.activeScene;
+    [scene.physics setScale:scale];
+    
+    return 0;
+}
+
+static int setPhysicsSpeed(lua_State *L){
+   GemSKScene *scene = [Gemini shared].director.activeScene;
+    
+    float speed = luaL_checknumber(L, 1);
+    
+    scene.physics.simulationSpeed = speed;
+    
+    return 0;
+}
+
+static int setDebug(lua_State *L){
+    bool debug = lua_toboolean(L, 1);
+    GemSKScene *scene = [Gemini shared].director.activeScene;
+    
+    if (debug) {
+        scene.physics.drawMode = GEM_PHYSICS_DEBUG;
+    } else {
+        scene.physics.drawMode = GEM_PHYSICS_NORMAL;
+    }
+    
+    return 0;
+}
+
 b2Body *getBodyAtIndex(lua_State *L, int index){
     SKNode *node = getNodeAtIndex(L, index);
     GemPhysicsBody *gBody = [node.userData objectForKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY]];
@@ -286,6 +317,9 @@ static const struct luaL_Reg physicsLib_f [] = {
     {"applyForce", applyForce},
     {"setVelocity", setLinearVelocity},
     {"setGravity", setGravity},
+    {"setScale", setScale},
+    {"setSimulationSpeed", setPhysicsSpeed},
+    {"setDebug", setDebug},
     {NULL, NULL}
 };
 

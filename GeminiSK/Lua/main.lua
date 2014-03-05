@@ -22,11 +22,11 @@ Runtime:addEventListener("applicationDidEnterBackground", exitHandler)
 Runtime:addEventListener("applicationWillEnterForeground", exitHandler)
 
 -- A global label that can be added to any scene
-label = ui.newLabel("Chalkduster")
+label = ui.newLabel("Superclarendon-Regular")
 label.fontSize = 30
-label.text = "Hello, James!"
+label.text = "SCORE: 1,000,000"
 print("Lua: setting label position")
-label:setPosition(200,100)
+label:setPosition(640,600)
 --label.zRotation = 1.5
 
 director.loadScene("scene2")

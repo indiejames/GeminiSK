@@ -14,6 +14,16 @@
 @synthesize timestamp;
 @synthesize name;
 
+-(id) initWithEvent:(UIEvent *)event {
+    self = [super init];
+    
+    if (self) {
+        _event = event;
+    }
+    
+    return self;
+}
+
 -(id) initWithTarget:(GemObjectWrapper *)trgt {
     self = [super init];
     if (self) {

@@ -27,6 +27,10 @@
 		76456F6D1835B96800F91FD2 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
 		76456F701836E9F500F91FD2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
 		76456F711836E9F500F91FD2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
+		765DA23018C420CB00F6BFEF /* GemUITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA22F18C420CB00F6BFEF /* GemUITouch.m */; };
+		765DA23118C420CB00F6BFEF /* GemUITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA22F18C420CB00F6BFEF /* GemUITouch.m */; };
+		765DA23418C42DAE00F6BFEF /* GemTouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */; };
+		765DA23518C42DAE00F6BFEF /* GemTouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */; };
 		767B101E188E0A710054C2B0 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688730317B08E0A0002430C /* libsqlite3.0.dylib */; };
 		767B101F188E35680054C2B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707617B08BBA0002430C /* CoreGraphics.framework */; };
 		7688707517B08BBA0002430C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707417B08BBA0002430C /* Foundation.framework */; };
@@ -191,6 +195,10 @@
 		769E8CF118B98C7E0042AF75 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CD518B98C7E0042AF75 /* iTunesArtwork */; };
 		769E8CF318B9C6820042AF75 /* 8bit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF218B9C6820042AF75 /* 8bit.atlas */; };
 		769E8CF418B9C6820042AF75 /* 8bit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF218B9C6820042AF75 /* 8bit.atlas */; };
+		769E8CF618BC2C8B0042AF75 /* scene3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF518BC2C8B0042AF75 /* scene3.lua */; };
+		769E8CF718BC2C8B0042AF75 /* scene3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF518BC2C8B0042AF75 /* scene3.lua */; };
+		769E8CF918BD7FE20042AF75 /* mario_game_physics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF818BD7FE20042AF75 /* mario_game_physics.lua */; };
+		769E8CFA18BD7FE20042AF75 /* mario_game_physics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF818BD7FE20042AF75 /* mario_game_physics.lua */; };
 		76C22BDC18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDD18A2EE83006FD3E2 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
 		76C22BDE18A2EE83006FD3E2 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7818A2EE83006FD3E2 /* b2CollideCircle.cpp */; };
@@ -352,6 +360,10 @@
 		76456F6B1835B96800F91FD2 /* GemBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemBezierPath.m; sourceTree = "<group>"; };
 		76456F6E1836E9F500F91FD2 /* LGeminiPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPath.h; sourceTree = "<group>"; };
 		76456F6F1836E9F500F91FD2 /* LGeminiPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPath.m; sourceTree = "<group>"; };
+		765DA22E18C420CB00F6BFEF /* GemUITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemUITouch.h; sourceTree = "<group>"; };
+		765DA22F18C420CB00F6BFEF /* GemUITouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemUITouch.m; sourceTree = "<group>"; };
+		765DA23218C42DAE00F6BFEF /* GemTouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTouchEvent.h; sourceTree = "<group>"; };
+		765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemTouchEvent.m; sourceTree = "<group>"; };
 		7688707117B08BBA0002430C /* GeminiSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeminiSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7688707417B08BBA0002430C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7688707617B08BBA0002430C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -488,6 +500,8 @@
 		769E8CD418B98C7E0042AF75 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		769E8CD518B98C7E0042AF75 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		769E8CF218B9C6820042AF75 /* 8bit.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = 8bit.atlas; sourceTree = "<group>"; };
+		769E8CF518BC2C8B0042AF75 /* scene3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene3.lua; sourceTree = "<group>"; };
+		769E8CF818BD7FE20042AF75 /* mario_game_physics.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mario_game_physics.lua; sourceTree = "<group>"; };
 		76C22B7218A2EE83006FD3E2 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
 		76C22B7718A2EE83006FD3E2 /* b2BroadPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BroadPhase.h; sourceTree = "<group>"; };
@@ -829,6 +843,11 @@
 				7688730917B092E30002430C /* Gemini.m */,
 				76C67A0F17BDAF4600B73696 /* GemAction.h */,
 				76C67A1017BDAF4600B73696 /* GemAction.m */,
+				769E8CBD18B9129D0042AF75 /* GemAVAudioPlayer.h */,
+				769E8CBE18B9129D0042AF75 /* GemAVAudioPlayer.m */,
+				760EC4CB17B5C6D70079E84E /* GemDirector.h */,
+				760EC4CC17B5C6D80079E84E /* GemDirector.m */,
+				7688731617B09C610002430C /* GemEvent.h */,
 				7688731717B09C610002430C /* GemEvent.m */,
 				76D081BC17B1E3590033E3DF /* GemEventManager.h */,
 				76D081BD17B1E3590033E3DF /* GemEventManager.m */,
@@ -841,9 +860,6 @@
 				76FE7860181B6A7800BF89FE /* GemRepeatAction.m */,
 				7698E3F3180B9F84007B7912 /* GemSpriteAnimationAction.h */,
 				7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */,
-				760EC4CB17B5C6D70079E84E /* GemDirector.h */,
-				760EC4CC17B5C6D80079E84E /* GemDirector.m */,
-				7688731617B09C610002430C /* GemEvent.h */,
 				7698E3E618038781007B7912 /* GemLoader.h */,
 				7688731217B09C2D0002430C /* GemObjectWrapper.h */,
 				7688731317B09C2D0002430C /* GemObjectWrapper.m */,
@@ -866,6 +882,8 @@
 				76D081B717B1E3590033E3DF /* GemTimer.mm */,
 				76D081B817B1E3590033E3DF /* GemTimerManager.h */,
 				76D081B917B1E3590033E3DF /* GemTimerManager.m */,
+				765DA22E18C420CB00F6BFEF /* GemUITouch.h */,
+				765DA22F18C420CB00F6BFEF /* GemUITouch.m */,
 				76C67A0B17BDA1C200B73696 /* LGeminiAction.h */,
 				76C67A0C17BDA1C200B73696 /* LGeminiAction.m */,
 				760EC4C317B46DE10079E84E /* LGeminiDirector.h */,
@@ -896,8 +914,8 @@
 				760EC4DB17B7E4730079E84E /* LGeminiUI.m */,
 				769BD04618653C8E003850EE /* LGeminiSound.h */,
 				769BD04718653C8E003850EE /* LGeminiSound.m */,
-				769E8CBD18B9129D0042AF75 /* GemAVAudioPlayer.h */,
-				769E8CBE18B9129D0042AF75 /* GemAVAudioPlayer.m */,
+				765DA23218C42DAE00F6BFEF /* GemTouchEvent.h */,
+				765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */,
 			);
 			path = GeminiSK;
 			sourceTree = "<group>";
@@ -1104,6 +1122,8 @@
 		76D081B017B1D2730033E3DF /* Lua */ = {
 			isa = PBXGroup;
 			children = (
+				769E8CF818BD7FE20042AF75 /* mario_game_physics.lua */,
+				769E8CF518BC2C8B0042AF75 /* scene3.lua */,
 				76D081B117B1D2730033E3DF /* main.lua */,
 				760EC4CF17B5D12D0079E84E /* scene1.lua */,
 				76C67A1717C11B6F00B73696 /* scene2.lua */,
@@ -1223,6 +1243,7 @@
 				769E8CD618B98C7E0042AF75 /* Default-568h@2x.png in Resources */,
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				769E8CDA18B98C7E0042AF75 /* Default.png in Resources */,
+				769E8CF918BD7FE20042AF75 /* mario_game_physics.lua in Resources */,
 				7688727F17B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,
 				76C67A4517C3084700B73696 /* runner.atlas in Resources */,
 				7688728117B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
@@ -1232,6 +1253,7 @@
 				769E8CEA18B98C7E0042AF75 /* Icon.png in Resources */,
 				76C67A1817C11B6F00B73696 /* scene2.lua in Resources */,
 				769E8CD818B98C7E0042AF75 /* Default-Portrait~ipad.png in Resources */,
+				769E8CF618BC2C8B0042AF75 /* scene3.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,9 +1286,11 @@
 				7688728417B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
 				7688728217B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
 				76C67A1917C11B6F00B73696 /* scene2.lua in Resources */,
+				769E8CFA18BD7FE20042AF75 /* mario_game_physics.lua in Resources */,
 				76D081B317B1D2730033E3DF /* main.lua in Resources */,
 				7688728817B08D3D0002430C /* LICENSE_QSUtils.txt in Resources */,
 				769E8CE518B98C7E0042AF75 /* Icon-Small-50.png in Resources */,
+				769E8CF718BC2C8B0042AF75 /* scene3.lua in Resources */,
 				76C67A4617C3084700B73696 /* runner.atlas in Resources */,
 				7688728017B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,
 			);
@@ -1301,11 +1325,13 @@
 				76C22BE618A2EE83006FD3E2 /* b2Distance.cpp in Sources */,
 				76C22C0618A2EE83006FD3E2 /* b2Island.cpp in Sources */,
 				76C22C2418A2EE83006FD3E2 /* b2Joint.cpp in Sources */,
+				765DA23418C42DAE00F6BFEF /* GemTouchEvent.m in Sources */,
 				76C22C3218A2EE83006FD3E2 /* b2WeldJoint.cpp in Sources */,
 				760EC4C517B46DE10079E84E /* LGeminiDirector.m in Sources */,
 				768872A517B08D3D0002430C /* liolib.c in Sources */,
 				7688729B17B08D3D0002430C /* ldo.c in Sources */,
 				7688729517B08D3D0002430C /* lctype.c in Sources */,
+				765DA23018C420CB00F6BFEF /* GemUITouch.m in Sources */,
 				7688731417B09C2D0002430C /* GemObjectWrapper.m in Sources */,
 				76C22C2818A2EE83006FD3E2 /* b2MouseJoint.cpp in Sources */,
 				7688730C17B092E30002430C /* Gemini.m in Sources */,
@@ -1432,6 +1458,7 @@
 				768872A417B08D3D0002430C /* linit.c in Sources */,
 				760EC4DD17B7E4730079E84E /* LGeminiUI.m in Sources */,
 				768872C017B08D3D0002430C /* ltablib.c in Sources */,
+				765DA23118C420CB00F6BFEF /* GemUITouch.m in Sources */,
 				768872B417B08D3D0002430C /* loslib.c in Sources */,
 				76C22BEF18A2EE83006FD3E2 /* b2CircleShape.cpp in Sources */,
 				76C22C3318A2EE83006FD3E2 /* b2WeldJoint.cpp in Sources */,
@@ -1472,6 +1499,7 @@
 				7688729817B08D3D0002430C /* ldblib.c in Sources */,
 				760EC4D517B7457F0079E84E /* LGeminiObject.m in Sources */,
 				768872A017B08D3D0002430C /* lfunc.c in Sources */,
+				765DA23518C42DAE00F6BFEF /* GemTouchEvent.m in Sources */,
 				769E8C9918B19C850042AF75 /* GemPhysicsJoint.mm in Sources */,
 				760EC4C617B46DE10079E84E /* LGeminiDirector.m in Sources */,
 				768872B017B08D3D0002430C /* lobject.c in Sources */,

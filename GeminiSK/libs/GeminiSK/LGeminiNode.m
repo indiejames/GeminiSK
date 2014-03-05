@@ -9,6 +9,8 @@
 #import "LGeminiNode.h"
 #import "LGeminiAction.h"
 #import "LGeminiObject.h"
+#import "LGeminiPhysics.h"
+#import "GemPhysicsBody.h"
 #import "Gemini.h"
 #import "GemAction.h"
 
@@ -83,6 +85,13 @@ int setPosition(lua_State *L) {
     
     CGPoint pos = CGPointMake(x, y);
     node.position = pos;
+    
+    // move the physics body (if any)
+    GemPhysicsBody *gbody = [node.userData objectForKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY]];
+    [gbody updateFromNode];
+    
+    // TODO - add similar for setting zRotation
+    
     
     return 0;
 }

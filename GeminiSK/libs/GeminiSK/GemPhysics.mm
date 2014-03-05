@@ -93,6 +93,10 @@ public:
         accumulator = 0;
         paused = NO;
         
+        _simulationSpeed = 1.0;
+        
+        drawMode = GEM_PHYSICS_NORMAL;
+        
         joints = [[NSMutableArray alloc] initWithCapacity:1];
     }
     
@@ -128,6 +132,10 @@ public:
     
     b2Body* body = world->CreateBody(&bodyDef);
     
+    // debug shape support
+    CGMutablePathRef debugPath = CGPathCreateMutable();
+    CGPathMoveToPoint(debugPath, NULL, 0, 0); // forces a line from center of shape to outline - useful for debugging rotations
+    
     NSDictionary *fixtures = [params objectForKey:@"fixtures"];
     [fixtures enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
         
@@ -141,24 +149,41 @@ public:
             // use a polygon shape
             NSArray *points = (NSArray *)[fixtureParams objectForKey:@"shape"];
             b2Vec2 *verts = (b2Vec2 *)malloc([points count]/ 2 * sizeof(b2Vec2));
+            
             for (int i=0; i<[points count]/2; i++) {
-                float x = [(NSNumber *)[points objectAtIndex:i*2] floatValue] / scale;
-                float y = [(NSNumber *)[points objectAtIndex:i*2+1] floatValue] / scale;
-                verts[i].Set(x, y);
+                float x = [(NSNumber *)[points objectAtIndex:i*2] floatValue];
+                float y = [(NSNumber *)[points objectAtIndex:i*2+1] floatValue];
+                if (i == 0) {
+                    CGPathMoveToPoint(debugPath, NULL, x, y);
+                } else {
+                    CGPathAddLineToPoint(debugPath, NULL, x, y);
+                }
+                verts[i].Set(x/scale, y/scale);
             }
+            
+            float x = [(NSNumber *)[points objectAtIndex:0] floatValue];
+            float y = [(NSNumber *)[points objectAtIndex:1] floatValue];
+            
+            CGPathAddLineToPoint(debugPath, NULL, x, y);
             
             polyShape.Set(verts, [points count]/2);
             fixtureDef.shape = &polyShape;
             free(verts);
+            
+           
+            
         } else if ([fixtureParams objectForKey:@"radius"] != nil){
             // use a circle shape
             float radius = [(NSNumber *)[fixtureParams objectForKey:@"radius"] floatValue] / scale;
             
-            NSArray *posArray = (NSArray *)[fixtureParams objectForKey:@"position"];
-            float x = [(NSNumber *)[posArray objectAtIndex:0] floatValue] / scale;
-            float y = [(NSNumber *)[posArray objectAtIndex:1] floatValue] / scale;
             
-            circle.m_p.Set(x, y);
+            NSArray *posArray = (NSArray *)[fixtureParams objectForKey:@"position"];
+            float x = [(NSNumber *)[posArray objectAtIndex:0] floatValue];
+            float y = [(NSNumber *)[posArray objectAtIndex:1] floatValue];
+            
+            CGPathAddArc(debugPath, NULL, x, y, radius  * scale, 0, 2*M_PI, NO);
+            
+            circle.m_p.Set(x/scale, y/scale);
             circle.m_radius = radius;
             fixtureDef.shape = &circle;
             
@@ -170,6 +195,8 @@ public:
             polyShape.SetAsBox(width / 2.0, height / 2.0);
             fixtureDef.shape = &polyShape;
             
+            CGPathAddRect(debugPath, NULL, CGRectMake(node.position.x, node.position.y, width * scale, height * scale));
+            
         } else {
             NSString *luaType = [node.userData objectForKey:@"LUA_TYPE"];
             
@@ -177,6 +204,7 @@ public:
                 NSNumber *radius = [node.userData objectForKey:@"RADIUS"];
                 circle.m_radius = [radius floatValue] / scale - RENDER_PADDING;
                 fixtureDef.shape = &circle;
+               CGPathAddArc(debugPath, NULL, 0, 0, [radius floatValue] - RENDER_PADDING * scale, 0, 2*M_PI, NO);
             } else {
                 // use box shape for everything else
                 float width = (node.frame.size.width) / scale - 2*RENDER_PADDING;
@@ -184,6 +212,8 @@ public:
                 
                 polyShape.SetAsBox(width / 2.0, height / 2.0);
                 fixtureDef.shape = &polyShape;
+                
+                CGPathAddRect(debugPath, NULL, CGRectMake(node.position.x, node.position.y, width * scale, height * scale));
             }
             
         }
@@ -237,6 +267,8 @@ public:
             
             circleShape.m_radius = [radius floatValue] / scale;
             fixtureDef.shape = &circleShape;
+            
+            CGPathAddEllipseInRect(debugPath, NULL, CGRectMake(0, 0, [radius floatValue], [radius floatValue]));
         } else if ([luaType isEqualToString:[NSString stringWithFormat:@"%s", GEMINI_RECTANGLE_LUA_KEY]]) {
             NSNumber *width = [node.userData objectForKey:@"WIDTH"];
             NSNumber *height = [node.userData objectForKey:@"HEIGHT"];
@@ -247,6 +279,8 @@ public:
             polyShape.SetAsBox(w / 2.0, h / 2.0);
             fixtureDef.shape = &polyShape;
             
+            CGPathAddRect(debugPath, NULL, CGRectMake(-w*scale/2.0, -h*scale/2.0, w*scale, h*scale));
+            
         } else {
             // use box shape for everything else
             float width = node.frame.size.width / scale;
@@ -254,6 +288,8 @@ public:
             
             polyShape.SetAsBox(width / 2.0, height / 2.0);
             fixtureDef.shape = &polyShape;
+            
+            CGPathAddRect(debugPath, NULL, CGRectMake(-width*scale/2.0, -height*scale/2.0, width * scale, height * scale));
         }
         
         body->CreateFixture(&fixtureDef);
@@ -265,6 +301,35 @@ public:
     GemPhysicsBody *gBody = [[GemPhysicsBody alloc] init];
     gBody.body = body;
     [wrapper setObject:gBody forKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY ]];
+    
+    // debug
+    if (drawMode == GEM_PHYSICS_DEBUG || drawMode == GEM_PHYSICS_HYBRID) {
+        // add a debug shape on top
+        SKShapeNode *debugNode = [[SKShapeNode alloc] init];
+        debugNode.path = debugPath;
+        
+        UIColor *fillColor;
+        UIColor *strokeColor;
+        
+        if (bodyDef.type == b2_staticBody) {
+            fillColor = [UIColor colorWithRed:0.7 green:0 blue:0 alpha:0.7];
+            strokeColor = [UIColor colorWithRed:1.0 green:0 blue:0 alpha:0.9];
+        } else if (bodyDef.type == b2_dynamicBody) {
+            fillColor = [UIColor colorWithRed:0 green:0.7 blue:0 alpha:0.7];
+            strokeColor = [UIColor colorWithRed:0 green:1.0 blue:0 alpha:0.9];
+        } else {
+            // kinematic
+            fillColor = [UIColor colorWithRed:0 green:0 blue:0.7 alpha:0.7];
+            strokeColor = [UIColor colorWithRed:0 green:0 blue:1.0 alpha:0.9];
+        }
+        
+        [debugNode setFillColor:fillColor];
+        [debugNode setStrokeColor:strokeColor];
+        debugNode.zPosition = 10;
+        
+        [node addChild:debugNode];
+        
+    }
     
 }
 
@@ -326,7 +391,10 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
                     
                     node.position = CGPointMake(x, y);
                     
-                    //GemLog(@"(name: x,y,theta) = (%@R: %4.2f, %4.2f, %4.2f)\n", node.name, position.x, position.y, angle);
+                    if ([node.name isEqualToString:@"mario"]){  // TODO - remove this when finished
+                      GemLog(@"(name: x,y,theta) = (%@: %4.2f, %4.2f, %4.2f)\n", node.name, position.x, position.y, angle);
+                    }
+                    
                 }
             });
             
@@ -369,6 +437,8 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
     if (paused) {
         return;
     }
+    
+    deltaT = _simulationSpeed * deltaT;
     
     dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     

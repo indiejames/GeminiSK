@@ -14,6 +14,6 @@
 
 @property (nonatomic, assign) void* body;
 
-
+-(void)updateFromNode;
 
 @end

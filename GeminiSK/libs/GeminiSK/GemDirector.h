@@ -35,6 +35,10 @@
 @end
 
 #define TRANSITION_TYPE_KEY @"transition_type"
+#define FLIP @"flip"
+#define ORIENTATION @"orientation"
+#define VERTICAL @"vertical"
+#define HORIZONTAL @"horizontal"
 #define PUSH @"push"
 #define UP @"up"
 #define DOWN @"down"

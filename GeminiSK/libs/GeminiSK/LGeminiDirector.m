@@ -149,31 +149,6 @@ static int sceneSetPosition(lua_State *L){
     return 0;
 }
 
-static int setPhysicsGrvaity(lua_State *L){
-    // stack: scene, gx, gy
-     __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
-    SKScene *scene = (SKScene *)(*obj).delegate;
-    
-    float gx = luaL_checknumber(L, 2);
-    float gy = luaL_checknumber(L, 3);
-    
-    scene.physicsWorld.gravity = CGVectorMake(gx, gy);
-    
-    return 0;
-}
-
-static int setPhysicsSpeed(lua_State *L){
-    // stack: scene, speed
-    __unsafe_unretained GemObjectWrapper  **obj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_SCENE_LUA_KEY);
-    SKScene *scene = (SKScene *)(*obj).delegate;
-    
-    float speed = luaL_checknumber(L, 2);
-    
-    scene.physicsWorld.speed = speed;
-    
-    return 0;
-}
-
 
 // the mappings for the library functions
 static const struct luaL_Reg directorLib_f [] = {
@@ -195,8 +170,6 @@ static const struct luaL_Reg scene_m [] = {
     {"addChild", addChild},
     {"setSize", sceneSetSize},
     {"setPosition", sceneSetPosition},
-    {"setPhysicsGravity", setPhysicsGrvaity},
-    {"setPhysicsSpeed", setPhysicsSpeed},
     //{"zoom", zoomScene},
     //{"pan", panScene},
     //{"resetCamera", resetSceneCamera},

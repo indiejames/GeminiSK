@@ -21,10 +21,12 @@
 @property (nonatomic, strong) GemObjectWrapper *target;
 @property (readonly) NSNumber *timestamp;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) UIEvent *event;
 
 -(id)initWithTarget:(GemObjectWrapper *)target;
 
 -(id) initWithLuaState:(lua_State *)luaState Target:(GemObjectWrapper *)trgt LuaKey:(const char *)luaKey;
 -(id)initWithLuaState:(lua_State *)luaState Target:(GemObjectWrapper *)trgt;
+-(id)initWithEvent:(UIEvent *)event;
 
 @end

@@ -105,6 +105,15 @@ static int play(lua_State *L){
     return 1;
 }
 
+static int stop(lua_State *L){
+    // stack 1 - audio player
+    GemAVAudioPlayer *player = getAudioPlayer(L);
+    
+    [player stop];
+    
+    return 0;
+}
+
 static int prepareToPlay(lua_State *L){
     GemAVAudioPlayer *player = getAudioPlayer(L);
     
@@ -141,6 +150,7 @@ static const struct luaL_Reg sound_m [] = {
 // mappings for the audio player methods
 static const struct luaL_Reg audioPlayer_m [] = {
     {"play", play},
+    {"stop", stop},
     {"prepareToPlay", prepareToPlay},
     {"__gc", genericGC},
     {"__index", genericIndex},

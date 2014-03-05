@@ -29,6 +29,7 @@ typedef struct {
 }
 
 @property (nonatomic) GemPhysicsDrawMode drawMode;
+@property (nonatomic) float simulationSpeed;
 
 -(void)setScale:(double)s;
 -(float)getScale;

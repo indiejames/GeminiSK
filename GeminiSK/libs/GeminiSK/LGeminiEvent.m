@@ -14,8 +14,24 @@
 #import "Gemini.h"
 #import "LGeminiObject.h"
 #import "LGeminiLuaSupport.h"
+#import "GemTouchEvent.h"
+#import "GemUITouch.h"
 
 int luaopen_event_lib(lua_State *L);
+
+#pragma mark Utility Methods
+GemEvent *getEventAtIndex(lua_State *L, int index){
+    // we don't check the userdata type here because it can be anything - we just force it to
+    // GemObjectWrapper
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, index);
+    return (GemEvent *)(*go).delegate;
+}
+
+GemEvent *getEvent(lua_State *L){
+    return getEventAtIndex(L, 1);
+}
+
+#pragma  mark -
 
 static int eventIndex(lua_State *L){
     int rval = 0;
@@ -183,6 +199,23 @@ static int collisionEventIndex(lua_State *L){
     
 }*/
 
+# pragma mark Touch Event Methods
+static int getTouches(lua_State *L){
+    
+    GemTouchEvent *event = (GemTouchEvent *)getEvent(L);
+    NSArray *touches = [event getTouches];
+    
+    [touches enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
+        GemUITouch *touch = (GemUITouch *)obj;
+        createObjectAndSaveRef(L, GEM_UI_TOUCH_LUA_KEY, touch);
+    }];
+    
+    
+    return [touches count];
+}
+
+#pragma mark -
+
 
 // mappings for the event methods
 static const struct luaL_Reg event_m [] = {
@@ -200,10 +233,18 @@ static const struct luaL_Reg collision_event_m [] = {
 };
 
 // mappings for touch event methods
-/*static const struct luaL_Reg touch_event_m [] = {
-    {"__index", touchEventIndex},
+static const struct luaL_Reg touch_event_m [] = {
+    {"__index", genericIndex},
+    {"__newIndex", genericNewIndex},
+    {"getTouches", getTouches},
     {NULL, NULL}
-};*/
+};
+
+// mappings for touch methods
+static const struct luaL_Reg touch_m [] = {
+    {"__index", genericIndex},
+    {NULL, NULL}
+};
 
 
 int luaopen_event_lib (lua_State *L){
@@ -214,7 +255,10 @@ int luaopen_event_lib (lua_State *L){
     //createMetatable(L, GEM_COLLISION_EVENT_LUA_KEY, collision_event_m);
     
     // touch events
-    //createMetatable(L, GEM_TOUCH_EVENT_LUA_KEY, touch_event_m);
+    createMetatable(L, GEM_TOUCH_EVENT_LUA_KEY, touch_event_m);
+    
+    // touches
+    createMetatable(L, GEM_UI_TOUCH_LUA_KEY, touch_m);
     
     return 0;
 }

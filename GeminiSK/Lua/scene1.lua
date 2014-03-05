@@ -8,223 +8,198 @@ local director = require( "director" )
 local ui = require("ui")
 local action = require("action")
 local timer = require("timer")
-local shape = require("shape")
-local node = require("node")
-local sprite = require("sprite")
-local sound = require("sound")
 local physics = require("physics")
-local texture = require("texture")
-local path = require("path")
-local emitter = require("emitter")
+local shape = require("shape")
 local scene = director.newScene()
-scene:setSize(1136,640)
 
-local zoomNode
-local panNode
-local label2 
-local circle
-local rectangle
+
+local mySound
+local boxes
+local spinner1
+local spinner2
 local rotation
-local pan
-local runner
-local animate
-local rep
-local pbody
-local sceneBodby
-local myPath
-local ship
-local shipPath
-local shipPath2
-local shipSound
-local soundPlayer
 
----------------------------------------------------------------------------------
--- BEGINNING OF YOUR IMPLEMENTATION
----------------------------------------------------------------------------------
+local wall_thickness = 10
+local car_with = 100
+local box_height = 50
+local box_width = box_height / 2
+local box_spacing = box_width + 2
+local box_bottom_row_start = 900
+local box_middle_row_start = box_bottom_row_start + 0.6 * box_width
+local box_top_row_start = box_middle_row_start + 0.6 * box_width
+local box_bottom_row_y = box_height / 2 + wall_thickness
+local box_middle_row_y = box_bottom_row_y + box_height + 2
+local box_top_row_y = box_middle_row_y + box_height + 2
+
+local box_positions = {
+  box_bottom_row_start, box_bottom_row_y, box_bottom_row_start + box_spacing, box_bottom_row_y, box_bottom_row_start + 2 * box_spacing, box_bottom_row_y,
+  box_middle_row_start, box_middle_row_y, box_middle_row_start + box_spacing, box_middle_row_y,
+  box_top_row_start, box_top_row_y
+}
+
+
+function makeWalls()
+  -- floor
+  local floor = shape.newRectangle(1136, wall_thickness, 1136/2, wall_thickness/2)
+  floor:setFillColor(0,1.0,0)
+  floor.lineWidth = 0
+
+  scene:addChild(floor)
+  
+
+  physics.addBody(floor)
+
+  -- ceiling
+
+  local ceiling = shape.newRectangle(1136, wall_thickness, 1136/2, 640 - wall_thickness/2)
+  ceiling:setFillColor(0,1.0,0)
+  ceiling.lineWidth = 0
+
+  scene:addChild(ceiling)
+  
+  physics.addBody(ceiling)
+
+
+  -- left wall
+
+  local left_wall = shape.newRectangle(wall_thickness, 640, wall_thickness/2, 320)
+  left_wall:setFillColor(0,1.0,0)
+  left_wall.lineWidth = 0
+
+  scene:addChild(left_wall)
+  
+  physics.addBody(left_wall)
+
+  -- right wall
+
+  local right_wall = shape.newRectangle(wall_thickness, 640, 1136-wall_thickness/2, 320)
+  right_wall:setFillColor(0,1.0,0)
+  right_wall.lineWidth = 0
+
+  scene:addChild(right_wall)
+  
+  physics.addBody(right_wall)
+
+
+end
+
+function makeBoxes()
+  boxes = {}
+  for i=1,6 do
+      local x = box_positions[i*2 - 1]
+      local y = box_positions[i*2]
+      boxes[i] = shape.newRectangle(box_width, box_height, x, y)
+      boxes[i]:setFillColor(0.5,0,0.5)
+      scene:addChild(boxes[i])
+      physics.addBody(boxes[i], "dynamic")
+  end
+end
+
+function makeCar()
+  big_box = shape.newRectangle(car_with, car_with/2, 105, 205)
+  big_box.name = "Big Box"
+  big_box:setFillColor(1.0, 0, 0)
+  scene:addChild(big_box)
+
+  physics.addBody(big_box, "dynamic")
+
+  -- big_box.zRotation = -0.77
+
+  back_wheel = shape.newCircle(15, 70, 190)
+  back_wheel:setFillColor(0,1.0, 1.0)
+  scene:addChild(back_wheel)
+  physics.addBody(back_wheel, "dynamic", {friction=1.0})
+  physics.addJoint("revolute", big_box, back_wheel, 70, 190, {enableMotor=true, motorSpeed=-50,maxMotorTorque = 50})
+
+  front_wheel = shape.newCircle(15, 140, 190)
+  front_wheel:setFillColor(0,1.0, 1.0)
+  scene:addChild(front_wheel)
+  physics.addBody(front_wheel, "dynamic", {friction=0.5})
+  physics.addJoint("revolute", big_box, front_wheel, 140, 190)
+end
+
+function makeRamp()
+  ramp = shape.newPolygon(0,0, 200,0, 200,100, 0,0)
+  ramp:setFillColor(1,1,0)
+  ramp:setPosition(500, 10)
+   
+  scene:addChild(ramp)
+
+  physics.addBody(ramp, "static", {shape={0,0,200,0,200,100,0,0}})
+end
 
 -- Called when the scene is first created.
 -- Add scene elements here.
-function scene:createScene( event )
-  print("Lua: Creating scene1")
-  
 
-  scene:setBackgroundImage("space2.jpg")
+function makeSpinners()
+  spinner1 = shape.newRectangle(100, 100, 500, 400)
+  spinner1:setFillColor(1,0,1)
+  scene:addChild(spinner1)
 
-  
-  zoomNode = node.newNode()
-  scene:addChild(zoomNode)
-  panNode = node.newNode()
-  zoomNode:addChild(panNode)
-
-  --shipSound = sound.newSound("rocket.wav")
-  soundPlayer = sound.newAudioPlayer("rocket.wav")
-  soundPlayer.numberOfLoops = -1
-  soundPlayer:prepareToPlay()
-  
-  
-  texture_atlas = texture.newTextureAtlas("8bit")
-  texture1 = texture.newTexture(texture_atlas, "mario.01.png")
-  
-  --runner = sprite.newSprite("runner")
-  runner = sprite.newSprite(texture1)
-  runner.scale = 2
-  runner.xScale = -1 * runner.xScale
-  runner.name = "Mario"
-  zoomNode:addChild(runner)
-  runner:setPosition(0, 0)
-  
-  ship_texture_atlas = texture.newTextureAtlas("spaceship")
-  ship_texture = texture.newTexture(ship_texture_atlas, "Spaceship.png")
-  
-  --runner = sprite.newSprite("runner")
-  --runner = sprite.newSprite(texture1)
-  
-  ship = sprite.newSprite(ship_texture)
-  ship.name = "Ship"
-
-  zoomNode:addChild(ship)
-  ship:setPosition(300,300)
-  ship.scale = 0.3
-
-  middleX = 600
-  left = middleX + 500
-  right = middleX + 500
-  bottom = 100
-  middleY = bottom + 200
-  top = middleY + 200
-  shipPath = path.newBezierPath(
-      middleX, bottom,
-      right, bottom, right, middleY, middleX, middleY,
-      left, middleY, left, top, middleX, top,
-      right, top , right, middleY, middleX, middleY,
-      left, middleY, left, bottom, middleX, bottom,
-      true
-    )
-
-  shipPath2 = path.newBezierPath(
-      526.5, 304.5,
-      930.5, 311.5, 704.5, 598.5, 911.27, 456.5,
-      529.5, 298.5, 949.73, 166.5, 671.13, -10.36,
-      173.5, 306.5, 387.87, 607.36, 191.86, 529.08,
-      522.5, 294.5, 155.14, 83.92, 364.4, 56.15,
-      true
-    )
-  
-  --pbody = physics.newBodyFromCircle(30)
-  --runner.physicsBody = pbody
-  
- --sceneBody = physics.newBodyWidthEdgeLoopFromRect(0, 0, 1280, 960)
- --scene.physicsBody = sceneBody
-  
-  scene:setPhysicsGravity(0,-4.5)
-  
-  frames =  {
-  "mario.01.png",
-  "mario.02.png",
-  "mario.03.png",
-  "mario.02.png",
-  "mario.01.png",
-  "mario.04.png",
-  "mario.05.png",
-  "mario.04.png"
-  }
-  
-textures = {}
-for i, file in ipairs(frames) do
-    textures[i] = texture.newTexture(texture_atlas, file)
+  spinner2 = shape.newRectangle(50, 50, 750, 500)
+  spinner2:setFillColor(0,1,0)
+  scene:addChild(spinner2)
 end
-  
-  animate = action.animate(textures[1], textures[2], textures[3], textures[4], textures[5], textures[6], textures[7], textures[8], 0.1)
 
- myPath = path.newBezierPath(0, 0, 200, 200, 0, 200, 200, 0)
-  
-  circle = shape.newCircle(50,200,200)
-  circle.lineWidth = 1
-  circle:setStrokeColor(0,0,0.75)
-  circle:setFillColor(0.5,0,0.5)
- --circle.glowWidth = 2
- scene:setBackgroundColor(0,0,0)
 
-  --ui.destroyLabel(label)
-  --label = nil
-  label2 = ui.newLabel("Chalkduster")
-  label2.text = "Goodbye"
-  label2:setPosition(200,300)
-  panNode:addChild(label2)
-  rotation = action.rotate(7.0, 3)
-  -- pan = action.moveToX(300, 2.5)
-  -- pan.timingMode = SKActionTimingEaseInEaseOut
 
-  
-  rectangle = shape.newRectangle(200,100)
-  -- rectangle:setFillColor(0,0.5,0)
-  -- rectangle.zRotation = 1.5
-  -- rectangle:setPosition(0, 300)
-  
-  -- panNode:addChild(circle)
-  -- panNode:addChild(rectangle)
-  
-  --runner:addChild(rectangle)
+function scene:createScene( event )
+	print("Lua: Creating scene2")
 
-  shipFollow = action.followPath(shipPath2, 8, false, true)
+  scene:setSize(1136,640)
 
-  shipFlame = emitter.newEmitter("ShipFlame", 0, 0)
-  ship:addChild(shipFlame)
-  shipFlame:setPosition(0, -200)
-  shipFlame:setTarget(scene)
-  --shipFlame:setScale(10)
+  physics.setGravity(0,-1.5)
+  physics.setDebug(true)
+  physics.setSimulationSpeed(0.01)
+    
+  mySound = sound.newSound("wipe1.wav")
+    
+  rotation = action.rotate(7.0, 13)
+  rotation2 = action.rotate(-6.28, 3)
+  rep1 = action.repeatAction(rotation, -1)
+  rep2 = action.repeatAction(rotation2, -1)
+
+
+  makeWalls()
+
+  makeRamp()
+
+  makeBoxes()
+
+  makeCar()
+
+  makeSpinners()
 
 end
 
 
 -- Called immediately after scene has moved onscreen:
 function scene:didMoveToView(  )
+	
 
+	-----------------------------------------------------------------------------
 
-  -----------------------------------------------------------------------------
+	--	INSERT code here (e.g. start timers, load audio, start listeners, etc.)
 
-  --  INSERT code here (e.g. start timers, load audio, start listeners, etc.)
-
-  -----------------------------------------------------------------------------
-  
+	-----------------------------------------------------------------------------
+    
   print("Entering scene 1")
+    
+  scene:addChild(label)
 
---sound.play(shipSound)
+  spinner1:runAction(rep1)
+  spinner2:runAction(rep2)
+    
+  director.loadScene("scene2")
+    
+  function goToscene2()
+    --sound.play(mySound)
+    --director.gotoScene("scene2", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=0.75})
+    director.gotoScene("scene2", {transition_type = "push", direction = "up", duration=1.5})
 
-  
-  soundPlayer:play(1.5)
-  
-  print("Lua: Adding label to scene")
- panNode:addChild(label)
- label.zzz = "A Test"
- print("Lua: zzz = " .. label.zzz)
- label.text = "New Text!!!"
-  
-director.destroyScene("scene2")
-
-  function doRotation()
-    label2:runAction(rotation)
-    label:runAction(rotation)
-    circle:runAction(rotation)
   end
 
-  --panNode:runAction(pan)
-  
-  rep = action.repeatAction(animate,-1)
-  rotation = action.rotate(7.0, 3)
-  followPath = action.followPath(myPath, 3, true, false)
-
-  
-  shipRep = action.repeatAction(shipFollow, -1)
-  ship:runAction(shipRep)
-
-  runner:runAction(rep)
-  --runner:runAction(rotation)
-  runner:runAction(followPath)
-
-  function runner:touchesBegan ()
-    print ("Runner touched")
-  end
+  timer.performWithDelay(15, goToscene2)
 
 
 end
@@ -232,30 +207,30 @@ end
 
 -- Called when scene is about to move offscreen:
 function scene:willMoveFromView(  )
+	
 
+	-----------------------------------------------------------------------------
 
-  -----------------------------------------------------------------------------
+	--	INSERT code here (e.g. stop timers, remove listeners, unload sounds, etc.)
 
-  --  INSERT code here (e.g. stop timers, remove listeners, unload sounds, etc.)
-
-  -----------------------------------------------------------------------------
-  
+	-----------------------------------------------------------------------------
+    
     --Runtime:removeEventListener("enterFrame", scene.starListener)
     rotation:delete()
     rotation = nil
     
     print("Exiting scene 1")
 
-  end
+end
 
 -- Called when the scene physics have been simulated
 function scene:didSimulatePhysics()
-
+   
 end
 
 -- Called when scenes actions have been updated
 function scene:didEvaluateActions()
-    
+
 end
 
 -- Called when the scene's size changes
@@ -272,17 +247,17 @@ function scene:update(currentTime)
     --  and actions instead.                   --
     
     -----------------------------------------
-  end
+end
 
 -- Called when scene is deallocated
 function scene:destroyScene(  )
+	print "scene1 destroyed"
 
+	-----------------------------------------------------------------------------
 
-  -----------------------------------------------------------------------------
+	--	INSERT code here (e.g. remove listeners, widgets, save state, etc.)
 
-  --  INSERT code here (e.g. remove listeners, widgets, save state, etc.)
-
-  -----------------------------------------------------------------------------
+	-----------------------------------------------------------------------------
 
 end
 

@@ -163,6 +163,14 @@ SKTransition *transitionFromParams(NSDictionary *params){
         }
         
         trans = [SKTransition pushWithDirection:direction duration:duration];
+    } else if ([transitionType isEqualToString:FLIP]){
+        NSString *orientation = [params objectForKey:ORIENTATION];
+        if ([orientation isEqualToString:VERTICAL]) {
+            trans = [SKTransition flipVerticalWithDuration:duration];
+        } else {
+            trans = [SKTransition flipHorizontalWithDuration:duration];
+        }
+        
     } else {
         // default
         trans = [SKTransition fadeWithDuration:duration];

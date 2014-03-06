@@ -226,11 +226,6 @@ function scene:didMoveToView(  )
     print ("(x, y) = (" .. x .. ", " .. y .. ")")
   end
 
-  function scene:touchesBegan()
-    print "scene touched"
-  end
-
-
   director.loadScene("scene3")
     
   function goToscene3()
@@ -299,6 +294,14 @@ function scene:destroyScene(  )
   -----------------------------------------------------------------------------
 
 end
+
+function scene:touchesBegan(evt)
+    print "scene touched"
+    local touch = evt:getTouches()
+    local x = touch.x
+    local y = touch.y
+    print ("(x, y) = (" .. x .. ", " .. y .. ")")
+  end
 
 ---------------------------------------------------------------------------------
 -- END OF YOUR IMPLEMENTATION

@@ -8,9 +8,10 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "GemLoadListener.h"
+#import "GemLuaData.h"
 #import "GemTexture.h"
 
-@interface GemSKSpriteNode : SKSpriteNode <GemLoadListener>
+@interface GemSKSpriteNode : SKSpriteNode <GemLoadListener, GemLuaData>
 @property BOOL isLoaded;
 
 -(id) initWithGemTexture:(GemTexture *)tex;

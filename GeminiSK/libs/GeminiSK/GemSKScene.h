@@ -11,9 +11,10 @@
 #import "GemAction.h"
 #import "GemLoadListener.h"
 #import "GemPhysics.h"
+#import "GemLuaData.h"
 
 
-@interface GemSKScene : SKScene <GemSKSceneDelegate, GemLoadListener>
+@interface GemSKScene : SKScene <GemSKSceneDelegate, GemLoadListener, GemLuaData>
 
 @property (readonly) NSArray *textureAtlases;
 @property (readonly) NSArray *actions;

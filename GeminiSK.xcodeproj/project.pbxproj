@@ -364,6 +364,7 @@
 		765DA22F18C420CB00F6BFEF /* GemUITouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemUITouch.m; sourceTree = "<group>"; };
 		765DA23218C42DAE00F6BFEF /* GemTouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTouchEvent.h; sourceTree = "<group>"; };
 		765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemTouchEvent.m; sourceTree = "<group>"; };
+		765DA23618C80DCA00F6BFEF /* GemLuaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemLuaData.h; sourceTree = "<group>"; };
 		7688707117B08BBA0002430C /* GeminiSK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeminiSK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7688707417B08BBA0002430C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7688707617B08BBA0002430C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -916,6 +917,7 @@
 				769BD04718653C8E003850EE /* LGeminiSound.m */,
 				765DA23218C42DAE00F6BFEF /* GemTouchEvent.h */,
 				765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */,
+				765DA23618C80DCA00F6BFEF /* GemLuaData.h */,
 			);
 			path = GeminiSK;
 			sourceTree = "<group>";

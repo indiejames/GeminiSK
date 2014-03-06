@@ -12,9 +12,11 @@
 #import "GemSKSpriteNode.h"
 #import "GemAction.h"
 #import "GemPhysics.h"
+#import "GemTouchEvent.h"
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
+#include "LGeminiEvent.h"
 
 @implementation GemSKScene {
     NSMutableArray *_actions;
@@ -128,27 +130,24 @@
 
 #pragma mark Touch events
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (![self callMethodOnScene:@"touchesBegan"]){
-        [super touchesBegan:touches withEvent:event];
-    }
+    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
+    callEventHandler(self, @"touchesBegan", evt);
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if(![self callMethodOnScene:@"touchesEndend"]){
-        [super touchesEnded:touches withEvent:event];
-    }
+    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
+    callEventHandler(self, @"touchesEnded", evt);
+        
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    if(![self callMethodOnScene:@"touchesCancelled"]){
-        [super touchesCancelled:touches withEvent:event];
-    }
+    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
+    callEventHandler(self, @"touchesCancelled", evt);
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    if(![self callMethodOnScene:@"touchesMoved"]){
-        [super touchesMoved:touches withEvent:event];
-    }
+    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
+    callEventHandler(self, @"touchesMoved", evt);
 }
 
 

@@ -9,6 +9,9 @@ local director = require('director')
 
 print("Lua: using main")
 
+-- next scene - used by scene loader
+nextSceneName = "scene1"
+
 -- Handler for application state change events,
 -- Add code here to save/load game state.
 function exitHandler(event)
@@ -29,5 +32,8 @@ print("Lua: setting label position")
 label:setPosition(640,600)
 --label.zRotation = 1.5
 
-director.loadScene("scene2")
-director.gotoScene("scene2", {synchronous = "true"})
+director.loadScene("scene_load_page")
+director.gotoScene("scene_load_page", {synchronous = "true"})
+
+--director.loadScene("scene2")
+--director.gotoScene("scene2", {synchronous = "true"})

@@ -391,9 +391,9 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
                     
                     node.position = CGPointMake(x, y);
                     
-                    if ([node.name isEqualToString:@"mario"]){  // TODO - remove this when finished
+                    /*if ([node.name isEqualToString:@"mario"]){  // TODO - remove this when finished
                       GemLog(@"(name: x,y,theta) = (%@: %4.2f, %4.2f, %4.2f)\n", node.name, position.x, position.y, angle);
-                    }
+                    }*/
                     
                 }
             });

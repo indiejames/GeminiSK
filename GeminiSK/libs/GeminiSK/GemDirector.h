@@ -23,7 +23,7 @@
 @property float sceneWidth;
 @property float sceneHeight;
 
--(void)loadScene:(NSString *)sceneName;
+-(GemSKScene *)loadScene:(NSString *)sceneName;
 -(void)gotoScene:(NSString *)scene withOptions:(NSDictionary *)options;
 -(GemSKScene *)currentScene;
 -(BOOL)doPendingSceneTransition;
@@ -35,6 +35,8 @@
 @end
 
 #define TRANSITION_TYPE_KEY @"transition_type"
+#define PAUSES_OUTGOING_SCENE_KEY @"pauses_outgoing_scene"
+#define PAUSES_INCOMING_SCENE_KEY @"pauses_incoming_scene"
 #define FLIP @"flip"
 #define ORIENTATION @"orientation"
 #define VERTICAL @"vertical"

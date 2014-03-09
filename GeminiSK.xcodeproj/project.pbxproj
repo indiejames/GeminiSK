@@ -144,6 +144,8 @@
 		7698E3F21803A535007B7912 /* GemSKSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F01803A535007B7912 /* GemSKSpriteNode.m */; };
 		7698E3F5180B9F84007B7912 /* GemSpriteAnimationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */; };
 		7698E3F6180B9F84007B7912 /* GemSpriteAnimationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */; };
+		7699878918CAB1E7003D4E8D /* scene_load_page.lua in Resources */ = {isa = PBXBuildFile; fileRef = 7699878818CAB1E7003D4E8D /* scene_load_page.lua */; };
+		7699878A18CAB1E7003D4E8D /* scene_load_page.lua in Resources */ = {isa = PBXBuildFile; fileRef = 7699878818CAB1E7003D4E8D /* scene_load_page.lua */; };
 		769BD04818653C8E003850EE /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
 		769BD04918653C8E003850EE /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
 		769E8C9818B19C850042AF75 /* GemPhysicsJoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */; };
@@ -471,6 +473,7 @@
 		7698E3F01803A535007B7912 /* GemSKSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSKSpriteNode.m; sourceTree = "<group>"; };
 		7698E3F3180B9F84007B7912 /* GemSpriteAnimationAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemSpriteAnimationAction.h; sourceTree = "<group>"; };
 		7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemSpriteAnimationAction.m; sourceTree = "<group>"; };
+		7699878818CAB1E7003D4E8D /* scene_load_page.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene_load_page.lua; sourceTree = "<group>"; };
 		769BD04618653C8E003850EE /* LGeminiSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiSound.h; sourceTree = "<group>"; };
 		769BD04718653C8E003850EE /* LGeminiSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiSound.m; sourceTree = "<group>"; };
 		769E8C9618B19C850042AF75 /* GemPhysicsJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemPhysicsJoint.h; sourceTree = "<group>"; };
@@ -1124,6 +1127,7 @@
 		76D081B017B1D2730033E3DF /* Lua */ = {
 			isa = PBXGroup;
 			children = (
+				7699878818CAB1E7003D4E8D /* scene_load_page.lua */,
 				769E8CF818BD7FE20042AF75 /* mario_game_physics.lua */,
 				769E8CF518BC2C8B0042AF75 /* scene3.lua */,
 				76D081B117B1D2730033E3DF /* main.lua */,
@@ -1241,6 +1245,7 @@
 				769E8CE218B98C7E0042AF75 /* Icon-72.png in Resources */,
 				76E7A468189C9AC8004D128D /* wipe1.wav in Resources */,
 				769E8CC518B94B240042AF75 /* space2.jpg in Resources */,
+				7699878918CAB1E7003D4E8D /* scene_load_page.lua in Resources */,
 				769E8C9B18B6CEC50042AF75 /* spaceship.atlas in Resources */,
 				769E8CD618B98C7E0042AF75 /* Default-568h@2x.png in Resources */,
 				7688728317B08D3D0002430C /* LICENSE_LuaSQLite3.txt in Resources */,
@@ -1274,6 +1279,7 @@
 				769E8CED18B98C7E0042AF75 /* Icon@2x.png in Resources */,
 				769E8CDF18B98C7E0042AF75 /* fps_images.png in Resources */,
 				769E8CD918B98C7E0042AF75 /* Default-Portrait~ipad.png in Resources */,
+				7699878A18CAB1E7003D4E8D /* scene_load_page.lua in Resources */,
 				769E8CE118B98C7E0042AF75 /* gemini.plist in Resources */,
 				769E8CF418B9C6820042AF75 /* 8bit.atlas in Resources */,
 				769E8CF118B98C7E0042AF75 /* iTunesArtwork in Resources */,

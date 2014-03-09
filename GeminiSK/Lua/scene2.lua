@@ -44,7 +44,7 @@ local soundPlayer
 -- Called when the scene is first created.
 -- Add scene elements here.
 function scene:createScene( event )
-  print("Lua: Creating scene1")
+  print("Lua: Creating scene2")
 
   scene:setSize(1136,640)
 
@@ -225,14 +225,13 @@ function scene:didMoveToView(  )
     local y = touch.y
     print ("(x, y) = (" .. x .. ", " .. y .. ")")
   end
-
-  director.loadScene("scene3")
     
   function goToscene3()
-   director.gotoScene("scene3", {transition_type = "flip", orientation = "horizontal", duration=1.5})
+    nextSceneName = "scene3"
+   director.gotoScene("scene_load_page", {transition_type = "flip", orientation = "vertical", duration=1.5})
   end
 
-  timer.performWithDelay(30, goToscene3)
+  timer.performWithDelay(10, goToscene3)
 
 
 end
@@ -264,7 +263,6 @@ end
 
 -- Called when scenes actions have been updated
 function scene:didEvaluateActions()
-    
 end
 
 -- Called when the scene's size changes

@@ -23,6 +23,7 @@
 @property (readonly) CGFloat height;
 
 -(BOOL)isReady;
+-(unsigned int)percentLoaded;
 -(void)addAction:(GemAction *)action;
 
 @end

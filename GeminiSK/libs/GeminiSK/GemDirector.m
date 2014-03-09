@@ -46,7 +46,7 @@ int render_count = 0;
 }
 
 // block for loading scenes
-SKScene * (^sceneLoader)(GemDirector *self, NSString *sceneName, lua_State *L) = ^SKScene *(GemDirector *self, NSString * sceneName, lua_State *L) {
+GemSKScene * (^sceneLoader)(GemDirector *self, NSString *sceneName, lua_State *L) = ^GemSKScene *(GemDirector *self, NSString * sceneName, lua_State *L) {
     int err;
     
     GemLog(@"Gem: Loading scene %@", sceneName);
@@ -114,17 +114,29 @@ SKScene * (^sceneLoader)(GemDirector *self, NSString *sceneName, lua_State *L) =
     return scene;
 };
 
--(void)loadScene:(NSString *)sceneName {
+/*-(unsigned int)percentLoaded:(NSString *)sceneName {
+    if ([loadingScenes containsObject:sceneName]) {
+        
+    }
+}*/
+
+-(GemSKScene *)loadScene:(NSString *)sceneName {
+    GemSKScene *scene;
     // don't load the scene if it is already in our cache
     if ([scenes objectForKey:sceneName] == nil && ![loadingScenes containsObject:sceneName]) {
         
         [loadingScenes addObject:sceneName];
         
-        SKScene *newScene = sceneLoader(self, sceneName, luaData.L);
-        [scenes setObject:newScene forKey:sceneName];
+        scene = sceneLoader(self, sceneName, luaData.L);
+        [scenes setObject:scene forKey:sceneName];
         [loadingScenes removeObject:sceneName];
 
+    } else {
+        scene = (GemSKScene *)[scenes objectForKey:sceneName];
+    
     }
+    
+    return scene;
     
 }
 
@@ -176,6 +188,19 @@ SKTransition *transitionFromParams(NSDictionary *params){
         trans = [SKTransition fadeWithDuration:duration];
     }
     
+    if ([params objectForKey:PAUSES_OUTGOING_SCENE_KEY]) {
+        NSNumber *val = [params objectForKey:PAUSES_OUTGOING_SCENE_KEY];
+        if ([val boolValue]) {
+            trans.pausesOutgoingScene = YES;
+        }
+    }
+    
+    if ([params objectForKey:PAUSES_INCOMING_SCENE_KEY]) {
+        NSNumber *val = [params objectForKey:PAUSES_INCOMING_SCENE_KEY];
+        if ([val boolValue]) {
+            trans.pausesIncomingScene = YES;
+        }
+    }
     
     return trans;
 }
@@ -204,7 +229,7 @@ SKTransition *transitionFromParams(NSDictionary *params){
             currentScene = scene;
             transitioned = YES;
         } else {
-            GemLog(@"Scene is not ready");
+            GemLog(@"Scene %@ is not ready", scene.name);
         }
     } else {
         //GemLog(@"No scenes in queue");

@@ -142,9 +142,9 @@ function makeSpinners()
 end
 
 
-
 function scene:createScene( event )
 	print("Lua: Creating scene2")
+
 
   scene:setSize(1136,640)
 
@@ -190,12 +190,13 @@ function scene:didMoveToView(  )
   spinner1:runAction(rep1)
   spinner2:runAction(rep2)
     
-  director.loadScene("scene2")
+  --director.loadScene("scene2")
+  nextSceneName = "scene2"
     
   function goToscene2()
     --sound.play(mySound)
     --director.gotoScene("scene2", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=0.75})
-    director.gotoScene("scene2", {transition_type = "push", direction = "up", duration=1.5})
+    director.gotoScene("scene_load_page", {transition_type = "push", direction = "up", duration=1.5})
 
   end
 

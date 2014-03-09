@@ -57,10 +57,14 @@ static int directorLoadScene(lua_State *L){
     const char *sceneName = luaL_checkstring(L, 1);
     NSString *sceneNameStr = [NSString stringWithUTF8String:sceneName];
     NSLog(@"Loading scene");
-    [[Gemini shared].director loadScene:sceneNameStr];
+    GemSKScene *scene = [[Gemini shared].director loadScene:sceneNameStr];
     
+    GemObjectWrapper *luaData = [scene.userData objectForKey:@"LUA_DATA"];
     
-    return 0;
+    // push our attached Lua object's userdata onto the stack
+    lua_rawgeti(L, LUA_REGISTRYINDEX, luaData.selfRef);
+    
+    return 1;
 }
 
 static int directorGotoScene(lua_State *L){

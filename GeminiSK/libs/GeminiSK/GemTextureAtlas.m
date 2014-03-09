@@ -23,6 +23,7 @@
         _atlas = [SKTextureAtlas atlasNamed:atlasName];
         // load the texture in the background
         [_atlas preloadWithCompletionHandler:^{
+            [NSThread sleepForTimeInterval:2.0];
             GemLog(@"Texture atlas %@ finished loading", atlasName);
             @synchronized(self) {
                 _isLoaded = YES;

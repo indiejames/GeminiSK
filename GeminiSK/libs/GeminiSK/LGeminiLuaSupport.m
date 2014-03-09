@@ -131,7 +131,7 @@ void createObjectAndSaveRef(lua_State *L, const char *objectType, id object){
 }
 
 // convenience method to read a table off the stack as an NSDictionary
-NSDictionary *getTableFromStack(lua_State *L, int index){
+NSDictionary *getTableFromStack(lua_State *L, int index){ // TODO find out if I need this method AND tableFromDictionary
     NSMutableDictionary *rval = [NSMutableDictionary dictionaryWithCapacity:1];
     lua_pushnil(L);  // first key
     while (lua_next(L, index) != 0) {
@@ -145,7 +145,7 @@ NSDictionary *getTableFromStack(lua_State *L, int index){
             NSDictionary *val = getTableFromStack(L, lua_gettop(L));
             [rval setValue:val forKey:key];
         } else if (lua_isboolean(L, -1)) {
-            bool bval = luaL_checknumber(L, -1);
+            bool bval = lua_toboolean(L, -1);
             NSNumber *val = [NSNumber numberWithBool:bval];
             [rval setValue:val forKey:key];
         } else if (lua_isnumber(L, -1)){

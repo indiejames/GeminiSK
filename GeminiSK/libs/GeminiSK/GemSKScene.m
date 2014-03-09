@@ -191,6 +191,52 @@
     return self.size.height;
 }
 
+-(unsigned int)percentLoaded {
+    
+    unsigned int childCount = [self.children count];
+    unsigned int childrenLoaded = 0;
+    for (int i=0; i<childCount; i++) {
+        BOOL ready = YES;
+        SKNode *child = [self.children objectAtIndex:i];
+        if ([child isKindOfClass:[GemSKSpriteNode class]]) {
+            if (!((GemSKSpriteNode *)child).isLoaded) {
+                ready = NO;
+                break;
+            }
+        }
+        
+        if ([child.children count] > 0) {
+            BOOL childrenLoaded = [self areChildrenLoaded:child.children];
+            if (!childrenLoaded) {
+                ready = NO;
+                break;
+            }
+        }
+        
+        if (ready) {
+            childrenLoaded += 1;
+        }
+        
+    }
+
+    
+    unsigned int actionCount = [self.actions count];
+    unsigned int actionsLoaded = 0;
+    for (int i=0; i<actionCount; i++) {
+        GemAction *action = [self.actions objectAtIndex:i];
+        if(action.isLoaded){
+            actionsLoaded += 1;
+        }
+    }
+    
+    if (actionCount + childCount == 0) {
+        childCount = 1;
+    }
+    
+    return (100 * (actionsLoaded + childrenLoaded)) / (actionCount + childCount);
+
+}
+
 -(BOOL)isReady {
     BOOL ready = [self areChildrenLoaded:self.children];
     

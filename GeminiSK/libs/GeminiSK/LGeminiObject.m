@@ -240,6 +240,10 @@ int genericIndex(lua_State *L){
             int iVal;
             [invoke getReturnValue:&iVal];
             lua_pushinteger(L, iVal);
+        } else if (strcmp("I", returnType) == 0) {
+            unsigned int iVal;
+            [invoke getReturnValue:&iVal];
+            lua_pushunsigned(L, iVal);
         } else if (strcmp("u", returnType) == 0) {
             unsigned int uVal;
             [invoke getReturnValue:&uVal];
@@ -248,7 +252,15 @@ int genericIndex(lua_State *L){
             double dVal;
             [invoke getReturnValue:&dVal];
             lua_pushnumber(L, dVal);
-        } else {
+        } else if (strcmp("c", returnType) == 0) { // TODO - this is kind of weak, BOOL looks like char
+            BOOL bVal;
+            [invoke getReturnValue:&bVal];
+            if (bVal) {
+                lua_pushboolean(L, true);
+            } else {
+                lua_pushboolean(L, false);
+            }
+        }else {
             // everything else is treated as a string
             NSString *sVal;
             [invoke getReturnValue:&sVal];
@@ -272,27 +284,12 @@ int genericNewIndex(lua_State *L) {
     NSObject *delegate = (*go).delegate;
     const char *attr = luaL_checkstring(L, 2);
     
-    // physicsBody property is handled separately since it is not a simple value
-    /*if (strcmp("physicsBody", attr) == 0) {
-        __unsafe_unretained GemObjectWrapper **pgo = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 3, GEMINI_PHYSICS_BODY_LUA_KEY);
-        
-        GemPhysicsBody *gBody = (GemPhysicsBody *)(*pgo).delegate;
-        [gBody initb2BodyForNode:(SKNode *)delegate];
-        
-        NSMutableDictionary *wrapper = ((SKNode *)delegate).userData;
-        [wrapper setObject:gBody forKey:[NSString stringWithFormat:@"%s", GEMINI_PHYSICS_BODY_LUA_KEY ]];
-       // ((SKNode*)delegate).physicsBody = gBody.skPhysicsBody;
-        
-        return 0;
-        
-        // TODO - refactor this
-    }*/
-    
     NSString *attrStr = [NSString stringWithFormat:@"%s", attr];
     // check to see if the delgate object can handle the call
     NSString *firstCapChar = [[attrStr substringToIndex:1] capitalizedString];
     NSString *cappedString = [attrStr stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstCapChar];
     NSString *methodName = [NSString stringWithFormat:@"set%@:", cappedString];
+    
     SEL selector = NSSelectorFromString(methodName);
     if ([delegate respondsToSelector:selector]) {
         // use the delegate object to handle the call

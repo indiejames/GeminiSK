@@ -128,27 +128,6 @@
 
 #pragma mark -
 
-#pragma mark Touch events
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
-    callEventHandler(self, @"touchesBegan", evt);
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
-    callEventHandler(self, @"touchesEnded", evt);
-        
-}
-
--(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
-    callEventHandler(self, @"touchesCancelled", evt);
-}
-
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
-    callEventHandler(self, @"touchesMoved", evt);
-}
 
 
 

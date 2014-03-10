@@ -38,10 +38,6 @@ local rep
 local pbody
 local sceneBodby
 local myPath
-local ship
-local shipPath
-local shipPath2
-local shipSound
 local soundPlayer
 
 local box = {}
@@ -113,7 +109,7 @@ function scene:createScene( event )
   scene:setBackgroundColor(0.37,0.58,0.99)
   physics.setDebug(true)
   --physics.setSimulationSpeed(0.01)
-  physics.setGravity(0,-4.5)
+  physics.setGravity(0,-1)
   physics.setScale(20)
   
   
@@ -142,10 +138,10 @@ function scene:createScene( event )
   "mario.04.png"
   }
   
-textures = {}
-for i, file in ipairs(frames) do
-    textures[i] = texture.newTexture(texture_atlas, file)
-end
+  textures = {}
+  for i, file in ipairs(frames) do
+      textures[i] = texture.newTexture(texture_atlas, file)
+  end
 
   animate = action.animate(textures[1], textures[2], textures[3], textures[4], textures[5], textures[6], textures[7], textures[8], 0.1)
 
@@ -239,6 +235,11 @@ function scene:didMoveToView(  )
 
   director.destroyScene("scene2")
 
+  runner.state = "STANDING"
+  rightButtonState = 0
+  leftButtonState = 0
+  jumpButtonState = 0
+
   rep = action.repeatAction(animate,-1)
   
   --followPath = action.followPath(myPath, 3, true, false)
@@ -290,7 +291,7 @@ end
 
 -- Called when scenes actions have been updated
 function scene:didEvaluateActions()
-    
+  setRunnerState()
 end
 
 -- Called when the scene's size changes
@@ -298,16 +299,75 @@ function scene:didChangeSize(width, height)
 
 end
 
+function setRunnerState()
+  vx, vy = physics.getVelocity(runner)
+  if rightButtonState == 1 then
+    runner.isFlippedHorizontally = true
+    if v < 0.75 and runner.state ~= "JUMPING" then
+      physics.applyImpulse(runner, 0.05, 0)
+
+      if runner.state ~= "WALKING" then
+        -- switch to walk animation
+      end
+
+      runner.state = "WALKING"
+    end
+  end
+
+  if leftButtonState == 1 then
+    runner.isFlippedHorizontally = false
+    if vx > -0.75 and runner.state ~= "JUMPING" then
+      physics.applyImpulse(runner, -0.05, 0)
+            
+      if runner.state ~= "WALKING" then
+                -- switch runner to walking animation
+      end
+        
+      runner.state = "WALKING"
+    end
+        
+  end
+
+  if leftButtonState == 0 and rightButtonState == 0 and runner.state == "WALKING" then
+    physics.setVelocity(runner, 0, 0)
+    runner.state = "STANDING"
+    -- set runner to standing image
+  end
+    
+  if jumpButtonState == 1 then
+    print "JUMP BUTTON PRESSED"
+    if (runner.state ~= "JUMPING") then
+      x,y = runner:getPosition()
+      runner:setPosition(x, y + 20)
+      physics.applyImpulse(runner, vx * 0.1, 0.4)
+      runner.state = "JUMPING"
+    end
+    
+    jumpButtonState = 0
+  end
+      
+  if runner.state == "JUMPING" then
+    if vy > 10.0 then
+      physics.setVelocity(vx, 10.0)
+    end
+  end
+    
+  if runner.state == "WALKING" then
+    if vx > 0.75 then
+      physics.setVelocity(runner, 0.75, 0)
+    end
+    if vx < -0.75 then
+      physics.setVelocity(-0.75, 0)
+    end
+  end
+
+end
+
 -- Called once every frame
 function scene:update(currentTime)
-    -----------------------------------------
     
-    --  It is not recommended to use this   --
-    --  method for animation - use physics --
-    --  and actions instead.                   --
-    
-    -----------------------------------------
-  end
+
+end
 
 -- Called when scene is deallocated
 function scene:destroyScene(  )
@@ -319,6 +379,56 @@ function scene:destroyScene(  )
 
   -----------------------------------------------------------------------------
 
+end
+
+-- handle touch events
+function scene:touchesBegan(evt)
+
+  local touch = evt:getTouches()
+  local x = touch.x
+  local y = touch.y
+
+  if x > 284 then
+    joystickStartX = x
+            
+  else
+    jumpButtonState = 1
+    print "JUMP!"
+  end
+    
+end
+
+function scene:touchesMoved(evt)
+  local touch = evt:getTouches()
+  local x = touch.x
+  local y = touch.y
+
+  if x < joystickStartX then
+    leftButtonState = 1
+    rightButtonState = 0
+  end
+            
+  if x > joystickStartX then
+      rightButtonState = 1
+      leftButtonState = 0
+      print "MOVE RIGHT!"
+  end
+            
+  joystickStartX = x
+end
+
+function scene:touchesEnded(evt)
+  local touch = evt:getTouches()
+  local x = touch.x
+  local y = touch.y
+
+  if x > 284 then
+    rightButtonState = 0
+    leftButtonState = 0
+  else
+    jumpButtonState = 0
+  end
+  
 end
 
 ---------------------------------------------------------------------------------

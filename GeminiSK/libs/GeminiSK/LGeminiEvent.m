@@ -32,7 +32,7 @@ GemEvent *getEvent(lua_State *L){
     return getEventAtIndex(L, 1);
 }
 
-BOOL callEventHandler(NSObject<GemLuaData> *obj, NSString *handler, GemEvent *event){
+BOOL callEventHandler(SKNode *obj, NSString *handler, GemEvent *event){
     BOOL rval = NO;
     
     const char *method = [handler cStringUsingEncoding:[NSString defaultCStringEncoding]];
@@ -79,7 +79,7 @@ BOOL callEventHandler(NSObject<GemLuaData> *obj, NSString *handler, GemEvent *ev
     return rval;
 }
 
-BOOL callMethod(NSObject<GemLuaData> *obj, NSString *methodStr){
+BOOL callMethod(SKNode *obj, NSString *methodStr){
     BOOL rval = NO;
     
     const char *method = [methodStr cStringUsingEncoding:[NSString defaultCStringEncoding]];

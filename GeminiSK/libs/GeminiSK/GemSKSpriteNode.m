@@ -47,7 +47,7 @@
 }
 
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+/*-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     GemTouchEvent *evt = [[GemTouchEvent alloc] initWithEvent:event];
     if (!callEventHandler(self, @"touchesBegan", evt)){
     //[super touchesBegan:touches withEvent:event];
@@ -87,7 +87,7 @@
         }
     }
 
-}
+}*/
 
 
 

@@ -231,7 +231,7 @@ function scene:didMoveToView(  )
    director.gotoScene("scene_load_page", {transition_type = "flip", orientation = "vertical", duration=1.5})
   end
 
-  timer.performWithDelay(10, goToscene3)
+  timer.performWithDelay(20, goToscene3)
 
 
 end

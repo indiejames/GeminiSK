@@ -187,6 +187,35 @@ static int addBody(lua_State *L){
     return 0;
 }
 
+int applyImpulse(lua_State *L){
+    GemSKScene *scene = [Gemini shared].director.activeScene;
+    double scale = [scene.physics getScale];
+    
+    b2Body *body = getBody(L);
+    
+    float fx = luaL_checknumber(L, 2);
+    float fy = luaL_checknumber(L, 3);
+    
+    if (body == NULL) {
+        lua_pushstring(L, "LUA ERROR: Object does not have a physics body attached");
+        lua_error(L);
+    } else {
+        // use the coordinates for the point of application if they have been supplied
+        if (lua_gettop(L) == 5) {
+            float x = luaL_checknumber(L, 4) / scale;
+            float y = luaL_checknumber(L, 5) / scale;
+            body->ApplyForce(b2Vec2(fx,fy), b2Vec2(x,y), true);
+            body->ApplyLinearImpulse(b2Vec2(fx, fy), b2Vec2(x,y), true);
+        } else {
+            body->ApplyLinearImpulse(b2Vec2(fx, fy), body->GetWorldCenter(), true);
+        }
+        
+    }
+
+    
+    return 0;
+}
+
 int applyForce(lua_State *L){
     GemSKScene *scene = [Gemini shared].director.activeScene;
     double scale = [scene.physics getScale];
@@ -212,6 +241,16 @@ int applyForce(lua_State *L){
     }
     
     return 0;
+}
+
+int getLinearVelocity(lua_State *L){
+    b2Body *body = getBody(L);
+    
+    b2Vec2 vel = body->GetLinearVelocity();
+    lua_pushnumber(L, vel.x);
+    lua_pushnumber(L, vel.y);
+    
+    return 2;
 }
 
 int setLinearVelocity(lua_State *L){
@@ -314,8 +353,10 @@ static int newJoint(lua_State *L){
 static const struct luaL_Reg physicsLib_f [] = {
     {"addBody", addBody},
     {"addJoint", newJoint},
+    {"applyImpulse", applyImpulse},
     {"applyForce", applyForce},
     {"setVelocity", setLinearVelocity},
+    {"getVelocity", getLinearVelocity},
     {"setGravity", setGravity},
     {"setScale", setScale},
     {"setSimulationSpeed", setPhysicsSpeed},

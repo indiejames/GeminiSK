@@ -194,6 +194,7 @@ static const struct luaL_Reg polygon_m [] = {
     {"__index", genericIndex},
     {"__newindex", genericNewIndex},
     {"addEventListener", addEventListener},
+    {"getPosition", getPosition},
     {"setPosition", setPosition},
     {"setFillColor", setFillColor},
     {"setStrokeColor", setStrokeColor},

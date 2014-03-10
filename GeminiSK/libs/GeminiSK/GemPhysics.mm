@@ -26,6 +26,10 @@ class GemContactListener : public b2ContactListener {
 public:
     void BeginContact(b2Contact* contact){
         /* handle begin event */
+        const b2Body* bodyA = contact->GetFixtureA()->GetBody();
+        const b2Body* bodyB = contact->GetFixtureB()->GetBody();
+        
+        
     }
     void EndContact(b2Contact* contact) {
         /* handle end event */

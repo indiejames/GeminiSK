@@ -75,6 +75,15 @@ SKNode *getNode(lua_State *L){
     return getNodeAtIndex(L, 1);
 }
 
+int getPosition(lua_State *L){
+    SKNode *node = getNode(L);
+    
+    CGPoint pos = node.position;
+    lua_pushnumber(L, pos.x);
+    lua_pushnumber(L, pos.y);
+    
+    return 2;
+}
 
 int setPosition(lua_State *L) {
     // stack - 1 - object, 2 - x, 3 - y
@@ -137,6 +146,7 @@ static const struct luaL_Reg node_m [] = {
     {"__index", genericIndex},
     {"__newindex", genericNewIndex},
     {"addEventListener", addEventListener},
+    {"getPosition", getPosition},
     {"setPosition", setPosition},
     {"addChild", addChild},
     {"runAction", runAction},

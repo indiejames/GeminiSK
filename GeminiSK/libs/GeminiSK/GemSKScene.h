@@ -22,6 +22,7 @@
 @property (readonly) CGFloat width;
 @property (readonly) CGFloat height;
 
+-(BOOL)callMethodOnScene:(NSString *)methodStr;
 -(BOOL)isReady;
 -(unsigned int)percentLoaded;
 -(void)addAction:(GemAction *)action;

@@ -263,6 +263,14 @@ function scene:didMoveToView(  )
     print ("Runner touched")
   end
 
+  function runner:didBeginContact(evt)
+    print ("Runner contact began")
+  end
+
+  function runner:didEndContact(evt)
+    print ("Runner contact ended")
+  end
+
 
 end
 
@@ -301,6 +309,11 @@ end
 
 function setRunnerState()
   vx, vy = physics.getVelocity(runner)
+
+  if vy == 0 and runner.state == "JUMPING" then
+    runner.state = "WALKING"
+  end
+
   if rightButtonState == 1 then
     runner.isFlippedHorizontally = true
     if v < 0.75 and runner.state ~= "JUMPING" then

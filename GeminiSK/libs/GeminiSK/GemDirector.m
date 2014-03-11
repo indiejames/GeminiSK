@@ -97,19 +97,7 @@ GemSKScene * (^sceneLoader)(GemDirector *self, NSString *sceneName, lua_State *L
 
     self.activeScene = scene;
     
-    // TODO - can I replace the rest of this with a call to callMethodOnScene on the new scene?
-    
-    // this gets a pointer to the "createScene" method on the new scene
-    lua_getfield(L, -1, "createScene");
-    
-    // duplicate the scene on top of the stack since it is the first param of the createScene method
-    lua_pushvalue(L, -2);
-    // invokde the createScene method
-    lua_pcall(L, 1, 0, 0);
-    
-    lua_settop(L, 0);
-    
-    //unlockLuaLock();
+    [scene callMethodOnScene:@"createScene"];
     
     return scene;
 };

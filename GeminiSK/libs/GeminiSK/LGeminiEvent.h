@@ -13,5 +13,11 @@
 #import "GemEvent.h"
 #import <SpriteKit/SpriteKit.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 BOOL callEventHandler(SKNode *obj, NSString *handler, GemEvent *event);
 BOOL callMethod(SKNode *obj, NSString *method);
+#ifdef __cplusplus
+}
+#endif

@@ -40,8 +40,10 @@
 // Call a Lua method attached to the scene table by name if available
 -(BOOL)callMethodOnScene:(NSString *)methodStr {
     BOOL rval = NO;
-    //GemLog(@"Calling method %@ for scene %@", methodStr, self.name);
+    
     // tell the director that this scene is now the active scene
+    // need to do this so things done in the Lua code will reference the right scene
+    // NOTE: active != currently displayed (necessarily)
     [Gemini shared].director.activeScene = self;
     
     const char *method = [methodStr cStringUsingEncoding:[NSString defaultCStringEncoding]];

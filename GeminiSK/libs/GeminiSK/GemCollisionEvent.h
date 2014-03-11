@@ -7,15 +7,14 @@
 //
 
 #import "GemEvent.h"
+#import <SpriteKit/SpriteKit.h>
 
 #define GEM_COLLISION_EVENT_LUA_KEY "Gemini.GemCollisionEventLuaKey"
 
-typedef enum GemCollisionPhase {
-    GEM_COLLISION_PRESOLVE,
-    GEM_COLLISION_POSTSOLVE
-} GemCollisionPhase;
-
 @interface GemCollisionEvent : GemEvent
 
-@property (nonatomic) GemCollisionPhase phase;
+@property SKNode *nodeA;
+@property SKNode *nodeB;
+@property NSString *phase;
+
 @end

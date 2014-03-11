@@ -11,7 +11,8 @@
 #import "GemEvent.h"
 #include "LGeminiShape.h"
 #import "GemPhysicsBody.h"
-//#import "GemCollisionEvent.h"
+#import "GemCollisionEvent.h"
+#import "LGeminiEvent.h"
 //#import "GemCircle.h"
 //#import "GemRectangle.h"
 //#import "GemConvexShape.h"
@@ -23,16 +24,43 @@
 
 // handles collisions between objects
 class GemContactListener : public b2ContactListener {
+
 public:
+    
+     NSMutableArray *contactEvents;
+    
+    GemContactListener(){
+        contactEvents = [NSMutableArray arrayWithCapacity:1];
+    }
+    
     void BeginContact(b2Contact* contact){
         /* handle begin event */
         const b2Body* bodyA = contact->GetFixtureA()->GetBody();
         const b2Body* bodyB = contact->GetFixtureB()->GetBody();
+        SKNode *nodeA = (__bridge SKNode *)bodyA->GetUserData();
+        SKNode *nodeB = (__bridge  SKNode *)bodyB->GetUserData();
         
+        GemCollisionEvent *event = [[GemCollisionEvent alloc] init];
+        event.nodeA = nodeA;
+        event.nodeB = nodeB;
+        event.phase = @"BEGIN";
+        
+        [contactEvents addObject:event];
         
     }
     void EndContact(b2Contact* contact) {
         /* handle end event */
+        const b2Body* bodyA = contact->GetFixtureA()->GetBody();
+        const b2Body* bodyB = contact->GetFixtureB()->GetBody();
+        SKNode *nodeA = (__bridge SKNode *)bodyA->GetUserData();
+        SKNode *nodeB = (__bridge  SKNode *)bodyB->GetUserData();
+        
+        GemCollisionEvent *event = [[GemCollisionEvent alloc] init];
+        event.nodeA = nodeA;
+        event.nodeB = nodeB;
+        event.phase = @"END";
+        
+        [contactEvents addObject:event];
     }
     void PreSolve(b2Contact* contact, const b2Manifold* oldManifold) {
         /* handle pre-solve event */
@@ -78,6 +106,7 @@ public:
     BOOL paused;
     float timeStep;
     double accumulator;
+    GemContactListener *listener;
 }
 
 @synthesize drawMode;
@@ -89,7 +118,7 @@ public:
         bool doSleep = true;
         world = new b2World(gravity);
         world->SetAllowSleeping(doSleep);
-        GemContactListener *listener = new GemContactListener();
+        listener = new GemContactListener();
         world->SetContactListener(listener);
         
         scale = PIXELS_PER_METER; // pixels per meter
@@ -424,7 +453,6 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
         GemPoint point = [self fromPhysicsCoord:pPoint];
         float32 angle = b->GetAngle();
         
-//        GemDisplayObject *gdo = (__bridge GemDisplayObject *)b->GetUserData();
         SKNode *node = (__bridge  SKNode *)b->GetUserData();
         node.zRotation = alpha * angle + (1.0-alpha)*node.zRotation;
         double x = alpha * point.x + (1.0 - alpha)*node.position.x;
@@ -449,7 +477,25 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
     dispatch_sync(globalQueue, ^(){
         updatePhysics(deltaT, accumulator, timeStep, world, self);
     });
-
+    
+    // send out our contact/collision events
+    NSMutableArray *events = listener->contactEvents;
+    [events enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
+        // call event handlers on objects
+        GemCollisionEvent *event = (GemCollisionEvent *)obj;
+        SKNode *nodeA = event.nodeA;
+        SKNode *nodeB = event.nodeB;
+        NSString *handler = @"didEndContact";
+        if ([event.phase isEqualToString:@"BEGIN"]) {
+            handler = @"didBeginContact";
+        }
+        GemLog(@"Collision between %@ and %@", nodeA.name, nodeB.name);
+        callEventHandler(nodeA, handler, event);
+        callEventHandler(nodeB, handler, event);
+    }];
+    
+    // clear the contact list
+    [events removeAllObjects];
     
 }
 

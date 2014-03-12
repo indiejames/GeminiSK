@@ -272,6 +272,15 @@ int setLinearVelocity(lua_State *L){
     return 0;
 }
 
+int setAllowsRotation(lua_State *L){
+    b2Body *body = getBody(L);
+    
+    bool allowsRotation = lua_toboolean(L, 2);
+    body->SetFixedRotation(~allowsRotation);
+    
+    return 0;
+}
+
 
 
 /////////// joints ///////////
@@ -357,6 +366,7 @@ static const struct luaL_Reg physicsLib_f [] = {
     {"applyForce", applyForce},
     {"setVelocity", setLinearVelocity},
     {"getVelocity", getLinearVelocity},
+    {"setAllowsRotation", setAllowsRotation},
     {"setGravity", setGravity},
     {"setScale", setScale},
     {"setSimulationSpeed", setPhysicsSpeed},

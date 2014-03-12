@@ -275,6 +275,7 @@ public:
             isSensor = [(NSNumber *)[fixtureParams objectForKey:@"isSensor"] boolValue];
         }
         
+        
         fixtureDef.density = density;
         fixtureDef.friction = friction;
         fixtureDef.restitution = restitution;

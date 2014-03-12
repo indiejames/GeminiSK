@@ -109,7 +109,7 @@ function scene:createScene( event )
   scene:setBackgroundColor(0.37,0.58,0.99)
   physics.setDebug(true)
   --physics.setSimulationSpeed(0.01)
-  physics.setGravity(0,-1)
+  physics.setGravity(0,-4.5)
   physics.setScale(20)
   
   
@@ -126,6 +126,7 @@ function scene:createScene( event )
   scene:addChild(runner)
   runner:setPosition(100, 148)
   physics.addBody(runner, "dynamic", physicsData:get("mario"))
+  physics.setAllowsRotation(runner, false)
   
   frames =  {
   "mario.01.png",
@@ -311,33 +312,43 @@ function setRunnerState()
   vx, vy = physics.getVelocity(runner)
 
   if vy == 0 and runner.state == "JUMPING" then
-    runner.state = "WALKING"
+    runner.state = "STANDING"
   end
 
   if rightButtonState == 1 then
     runner.isFlippedHorizontally = true
-    if v < 0.75 and runner.state ~= "JUMPING" then
-      physics.applyImpulse(runner, 0.05, 0)
-
-      if runner.state ~= "WALKING" then
-        -- switch to walk animation
-      end
-
+    runner.xScale = -1.0
+    if runner.state ~= "JUMPING" then
+      physics.setVelocity(runner, 0.75, 0)
       runner.state = "WALKING"
     end
+    -- if vx < 0.75 and runner.state ~= "JUMPING" then
+    --   physics.applyImpulse(runner, 0.05, 0)
+
+    --   if runner.state ~= "WALKING" then
+    --     -- switch to walk animation
+    --   end
+
+    --   runner.state = "WALKING"
+    -- end
   end
 
   if leftButtonState == 1 then
     runner.isFlippedHorizontally = false
-    if vx > -0.75 and runner.state ~= "JUMPING" then
-      physics.applyImpulse(runner, -0.05, 0)
-            
-      if runner.state ~= "WALKING" then
-                -- switch runner to walking animation
-      end
-        
+    runner.xScale = 1.0
+    if runner.state ~= "JUMPING" then
+      physics.setVelocity(runner, -0.75, 0)
       runner.state = "WALKING"
     end
+    -- if vx > -0.75 and runner.state ~= "JUMPING" then
+    --   physics.applyImpulse(runner, -0.05, 0)
+            
+    --   if runner.state ~= "WALKING" then
+    --             -- switch runner to walking animation
+    --   end
+        
+    --   runner.state = "WALKING"
+    -- end
         
   end
 
@@ -352,7 +363,7 @@ function setRunnerState()
     if (runner.state ~= "JUMPING") then
       x,y = runner:getPosition()
       runner:setPosition(x, y + 20)
-      physics.applyImpulse(runner, vx * 0.1, 0.4)
+      physics.applyImpulse(runner, vx * 0.1, 14.0)
       runner.state = "JUMPING"
     end
     
@@ -361,7 +372,7 @@ function setRunnerState()
       
   if runner.state == "JUMPING" then
     if vy > 10.0 then
-      physics.setVelocity(vx, 10.0)
+      physics.setVelocity(runner, vx, 10.0)
     end
   end
     
@@ -370,7 +381,7 @@ function setRunnerState()
       physics.setVelocity(runner, 0.75, 0)
     end
     if vx < -0.75 then
-      physics.setVelocity(-0.75, 0)
+      physics.setVelocity(runner, -0.75, 0)
     end
   end
 
@@ -416,12 +427,12 @@ function scene:touchesMoved(evt)
   local x = touch.x
   local y = touch.y
 
-  if x < joystickStartX then
+  if x > 284 and x < joystickStartX then
     leftButtonState = 1
     rightButtonState = 0
   end
             
-  if x > joystickStartX then
+  if x > 284 and x > joystickStartX then
       rightButtonState = 1
       leftButtonState = 0
       print "MOVE RIGHT!"

@@ -13,11 +13,6 @@
 #import "GemPhysicsBody.h"
 #import "GemCollisionEvent.h"
 #import "LGeminiEvent.h"
-//#import "GemCircle.h"
-//#import "GemRectangle.h"
-//#import "GemConvexShape.h"
-//#import "GemPhysicsJoint.h"
-//#include "GemMathUtils.h"
 
 #define RAD_TO_DEG(x) (x * M_PI / 180.0)
 #define PIXELS_PER_METER (100.0)
@@ -490,7 +485,7 @@ void (^updatePhysics)(double, double &, double, b2World *, GemPhysics *self) = ^
         if ([event.phase isEqualToString:@"BEGIN"]) {
             handler = @"didBeginContact";
         }
-        GemLog(@"Collision between %@ and %@", nodeA.name, nodeB.name);
+        //GemLog(@"Collision between %@ and %@", nodeA.name, nodeB.name);
         callEventHandler(nodeA, handler, event);
         callEventHandler(nodeB, handler, event);
     }];

@@ -97,6 +97,9 @@ local wall_positions = {
                         496, 144,
                         }
 
+local WALKING_VELOCITY = 0.5
+local TERMINAL_VELOCITY = 10.0
+
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
 ---------------------------------------------------------------------------------
@@ -107,8 +110,7 @@ function scene:createScene( event )
   print("Lua: Creating scene3")
   scene:setSize(568,320)
   scene:setBackgroundColor(0.37,0.58,0.99)
-  physics.setDebug(true)
-  --physics.setSimulationSpeed(0.01)
+ --physics.setSimulationSpeed(0.01)
   physics.setGravity(0,-4.5)
   physics.setScale(20)
   
@@ -262,14 +264,20 @@ function scene:didMoveToView(  )
 
   function runner:touchesBegan ()
     print ("Runner touched")
+    return true
+  end
+
+  function runner:touchesEnded(evt)
+    print ("Runner touch ended")
+    return false
   end
 
   function runner:didBeginContact(evt)
-    print ("Runner contact began")
+    --print ("Runner contact began")
   end
 
   function runner:didEndContact(evt)
-    print ("Runner contact ended")
+    --print ("Runner contact ended")
   end
 
 
@@ -311,6 +319,7 @@ end
 function setRunnerState()
   vx, vy = physics.getVelocity(runner)
 
+  -- TODO - this could be triggered at the top of a jump, which is not correct
   if vy == 0 and runner.state == "JUMPING" then
     runner.state = "STANDING"
   end
@@ -319,10 +328,10 @@ function setRunnerState()
     runner.isFlippedHorizontally = true
     runner.xScale = -1.0
     if runner.state ~= "JUMPING" then
-      physics.setVelocity(runner, 0.75, 0)
+      physics.setVelocity(runner, WALKING_VELOCITY, 0)
       runner.state = "WALKING"
     end
-    -- if vx < 0.75 and runner.state ~= "JUMPING" then
+    -- if vx < WALKING_VELOCITY and runner.state ~= "JUMPING" then
     --   physics.applyImpulse(runner, 0.05, 0)
 
     --   if runner.state ~= "WALKING" then
@@ -337,10 +346,10 @@ function setRunnerState()
     runner.isFlippedHorizontally = false
     runner.xScale = 1.0
     if runner.state ~= "JUMPING" then
-      physics.setVelocity(runner, -0.75, 0)
+      physics.setVelocity(runner, -WALKING_VELOCITY, 0)
       runner.state = "WALKING"
     end
-    -- if vx > -0.75 and runner.state ~= "JUMPING" then
+    -- if vx > -WALKING_VELOCITY and runner.state ~= "JUMPING" then
     --   physics.applyImpulse(runner, -0.05, 0)
             
     --   if runner.state ~= "WALKING" then
@@ -363,7 +372,7 @@ function setRunnerState()
     if (runner.state ~= "JUMPING") then
       x,y = runner:getPosition()
       runner:setPosition(x, y + 20)
-      physics.applyImpulse(runner, vx * 0.1, 14.0)
+      physics.applyImpulse(runner, vx * 0.5, TERMINAL_VELOCITY)
       runner.state = "JUMPING"
     end
     
@@ -371,30 +380,28 @@ function setRunnerState()
   end
       
   if runner.state == "JUMPING" then
-    if vy > 10.0 then
-      physics.setVelocity(runner, vx, 10.0)
+    if vy > TERMINAL_VELOCITY then
+      physics.setVelocity(runner, vx, TERMINAL_VELOCITY)
+    end
+    if vy < -TERMINAL_VELOCITY then
+      physics.setVelocity(runner, vx, -TERMINAL_VELOCITY)
     end
   end
     
   if runner.state == "WALKING" then
-    if vx > 0.75 then
-      physics.setVelocity(runner, 0.75, 0)
+    if vx > WALKING_VELOCITY then
+      physics.setVelocity(runner, WALKING_VELOCITY, 0)
     end
-    if vx < -0.75 then
-      physics.setVelocity(runner, -0.75, 0)
+    if vx < -WALKING_VELOCITY then
+      physics.setVelocity(runner, -WALKING_VELOCITY, 0)
     end
   end
 
 end
 
--- Called once every frame
-function scene:update(currentTime)
-    
-
-end
 
 -- Called when scene is deallocated
-function scene:destroyScene(  )
+function scene:destroyScene()
 
 
   -----------------------------------------------------------------------------
@@ -408,37 +415,50 @@ end
 -- handle touch events
 function scene:touchesBegan(evt)
 
-  local touch = evt:getTouches()
-  local x = touch.x
-  local y = touch.y
+  local touches = table.pack(evt:getTouches())
+  
+  for index, touch in ipairs(touches) do
+    print("Lua: index = " .. index)
+    local x = touch.x
+    local y = touch.y
 
-  if x > 284 then
-    joystickStartX = x
-            
-  else
-    jumpButtonState = 1
-    print "JUMP!"
+    if x > 284 then
+      joystickStartX = x
+              
+    else
+      jumpButtonState = 1
+      print "JUMP!"
+    end
   end
+
+  return true
     
 end
 
 function scene:touchesMoved(evt)
-  local touch = evt:getTouches()
-  local x = touch.x
-  local y = touch.y
+  local touches = table.pack(evt:getTouches())
+  for index, touch in ipairs(touches) do
+    local x = touch.x
+    local y = touch.y
 
-  if x > 284 and x < joystickStartX then
-    leftButtonState = 1
-    rightButtonState = 0
+    if x > 284 then
+    
+      if x < joystickStartX then
+        leftButtonState = 1
+        rightButtonState = 0
+      end
+                
+      if x > joystickStartX then
+          rightButtonState = 1
+          leftButtonState = 0
+      end
+      joystickStartX = x
+    end
+          
   end
-            
-  if x > 284 and x > joystickStartX then
-      rightButtonState = 1
-      leftButtonState = 0
-      print "MOVE RIGHT!"
-  end
-            
-  joystickStartX = x
+
+  return true
+
 end
 
 function scene:touchesEnded(evt)
@@ -453,6 +473,8 @@ function scene:touchesEnded(evt)
     jumpButtonState = 0
   end
   
+  return true
+
 end
 
 ---------------------------------------------------------------------------------

@@ -48,6 +48,7 @@ BOOL callEventHandler(SKNode *obj, NSString *handler, GemEvent *event){
     lua_getfield(L, -1, method);
     
     if (lua_isfunction(L, -1)) {
+        rval = YES;
         //GemLog(@"Event handler is a function");
         // load the stacktrace printer for our error function
         int base = lua_gettop(L);  // function index
@@ -64,13 +65,17 @@ BOOL callEventHandler(SKNode *obj, NSString *handler, GemEvent *event){
         createObjectAndSaveRef(L, GEM_TOUCH_EVENT_LUA_KEY, event);
         
         // call our method
-        int err = lua_pcall(L, 2, LUA_MULTRET, -4);
+        int err = lua_pcall(L, 2, 1, -4);
         if (err != 0) {
             const char *msg = lua_tostring(L, -1);
-            NSLog(@"Error executing handler: %s", msg);
+            GemLog(@"Error executing handler: %s", msg);
         }
         
-        rval = YES;
+        // check for a return value from the handler
+        if (lua_gettop(L) > base) {
+            rval = lua_toboolean(L, lua_gettop(L));
+        }
+
     }
     
     lua_pop(L, lua_gettop(L) - top);

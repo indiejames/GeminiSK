@@ -23,6 +23,15 @@
 		760EC4DD17B7E4730079E84E /* LGeminiUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4DB17B7E4730079E84E /* LGeminiUI.m */; };
 		760EC4E017B817830079E84E /* LGeminiNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4DF17B817830079E84E /* LGeminiNode.m */; };
 		760EC4E117B817830079E84E /* LGeminiNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4DF17B817830079E84E /* LGeminiNode.m */; };
+		760F72C318DF825A0034496B /* test5.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C118DF825A0034496B /* test5.lua */; };
+		760F72C418DF825A0034496B /* test5.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C118DF825A0034496B /* test5.lua */; };
+		760F72C518DF825A0034496B /* tile_reader.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C218DF825A0034496B /* tile_reader.lua */; };
+		760F72C618DF825A0034496B /* tile_reader.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C218DF825A0034496B /* tile_reader.lua */; };
+		760F72C818DF82930034496B /* scene4.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C718DF82930034496B /* scene4.lua */; };
+		760F72C918DF82930034496B /* scene4.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C718DF82930034496B /* scene4.lua */; };
+		760F72CE18E0F1B60034496B /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 760F72CD18E0F1B60034496B /* terrain.png */; };
+		760F72CF18E0F1B60034496B /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 760F72CD18E0F1B60034496B /* terrain.png */; };
+		763E30B518DA85AA0086D9E7 /* bricks.lua in Resources */ = {isa = PBXBuildFile; fileRef = 763E30B418DA85AA0086D9E7 /* bricks.lua */; };
 		76456F6C1835B96800F91FD2 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
 		76456F6D1835B96800F91FD2 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
 		76456F701836E9F500F91FD2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
@@ -362,6 +371,11 @@
 		760EC4DB17B7E4730079E84E /* LGeminiUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiUI.m; sourceTree = "<group>"; };
 		760EC4DE17B817830079E84E /* LGeminiNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiNode.h; sourceTree = "<group>"; };
 		760EC4DF17B817830079E84E /* LGeminiNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiNode.m; sourceTree = "<group>"; };
+		760F72C118DF825A0034496B /* test5.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test5.lua; sourceTree = "<group>"; };
+		760F72C218DF825A0034496B /* tile_reader.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tile_reader.lua; sourceTree = "<group>"; };
+		760F72C718DF82930034496B /* scene4.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scene4.lua; sourceTree = "<group>"; };
+		760F72CD18E0F1B60034496B /* terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = terrain.png; sourceTree = "<group>"; };
+		763E30B418DA85AA0086D9E7 /* bricks.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bricks.lua; sourceTree = "<group>"; };
 		76456F6A1835B96800F91FD2 /* GemBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemBezierPath.h; sourceTree = "<group>"; };
 		76456F6B1835B96800F91FD2 /* GemBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemBezierPath.m; sourceTree = "<group>"; };
 		76456F6E1836E9F500F91FD2 /* LGeminiPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPath.h; sourceTree = "<group>"; };
@@ -1126,6 +1140,7 @@
 		76C67A1D17C2F53B00B73696 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				760F72CD18E0F1B60034496B /* terrain.png */,
 				769E8CF218B9C6820042AF75 /* 8bit.atlas */,
 				769E8CC418B94B240042AF75 /* space2.jpg */,
 				769E8CC118B946780042AF75 /* space.jpg */,
@@ -1139,6 +1154,10 @@
 		76D081B017B1D2730033E3DF /* Lua */ = {
 			isa = PBXGroup;
 			children = (
+				760F72C718DF82930034496B /* scene4.lua */,
+				760F72C118DF825A0034496B /* test5.lua */,
+				760F72C218DF825A0034496B /* tile_reader.lua */,
+				763E30B418DA85AA0086D9E7 /* bricks.lua */,
 				7699878818CAB1E7003D4E8D /* scene_load_page.lua */,
 				769E8CF818BD7FE20042AF75 /* mario_game_physics.lua */,
 				769E8CF518BC2C8B0042AF75 /* scene3.lua */,
@@ -1236,20 +1255,24 @@
 			files = (
 				7688709717B08BBA0002430C /* Images.xcassets in Resources */,
 				7688708D17B08BBA0002430C /* Main_iPad.storyboard in Resources */,
+				760F72C318DF825A0034496B /* test5.lua in Resources */,
 				7688708A17B08BBA0002430C /* Main_iPhone.storyboard in Resources */,
 				769E8CB918B87A1B0042AF75 /* rocket.wav in Resources */,
 				769E8CDC18B98C7E0042AF75 /* Default@2x.png in Resources */,
 				769E8CE618B98C7E0042AF75 /* Icon-Small.png in Resources */,
 				7688728717B08D3D0002430C /* LICENSE_QSUtils.txt in Resources */,
 				769E8CB218B84A900042AF75 /* spark.png in Resources */,
+				760F72C518DF825A0034496B /* tile_reader.lua in Resources */,
 				769E8CB018B84A900042AF75 /* ShipFlame.sks in Resources */,
 				769E8CDE18B98C7E0042AF75 /* fps_images.png in Resources */,
 				769E8CC218B946780042AF75 /* space.jpg in Resources */,
 				760EC4D017B5D12D0079E84E /* scene1.lua in Resources */,
+				760F72CE18E0F1B60034496B /* terrain.png in Resources */,
 				769E8CF318B9C6820042AF75 /* 8bit.atlas in Resources */,
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
 				769E8CEE18B98C7E0042AF75 /* Info.plist in Resources */,
 				769E8CEC18B98C7E0042AF75 /* Icon@2x.png in Resources */,
+				763E30B518DA85AA0086D9E7 /* bricks.lua in Resources */,
 				76C22C3918A2EEB1006FD3E2 /* LICENSE_Box2D.txt in Resources */,
 				76E6E9DA186AA1740061480D /* background.png in Resources */,
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
@@ -1269,6 +1292,7 @@
 				769E8CE418B98C7E0042AF75 /* Icon-Small-50.png in Resources */,
 				769E8CF018B98C7E0042AF75 /* iTunesArtwork in Resources */,
 				769E8CE818B98C7E0042AF75 /* Icon-Small@2x.png in Resources */,
+				760F72C818DF82930034496B /* scene4.lua in Resources */,
 				769E8CEA18B98C7E0042AF75 /* Icon.png in Resources */,
 				76C67A1817C11B6F00B73696 /* scene2.lua in Resources */,
 				769E8CD818B98C7E0042AF75 /* Default-Portrait~ipad.png in Resources */,
@@ -1282,6 +1306,7 @@
 			files = (
 				769E8CEB18B98C7E0042AF75 /* Icon.png in Resources */,
 				769E8C9C18B6CEC50042AF75 /* spaceship.atlas in Resources */,
+				760F72C618DF825A0034496B /* tile_reader.lua in Resources */,
 				769E8CB118B84A900042AF75 /* ShipFlame.sks in Resources */,
 				769E8CE718B98C7E0042AF75 /* Icon-Small.png in Resources */,
 				769E8CE318B98C7E0042AF75 /* Icon-72.png in Resources */,
@@ -1300,6 +1325,7 @@
 				769E8CC618B94B240042AF75 /* space2.jpg in Resources */,
 				769E8CEF18B98C7E0042AF75 /* Info.plist in Resources */,
 				769E8CD718B98C7E0042AF75 /* Default-568h@2x.png in Resources */,
+				760F72C418DF825A0034496B /* test5.lua in Resources */,
 				769E8CC318B946780042AF75 /* space.jpg in Resources */,
 				769E8CDB18B98C7E0042AF75 /* Default.png in Resources */,
 				769E8CDD18B98C7E0042AF75 /* Default@2x.png in Resources */,
@@ -1310,6 +1336,8 @@
 				76D081B317B1D2730033E3DF /* main.lua in Resources */,
 				7688728817B08D3D0002430C /* LICENSE_QSUtils.txt in Resources */,
 				769E8CE518B98C7E0042AF75 /* Icon-Small-50.png in Resources */,
+				760F72CF18E0F1B60034496B /* terrain.png in Resources */,
+				760F72C918DF82930034496B /* scene4.lua in Resources */,
 				769E8CF718BC2C8B0042AF75 /* scene3.lua in Resources */,
 				76C67A4617C3084700B73696 /* runner.atlas in Resources */,
 				7688728017B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,

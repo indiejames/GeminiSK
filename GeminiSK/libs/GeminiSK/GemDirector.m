@@ -92,7 +92,7 @@ GemSKScene * (^sceneLoader)(GemDirector *self, NSString *sceneName, lua_State *L
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:*lscene forKey:@"LUA_DATA"];
     scene.userData = wrapper;
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    scene.scaleMode = SKSceneScaleModeFill;
     (*lscene).delegate = scene;
 
     self.activeScene = scene;

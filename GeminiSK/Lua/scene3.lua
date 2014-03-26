@@ -19,6 +19,7 @@ local emitter = require("emitter")
 
 
 local physicsData = require('mario_game_physics').physicsData(1)
+local map = require('bricks')
 
 local scene = director.newScene()
 
@@ -32,6 +33,7 @@ local circle
 local rectangle
 local rotation
 local pan
+local texture1
 local runner
 local animate
 local rep
@@ -39,6 +41,8 @@ local pbody
 local sceneBodby
 local myPath
 local soundPlayer
+
+local joystickStartX = -1
 
 local box = {}
 
@@ -108,6 +112,7 @@ local TERMINAL_VELOCITY = 10.0
 -- Add scene elements here.
 function scene:createScene( event )
   print("Lua: Creating scene3")
+
   scene:setSize(568,320)
   scene:setBackgroundColor(0.37,0.58,0.99)
  --physics.setSimulationSpeed(0.01)
@@ -121,6 +126,7 @@ function scene:createScene( event )
   block_texture = texture.newTexture(texture_atlas, "brick.png")
   coin_texture = texture.newTexture(texture_atlas, "coin.png")
 
+  print ("Lua: creating sprite runner")
  
   runner = sprite.newSprite(texture1)
   runner.xScale = -1 * runner.xScale
@@ -248,7 +254,6 @@ function scene:didMoveToView(  )
   --followPath = action.followPath(myPath, 3, true, false)
 
 
-  runner:runAction(rep)
   --runner:runAction(rotation)
   --runner:runAction(followPath)
 
@@ -328,8 +333,13 @@ function setRunnerState()
     runner.isFlippedHorizontally = true
     runner.xScale = -1.0
     if runner.state ~= "JUMPING" then
+      if runner.state ~= "WALKING" then
+        print ("Running action")
+        runner:runAction(rep)
+      end
       physics.setVelocity(runner, WALKING_VELOCITY, 0)
       runner.state = "WALKING"
+      
     end
     -- if vx < WALKING_VELOCITY and runner.state ~= "JUMPING" then
     --   physics.applyImpulse(runner, 0.05, 0)
@@ -346,6 +356,9 @@ function setRunnerState()
     runner.isFlippedHorizontally = false
     runner.xScale = 1.0
     if runner.state ~= "JUMPING" then
+      if runner.state ~= "WALKING" then
+        runner:runAction(rep)
+      end
       physics.setVelocity(runner, -WALKING_VELOCITY, 0)
       runner.state = "WALKING"
     end
@@ -364,6 +377,9 @@ function setRunnerState()
   if leftButtonState == 0 and rightButtonState == 0 and runner.state == "WALKING" then
     physics.setVelocity(runner, 0, 0)
     runner.state = "STANDING"
+    print ("Stopping action")
+    runner:removeAllActions()
+    runner.texture = texture1
     -- set runner to standing image
   end
     

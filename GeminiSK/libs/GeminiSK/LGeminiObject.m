@@ -275,10 +275,6 @@ int genericIndex(lua_State *L){
     
 }
 
-// TODO - need to modify this method for setPhysicsBody, so it will pull the
-// SKPhysicsBody out from the GemPhysicsBody before calling setPhysicsBody
-// generic new index method, i.e., obj.something = some_value
-// only support primitive types (ints, float, char *, etc.) for some_value
 int genericNewIndex(lua_State *L) {
     __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
     NSObject *delegate = (*go).delegate;

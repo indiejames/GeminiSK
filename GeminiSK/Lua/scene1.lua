@@ -143,8 +143,7 @@ end
 
 
 function scene:createScene( event )
-	print("Lua: Creating scene2")
-
+	print("Lua: Creating scene1")
 
   scene:setSize(1136,640)
 

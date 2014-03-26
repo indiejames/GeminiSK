@@ -20,6 +20,8 @@
 @property id userData;
 
 -(id) initWithImageNamed:(NSString *) name textureAtlas:(GemTextureAtlas *) atlas;
+-(id)initWithImagenamed:(NSString *)name;
+-(id)initWithTexture:(SKTexture *)texture;
 
 @end
 

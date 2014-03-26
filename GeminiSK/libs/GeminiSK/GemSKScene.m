@@ -30,7 +30,7 @@
         lastPhysicsUpdate = 0;
         
         _physics = [[GemPhysics alloc] init];
-        self.scaleMode = SKSceneScaleModeAspectFit;
+        self.scaleMode = SKSceneScaleModeFill;
         
         // The scene should be initialized with Lua code in the createScene() method
     }

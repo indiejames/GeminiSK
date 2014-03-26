@@ -22,10 +22,17 @@
 extern int removeEventListener(lua_State *L);
 extern int addEventListener(lua_State *L);
 
+SKSpriteNode *getSprite(lua_State *L){
+    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)lua_touserdata(L, 1);
+    return (SKSpriteNode *)(*go).delegate;
+
+}
+
+
+
 static int newSprite(lua_State *L){
     // stack: 1 - texture
-    __unsafe_unretained GemObjectWrapper **go = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_TEXTURE_LUA_KEY);
-    GemTexture *texture = (*go).delegate;
+    GemTexture *texture = getTexture(L);
     
     GemSKSpriteNode *sprite = [[GemSKSpriteNode alloc] initWithGemTexture:texture];
        
@@ -34,7 +41,23 @@ static int newSprite(lua_State *L){
     return 1;
 }
 
-
+static int newIndex(lua_State *L) {
+    SKSpriteNode *sprite = getSprite(L);
+    
+    const char *attr = luaL_checkstring(L, 2);
+    
+    // handle texture assginment
+    if (strcmp(attr, "texture") == 0) {
+        GemTexture *texture = getTextureAtIndex(L, 3);
+        sprite.texture = texture.texture;
+        
+        return 0;
+        
+    }
+    
+    // use the generic index function for everything else
+    return genericNewIndex(L);
+}
 
 // the mappings for the library functions
 static const struct luaL_Reg spriteLib_f [] = {
@@ -47,13 +70,14 @@ static const struct luaL_Reg spriteLib_f [] = {
 static const struct luaL_Reg sprite_m [] = {
     {"__gc", genericGC},
     {"__index", genericIndex},
-    {"__newindex", genericNewIndex},
+    {"__newindex", newIndex},
     {"addEventListener", addEventListener},
     {"getPosition", getPosition},
     {"setPosition", setPosition},
     {"addChild", addChild},
     {"removeFromParent", removeFromParent},
     {"runAction", runAction},
+    {"removeAllActions", removeAllActions},
     {NULL, NULL}
 };
 

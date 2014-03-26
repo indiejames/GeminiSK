@@ -133,6 +133,14 @@ int runAction(lua_State *L){
     return 0;
 }
 
+int removeAllActions(lua_State *L){
+    SKNode *node = getNode(L);
+    
+    [node removeAllActions];
+    
+    return 0;
+}
+
 // the mappings for the library functions
 static const struct luaL_Reg nodeLib_f [] = {
     {"newNode", newNode},

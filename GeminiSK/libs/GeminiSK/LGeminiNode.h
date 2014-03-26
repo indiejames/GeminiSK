@@ -19,5 +19,6 @@ int getPosition(lua_State *L); // used everywhere
 int setPosition(lua_State *L); // used everywhere
 int destroyNode(lua_State *L); //
 int runAction(lua_State *L);
+int removeAllActions(lua_State *L);
 int addChild(lua_State *L);
 int removeFromParent(lua_State *L);

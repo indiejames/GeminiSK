@@ -33,7 +33,7 @@ static int newScene(lua_State *L){
     SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
     
     GemSKScene *scene = [[GemSKScene alloc] initWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    scene.scaleMode = SKSceneScaleModeFill;
     
     createObjectAndSaveRef(L, GEMINI_SCENE_LUA_KEY, scene);
     

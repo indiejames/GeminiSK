@@ -36,6 +36,54 @@
     return self;
 }
 
+-(id)initWithImagenamed:(NSString *)name {
+    self = [super init];
+    
+    if (self) {
+        _isLoaded = NO;
+        
+        _texture = [SKTexture textureWithImageNamed:name];
+        
+        [_texture preloadWithCompletionHandler:^{
+            //[NSThread sleepForTimeInterval:2.0];
+            GemLog(@"Texture %@ finished loading", name);
+            @synchronized(self) {
+                _isLoaded = YES;
+            }
+            @synchronized(loadListeners){
+                [loadListeners enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+                    [obj loadFinished:self];
+                }];
+            }
+        }];
+        
+    }
+    
+    return self;
+}
+
+-(id)initWithTexture:(SKTexture *)texture {
+    self = [super init];
+    
+    if (self) {
+        _texture = texture;
+        [_texture preloadWithCompletionHandler:^{
+            
+            @synchronized(self) {
+                _isLoaded = YES;
+            }
+            @synchronized(loadListeners){
+                [loadListeners enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+                    [obj loadFinished:self];
+                }];
+            }
+        }];
+
+    }
+    
+    return self;
+}
+
 -(void)addLoadListener:(id)listener {
     @synchronized(loadListeners){
         [loadListeners addObject:listener];

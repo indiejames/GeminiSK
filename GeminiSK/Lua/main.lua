@@ -30,7 +30,7 @@ label:setPosition(640,600)
 --label.zRotation = 1.5
 
 -- next scene - used by scene loader
-nextSceneName = "scene3"
+nextSceneName = "scene1"
 director.loadScene("scene_load_page")
 director.gotoScene("scene_load_page", {synchronous = "true"})
 

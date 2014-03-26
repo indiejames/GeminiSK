@@ -10,3 +10,7 @@
 #include "lualib.h"
 #include "lauxlib.h"
 
+#import "GemTexture.h"
+
+GemTexture *getTextureAtIndex(lua_State *L, int index);
+GemTexture *getTexture(lua_State *L);

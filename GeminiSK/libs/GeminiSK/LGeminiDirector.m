@@ -124,6 +124,7 @@ static int sceneSetBackgroundImage(lua_State *L){
     sprite.position = CGPointMake(CGRectGetMidX(scene.frame), CGRectGetMidY(scene.frame));
     sprite.name = @"Background";
     sprite.size = scene.size;
+    sprite.zPosition = -1000;
     [scene addChild:sprite];
                
     return 0;

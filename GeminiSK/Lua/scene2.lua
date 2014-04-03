@@ -36,6 +36,7 @@ local shipPath
 local shipPath2
 local shipSound
 local soundPlayer
+local myCurve
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -92,14 +93,6 @@ function scene:createScene( event )
   bottom = 100
   middleY = bottom + 200
   top = middleY + 200
-  shipPath = path.newBezierPath(
-      middleX, bottom,
-      right, bottom, right, middleY, middleX, middleY,
-      left, middleY, left, top, middleX, top,
-      right, top , right, middleY, middleX, middleY,
-      left, middleY, left, bottom, middleX, bottom,
-      true
-    )
 
   shipPath2 = path.newBezierPath(
       526.5, 304.5,
@@ -137,10 +130,7 @@ end
 
  myPath = path.newBezierPath(0, 0, 200, 200, 0, 200, 200, 0)
   
-  circle = shape.newCircle(50,200,200)
-  circle.lineWidth = 1
-  circle:setStrokeColor(0,0,0.75)
-  circle:setFillColor(0.5,0,0.5)
+  
  --circle.glowWidth = 2
  scene:setBackgroundColor(0,0,0)
 
@@ -152,7 +142,7 @@ end
   -- pan.timingMode = SKActionTimingEaseInEaseOut
 
   
-  rectangle = shape.newRectangle(200,100)
+  --rectangle = shape.newRectangle(200,100)
   -- rectangle:setFillColor(0,0.5,0)
   -- rectangle.zRotation = 1.5
   -- rectangle:setPosition(0, 300)
@@ -169,6 +159,12 @@ end
   shipFlame:setPosition(0, -200)
   shipFlame:setTarget(scene)
   --shipFlame:setScale(10)
+
+  myCurve = shape.newCurve(shipPath2)
+  zoomNode:addChild(myCurve)
+  myCurve:setFillColor(0,0,0,0)
+  myCurve:setStrokeColor(1,1,1,1)
+  myCurve.lineWidth = 10
 
 end
 

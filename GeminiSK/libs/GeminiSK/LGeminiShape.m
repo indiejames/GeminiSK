@@ -14,6 +14,8 @@
 #import "AppDelegate.h"
 #import "LGeminiNode.h"
 #import "LGeminiObject.h"
+#import "LGeminiPath.h"
+#import "GemBezierPath.h"
 
 
 extern int removeEventListener(lua_State *L);
@@ -78,6 +80,34 @@ static int newRectangle(lua_State *L){
     [shape.userData setObject:[NSNumber numberWithFloat:width] forKey:@"WIDTH"];
     [shape.userData setObject:[NSNumber numberWithFloat:height] forKey:@"HEIGHT"];
     [shape.userData setObject:@"RECTANGLE" forKey:@"TYPE"];
+    
+    return 1;
+}
+
+static int newCurve(lua_State *L){
+    __unsafe_unretained GemObjectWrapper **gemObj = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, 1, GEMINI_PATH_LUA_KEY);
+    
+    float x = 0;
+    float y = 0;
+    
+    if (lua_gettop(L) > 1) {
+        x = luaL_checknumber(L, 2);
+    }
+    
+    if (lua_gettop(L) > 2) {
+        y = luaL_checknumber(L, 3);
+    }
+    
+    GemBezierPath *path = (*gemObj).delegate;
+    
+    SKShapeNode *shape = [[SKShapeNode alloc] init];
+    shape.path = path.path.CGPath;
+    
+    shape.position = CGPointMake(x, y);
+    
+    createObjectAndSaveRef(L, GEMINI_CURVE_LUA_KEY, shape);
+    
+    [shape.userData setObject:@"CURVE" forKey:@"TYPE"];
     
     return 1;
 }
@@ -156,6 +186,8 @@ static const struct luaL_Reg shapeLib_f [] = {
     {"destroyRectangle", destroyNode},
     {"newPolygon", newPolygon},
     {"destroyPolygon", destroyNode},
+    {"newCurve", newCurve},
+    {"destroyCurve", destroyNode},
     {NULL, NULL}
 };
 
@@ -204,6 +236,21 @@ static const struct luaL_Reg polygon_m [] = {
     {NULL, NULL}
 };
 
+// mappings for the polygon methods
+static const struct luaL_Reg curve_m [] = {
+    {"__gc", genericGC},
+    {"__index", genericIndex},
+    {"__newindex", genericNewIndex},
+    {"addEventListener", addEventListener},
+    {"getPosition", getPosition},
+    {"setPosition", setPosition},
+    {"setFillColor", setFillColor},
+    {"setStrokeColor", setStrokeColor},
+    {"addChild", addChild},
+    {"removeFromParent", removeFromParent},
+    {"runAction", runAction},
+    {NULL, NULL}
+};
 
 // the registration function
 int luaopen_shape_lib (lua_State *L){
@@ -215,6 +262,8 @@ int luaopen_shape_lib (lua_State *L){
     createMetatable(L, GEMINI_RECTANGLE_LUA_KEY, rectangle_m);
     // polygon
     createMetatable(L, GEMINI_POLYGON_LUA_KEY, polygon_m);
+    // curve
+    createMetatable(L, GEMINI_CURVE_LUA_KEY, curve_m);
        
     /////// finished with metatables ///////////
     

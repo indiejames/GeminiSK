@@ -56,8 +56,8 @@ static int newTextureAtlas(lua_State *L){
 
 static int newTexture(lua_State *L){
     GemTexture *texture;
-    
-    if (luaL_checkstring(L, 1)) {
+
+    if (lua_isstring(L, 1)) {
         // load from image file
         const char *imageName = luaL_checkstring(L, 1);
         texture = [[GemTexture alloc] initWithImagenamed:[NSString stringWithFormat:@"%s", imageName]];

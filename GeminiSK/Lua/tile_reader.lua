@@ -18,6 +18,8 @@ local tiled = {}
 
 function tiled.texture_for_tile(tile_id, tileset)
 	index = tile_id - tileset.firstgid + 1
+    --index = 24
+    --print("Lua: index = " .. index)
 	tile = tileset.tiles[index]
 	return tile.texture
 end
@@ -25,9 +27,10 @@ end
 
 function tiled.tileset_for_tile_id(id, map)
 	tilesets = map.tilesets
+    --print ("Lua: Map has " .. #tilesets .. " tile sets")
 	for i, tileset in ipairs(map.tilesets) do
 		tiles = tileset.tiles
-		if tileset.firstgid - 1 <= id and tileset.firstgid - 1 + #tiles >= id then
+		if tileset.firstgid <= id and id <= tileset.lastgid then
 			return tileset
 		end
 	end
@@ -65,9 +68,13 @@ function tiled.loadMap(scene, filename)
 	for i, tileset in ipairs(map.tilesets) do
 			print ("Lua: loading texture " .. tileset.image)
       tileset.texture = texture.newTexture(tileset.image)
-      for j, tile in ipairs(tileset.tiles) do
+      tileset.tiles = {}
+      for j = tileset.firstgid, tileset.lastgid do
+        local tile = {}
       	x0, y0, x1, y1 = tiled.texCoordsForTile(j, tileset)
+        --print("(x0,y0,x1,y1) = (" .. x0 .. ", " .. y0 .. ", " .. x1 .. ", " .. y1 .. ")")
       	tile.texture = texture.newSubTexture(tileset.texture, x0, y0, x1, y1)
+        tileset.tiles[j - tileset.firstgid + 1] = tile
       end
   end
 
@@ -75,7 +82,7 @@ function tiled.loadMap(scene, filename)
 
 end
 
-function tiled.renderMap(scene, map)
+function tiled.renderMap(node, map)
 
 	for i, tile_id in ipairs(map.layers[1].data) do
 		if tile_id ~= 0 then
@@ -86,7 +93,7 @@ function tiled.renderMap(scene, map)
 			local y = row * tileset.tileheight + tileset.tileheight / 2
 
 			local new_sprite = sprite.newSprite(tiled.texture_for_tile(tile_id, tileset))
-			scene:addChild(new_sprite)
+			node:addChild(new_sprite)
 			new_sprite:setPosition(x, y)
 
 		end

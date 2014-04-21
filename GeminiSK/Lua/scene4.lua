@@ -18,7 +18,10 @@ local path = require("path")
 local emitter = require("emitter")
 local tiled = require("tile_reader")
 local scene = director.newScene()
-local map = tiled.loadMap(scene, "test5")
+local map = tiled.loadMap(scene, "island_trio")
+local boat
+local startX
+local startY
 
 
 
@@ -35,16 +38,21 @@ local panNode
 function scene:createScene( event )
   print("Lua: Creating scene2")
 
-  scene:setSize(480,320)
+  scene:setSize(960,640)
 
   scene:setBackgroundImage("space2.jpg")
+  
+  texture_atlas = texture.newTextureAtlas("boats")
+  boat_texture = texture.newTexture(texture_atlas, "ship_large_body.png")
+  
+  boat = sprite.newSprite(boat_texture)
+  boat.scale =  0.25
 
   
   zoomNode = node.newNode()
   scene:addChild(zoomNode)
   panNode = node.newNode()
   zoomNode:addChild(panNode)
-
   
   scene:setBackgroundColor(0,0,0)
 
@@ -63,8 +71,11 @@ function scene:didMoveToView(  )
   
   print("Entering scene 4")
 
-  tiled.renderMap(scene, map)
-
+  tiled.renderMap(panNode, map)
+  panNode:addChild(boat)
+  boat:setPosition(200, 500)
+  boat.zRotation = 0.3
+  panNode:setPosition(0,-256)
 
 
 end
@@ -124,12 +135,27 @@ function scene:destroyScene(  )
 end
 
 function scene:touchesBegan(evt)
-    print "scene touched"
+    --print "scene touched"
     local touch = evt:getTouches()
     local x = touch.x
     local y = touch.y
-    print ("(x, y) = (" .. x .. ", " .. y .. ")")
-  end
+    --print ("(x, y) = (" .. x .. ", " .. y .. ")")
+    startX = x
+    startY = y
+end
+
+function scene:touchesMoved(evt)
+    local touches = { evt:getTouches() }
+    touch = touches[#touches]
+    --print ("(x, y) = (" .. touch.x .. ", " .. touch.y .. ")")
+    local deltaX = touch.x - startX
+    local deltaY = touch.y - startY
+    local nodeX, nodeY = panNode:getPosition()
+    startX = touch.x
+    startY = touch.y
+
+    panNode:setPosition(nodeX + deltaX, nodeY + deltaY)
+end
 
 ---------------------------------------------------------------------------------
 -- END OF YOUR IMPLEMENTATION

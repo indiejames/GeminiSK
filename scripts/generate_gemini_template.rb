@@ -56,6 +56,7 @@ require 'optparse'
  FileUtils.mkdir_p(outpath)
  FileUtils.cp_r("#{options[:source_dir]}/Lua", outpath)
  FileUtils.cp_r("#{options[:source_dir]}/Artwork", outpath)
+ FileUtils.cp_r("#{options[:source_dir]}/Emitters", outpath)
  FileUtils.cp_r("#{options[:source_dir]}/Sounds", outpath)
  FileUtils.cp("#{options[:source_dir]}/Base.lproj/Main_iPad.storyboard", outpath)
  FileUtils.cp("#{options[:source_dir]}/Base.lproj/Main_iPhone.storyboard", outpath)

@@ -7,11 +7,11 @@
 		<string>com.stokedsoftware.geminisk-iosbase</string>
 		<string>com.stokedsoftware.geminisk-lualib</string>
 		<string>com.stokedsoftware.geminisklib</string>
-		<!--string>com.stokedsoftware.box2dlib</string-->
+		<string>com.stokedsoftware.box2dlib</string>
 		<string>com.stokedsoftware.luasqlite3lib</string>
 	</array>
 	<key>Description</key>
-	<string>This template provides a starting point for an application that uses Gemini for iOS. It includes Gemini, Lua, Box2D, and ObjectAL.</string>
+	<string>This template provides a starting point for an application that uses Gemini for iOS. It includes Gemini, Lua, and Box2D.</string>
 	<key>Identifier</key>
 	<string>com.stokedsoftware.geminiskIOSTemplate</string>
 	<key>Kind</key>
@@ -49,8 +49,10 @@
 			<string>___PACKAGENAME___/Resources/Info.plist</string>
 			<key>Objective-C Automatic Reference Counting</key>
 			<string>YES</string>
-			 <key>CLANG_ENABLE_OBJC_ARC</key>
-            <string>YES</string>
+			<key>CLANG_ENABLE_OBJC_ARC</key>
+      <string>YES</string>
+      <key>Enable Texture Atlas Generation</key>
+      <string>YES</string>
 		</dict>
 		<key>Configurations</key>
 		<dict>
@@ -73,7 +75,15 @@
 			<key>TargetIndices</key>
 			<array/>
 		</dict>
-		
+		<key>Info.plist</key>
+		<dict>
+		<key>Group</key>
+			<string>Resources</string>
+			<key>Path</key>
+			<string>Prefix.pch</string>
+			<key>TargetIndices</key>
+			<array/>
+		</dict>
 		<key>main.m</key>
 		<dict>
 			<key>Group</key>
@@ -126,6 +136,13 @@
 			<key>Path</key>
 			<string>Lua/main.lua</string>
 		</dict>
+		<key>Lua/scene_load_page.lua</key>
+		<dict>
+			<key>Group</key>
+			<string>Lua</string>
+			<key>Path</key>
+			<string>Lua/scene_load_page.lua</string>
+		</dict>
 		<!--key>json.lua</key>
 		<dict>
 			<key>Path</key>
@@ -150,119 +167,45 @@
 			<key>Path</key>
 			<string>Lua/scene2.lua</string>
 		</dict>
-		<key>Artwork/background.png</key>
+		<key>Artwork/space2.jpg</key>
 		<dict>
 			<key>Group</key>
 			<string>Artwork</string>
 			<key>Path</key>
-			<string>Artwork/background.png</string>
+			<string>Artwork/space2.jpg</string>
 		</dict>
-		<key>Artwork/runner.atlas/runner.0001.png</key>
+		<key>Artwork/spaceship.atlas/Spaceship.png</key>
 		<dict>
 			<key>Group</key>
 			<array>
 				<string>Artwork</string>
-				<string>runner.atlas</string>
+				<string>spaceship.atlas</string>
 			</array>
 			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0001.png</string>
+			<string>Artwork/spaceship.atlas/Spaceship.png</string>
 		</dict>
-		<key>Artwork/runner.atlas/runner.0002.png</key>
+		<key>Emitters/ShipFlame.sks</key>
+		<dict>
+			<key>Group</key>
+			<string>Emitters</string>
+			<key>Path</key>
+			<string>Emitters/ShipFlame.sks</string>
+		</dict>
+		<key>Emitters/spark.png</key>
+		<dict>
+			<key>Group</key>
+			<string>Emitters</string>
+			<key>Path</key>
+			<string>Emitters/spark.png</string>
+		</dict>
+		<key>Sounds/rocket.wav</key>
 		<dict>
 			<key>Group</key>
 			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
+				<string>Sounds</string>
 			</array>
 			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0002.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0003.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0003.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0004.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0004.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0005.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0005.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0006.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0006.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0007.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0007.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0008.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0008.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0009.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0009.png</string>
-		</dict>
-		<key>Artwork/runner.atlas/runner.0010.png</key>
-		<dict>
-			<key>Group</key>
-			<array>
-				<string>Artwork</string>
-				<string>runner.atlas</string>
-			</array>
-			<key>Path</key>
-			<string>Artwork/runner.atlas/runner.0010.png</string>
-		</dict>
-		<key>Sounds/big_whoosh04.wav</key>
-		<dict>
-			<key>Group</key>
-			<string>Sounds</string>
-			<key>Path</key>
-			<string>Sounds/big_whoosh04.wav</string>
+			<string>Sounds/rocket.wav</string>
 		</dict>
 	</dict>
 	<key>Nodes</key>
@@ -274,24 +217,18 @@
 		<string>ViewController.h</string>
 		<string>ViewController.m</string>
 		<string>Lua/main.lua</string>
+		<string>Lua/scene_load_page.lua</string>
 		<!--string>json.lua</string>
 		<string>ice.lua</string-->
 		<string>Lua/scene1.lua</string>
 		<string>Lua/scene2.lua</string>
 		<string>Main_iPad.storyboard</string>
 		<string>Main_iPhone.storyboard</string>
-		<string>Artwork/background.png</string>
-		<string>Artwork/runner.atlas/runner.0001.png</string>
-		<string>Artwork/runner.atlas/runner.0002.png</string>
-		<string>Artwork/runner.atlas/runner.0003.png</string>
-		<string>Artwork/runner.atlas/runner.0004.png</string>
-		<string>Artwork/runner.atlas/runner.0005.png</string>
-		<string>Artwork/runner.atlas/runner.0006.png</string>
-		<string>Artwork/runner.atlas/runner.0007.png</string>
-		<string>Artwork/runner.atlas/runner.0008.png</string>
-		<string>Artwork/runner.atlas/runner.0009.png</string>
-		<string>Artwork/runner.atlas/runner.0010.png</string>
-		<string>Sounds/big_whoosh04.wav</string>
+		<string>Artwork/space2.jpg</string>
+		<string>Artwork/spaceship.atlas/Spaceship.png</string>
+		<string>Emitters/ShipFlame.sks</string>
+		<string>Emitters/spark.png</string>
+		<string>Sounds/rocket.wav</string>
 	</array>
 	<key>Targets</key>
 	<array>

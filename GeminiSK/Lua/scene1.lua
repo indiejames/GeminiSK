@@ -12,8 +12,6 @@ local physics = require("physics")
 local shape = require("shape")
 local scene = director.newScene()
 
-
-local mySound
 local boxes
 local spinner1
 local spinner2
@@ -151,8 +149,6 @@ function scene:createScene( event )
   physics.setDebug(true)
   physics.setSimulationSpeed(0.01)
     
-  mySound = sound.newSound("wipe1.wav")
-    
   rotation = action.rotate(7.0, 13)
   rotation2 = action.rotate(-6.28, 3)
   rep1 = action.repeatAction(rotation, -1)
@@ -189,12 +185,9 @@ function scene:didMoveToView(  )
   spinner1:runAction(rep1)
   spinner2:runAction(rep2)
     
-  --director.loadScene("scene2")
   nextSceneName = "scene2"
     
   function goToscene2()
-    --sound.play(mySound)
-    --director.gotoScene("scene2", {transition_type = "CIFilter", filter_name = "CISwipeTransition", filter_params={inputAngle = 1.57}, duration=0.75})
     director.gotoScene("scene_load_page", {transition_type = "push", direction = "up", duration=1.5})
 
   end
@@ -215,7 +208,6 @@ function scene:willMoveFromView(  )
 
 	-----------------------------------------------------------------------------
     
-    --Runtime:removeEventListener("enterFrame", scene.starListener)
     rotation:delete()
     rotation = nil
     

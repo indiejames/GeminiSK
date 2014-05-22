@@ -23,7 +23,7 @@
 @interface Gemini : NSObject
 
 @property (readonly) NSMutableArray *geminiObjects;
-@property (readonly) GLKViewController *viewController;
+@property (nonatomic) SKView *view;
 @property (readonly) double initTime;
 @property (readonly) GemPhysics *physics;
 @property (readonly) NSString *deviceString;

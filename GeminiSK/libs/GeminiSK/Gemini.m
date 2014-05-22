@@ -40,7 +40,7 @@
 
 //@synthesize L;
 @synthesize geminiObjects;
-@synthesize viewController;
+@synthesize view;
 @synthesize initTime;
 @synthesize physics;
 @synthesize fileNameResolver;

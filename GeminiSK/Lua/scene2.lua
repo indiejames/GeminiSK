@@ -32,6 +32,7 @@ local shipPath2
 local shipSound
 local soundPlayer
 local myCurve
+local textField
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF YOUR IMPLEMENTATION
@@ -105,6 +106,13 @@ function scene:didMoveToView(  )
   print("Entering scene 2")
 
   soundPlayer:play(1.5)
+  
+  textField = ui.newTextField(200,200, 300,150, "Superclarendon-Regular", 18)
+  textField.text = "Super!"
+  function textField:returnPressed()
+    print("RETURN!")
+    return true
+  end
   
   print("Lua: Adding label to scene")
   panNode:addChild(label)

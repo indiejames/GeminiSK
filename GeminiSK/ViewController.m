@@ -21,6 +21,10 @@
     skView.showsNodeCount = YES;
     skView.ignoresSiblingOrder = YES;
     
+    //UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 300, 200)];
+    //textField.text = @"Hello, world!";
+    //[skView addSubview:textField];
+    
     [((AppDelegate *)[UIApplication sharedApplication].delegate) viewDidLoad:skView];
     
 }

@@ -11,5 +11,6 @@
 #include "lauxlib.h"
 
 #define GEMINI_LABEL_LUA_KEY "GeminiLib.GEMINI_LABEL_LUA_KEY"
+#define GEMINI_TEXTFIELD_LUA_KEY "GeminiLib.GEMINI_TEXTFIELD_LUA_KEY"
 
 int luaopen_ui_lib (lua_State *L);

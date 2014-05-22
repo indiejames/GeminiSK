@@ -41,6 +41,7 @@ local pbody
 local sceneBodby
 local myPath
 local soundPlayer
+local textField
 
 local joystickStartX = -1
 
@@ -119,7 +120,7 @@ function scene:createScene( event )
   physics.setGravity(0,-4.5)
   physics.setScale(20)
   
-  
+    
   texture_atlas = texture.newTextureAtlas("8bit")
   texture1 = texture.newTexture(texture_atlas, "mario.01.png")
 

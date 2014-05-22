@@ -13,6 +13,7 @@
 - (void)viewDidLoad:(SKView *)view {
     self.skView = view;
     gemini = [Gemini shared];
+    gemini.view = view;
     [gemini execute:@"main"];
 }
 

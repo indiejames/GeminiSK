@@ -44,6 +44,8 @@
 		76456F6D1835B96800F91FD2 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
 		76456F701836E9F500F91FD2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
 		76456F711836E9F500F91FD2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
+		764861CE192AF0DB00C6B3E6 /* GemUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 764861CD192AF0DB00C6B3E6 /* GemUITextField.m */; };
+		764861CF192AF0DB00C6B3E6 /* GemUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 764861CD192AF0DB00C6B3E6 /* GemUITextField.m */; };
 		765DA23018C420CB00F6BFEF /* GemUITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA22F18C420CB00F6BFEF /* GemUITouch.m */; };
 		765DA23118C420CB00F6BFEF /* GemUITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA22F18C420CB00F6BFEF /* GemUITouch.m */; };
 		765DA23418C42DAE00F6BFEF /* GemTouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */; };
@@ -393,6 +395,8 @@
 		76456F6B1835B96800F91FD2 /* GemBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemBezierPath.m; sourceTree = "<group>"; };
 		76456F6E1836E9F500F91FD2 /* LGeminiPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGeminiPath.h; sourceTree = "<group>"; };
 		76456F6F1836E9F500F91FD2 /* LGeminiPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGeminiPath.m; sourceTree = "<group>"; };
+		764861CC192AF0DB00C6B3E6 /* GemUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemUITextField.h; sourceTree = "<group>"; };
+		764861CD192AF0DB00C6B3E6 /* GemUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemUITextField.m; sourceTree = "<group>"; };
 		765DA22E18C420CB00F6BFEF /* GemUITouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemUITouch.h; sourceTree = "<group>"; };
 		765DA22F18C420CB00F6BFEF /* GemUITouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemUITouch.m; sourceTree = "<group>"; };
 		765DA23218C42DAE00F6BFEF /* GemTouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTouchEvent.h; sourceTree = "<group>"; };
@@ -950,6 +954,8 @@
 				76DF479717D6C85700664D81 /* LGeminiPhysics.mm */,
 				76C67A1317BF381100B73696 /* LGeminiShape.h */,
 				76C67A1417BF381100B73696 /* LGeminiShape.m */,
+				769BD04618653C8E003850EE /* LGeminiSound.h */,
+				769BD04718653C8E003850EE /* LGeminiSound.m */,
 				76C67A4017C2F78B00B73696 /* LGeminiSprite.h */,
 				76C67A4117C2F78B00B73696 /* LGeminiSprite.m */,
 				7698E3EA18038CE0007B7912 /* LGeminiTexture.h */,
@@ -958,10 +964,10 @@
 				76D081CD17B329840033E3DF /* LGeminiTimer.m */,
 				760EC4DA17B7E4730079E84E /* LGeminiUI.h */,
 				760EC4DB17B7E4730079E84E /* LGeminiUI.m */,
-				769BD04618653C8E003850EE /* LGeminiSound.h */,
-				769BD04718653C8E003850EE /* LGeminiSound.m */,
 				7699878F18CD2A50003D4E8D /* SKNode+GemSKNode.h */,
 				7699879018CD2A50003D4E8D /* SKNode+GemSKNode.m */,
+				764861CC192AF0DB00C6B3E6 /* GemUITextField.h */,
+				764861CD192AF0DB00C6B3E6 /* GemUITextField.m */,
 			);
 			path = GeminiSK;
 			sourceTree = "<group>";
@@ -1396,6 +1402,7 @@
 				76C22C0E18A2EE83006FD3E2 /* b2ChainAndPolygonContact.cpp in Sources */,
 				76C22BE618A2EE83006FD3E2 /* b2Distance.cpp in Sources */,
 				76C22C0618A2EE83006FD3E2 /* b2Island.cpp in Sources */,
+				764861CE192AF0DB00C6B3E6 /* GemUITextField.m in Sources */,
 				76C22C2418A2EE83006FD3E2 /* b2Joint.cpp in Sources */,
 				765DA23418C42DAE00F6BFEF /* GemTouchEvent.m in Sources */,
 				76C22C3218A2EE83006FD3E2 /* b2WeldJoint.cpp in Sources */,
@@ -1566,6 +1573,7 @@
 				76C22C0D18A2EE83006FD3E2 /* b2ChainAndCircleContact.cpp in Sources */,
 				76C22BE918A2EE83006FD3E2 /* b2DynamicTree.cpp in Sources */,
 				769BD04918653C8E003850EE /* LGeminiSound.m in Sources */,
+				764861CF192AF0DB00C6B3E6 /* GemUITextField.m in Sources */,
 				76C22C0B18A2EE83006FD3E2 /* b2WorldCallbacks.cpp in Sources */,
 				768872BA17B08D3D0002430C /* lstring.c in Sources */,
 				76C22C1518A2EE83006FD3E2 /* b2ContactSolver.cpp in Sources */,

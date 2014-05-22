@@ -110,7 +110,7 @@ function scene:didMoveToView(  )
   textField = ui.newTextField(200,200, 300,150, "Superclarendon-Regular", 18)
   textField.text = "Super!"
   function textField:returnPressed()
-    print("RETURN!")
+    print(textField.text)
     return true
   end
   

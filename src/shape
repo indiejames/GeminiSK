@@ -2,6 +2,12 @@
 local shape = {}
 
 --[[
+Title: shape
+
+The shape library provides methods to create shapes likes rectancgles, polygons, circles, and bezier curves.
+]]
+
+--[[
   	Function: shape.newRect
   	Creates a rectangle.
   
@@ -32,23 +38,20 @@ end
 	See Also:
 		<circle> 
 ]]
-function shape.newCircle( x1, y1, x2, y2 )
+function shape.newCircle( x1, y1, radius )
 end
 
 --[[
-	Function: shape.newLine
-	Create a polyline.
+	Function: shape.newCurve
+	Create a curve based on a <BezierPath>.
 	
 	Parameters:
-		x1 - The x coordinate of the start of the line
-		y1 - The y coordinate of the start of the line
-		x2 - The x coordinage of the end of the line
-		y2 - The y coordinate of the end of the line
+		path - A Bezier path crated with <path.newBezierPath>.
 
 	See Also:
-		<line> 
+		<BezierCurve><BezierPath> 
 ]]
-function shape.newLine( x1, y1, x2, y2 )
+function shape.newCurve( path )
 end
 
 return shape

@@ -1,0 +1,37 @@
+#!lua
+--[[
+	Title: physics
+
+	The phsyics library adds support for applying 2D physics to your <Node>s.
+	Support is provided for simulating motion with collisions including
+	collision events.
+
+]]
+
+--[[
+  	Function: physics.addBody
+  	
+  
+  	Parameters:
+		file - The <Node> to which a physics body shoudl be added.
+
+  	Returns:
+		nothing
+  
+  	See Also:
+		<physics.addShape>
+]]
+
+
+--[[
+	Function: physics.newJoing
+	Creates a physics joint with the given properties.
+	
+	Parameters:
+		radius - the radius of the circle 
+
+	
+]]
+
+
+return physics

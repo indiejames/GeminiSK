@@ -1,0 +1,21 @@
+#!lua
+
+--[[
+Title: emitter
+
+The emitter library is used to create particle emitters using data from the XCode particle system tool.
+]]
+
+--[[
+  	Function: emitter.newEmitter
+  	Loads a sprite sheet from a data file and creates a texture from the associated image file.
+  
+  	Parameters:
+		  file - The name of the file to load.
+		  x - The x-coordinate of the emitter (optional)
+		  y - The y-coordinate of the emitter (optional)
+
+  	Returns:
+		The created emitter.
+  
+]]

@@ -1,9 +1,27 @@
 #!lua
-local director = {}
+
+--[[
+Title: director
+
+The director library provides scene manageement, with methods to load, initialize, transition to, and destroy
+scenes.
+]]
+
+--[[
+		Function: director.newScene
+		Creates an empty scene. This method should be called from a scene module before other initialization.
+		See the <Scene Template>.
+
+		Parameters:
+		none
+
+		Returns:
+		An empty scene.
+]]
 
 --[[
   	Function: director.loadScene
-  	Loads a scene but doesn't display it yet.  The createScene method will be called on the scene.  Any textures created in this method call are loaded in the background.
+  	Loads a scene but doesn't display it yet.  The createScene method will be called on the scene.  Any textures created in this method call are loaded in a background thread.
   
   	Parameters:
 		file - The name of the file to load.
@@ -33,5 +51,3 @@ function director.gotoScene( sceneName, params )
 end
 
 
-
-return director

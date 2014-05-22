@@ -44,12 +44,16 @@ Group: Lua API  {
 
    Group: Libraries  {
 
-      File: node  (no auto-title, node)
       File: action  (no auto-title, action)
       File: director  (no auto-title, director)
       File: path  (no auto-title, path)
       File: shape  (no auto-title, shape)
       File: sprite  (no auto-title, sprite)
+      File: physics  (physics)
+      File: emitter  (emitter_library)
+      File: sound  (sound)
+      File: emmiter  (stuff)
+      File: ui  (ui)
       }  # Group: Libraries
 
    Group: Types  {

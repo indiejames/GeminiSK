@@ -33,7 +33,112 @@
 
 
 --[[	
-	Method: geminiObject:removeEventListener(name, listener)
+	Method: GeminiObject:removeEventListener(name, listener)
+	Remove an event listener for the named type of event.
+
+	Parameters:
+		name - the name of the event type
+		listener - a function or table that is the event handler
+
+]]
+
+--[[
+	Type: PhysicsBody
+	A body used in physics simulation.
+
+	Property: affectedByGravity
+	A boolean value that indicates whether or not this body should respond to gravity.
+
+	Property: allowsRotation
+	A boolean value that indicates whether or not this body responds to angular forces or impulses.
+	
+	Property: allowsResting
+	A boolean value that indicates whether or not this body is allowed to sleep.  Sleeping
+	bodies are bodies that have come to rest on another body.  Sleeping/resting
+	bodies do not need to be simulated unless something wakes them up (collision
+	with another body or force applied) and therefore require little cpu overhead.
+
+	Property: angularDamping
+	Like friction for rotation.  Must be between 0 and 1.0.  The default value
+	is 0.1. 
+
+	Property: angularVelocity
+	The phsyics bodies rotational speed in radians per second (clockwise) about 
+	the z-axis.
+
+	Property: area (read-only)
+	The area covered by this body	
+
+	Property: categoryBitMask
+	The mask that defines which categories this physics body belongs to for
+	collision determination.  This is a 32-bit quantity that allows for up
+	to 32 categories.  The default value is 0xFFFFFFFF (all categories).	
+
+	Property: collisionBitMask
+	The mask that defines which categories of physics bodies can collide with
+	this body.  This is a 32-bit quantity that is logically ANDed with the
+	categoryBitMask of the other body - if the value is nonzero then this
+	body is affected by the collision. The default value is 0xFFFFFFFF 
+	(all categories).	
+
+	Propery: density
+	The density of the object in kg per cubic meter.  Changing this value
+	will change the mass and vice versa.  The default value is 1.0.
+
+	Property: dynamic
+	Boolean flag indicating whether or not this object responds to forces and 
+	collisions or moves at all.  Default is true. 
+
+	Property: friction
+	The roughness of the surface of the body.  The value can be between 0 and 1,
+	with 0 indicating no friction and 1 indicating strong friction.  The
+	default value is 0.1.
+
+	Property: gravityScale
+	The roughness of the surface of the body.Ffre
+
+	Property: joints (read-only)
+	The PhysicsJoints connected to the body.
+
+	Property: linearDamping
+	A property that reduces a body's linear velocity.  This can simulate liquid
+	or air friction acting on the body.  The value must be between 0 and 1, with
+	0 indicating no damping.  The default value is 0.1.
+
+	Property: mass
+	The mass of the body in kilograms.  Resetting mass also resets density.
+
+	Property: node (read-only)
+	The Node this body is connected to.
+
+	Property: resting
+	Boolean flag indicating whether or not the Node and it's children are
+	rendered.
+
+	Property: restitution
+	The bounciness of the body.  The value must be between 0 and 1 with 0 indicating
+	perfectly elastic (no energy lost in collisions).  The default value is 0.2.
+
+	Property: velocity
+	The velocity vector of the physics body in meters per second.
+
+	
+]]
+
+
+
+--[[	
+	Method: PhysicsBody:addShape(shape, listener)
+	Add a shape
+
+	Parameters:
+		name - the name of the event type
+		listener - a function or table that is the event handler
+
+]]
+
+--[[	
+	Method: PhysicsBody:removeEventListener(name, listener)
 	Remove an event listener for the named type of event.
 
 	Parameters:

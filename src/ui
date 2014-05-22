@@ -1,0 +1,44 @@
+#!lua
+
+--[[
+		Title: ui
+
+		The UI library provides factories for creating native UI elments like text fields and labels.
+]]
+
+--[[
+  	Function: ui.newLabel
+  	Creates a label <Node>.
+  
+  	Parameters:
+		font - The name of the font to use for the label.
+		
+  	Returns:
+		The created label.
+
+		See also: <text_field>
+   
+]]
+
+function ui.newLabel(font)
+end
+
+--[[
+  	Function: ui.newTextField
+  	Creates a text field for user input.
+  
+  	Parameters:
+		x - The x position of the center of the text field.
+		y - The y position of the center of the text field.
+		width - The width of the text field.
+		height - The height of the text field.
+		font-string - The name of the font for the text field.
+		
+  	Returns:
+		The created text field.
+   
+]]
+
+function ui.newTextField(x, y, widht, height, font-string)
+end
+

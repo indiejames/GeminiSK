@@ -1,0 +1,22 @@
+#!lua
+
+--[[
+		Title: emmiter
+
+		Emmitter objects are particle emitters that can be used for effects like flame, smoke, etc.
+]]
+
+local emitter = {}
+
+--[[
+  	Function: emitter.setTarget
+  	Sets the target for the emitter.
+  
+  	Parameters:
+		node - The target node for the emitter.
+  
+  	See Also:
+		<Node>
+]]
+function emitter.setTarget( node )
+end

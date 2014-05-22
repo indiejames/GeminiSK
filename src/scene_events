@@ -9,7 +9,7 @@
 	
 
 --[[
-	Type: enterScene
+	Type: didMoveToView
 	Event generated when a scene has just been transitioned.
 
 	Inherits from: <event>

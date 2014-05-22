@@ -1,0 +1,56 @@
+#!lua
+
+--[[
+Title: sound
+
+The souind library provides methods to create create and play sound effects and background music.
+
+]]
+
+--[[
+  	Function: sound.newSound
+  	Creates a simple sound effect using a Sprite Kit action.
+  
+  	Parameters:
+		filename - The name of the sound file.
+		wait - Whether or not to wait for a sound to complete once it starts playing - defaults to false.
+
+  	Returns:
+		The created sound action.
+  
+  	See Also:
+		<sound.play>
+]]
+function sound.newSound( filename, wait )
+end
+
+--[[
+		Function: sound.newAudioPlayer
+		Creates an AVAuidoPlayer object that can be used to play sounds or background music.
+
+		Parameters:
+		filename - The name of the sound file with which to initialize the sound player.
+
+		Returns:
+		The created audio player.
+
+		See Also:
+		<audioplayer>
+]]
+
+function sound.newAudioPlayer( filename )
+end
+
+--[[
+		Function: sound.play
+		Play a previously created <sound>.
+
+		Parameters:
+		sound - A sound object created with the <sound.newSound> function.
+
+		Returns:
+		nothing
+]]
+
+function sound.play( sound )
+end

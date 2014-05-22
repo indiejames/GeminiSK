@@ -39,7 +39,6 @@
 		g - The green component (0 to 1.0) of the color
 		b - The blue component (0 to 1.0) of the color
 		a - The alpha component (0 to 1.0) of the color
-
 	
 ]]
 
@@ -57,14 +56,14 @@
 
 
 --[[
-	Type: sprite
+	Type: Sprite
 	A sprite object.
 
 	Inherits from: <Node>
 ]]
 
 --[[	
-	Method: sprite:prepare(animation_name)
+	Method: Sprite:prepare(animation_name)
 	Load an animation for the sprite
 
 	Parameters:
@@ -73,21 +72,41 @@
 
 	
 ]]
-method sprite:prepare(animation_name)
+method Sprite:prepare(animation_name)
 end
 	
 --[[	
-	Method: sprite:play
+	Method: Sprite:play
 	Start the sprite animation.
 ]]
-method sprite:play()
+method Sprite:play()
 end
 
 --[[
-	Method: sprite:pause
+	Method: Sprite:pause
 	Pause the sprite animation.
 ]]
-method sprite:pause()
+method Sprite:pause()
+end
+
+
+--[[
+		Type: Emmiter
+
+		Emmitter objects are particle emitters that can be used for effects like flame, smoke, etc.
+]]
+
+--[[
+  	Method: Emitter.setTarget
+  	Sets the target for the emitter.
+  
+  	Parameters:
+		node - The target node for the emitter.
+  
+  	See Also:
+		<Node>
+]]
+method Emitter.setTarget( node )
 end
 
 

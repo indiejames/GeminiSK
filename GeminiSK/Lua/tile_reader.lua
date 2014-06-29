@@ -84,20 +84,26 @@ end
 
 function tiled.renderMap(node, map)
 
-	for i, tile_id in ipairs(map.layers[1].data) do
-		if tile_id ~= 0 then
-			local tileset = tiled.tileset_for_tile_id(tile_id, map)
-			local col = (i-1) % map.width
-			local row = map.height - math.floor((i-1) / map.width) - 1
-			local x = col * tileset.tilewidth + tileset.tilewidth / 2
-			local y = row * tileset.tileheight + tileset.tileheight / 2
+    for j, layer in ipairs(map.layers) do
+        if layer.type == "tilelayer" then
+            print ("Reading tiles...")
+            for i, tile_id in ipairs(layer.data) do
+                if tile_id ~= 0 then
+                    local tileset = tiled.tileset_for_tile_id(tile_id, map)
+                    local col = (i-1) % map.width
+                    local row = map.height - math.floor((i-1) / map.width) - 1
+                    local x = col * tileset.tilewidth + tileset.tilewidth / 2
+                    local y = row * tileset.tileheight + tileset.tileheight / 2
 
-			local new_sprite = sprite.newSprite(tiled.texture_for_tile(tile_id, tileset))
-			node:addChild(new_sprite)
-			new_sprite:setPosition(x, y)
+                    local new_sprite = sprite.newSprite(tiled.texture_for_tile(tile_id, tileset))
+                    node:addChild(new_sprite)
+                    new_sprite:setPosition(x, y)
 
-		end
-	end
+                end
+            end
+        end
+    
+    end
 	
 end
 

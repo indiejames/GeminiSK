@@ -153,6 +153,7 @@
 		7688731517B09C2D0002430C /* GemObjectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731317B09C2D0002430C /* GemObjectWrapper.m */; };
 		7688731817B09C610002430C /* GemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731717B09C610002430C /* GemEvent.m */; };
 		7688731917B09C610002430C /* GemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731717B09C610002430C /* GemEvent.m */; };
+		768D2CAA1938253B0059BFCF /* island2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 768D2CA91938253B0059BFCF /* island2.lua */; };
 		7698E3DF17FD04CA007B7912 /* GemTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3DE17FD04CA007B7912 /* GemTexture.m */; };
 		7698E3E017FD04CA007B7912 /* GemTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3DE17FD04CA007B7912 /* GemTexture.m */; };
 		7698E3E318024871007B7912 /* GemTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3E218024871007B7912 /* GemTextureAtlas.m */; };
@@ -496,6 +497,7 @@
 		7688731317B09C2D0002430C /* GemObjectWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemObjectWrapper.m; sourceTree = "<group>"; };
 		7688731617B09C610002430C /* GemEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemEvent.h; sourceTree = "<group>"; };
 		7688731717B09C610002430C /* GemEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemEvent.m; sourceTree = "<group>"; };
+		768D2CA91938253B0059BFCF /* island2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = island2.lua; sourceTree = "<group>"; };
 		7698E3DD17FD04CA007B7912 /* GemTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTexture.h; sourceTree = "<group>"; };
 		7698E3DE17FD04CA007B7912 /* GemTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemTexture.m; sourceTree = "<group>"; };
 		7698E3E118024871007B7912 /* GemTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTextureAtlas.h; sourceTree = "<group>"; };
@@ -1177,6 +1179,7 @@
 		76D081B017B1D2730033E3DF /* Lua */ = {
 			isa = PBXGroup;
 			children = (
+				768D2CA91938253B0059BFCF /* island2.lua */,
 				760F72D718FF74BB0034496B /* island_trio.lua */,
 				760F72C718DF82930034496B /* scene4.lua */,
 				760F72C118DF825A0034496B /* test5.lua */,
@@ -1301,6 +1304,7 @@
 				763E30B518DA85AA0086D9E7 /* bricks.lua in Resources */,
 				760F72D818FF74BB0034496B /* island_trio.lua in Resources */,
 				76C22C3918A2EEB1006FD3E2 /* LICENSE_Box2D.txt in Resources */,
+				768D2CAA1938253B0059BFCF /* island2.lua in Resources */,
 				76E6E9DA186AA1740061480D /* background.png in Resources */,
 				7688708117B08BBA0002430C /* InfoPlist.strings in Resources */,
 				769E8CE018B98C7E0042AF75 /* gemini.plist in Resources */,

@@ -15,6 +15,7 @@
 #import "GemDirector.h"
 #import "GemSKScene.h"
 #import "LGeminiNode.h"
+#import "GemLevelHelperLoader.h"
 
 #pragma mark Utitly Methods
 GemSKScene *getScene(lua_State *L){
@@ -35,6 +36,21 @@ static int newScene(lua_State *L){
     GemSKScene *scene = [[GemSKScene alloc] initWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeFill;
     
+    createObjectAndSaveRef(L, GEMINI_SCENE_LUA_KEY, scene);
+    
+    return 1;
+}
+
+// Read a scene from a Level Helper plist
+static int newSceneFromFile(lua_State *L){
+    GemLog(@"Creating scene from level helper file");
+    
+    const char *sceneName = luaL_checkstring(L, 1);
+    NSString *sceneNameStr = [NSString stringWithUTF8String:sceneName];
+    
+    GemSKScene *scene = [GemLevelHelperLoader load:sceneNameStr];
+    scene.scaleMode = SKSceneScaleModeFill;
+              
     createObjectAndSaveRef(L, GEMINI_SCENE_LUA_KEY, scene);
     
     return 1;
@@ -158,6 +174,7 @@ static int sceneSetPosition(lua_State *L){
 // the mappings for the library functions
 static const struct luaL_Reg directorLib_f [] = {
     {"newScene", newScene},
+    {"newSceneFromFile", newSceneFromFile},
     {"loadScene", directorLoadScene},
     {"gotoScene", directorGotoScene},
     {"destroyScene", deleteScene},

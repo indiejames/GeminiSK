@@ -10,7 +10,7 @@ local action = require("action")
 local timer = require("timer")
 local physics = require("physics")
 local shape = require("shape")
-local scene = director.newScene()
+local scene = director.newSceneFromFile("test-level")
 
 local boxes
 local spinner1
@@ -142,6 +142,8 @@ end
 
 function scene:createScene( event )
 	print("Lua: Creating scene1")
+
+print("NAME: " .. scene.name)
 
   scene:setSize(1136,640)
 

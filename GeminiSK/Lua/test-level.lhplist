@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aspect</key>
+	<integer>0</integer>
+	<key>backgroundColor</key>
+	<string>{{0.501961, 1.000000}, {1.000000, 1.000000}}</string>
+	<key>children</key>
+	<array>
+		<dict>
+			<key>alpha</key>
+			<real>255</real>
+			<key>anchor</key>
+			<string>{0.500000, 0.500000}</string>
+			<key>colorOverlay</key>
+			<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+			<key>generalPosition</key>
+			<string>{0.000000, 0.000000}</string>
+			<key>invisibleInEditor</key>
+			<false/>
+			<key>name</key>
+			<string>BACK USER INTERFACE</string>
+			<key>nodeType</key>
+			<string>LHBackUINode</string>
+			<key>parentUUID</key>
+			<string>B8247D48-6248-44F0-ADA0-BDA45B21B582</string>
+			<key>rotation</key>
+			<real>0.0</real>
+			<key>scale</key>
+			<string>{1.000000, 1.000000}</string>
+			<key>size</key>
+			<string>{128.000000, 128.000000}</string>
+			<key>tags</key>
+			<array>
+				<string>DEFAULT</string>
+			</array>
+			<key>uuid</key>
+			<string>9B5F274D-3A7A-4409-B699-2602C84C735B</string>
+			<key>zOrder</key>
+			<integer>-1</integer>
+		</dict>
+		<dict>
+			<key>alpha</key>
+			<real>255</real>
+			<key>anchor</key>
+			<string>{0.500000, 0.500000}</string>
+			<key>children</key>
+			<array>
+				<dict>
+					<key>alpha</key>
+					<real>255</real>
+					<key>anchor</key>
+					<string>{0.500000, 0.500000}</string>
+					<key>assetFile</key>
+					<string>apple.lhasset</string>
+					<key>assetUUID</key>
+					<string>686A0B0B-D72D-48AA-8F70-2B8EB6C29187</string>
+					<key>children</key>
+					<array>
+						<dict>
+							<key>alpha</key>
+							<real>255</real>
+							<key>anchor</key>
+							<string>{0.500000, 0.500000}</string>
+							<key>colorOverlay</key>
+							<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+							<key>generalPosition</key>
+							<string>{0.000000, 0.000000}</string>
+							<key>imageFileName</key>
+							<string>images-1.jpeg</string>
+							<key>invisibleInEditor</key>
+							<false/>
+							<key>name</key>
+							<string>images-1</string>
+							<key>nodeType</key>
+							<string>LHSprite</string>
+							<key>parentUUID</key>
+							<string>D8C5928E-2C44-48D5-9823-2555ABD545FA</string>
+							<key>relativeImagePath</key>
+							<string>/</string>
+							<key>rotation</key>
+							<real>0.0</real>
+							<key>scale</key>
+							<string>{1.000000, 1.000000}</string>
+							<key>size</key>
+							<string>{113.000000, 113.000000}</string>
+							<key>tags</key>
+							<array>
+								<string>DEFAULT</string>
+							</array>
+							<key>uuid</key>
+							<string>4B8EE2A5-0BF4-4572-8A2F-2EEE64B9273F</string>
+							<key>zOrder</key>
+							<integer>0</integer>
+						</dict>
+					</array>
+					<key>colorOverlay</key>
+					<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+					<key>generalPosition</key>
+					<string>{0.302627, 0.133857}</string>
+					<key>invisibleInEditor</key>
+					<false/>
+					<key>name</key>
+					<string>UntitledAsset</string>
+					<key>nodePhysics</key>
+					<dict>
+						<key>allowSleep</key>
+						<true/>
+						<key>angularDamping</key>
+						<real>0.0</real>
+						<key>angularVelocity</key>
+						<real>0.0</real>
+						<key>bullet</key>
+						<false/>
+						<key>fixedRotation</key>
+						<false/>
+						<key>genericFixture</key>
+						<dict>
+							<key>category</key>
+							<integer>1</integer>
+							<key>density</key>
+							<real>0.10000000149011612</real>
+							<key>fixtureID</key>
+							<integer>0</integer>
+							<key>friction</key>
+							<real>0.20000000298023224</real>
+							<key>mask</key>
+							<integer>65535</integer>
+							<key>name</key>
+							<string>GenericFixture</string>
+							<key>restitution</key>
+							<real>0.5</real>
+							<key>sensor</key>
+							<false/>
+						</dict>
+						<key>gravityScale</key>
+						<real>1</real>
+						<key>linearDamping</key>
+						<real>0.0</real>
+						<key>linearVelocity</key>
+						<string>{0.000000, 0.000000}</string>
+						<key>shape</key>
+						<integer>1</integer>
+						<key>type</key>
+						<integer>2</integer>
+					</dict>
+					<key>nodeType</key>
+					<string>LHAsset</string>
+					<key>parentUUID</key>
+					<string>_GAME_WORLD_NODE_UUID_</string>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{1.000000, 1.000000}</string>
+					<key>size</key>
+					<string>{128.000000, 128.000000}</string>
+					<key>tags</key>
+					<array>
+						<string>DEFAULT</string>
+					</array>
+					<key>uuid</key>
+					<string>D8C5928E-2C44-48D5-9823-2555ABD545FA</string>
+					<key>zOrder</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>alpha</key>
+					<real>255</real>
+					<key>anchor</key>
+					<string>{0.500000, 0.500000}</string>
+					<key>assetFile</key>
+					<string>apple.lhasset</string>
+					<key>assetUUID</key>
+					<string>686A0B0B-D72D-48AA-8F70-2B8EB6C29187</string>
+					<key>children</key>
+					<array>
+						<dict>
+							<key>alpha</key>
+							<real>255</real>
+							<key>anchor</key>
+							<string>{0.500000, 0.500000}</string>
+							<key>colorOverlay</key>
+							<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+							<key>generalPosition</key>
+							<string>{0.000000, 0.000000}</string>
+							<key>imageFileName</key>
+							<string>images-1.jpeg</string>
+							<key>invisibleInEditor</key>
+							<false/>
+							<key>name</key>
+							<string>images-1_1</string>
+							<key>nodeType</key>
+							<string>LHSprite</string>
+							<key>parentUUID</key>
+							<string>858AAC1F-0E7F-4C9F-8DA1-0A9D295CA15C</string>
+							<key>relativeImagePath</key>
+							<string>/</string>
+							<key>rotation</key>
+							<real>0.0</real>
+							<key>scale</key>
+							<string>{1.000000, 1.000000}</string>
+							<key>size</key>
+							<string>{113.000000, 113.000000}</string>
+							<key>tags</key>
+							<array>
+								<string>DEFAULT</string>
+							</array>
+							<key>uuid</key>
+							<string>918D9A84-4573-4965-BF25-2FD2B8CA3666</string>
+							<key>zOrder</key>
+							<integer>0</integer>
+						</dict>
+					</array>
+					<key>colorOverlay</key>
+					<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+					<key>generalPosition</key>
+					<string>{0.502627, 0.267190}</string>
+					<key>invisibleInEditor</key>
+					<false/>
+					<key>name</key>
+					<string>UntitledAsset_1</string>
+					<key>nodePhysics</key>
+					<dict>
+						<key>allowSleep</key>
+						<true/>
+						<key>angularDamping</key>
+						<real>0.0</real>
+						<key>angularVelocity</key>
+						<real>0.0</real>
+						<key>bullet</key>
+						<false/>
+						<key>fixedRotation</key>
+						<false/>
+						<key>genericFixture</key>
+						<dict>
+							<key>category</key>
+							<integer>1</integer>
+							<key>density</key>
+							<real>0.10000000149011612</real>
+							<key>fixtureID</key>
+							<integer>0</integer>
+							<key>friction</key>
+							<real>0.20000000298023224</real>
+							<key>mask</key>
+							<integer>65535</integer>
+							<key>name</key>
+							<string>GenericFixture</string>
+							<key>restitution</key>
+							<real>0.5</real>
+							<key>sensor</key>
+							<false/>
+						</dict>
+						<key>gravityScale</key>
+						<real>1</real>
+						<key>linearDamping</key>
+						<real>0.0</real>
+						<key>linearVelocity</key>
+						<string>{0.000000, 0.000000}</string>
+						<key>shape</key>
+						<integer>1</integer>
+						<key>type</key>
+						<integer>2</integer>
+					</dict>
+					<key>nodeType</key>
+					<string>LHAsset</string>
+					<key>parentUUID</key>
+					<string>_GAME_WORLD_NODE_UUID_</string>
+					<key>rotation</key>
+					<real>76.3778076171875</real>
+					<key>scale</key>
+					<string>{1.000000, 1.000000}</string>
+					<key>size</key>
+					<string>{128.000000, 128.000000}</string>
+					<key>tags</key>
+					<array>
+						<string>DEFAULT</string>
+					</array>
+					<key>uuid</key>
+					<string>858AAC1F-0E7F-4C9F-8DA1-0A9D295CA15C</string>
+					<key>zOrder</key>
+					<integer>0</integer>
+				</dict>
+				<dict>
+					<key>alpha</key>
+					<real>255</real>
+					<key>anchor</key>
+					<string>{0.500000, 0.500000}</string>
+					<key>colorOverlay</key>
+					<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+					<key>generalPosition</key>
+					<string>{0.499680, 0.955309}</string>
+					<key>invisibleInEditor</key>
+					<false/>
+					<key>name</key>
+					<string>UntitledTexturedShape</string>
+					<key>nodePhysics</key>
+					<dict>
+						<key>allowSleep</key>
+						<true/>
+						<key>angularDamping</key>
+						<real>0.0</real>
+						<key>angularVelocity</key>
+						<real>0.0</real>
+						<key>bullet</key>
+						<false/>
+						<key>fixedRotation</key>
+						<false/>
+						<key>genericFixture</key>
+						<dict>
+							<key>category</key>
+							<integer>1</integer>
+							<key>density</key>
+							<real>0.10000000149011612</real>
+							<key>fixtureID</key>
+							<integer>0</integer>
+							<key>friction</key>
+							<real>0.20000000298023224</real>
+							<key>mask</key>
+							<integer>65535</integer>
+							<key>name</key>
+							<string>GenericFixture</string>
+							<key>restitution</key>
+							<real>0.0</real>
+							<key>sensor</key>
+							<false/>
+						</dict>
+						<key>gravityScale</key>
+						<real>1</real>
+						<key>linearDamping</key>
+						<real>0.0</real>
+						<key>linearVelocity</key>
+						<string>{0.000000, 0.000000}</string>
+						<key>shape</key>
+						<integer>2</integer>
+						<key>type</key>
+						<integer>0</integer>
+					</dict>
+					<key>nodeType</key>
+					<string>LHTexturedShape</string>
+					<key>parentUUID</key>
+					<string>_GAME_WORLD_NODE_UUID_</string>
+					<key>points</key>
+					<array>
+						<dict>
+							<key>point</key>
+							<string>{75.000000, 0.000000}</string>
+						</dict>
+						<dict>
+							<key>point</key>
+							<string>{-75.000000, 86.602540}</string>
+						</dict>
+						<dict>
+							<key>point</key>
+							<string>{-75.000000, -86.602540}</string>
+						</dict>
+					</array>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scale</key>
+					<string>{4.129692, 0.449601}</string>
+					<key>size</key>
+					<string>{150.000000, 173.205078}</string>
+					<key>tags</key>
+					<array>
+						<string>DEFAULT</string>
+					</array>
+					<key>tileScale</key>
+					<string>{1.000000, 1.000000}</string>
+					<key>tileTexture</key>
+					<false/>
+					<key>triangles</key>
+					<array>
+						<dict>
+							<key>alpha</key>
+							<real>255</real>
+							<key>color</key>
+							<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+							<key>point</key>
+							<string>{75.000000, 0.000000}</string>
+							<key>uv</key>
+							<string>{0.890625, 0.500000}</string>
+						</dict>
+						<dict>
+							<key>alpha</key>
+							<real>255</real>
+							<key>color</key>
+							<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+							<key>point</key>
+							<string>{-75.000000, 86.602540}</string>
+							<key>uv</key>
+							<string>{0.304688, 0.838291}</string>
+						</dict>
+						<dict>
+							<key>alpha</key>
+							<real>255</real>
+							<key>color</key>
+							<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+							<key>point</key>
+							<string>{-75.000000, -86.602540}</string>
+							<key>uv</key>
+							<string>{0.304688, 0.161709}</string>
+						</dict>
+					</array>
+					<key>uuid</key>
+					<string>49F2F7AC-EBAE-424F-BC76-8A6B43723852</string>
+					<key>zOrder</key>
+					<integer>0</integer>
+				</dict>
+			</array>
+			<key>colorOverlay</key>
+			<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+			<key>generalPosition</key>
+			<string>{0.000000, 0.000000}</string>
+			<key>invisibleInEditor</key>
+			<false/>
+			<key>name</key>
+			<string>GAME WORLD</string>
+			<key>nodeType</key>
+			<string>LHGameWorldNode</string>
+			<key>parentUUID</key>
+			<string>B8247D48-6248-44F0-ADA0-BDA45B21B582</string>
+			<key>rotation</key>
+			<real>0.0</real>
+			<key>scale</key>
+			<string>{1.000000, 1.000000}</string>
+			<key>size</key>
+			<string>{128.000000, 128.000000}</string>
+			<key>tags</key>
+			<array>
+				<string>DEFAULT</string>
+			</array>
+			<key>uuid</key>
+			<string>479D3C69-B982-4169-9D75-6168DA9FF9DA</string>
+			<key>zOrder</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>alpha</key>
+			<real>255</real>
+			<key>anchor</key>
+			<string>{0.500000, 0.500000}</string>
+			<key>colorOverlay</key>
+			<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+			<key>generalPosition</key>
+			<string>{0.000000, 0.000000}</string>
+			<key>invisibleInEditor</key>
+			<false/>
+			<key>name</key>
+			<string>FRONT USER INTERFACE</string>
+			<key>nodeType</key>
+			<string>LHUINode</string>
+			<key>parentUUID</key>
+			<string>B8247D48-6248-44F0-ADA0-BDA45B21B582</string>
+			<key>rotation</key>
+			<real>0.0</real>
+			<key>scale</key>
+			<string>{1.000000, 1.000000}</string>
+			<key>size</key>
+			<string>{128.000000, 128.000000}</string>
+			<key>tags</key>
+			<array>
+				<string>DEFAULT</string>
+			</array>
+			<key>uuid</key>
+			<string>7C89F94B-C7BC-42B4-809B-897CCE86651B</string>
+			<key>zOrder</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>designResolution</key>
+	<string>{640.000000, 960.000000}</string>
+	<key>devices</key>
+	<array>
+		<dict>
+			<key>ratio</key>
+			<real>1</real>
+			<key>size</key>
+			<string>{640.000000, 960.000000}</string>
+			<key>suffix</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>ratio</key>
+			<real>1</real>
+			<key>size</key>
+			<string>{640.000000, 1136.000000}</string>
+			<key>suffix</key>
+			<string>-568</string>
+		</dict>
+		<dict>
+			<key>ratio</key>
+			<real>1</real>
+			<key>size</key>
+			<string>{750.000000, 1334.000000}</string>
+			<key>suffix</key>
+			<string>-667</string>
+		</dict>
+		<dict>
+			<key>ratio</key>
+			<real>2</real>
+			<key>size</key>
+			<string>{1242.000000, 2208.000000}</string>
+			<key>suffix</key>
+			<string>-736@2x</string>
+		</dict>
+	</array>
+	<key>globalGravityDirection</key>
+	<string>{0.000000, -1.000000}</string>
+	<key>globalGravityForce</key>
+	<real>8</real>
+	<key>invisibleInEditor</key>
+	<false/>
+	<key>nodeType</key>
+	<string>LHScene</string>
+	<key>sceneFormat</key>
+	<real>1</real>
+	<key>tags</key>
+	<array>
+		<string>DEFAULT</string>
+	</array>
+	<key>useGlobalGravity</key>
+	<true/>
+	<key>uuid</key>
+	<string>B8247D48-6248-44F0-ADA0-BDA45B21B582</string>
+</dict>
+</plist>

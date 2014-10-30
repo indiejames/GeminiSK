@@ -7,6 +7,102 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0234850861ce470de8ccb0d6 /* LICENSE_Lua.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715B17B08D3D0002430C /* LICENSE_Lua.txt */; };
+		02abcad36ce835162ce75a31 /* GemTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3DE17FD04CA007B7912 /* GemTexture.m */; };
+		02b9a64c0af71ed90317257d /* test5.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C118DF825A0034496B /* test5.lua */; };
+		042ea41467320f0c844f77cf /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7688708817B08BBA0002430C /* Main_iPhone.storyboard */; };
+		043b61022ef2e2b1f1325560 /* 8bit.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF218B9C6820042AF75 /* 8bit.atlas */; };
+		05b6a7787c79b1f07f896be0 /* b2DynamicTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7F18A2EE83006FD3E2 /* b2DynamicTree.cpp */; };
+		070b52f4443b05465e4cc062 /* ltm.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718D17B08D3D0002430C /* ltm.c */; };
+		08a69f0f4edcbcf662c5bdae /* LGeminiEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9E18B83C260042AF75 /* LGeminiEmitter.m */; };
+		09cd5bd1af99b64517f8bd8c /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708F17B08BBA0002430C /* ViewController.m */; };
+		0a84e61d49835141fae7caf4 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7818A2EE83006FD3E2 /* b2CollideCircle.cpp */; };
+		0a8dfa5b5f242b0bb6bf821f /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 76E6E9D9186AA1740061480D /* background.png */; };
+		0abfe81fcf12e417d35a965d /* GemPhysicsBody.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7605105517DC3BA600089A6E /* GemPhysicsBody.mm */; };
+		0e06ab3397932789a6a5ac45 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768872FF17B08DD70002430C /* OpenAL.framework */; };
+		0eccb8c7fb217543e6372282 /* ShipFlame.sks in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CAE18B84A900042AF75 /* ShipFlame.sks */; };
+		0fa982a113ac2f72027e108e /* spaceship.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 769E8C9A18B6CEC50042AF75 /* spaceship.atlas */; };
+		10023080aa8a30e73548e8e3 /* scene3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF518BC2C8B0042AF75 /* scene3.lua */; };
+		10e68d65b1c96f183091d11e /* ltable.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718A17B08D3D0002430C /* ltable.c */; };
+		1114996c10418b4aec4fffd5 /* b2CollidePolygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7A18A2EE83006FD3E2 /* b2CollidePolygon.cpp */; };
+		112412a3d03ca2e6e9a6f559 /* LGeminiTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3E718038CC1007B7912 /* LGeminiTexture.m */; };
+		11266d15b2206de1e6d9a68e /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BD118A2EE83006FD3E2 /* b2WeldJoint.cpp */; };
+		12f243dd0e8c9b37b63e64eb /* GemSKScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4BF17B465870079E84E /* GemSKScene.m */; };
+		147ca624c96c8e0ca8589dc1 /* lzio.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688719717B08D3D0002430C /* lzio.c */; };
+		15b7275f42216b7c1d32f469 /* runner.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A4417C3084700B73696 /* runner.atlas */; };
+		15f7c37731b3a5910b3d3b87 /* lcorolib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716817B08D3D0002430C /* lcorolib.c */; };
+		164f8c048921bcc28d5d0067 /* GemAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 769E8CBE18B9129D0042AF75 /* GemAVAudioPlayer.m */; };
+		16d9cb25a261131e2a9cdcd4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CC818B98C7E0042AF75 /* Default-568h@2x.png */; };
+		191d33844fd4de1395943e3d /* LGeminiShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1417BF381100B73696 /* LGeminiShape.m */; };
+		1a095c595db14c286620c463 /* b2Island.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BA218A2EE83006FD3E2 /* b2Island.cpp */; };
+		1a8fd08315756835d132aac5 /* lundump.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688719317B08D3D0002430C /* lundump.c */; };
+		1c25ed6201208fb063a66b7a /* GemCollisionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7699878C18CD1EB7003D4E8D /* GemCollisionEvent.m */; };
+		1e2bc09ca4ba4fbe61235912 /* b2World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BA518A2EE83006FD3E2 /* b2World.cpp */; };
+		2034e20033fbf71f0c5cea15 /* GemSpriteAnimationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F4180B9F84007B7912 /* GemSpriteAnimationAction.m */; };
+		22a26dcd81f1aaf1192a0c82 /* ldblib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716B17B08D3D0002430C /* ldblib.c */; };
+		2476ce693995adcc3aea667b /* GemSampledCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = 760F72D118EF91290034496B /* GemSampledCurve.m */; };
+		25af5af83fb39296817ee7dd /* b2RevoluteJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BCD18A2EE83006FD3E2 /* b2RevoluteJoint.cpp */; };
+		25e41b7efcb4131985a4c64c /* LGeminiSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A4117C2F78B00B73696 /* LGeminiSprite.m */; };
+		26af37c919605552fbc3deef /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CC918B98C7E0042AF75 /* Default-Portrait~ipad.png */; };
+		27a9cb0dcf54f1f7dc3799ce /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7618A2EE83006FD3E2 /* b2BroadPhase.cpp */; };
+		28cb5143f2355084a8378eeb /* b2PolygonContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BBA18A2EE83006FD3E2 /* b2PolygonContact.cpp */; };
+		29dcdbcec8a2282af403c7f2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708617B08BBA0002430C /* AppDelegate.m */; };
+		2b293d823fe867ffda459975 /* GemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731717B09C610002430C /* GemEvent.m */; };
+		2ba3c2aedab565426f9b375b /* GemFileNameResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688730717B092E30002430C /* GemFileNameResolver.m */; };
+		2cfbaa9caa16244eaf3e249c /* b2BlockAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B8E18A2EE83006FD3E2 /* b2BlockAllocator.cpp */; };
+		2df3fe16412252121b86b9fd /* GemPhysicsJoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 769E8C9718B19C850042AF75 /* GemPhysicsJoint.mm */; };
+		2ea671f39faeaa4c75cd397a /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CD318B98C7E0042AF75 /* Icon@2x.png */; };
+		2ed77c3680af6128209c1dfa /* linit.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717517B08D3D0002430C /* linit.c */; };
+		2fc0bb3d9af4fc673b6676d9 /* lgc.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717317B08D3D0002430C /* lgc.c */; };
+		3316c2b424cccffc9856669b /* b2FrictionJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BBF18A2EE83006FD3E2 /* b2FrictionJoint.cpp */; };
+		3400bad2044521c109c4b436 /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BD318A2EE83006FD3E2 /* b2WheelJoint.cpp */; };
+		369ca5a5684c744e04e545d8 /* space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CC118B946780042AF75 /* space.jpg */; };
+		3ac840c632359742d2b8afaf /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707A17B08BBA0002430C /* SpriteKit.framework */; };
+		3b6d6d32ee7b8595ea4f179e /* lapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716017B08D3D0002430C /* lapi.c */; };
+		3fa48507ae6c03f9931627b2 /* LGeminiPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6F1836E9F500F91FD2 /* LGeminiPath.m */; };
+		4049dac23d2b7e62679fcf0d /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707417B08BBA0002430C /* Foundation.framework */; };
+		410c624d229e2bebf57a00e3 /* b2EdgeAndCircleContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BB418A2EE83006FD3E2 /* b2EdgeAndCircleContact.cpp */; };
+		464a53a7310b04f21bc1bf8d /* b2Joint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BC318A2EE83006FD3E2 /* b2Joint.cpp */; };
+		475883ec53a299c4e26354e1 /* GemTouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA23318C42DAE00F6BFEF /* GemTouchEvent.m */; };
+		48c585e7e3af3cb644d682e4 /* b2CircleContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BAE18A2EE83006FD3E2 /* b2CircleContact.cpp */; };
+		4a717ce5531f4d44b343b1ba /* lmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717B17B08D3D0002430C /* lmem.c */; };
+		4ca6e137401e6684cad5aae1 /* lvm.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688719517B08D3D0002430C /* lvm.c */; };
+		4cee39d125d9ce42132c5f6d /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CD118B98C7E0042AF75 /* Icon-Small@2x.png */; };
+		4d0acb308d62b86cb3d5dc5c /* LGeminiUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4DB17B7E4730079E84E /* LGeminiUI.m */; };
+		4da6e715e5aca5883dd649b0 /* b2RopeJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BCF18A2EE83006FD3E2 /* b2RopeJoint.cpp */; };
+		4fd111d9aff456e1cac93fc2 /* LICENSE_LuaSQLite3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715C17B08D3D0002430C /* LICENSE_LuaSQLite3.txt */; };
+		514a4056a140f8a438a2869b /* islands.png in Resources */ = {isa = PBXBuildFile; fileRef = 760F72D418FF74410034496B /* islands.png */; };
+		51b8c14bad2444b5e236c013 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CD418B98C7E0042AF75 /* Info.plist */; };
+		5342b9a0e3488e9cc070a111 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76E6E9DB186AA6A50061480D /* CoreImage.framework */; };
+		543df56dd5c5b7e8ad4b7ed7 /* b2ChainAndCircleContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BAA18A2EE83006FD3E2 /* b2ChainAndCircleContact.cpp */; };
+		5460443cfdfa9d2543624b20 /* b2WorldCallbacks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BA718A2EE83006FD3E2 /* b2WorldCallbacks.cpp */; };
+		54d47d35610afa14c84db250 /* lmathlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717A17B08D3D0002430C /* lmathlib.c */; };
+		5703b7a234772d1063f31736 /* tile_reader.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C218DF825A0034496B /* tile_reader.lua */; };
+		5780efd01ba071df710ecd8c /* scene4.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72C718DF82930034496B /* scene4.lua */; };
+		579953df936f3cc13395d2da /* b2MotorJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BC518A2EE83006FD3E2 /* b2MotorJoint.cpp */; };
+		57ae3e18a3791de685924842 /* b2DistanceJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BBD18A2EE83006FD3E2 /* b2DistanceJoint.cpp */; };
+		581a4620d178bdbe7cb5338e /* GemTimer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76D081B717B1E3590033E3DF /* GemTimer.mm */; };
+		5849cf5b04bc39b7b2545c93 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
+		5e730c6025de096745104856 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688730117B08DE60002430C /* AudioToolbox.framework */; };
+		61aa837aa4f412d48f59b348 /* loslib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718217B08D3D0002430C /* loslib.c */; };
+		61e590a771514195624b1044 /* b2Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B9918A2EE83006FD3E2 /* b2Timer.cpp */; };
+		637976e8f991063a30c40fb7 /* lbaselib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716417B08D3D0002430C /* lbaselib.c */; };
+		640ffbd3537ea2919f6c5f32 /* b2Fixture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BA018A2EE83006FD3E2 /* b2Fixture.cpp */; };
+		6535766ac6dbc12fa66f46c5 /* ltablib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718C17B08D3D0002430C /* ltablib.c */; };
+		65cadd91691ef3acbb90af40 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CAF18B84A900042AF75 /* spark.png */; };
+		67e03f4dd43815d0d1304997 /* b2CircleShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B8618A2EE83006FD3E2 /* b2CircleShape.cpp */; };
+		68b518f63896921ddcf9883b /* b2PrismaticJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BC918A2EE83006FD3E2 /* b2PrismaticJoint.cpp */; };
+		6b380e1454b426f75c79ad5d /* b2TimeOfImpact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B8118A2EE83006FD3E2 /* b2TimeOfImpact.cpp */; };
+		6c2acde9449774405e83f68c /* b2EdgeShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B8818A2EE83006FD3E2 /* b2EdgeShape.cpp */; };
+		6cc455e6102a646733a323c9 /* GemDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4CC17B5C6D80079E84E /* GemDirector.m */; };
+		6f590e437bbf987425ec1a30 /* LGeminiDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4C417B46DE10079E84E /* LGeminiDirector.m */; };
+		70c5816d7440dd43d53698e7 /* lfunc.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717117B08D3D0002430C /* lfunc.c */; };
+		7178d328adbf447b2ba2f872 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CCA18B98C7E0042AF75 /* Default.png */; };
+		72e3ef642402f51e1d6df539 /* rocket.wav in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CB818B87A1B0042AF75 /* rocket.wav */; };
+		72e6ead494bbd7717594a053 /* gemini.plist in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CCD18B98C7E0042AF75 /* gemini.plist */; };
+		73795fe932063e612f4ef8f7 /* Gemini.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688730917B092E30002430C /* Gemini.m */; };
+		73b1c841cdcd2dda180e7927 /* lobject.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717E17B08D3D0002430C /* lobject.c */; };
+		74cbf5fdf671b9c71497ddcf /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 760F72CD18E0F1B60034496B /* terrain.png */; };
 		7605105617DC3BA600089A6E /* GemPhysicsBody.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7605105517DC3BA600089A6E /* GemPhysicsBody.mm */; };
 		7605105717DC3BA600089A6E /* GemPhysicsBody.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7605105517DC3BA600089A6E /* GemPhysicsBody.mm */; };
 		760EC4C017B465870079E84E /* GemSKScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4BF17B465870079E84E /* GemSKScene.m */; };
@@ -39,6 +135,9 @@
 		760F72D918FF74BB0034496B /* island_trio.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72D718FF74BB0034496B /* island_trio.lua */; };
 		760F72DE1900C4500034496B /* boats.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 760F72DD1900C4500034496B /* boats.atlas */; };
 		760F72DF1900C4500034496B /* boats.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 760F72DD1900C4500034496B /* boats.atlas */; };
+		762819D719FF0F1E00B9A77E /* NSObject+NSObject_Gem.m in Sources */ = {isa = PBXBuildFile; fileRef = 762819D619FF0F1E00B9A77E /* NSObject+NSObject_Gem.m */; };
+		762819DB19FF11DA00B9A77E /* GemLevelHelperLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 762819DA19FF11DA00B9A77E /* GemLevelHelperLoader.m */; };
+		762819DD1A007D7800B9A77E /* test-level.lhplist in Resources */ = {isa = PBXBuildFile; fileRef = 762819DC1A007D7800B9A77E /* test-level.lhplist */; };
 		763E30B518DA85AA0086D9E7 /* bricks.lua in Resources */ = {isa = PBXBuildFile; fileRef = 763E30B418DA85AA0086D9E7 /* bricks.lua */; };
 		76456F6C1835B96800F91FD2 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
 		76456F6D1835B96800F91FD2 /* GemBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 76456F6B1835B96800F91FD2 /* GemBezierPath.m */; };
@@ -153,6 +252,7 @@
 		7688731517B09C2D0002430C /* GemObjectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731317B09C2D0002430C /* GemObjectWrapper.m */; };
 		7688731817B09C610002430C /* GemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731717B09C610002430C /* GemEvent.m */; };
 		7688731917B09C610002430C /* GemEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731717B09C610002430C /* GemEvent.m */; };
+		768BA5751A01C7AE00DD9B26 /* apple.lhasset.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768BA5741A01C7AE00DD9B26 /* apple.lhasset.plist */; };
 		768D2CAA1938253B0059BFCF /* island2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 768D2CA91938253B0059BFCF /* island2.lua */; };
 		7698E3DF17FD04CA007B7912 /* GemTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3DE17FD04CA007B7912 /* GemTexture.m */; };
 		7698E3E017FD04CA007B7912 /* GemTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3DE17FD04CA007B7912 /* GemTexture.m */; };
@@ -353,6 +453,92 @@
 		76E7A468189C9AC8004D128D /* wipe1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76E7A467189C9AC8004D128D /* wipe1.wav */; };
 		76FE7861181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
 		76FE7862181B6A7800BF89FE /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
+		7cddac03b7f86dfcf0d986ce /* b2PolygonShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B8A18A2EE83006FD3E2 /* b2PolygonShape.cpp */; };
+		80101c5f7d98f1a7d301da8c /* llex.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717717B08D3D0002430C /* llex.c */; };
+		81fa278254c5b9d8ea973ef1 /* b2ChainAndPolygonContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BAC18A2EE83006FD3E2 /* b2ChainAndPolygonContact.cpp */; };
+		82ab7238c671175bd810c014 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7688708B17B08BBA0002430C /* Main_iPad.storyboard */; };
+		8333db4beb76d1246610ea9c /* b2PulleyJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BCB18A2EE83006FD3E2 /* b2PulleyJoint.cpp */; };
+		845e0f34e4cbe9c3a6a61edc /* b2CollideEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7918A2EE83006FD3E2 /* b2CollideEdge.cpp */; };
+		87bc92c192890f1616b5bd37 /* b2ContactManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B9E18A2EE83006FD3E2 /* b2ContactManager.cpp */; };
+		8972631d08240e33bf2ee124 /* scene2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76C67A1717C11B6F00B73696 /* scene2.lua */; };
+		8a7a08203cd613471864d3cb /* lopcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718017B08D3D0002430C /* lopcodes.c */; };
+		8eac07966056673a2553369e /* GemObjectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688731317B09C2D0002430C /* GemObjectWrapper.m */; };
+		938b0511c652c2bfef12655c /* LICENSE_GeminiSK.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715A17B08D3D0002430C /* LICENSE_GeminiSK.txt */; };
+		94c2c4afa35ade151c7ce18e /* GemEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081BD17B1E3590033E3DF /* GemEventManager.m */; };
+		95388a69b948004100dec71d /* bricks.lua in Resources */ = {isa = PBXBuildFile; fileRef = 763E30B418DA85AA0086D9E7 /* bricks.lua */; };
+		965ef1736906439b740c4079 /* GemPhysics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76C22C3B18A5CF4C006FD3E2 /* GemPhysics.mm */; };
+		98db972dfa9a0d5f5540dd64 /* GemUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 764861CD192AF0DB00C6B3E6 /* GemUITextField.m */; };
+		99c2690870a2ff0dafdeb8d3 /* boats.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 760F72DD1900C4500034496B /* boats.atlas */; };
+		9b22def15d9d8d20fd4f4d36 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ab8f56396a73c3b7c6492b36 /* CFNetwork.framework */; };
+		9b6cc24357471b269c3951a4 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CD018B98C7E0042AF75 /* Icon-Small.png */; };
+		9ccc71fc28aad1e4b8109d90 /* GemTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081B917B1E3590033E3DF /* GemTimerManager.m */; };
+		9d4b5ac680cae8fc6b3685c0 /* lbitlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716517B08D3D0002430C /* lbitlib.c */; };
+		9dc967130b40880c463c8f02 /* scene_load_page.lua in Resources */ = {isa = PBXBuildFile; fileRef = 7699878818CAB1E7003D4E8D /* scene_load_page.lua */; };
+		9e550cdc679a8d08da29d586 /* lstate.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718517B08D3D0002430C /* lstate.c */; };
+		a218f086ed2781a274ebe0b0 /* LGeminiLuaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081C917B1E3D10033E3DF /* LGeminiLuaSupport.m */; };
+		a4cd92e32009cd74febdb998 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CCF18B98C7E0042AF75 /* Icon-Small-50.png */; };
+		a556253dc79f2ecb03efe4dd /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7688709617B08BBA0002430C /* Images.xcassets */; };
+		acf36d37cf8ddeb0a121a4fd /* b2Draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B9018A2EE83006FD3E2 /* b2Draw.cpp */; };
+		ad13115f453272e3cd690500 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707617B08BBA0002430C /* CoreGraphics.framework */; };
+		ad4c6fa052ab6b32addf06a7 /* loadlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717D17B08D3D0002430C /* loadlib.c */; };
+		b10c7fcca2e4e258c40f224b /* b2ContactSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BB218A2EE83006FD3E2 /* b2ContactSolver.cpp */; };
+		b3345587fa660d7968862e0e /* lparser.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718317B08D3D0002430C /* lparser.c */; };
+		b641f888cda209456a37042c /* b2MouseJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BC718A2EE83006FD3E2 /* b2MouseJoint.cpp */; };
+		b6d9a273563b9ba45ca14a79 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CD218B98C7E0042AF75 /* Icon.png */; };
+		b7331974f09bbdd3a98e735d /* ldebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716C17B08D3D0002430C /* ldebug.c */; };
+		b78ec36345ee315f5fd4b2d4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769E8CBB18B912680042AF75 /* AVFoundation.framework */; };
+		b790fd4ec47aca0731cc2ba9 /* space2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CC418B94B240042AF75 /* space2.jpg */; };
+		b8116ebe9f0ee6fb5995c4ab /* calabash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = b8b0ab112c321445ebaf5cc9 /* calabash.framework */; };
+		b97114d406ebe1187c6ef1f5 /* lstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718717B08D3D0002430C /* lstring.c */; };
+		bb98bc09b35a4b52e4262c3e /* b2GearJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BC118A2EE83006FD3E2 /* b2GearJoint.cpp */; };
+		bbe6b57f8f7bac284d8ab5c9 /* lctype.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716917B08D3D0002430C /* lctype.c */; };
+		bd54435ebef5b0ae0c82fbcf /* LGeminiObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4D317B7457F0079E84E /* LGeminiObject.m */; };
+		bdeceeb616634e419715a7bf /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716217B08D3D0002430C /* lauxlib.c */; };
+		c073e271f1a5bfb249f496d2 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CCE18B98C7E0042AF75 /* Icon-72.png */; };
+		c0c47810b83887aaadfa00f7 /* b2ChainShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B8418A2EE83006FD3E2 /* b2ChainShape.cpp */; };
+		c19c6c83b886f83612cbd7f7 /* GemTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3E218024871007B7912 /* GemTextureAtlas.m */; };
+		c3518a3e9be4a9a39431f1a6 /* b2Collision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7B18A2EE83006FD3E2 /* b2Collision.cpp */; };
+		c4538f60e1af3230f96b4292 /* ldump.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717017B08D3D0002430C /* ldump.c */; };
+		c586731e0d8aeeb95201ae55 /* LGeminiNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 760EC4DF17B817830079E84E /* LGeminiNode.m */; };
+		c5a029e89bf12af9d68679d0 /* b2Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B7D18A2EE83006FD3E2 /* b2Distance.cpp */; };
+		caf72a71e5ccc2367f78ca52 /* wipe1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 76E7A467189C9AC8004D128D /* wipe1.wav */; };
+		d0153bf1a449c61ebe51a656 /* b2PolygonAndCircleContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BB818A2EE83006FD3E2 /* b2PolygonAndCircleContact.cpp */; };
+		d15d6d5e25bb4e269c1b8ad9 /* island2.lua in Resources */ = {isa = PBXBuildFile; fileRef = 768D2CA91938253B0059BFCF /* island2.lua */; };
+		d243509cae671131f06b87de /* b2Body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B9C18A2EE83006FD3E2 /* b2Body.cpp */; };
+		d285f36db0412abc5b6f153e /* LGeminiSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 769BD04718653C8E003850EE /* LGeminiSound.m */; };
+		d2cb0b46661833c0246d73d5 /* b2Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B9518A2EE83006FD3E2 /* b2Settings.cpp */; };
+		d3448160e2818836fa7ebeed /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688730317B08E0A0002430C /* libsqlite3.0.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		d48e897257c197bd94d857bc /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7688707F17B08BBA0002430C /* InfoPlist.strings */; };
+		d58036fd811d4c433a88fc4f /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7688707817B08BBA0002430C /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		d7f6da0623fee1383b7d2e41 /* scene1.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760EC4CF17B5D12D0079E84E /* scene1.lua */; };
+		d80751d9ee7a0318a43251de /* GemAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A1017BDAF4600B73696 /* GemAction.m */; };
+		dc0ab095bea5bbb3995813aa /* LGeminiTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081CD17B329840033E3DF /* LGeminiTimer.m */; };
+		de509d4181901a66b8eb1414 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CD518B98C7E0042AF75 /* iTunesArtwork */; };
+		dfdd90db120dacd783afad3c /* b2StackAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B9718A2EE83006FD3E2 /* b2StackAllocator.cpp */; };
+		e01430e79dece7b9cbcd3955 /* SKNode+GemSKNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7699879018CD2A50003D4E8D /* SKNode+GemSKNode.m */; };
+		e17e5af2ba51918c78575010 /* ldo.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716E17B08D3D0002430C /* ldo.c */; };
+		e21697182c0bf5fa21fc973e /* lcode.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688716617B08D3D0002430C /* lcode.c */; };
+		e31191140ef7150cd0f46bd4 /* mario_game_physics.lua in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CF818BD7FE20042AF75 /* mario_game_physics.lua */; };
+		e744f252b89d3273bbd3526a /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688708217B08BBA0002430C /* main.m */; };
+		e7ad58665e36a96ba814e82e /* LGeminiPhysics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76DF479717D6C85700664D81 /* LGeminiPhysics.mm */; };
+		e7f2c08f8e31d23bd9a1b90d /* LICENSE_Box2D.txt in Resources */ = {isa = PBXBuildFile; fileRef = 76C22C3818A2EEB1006FD3E2 /* LICENSE_Box2D.txt */; };
+		ec1fac2a94a9bc40a9d4dc76 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CCC18B98C7E0042AF75 /* fps_images.png */; };
+		ede41002a8d7930eb02e5ccf /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 769E8CCB18B98C7E0042AF75 /* Default@2x.png */; };
+		edf982eb705ebb2561cd345f /* GemUITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 765DA22F18C420CB00F6BFEF /* GemUITouch.m */; };
+		ef25cf3bd5533d5e705bc000 /* b2Contact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BB018A2EE83006FD3E2 /* b2Contact.cpp */; };
+		f10623a9221f12982efa4e19 /* LGeminiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C67A0C17BDA1C200B73696 /* LGeminiAction.m */; };
+		f1347c42b3897cbe9e567182 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 76D081B117B1D2730033E3DF /* main.lua */; };
+		f1b6f7b9992d02d7ea28ba60 /* liolib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688717617B08D3D0002430C /* liolib.c */; };
+		f29d1aa76c436ea84df88fc8 /* b2EdgeAndPolygonContact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BB618A2EE83006FD3E2 /* b2EdgeAndPolygonContact.cpp */; };
+		f31d537d19b3923b2ba734a9 /* GemRepeatAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE7860181B6A7800BF89FE /* GemRepeatAction.m */; };
+		f6916912924b7ef86ee76fe9 /* GemSKSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7698E3F01803A535007B7912 /* GemSKSpriteNode.m */; };
+		f9efe9168ee2821cf5616568 /* LGeminiEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D081B517B1E3590033E3DF /* LGeminiEvent.m */; };
+		fa44f380585d7b07c1f28e6f /* lstrlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688718917B08D3D0002430C /* lstrlib.c */; };
+		fa7e36991400e26c3a4dffdd /* island_trio.lua in Resources */ = {isa = PBXBuildFile; fileRef = 760F72D718FF74BB0034496B /* island_trio.lua */; };
+		fbb7efbf07368b85e395c486 /* b2Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22B9318A2EE83006FD3E2 /* b2Math.cpp */; };
+		fd4514b28910fa030824294a /* LICENSE_QSUtils.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7688715E17B08D3D0002430C /* LICENSE_QSUtils.txt */; };
+		fec5a0ace05639b2751fa4a0 /* lsqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 7688719A17B08D3D0002430C /* lsqlite3.c */; };
+		ff860f21028dd9cb1ba418ef /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C22BD618A2EE83006FD3E2 /* b2Rope.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +577,12 @@
 		760F72D418FF74410034496B /* islands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = islands.png; sourceTree = "<group>"; };
 		760F72D718FF74BB0034496B /* island_trio.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = island_trio.lua; sourceTree = "<group>"; };
 		760F72DD1900C4500034496B /* boats.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = boats.atlas; sourceTree = "<group>"; };
+		762819D419FEF7CD00B9A77E /* GeminiSK-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeminiSK-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		762819D519FF0F1E00B9A77E /* NSObject+NSObject_Gem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSObject_Gem.h"; sourceTree = "<group>"; };
+		762819D619FF0F1E00B9A77E /* NSObject+NSObject_Gem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSObject_Gem.m"; sourceTree = "<group>"; };
+		762819D919FF11DA00B9A77E /* GemLevelHelperLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemLevelHelperLoader.h; sourceTree = "<group>"; };
+		762819DA19FF11DA00B9A77E /* GemLevelHelperLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemLevelHelperLoader.m; sourceTree = "<group>"; };
+		762819DC1A007D7800B9A77E /* test-level.lhplist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "test-level.lhplist"; sourceTree = "<group>"; };
 		763E30B418DA85AA0086D9E7 /* bricks.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bricks.lua; sourceTree = "<group>"; };
 		76456F6A1835B96800F91FD2 /* GemBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemBezierPath.h; sourceTree = "<group>"; };
 		76456F6B1835B96800F91FD2 /* GemBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemBezierPath.m; sourceTree = "<group>"; };
@@ -497,6 +689,7 @@
 		7688731317B09C2D0002430C /* GemObjectWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemObjectWrapper.m; sourceTree = "<group>"; };
 		7688731617B09C610002430C /* GemEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemEvent.h; sourceTree = "<group>"; };
 		7688731717B09C610002430C /* GemEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemEvent.m; sourceTree = "<group>"; };
+		768BA5741A01C7AE00DD9B26 /* apple.lhasset.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apple.lhasset.plist; sourceTree = "<group>"; };
 		768D2CA91938253B0059BFCF /* island2.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = island2.lua; sourceTree = "<group>"; };
 		7698E3DD17FD04CA007B7912 /* GemTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemTexture.h; sourceTree = "<group>"; };
 		7698E3DE17FD04CA007B7912 /* GemTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemTexture.m; sourceTree = "<group>"; };
@@ -673,6 +866,8 @@
 		76E7A467189C9AC8004D128D /* wipe1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wipe1.wav; sourceTree = "<group>"; };
 		76FE785F181B6A7800BF89FE /* GemRepeatAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GemRepeatAction.h; sourceTree = "<group>"; };
 		76FE7860181B6A7800BF89FE /* GemRepeatAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GemRepeatAction.m; sourceTree = "<group>"; };
+		ab8f56396a73c3b7c6492b36 /* CFNetwork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		b8b0ab112c321445ebaf5cc9 /* calabash.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; path = calabash.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -704,6 +899,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		bdb5634c16f6b66fb9fd25a0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				b78ec36345ee315f5fd4b2d4 /* AVFoundation.framework in Frameworks */,
+				5342b9a0e3488e9cc070a111 /* CoreImage.framework in Frameworks */,
+				d3448160e2818836fa7ebeed /* libsqlite3.0.dylib in Frameworks */,
+				5e730c6025de096745104856 /* AudioToolbox.framework in Frameworks */,
+				0e06ab3397932789a6a5ac45 /* OpenAL.framework in Frameworks */,
+				ad13115f453272e3cd690500 /* CoreGraphics.framework in Frameworks */,
+				d58036fd811d4c433a88fc4f /* UIKit.framework in Frameworks */,
+				3ac840c632359742d2b8afaf /* SpriteKit.framework in Frameworks */,
+				4049dac23d2b7e62679fcf0d /* Foundation.framework in Frameworks */,
+				9b22def15d9d8d20fd4f4d36 /* CFNetwork.framework in Frameworks */,
+				b8116ebe9f0ee6fb5995c4ab /* calabash.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -722,6 +935,7 @@
 			children = (
 				7688707117B08BBA0002430C /* GeminiSK.app */,
 				7688709C17B08BBA0002430C /* GeminiSKTests.xctest */,
+				762819D419FEF7CD00B9A77E /* GeminiSK-cal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -739,6 +953,8 @@
 				7688707817B08BBA0002430C /* UIKit.framework */,
 				7688707A17B08BBA0002430C /* SpriteKit.framework */,
 				7688709D17B08BBA0002430C /* XCTest.framework */,
+				ab8f56396a73c3b7c6492b36 /* CFNetwork.framework */,
+				b8b0ab112c321445ebaf5cc9 /* calabash.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -884,6 +1100,8 @@
 		7688730517B092E30002430C /* GeminiSK */ = {
 			isa = PBXGroup;
 			children = (
+				762819D519FF0F1E00B9A77E /* NSObject+NSObject_Gem.h */,
+				762819D619FF0F1E00B9A77E /* NSObject+NSObject_Gem.m */,
 				76C67A0F17BDAF4600B73696 /* GemAction.h */,
 				76C67A1017BDAF4600B73696 /* GemAction.m */,
 				769E8CBD18B9129D0042AF75 /* GemAVAudioPlayer.h */,
@@ -970,6 +1188,8 @@
 				7699879018CD2A50003D4E8D /* SKNode+GemSKNode.m */,
 				764861CC192AF0DB00C6B3E6 /* GemUITextField.h */,
 				764861CD192AF0DB00C6B3E6 /* GemUITextField.m */,
+				762819D919FF11DA00B9A77E /* GemLevelHelperLoader.h */,
+				762819DA19FF11DA00B9A77E /* GemLevelHelperLoader.m */,
 			);
 			path = GeminiSK;
 			sourceTree = "<group>";
@@ -1179,6 +1399,8 @@
 		76D081B017B1D2730033E3DF /* Lua */ = {
 			isa = PBXGroup;
 			children = (
+				768BA5741A01C7AE00DD9B26 /* apple.lhasset.plist */,
+				762819DC1A007D7800B9A77E /* test-level.lhplist */,
 				768D2CA91938253B0059BFCF /* island2.lua */,
 				760F72D718FF74BB0034496B /* island_trio.lua */,
 				760F72C718DF82930034496B /* scene4.lua */,
@@ -1242,6 +1464,23 @@
 			productReference = 7688709C17B08BBA0002430C /* GeminiSKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8546879b64787e06e3c564d9 /* GeminiSK-cal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1c7c3acf93f8c642fd6e1db4 /* Build configuration list for PBXNativeTarget "GeminiSK-cal" */;
+			buildPhases = (
+				6cb3666b401d7cdd3f449b71 /* Sources */,
+				bdb5634c16f6b66fb9fd25a0 /* Frameworks */,
+				45d7bb1337447c3da6e1c8a7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GeminiSK-cal";
+			productName = "GeminiSK-cal";
+			productReference = 762819D419FEF7CD00B9A77E /* GeminiSK-cal.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1271,11 +1510,67 @@
 			targets = (
 				7688707017B08BBA0002430C /* GeminiSK */,
 				7688709B17B08BBA0002430C /* GeminiSKTests */,
+				8546879b64787e06e3c564d9 /* GeminiSK-cal */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		45d7bb1337447c3da6e1c8a7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				a556253dc79f2ecb03efe4dd /* Images.xcassets in Resources */,
+				82ab7238c671175bd810c014 /* Main_iPad.storyboard in Resources */,
+				99c2690870a2ff0dafdeb8d3 /* boats.atlas in Resources */,
+				02b9a64c0af71ed90317257d /* test5.lua in Resources */,
+				042ea41467320f0c844f77cf /* Main_iPhone.storyboard in Resources */,
+				72e3ef642402f51e1d6df539 /* rocket.wav in Resources */,
+				ede41002a8d7930eb02e5ccf /* Default@2x.png in Resources */,
+				9b6cc24357471b269c3951a4 /* Icon-Small.png in Resources */,
+				fd4514b28910fa030824294a /* LICENSE_QSUtils.txt in Resources */,
+				65cadd91691ef3acbb90af40 /* spark.png in Resources */,
+				5703b7a234772d1063f31736 /* tile_reader.lua in Resources */,
+				0eccb8c7fb217543e6372282 /* ShipFlame.sks in Resources */,
+				ec1fac2a94a9bc40a9d4dc76 /* fps_images.png in Resources */,
+				369ca5a5684c744e04e545d8 /* space.jpg in Resources */,
+				d7f6da0623fee1383b7d2e41 /* scene1.lua in Resources */,
+				74cbf5fdf671b9c71497ddcf /* terrain.png in Resources */,
+				514a4056a140f8a438a2869b /* islands.png in Resources */,
+				043b61022ef2e2b1f1325560 /* 8bit.atlas in Resources */,
+				f1347c42b3897cbe9e567182 /* main.lua in Resources */,
+				51b8c14bad2444b5e236c013 /* Info.plist in Resources */,
+				2ea671f39faeaa4c75cd397a /* Icon@2x.png in Resources */,
+				95388a69b948004100dec71d /* bricks.lua in Resources */,
+				fa7e36991400e26c3a4dffdd /* island_trio.lua in Resources */,
+				e7f2c08f8e31d23bd9a1b90d /* LICENSE_Box2D.txt in Resources */,
+				d15d6d5e25bb4e269c1b8ad9 /* island2.lua in Resources */,
+				0a8dfa5b5f242b0bb6bf821f /* background.png in Resources */,
+				d48e897257c197bd94d857bc /* InfoPlist.strings in Resources */,
+				72e6ead494bbd7717594a053 /* gemini.plist in Resources */,
+				c073e271f1a5bfb249f496d2 /* Icon-72.png in Resources */,
+				caf72a71e5ccc2367f78ca52 /* wipe1.wav in Resources */,
+				b790fd4ec47aca0731cc2ba9 /* space2.jpg in Resources */,
+				9dc967130b40880c463c8f02 /* scene_load_page.lua in Resources */,
+				0fa982a113ac2f72027e108e /* spaceship.atlas in Resources */,
+				16d9cb25a261131e2a9cdcd4 /* Default-568h@2x.png in Resources */,
+				4fd111d9aff456e1cac93fc2 /* LICENSE_LuaSQLite3.txt in Resources */,
+				7178d328adbf447b2ba2f872 /* Default.png in Resources */,
+				e31191140ef7150cd0f46bd4 /* mario_game_physics.lua in Resources */,
+				938b0511c652c2bfef12655c /* LICENSE_GeminiSK.txt in Resources */,
+				15b7275f42216b7c1d32f469 /* runner.atlas in Resources */,
+				0234850861ce470de8ccb0d6 /* LICENSE_Lua.txt in Resources */,
+				a4cd92e32009cd74febdb998 /* Icon-Small-50.png in Resources */,
+				de509d4181901a66b8eb1414 /* iTunesArtwork in Resources */,
+				4cee39d125d9ce42132c5f6d /* Icon-Small@2x.png in Resources */,
+				5780efd01ba071df710ecd8c /* scene4.lua in Resources */,
+				b6d9a273563b9ba45ca14a79 /* Icon.png in Resources */,
+				8972631d08240e33bf2ee124 /* scene2.lua in Resources */,
+				26af37c919605552fbc3deef /* Default-Portrait~ipad.png in Resources */,
+				10023080aa8a30e73548e8e3 /* scene3.lua in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7688706F17B08BBA0002430C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1298,6 +1593,7 @@
 				760F72CE18E0F1B60034496B /* terrain.png in Resources */,
 				760F72D518FF74410034496B /* islands.png in Resources */,
 				769E8CF318B9C6820042AF75 /* 8bit.atlas in Resources */,
+				762819DD1A007D7800B9A77E /* test-level.lhplist in Resources */,
 				76D081B217B1D2730033E3DF /* main.lua in Resources */,
 				769E8CEE18B98C7E0042AF75 /* Info.plist in Resources */,
 				769E8CEC18B98C7E0042AF75 /* Icon@2x.png in Resources */,
@@ -1318,6 +1614,7 @@
 				769E8CDA18B98C7E0042AF75 /* Default.png in Resources */,
 				769E8CF918BD7FE20042AF75 /* mario_game_physics.lua in Resources */,
 				7688727F17B08D3D0002430C /* LICENSE_GeminiSK.txt in Resources */,
+				768BA5751A01C7AE00DD9B26 /* apple.lhasset.plist in Resources */,
 				76C67A4517C3084700B73696 /* runner.atlas in Resources */,
 				7688728117B08D3D0002430C /* LICENSE_Lua.txt in Resources */,
 				769E8CE418B98C7E0042AF75 /* Icon-Small-50.png in Resources */,
@@ -1381,6 +1678,136 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6cb3666b401d7cdd3f449b71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02abcad36ce835162ce75a31 /* GemTexture.m in Sources */,
+				d2cb0b46661833c0246d73d5 /* b2Settings.cpp in Sources */,
+				b97114d406ebe1187c6ef1f5 /* lstring.c in Sources */,
+				e21697182c0bf5fa21fc973e /* lcode.c in Sources */,
+				9d4b5ac680cae8fc6b3685c0 /* lbitlib.c in Sources */,
+				fa44f380585d7b07c1f28e6f /* lstrlib.c in Sources */,
+				b7331974f09bbdd3a98e735d /* ldebug.c in Sources */,
+				2df3fe16412252121b86b9fd /* GemPhysicsJoint.mm in Sources */,
+				2ed77c3680af6128209c1dfa /* linit.c in Sources */,
+				d0153bf1a449c61ebe51a656 /* b2PolygonAndCircleContact.cpp in Sources */,
+				bb98bc09b35a4b52e4262c3e /* b2GearJoint.cpp in Sources */,
+				61aa837aa4f412d48f59b348 /* loslib.c in Sources */,
+				d80751d9ee7a0318a43251de /* GemAction.m in Sources */,
+				05b6a7787c79b1f07f896be0 /* b2DynamicTree.cpp in Sources */,
+				4d0acb308d62b86cb3d5dc5c /* LGeminiUI.m in Sources */,
+				147ca624c96c8e0ca8589dc1 /* lzio.c in Sources */,
+				1114996c10418b4aec4fffd5 /* b2CollidePolygon.cpp in Sources */,
+				c0c47810b83887aaadfa00f7 /* b2ChainShape.cpp in Sources */,
+				81fa278254c5b9d8ea973ef1 /* b2ChainAndPolygonContact.cpp in Sources */,
+				c5a029e89bf12af9d68679d0 /* b2Distance.cpp in Sources */,
+				1a095c595db14c286620c463 /* b2Island.cpp in Sources */,
+				98db972dfa9a0d5f5540dd64 /* GemUITextField.m in Sources */,
+				464a53a7310b04f21bc1bf8d /* b2Joint.cpp in Sources */,
+				475883ec53a299c4e26354e1 /* GemTouchEvent.m in Sources */,
+				11266d15b2206de1e6d9a68e /* b2WeldJoint.cpp in Sources */,
+				6f590e437bbf987425ec1a30 /* LGeminiDirector.m in Sources */,
+				f1b6f7b9992d02d7ea28ba60 /* liolib.c in Sources */,
+				e17e5af2ba51918c78575010 /* ldo.c in Sources */,
+				bbe6b57f8f7bac284d8ab5c9 /* lctype.c in Sources */,
+				edf982eb705ebb2561cd345f /* GemUITouch.m in Sources */,
+				8eac07966056673a2553369e /* GemObjectWrapper.m in Sources */,
+				b641f888cda209456a37042c /* b2MouseJoint.cpp in Sources */,
+				73795fe932063e612f4ef8f7 /* Gemini.m in Sources */,
+				08a69f0f4edcbcf662c5bdae /* LGeminiEmitter.m in Sources */,
+				bdeceeb616634e419715a7bf /* lauxlib.c in Sources */,
+				2034e20033fbf71f0c5cea15 /* GemSpriteAnimationAction.m in Sources */,
+				dc0ab095bea5bbb3995813aa /* LGeminiTimer.m in Sources */,
+				54d47d35610afa14c84db250 /* lmathlib.c in Sources */,
+				1c25ed6201208fb063a66b7a /* GemCollisionEvent.m in Sources */,
+				68b518f63896921ddcf9883b /* b2PrismaticJoint.cpp in Sources */,
+				f29d1aa76c436ea84df88fc8 /* b2EdgeAndPolygonContact.cpp in Sources */,
+				22a26dcd81f1aaf1192a0c82 /* ldblib.c in Sources */,
+				579953df936f3cc13395d2da /* b2MotorJoint.cpp in Sources */,
+				9ccc71fc28aad1e4b8109d90 /* GemTimerManager.m in Sources */,
+				73b1c841cdcd2dda180e7927 /* lobject.c in Sources */,
+				b10c7fcca2e4e258c40f224b /* b2ContactSolver.cpp in Sources */,
+				d285f36db0412abc5b6f153e /* LGeminiSound.m in Sources */,
+				94c2c4afa35ade151c7ce18e /* GemEventManager.m in Sources */,
+				8333db4beb76d1246610ea9c /* b2PulleyJoint.cpp in Sources */,
+				57ae3e18a3791de685924842 /* b2DistanceJoint.cpp in Sources */,
+				3b6d6d32ee7b8595ea4f179e /* lapi.c in Sources */,
+				0a84e61d49835141fae7caf4 /* b2CollideCircle.cpp in Sources */,
+				640ffbd3537ea2919f6c5f32 /* b2Fixture.cpp in Sources */,
+				12f243dd0e8c9b37b63e64eb /* GemSKScene.m in Sources */,
+				e7ad58665e36a96ba814e82e /* LGeminiPhysics.mm in Sources */,
+				70c5816d7440dd43d53698e7 /* lfunc.c in Sources */,
+				7cddac03b7f86dfcf0d986ce /* b2PolygonShape.cpp in Sources */,
+				5849cf5b04bc39b7b2545c93 /* GemBezierPath.m in Sources */,
+				6cc455e6102a646733a323c9 /* GemDirector.m in Sources */,
+				2ba3c2aedab565426f9b375b /* GemFileNameResolver.m in Sources */,
+				e01430e79dece7b9cbcd3955 /* SKNode+GemSKNode.m in Sources */,
+				ad4c6fa052ab6b32addf06a7 /* loadlib.c in Sources */,
+				d243509cae671131f06b87de /* b2Body.cpp in Sources */,
+				543df56dd5c5b7e8ad4b7ed7 /* b2ChainAndCircleContact.cpp in Sources */,
+				410c624d229e2bebf57a00e3 /* b2EdgeAndCircleContact.cpp in Sources */,
+				637976e8f991063a30c40fb7 /* lbaselib.c in Sources */,
+				4da6e715e5aca5883dd649b0 /* b2RopeJoint.cpp in Sources */,
+				bd54435ebef5b0ae0c82fbcf /* LGeminiObject.m in Sources */,
+				845e0f34e4cbe9c3a6a61edc /* b2CollideEdge.cpp in Sources */,
+				2b293d823fe867ffda459975 /* GemEvent.m in Sources */,
+				581a4620d178bdbe7cb5338e /* GemTimer.mm in Sources */,
+				f10623a9221f12982efa4e19 /* LGeminiAction.m in Sources */,
+				fec5a0ace05639b2751fa4a0 /* lsqlite3.c in Sources */,
+				070b52f4443b05465e4cc062 /* ltm.c in Sources */,
+				191d33844fd4de1395943e3d /* LGeminiShape.m in Sources */,
+				fbb7efbf07368b85e395c486 /* b2Math.cpp in Sources */,
+				b3345587fa660d7968862e0e /* lparser.c in Sources */,
+				28cb5143f2355084a8378eeb /* b2PolygonContact.cpp in Sources */,
+				61e590a771514195624b1044 /* b2Timer.cpp in Sources */,
+				3316c2b424cccffc9856669b /* b2FrictionJoint.cpp in Sources */,
+				f31d537d19b3923b2ba734a9 /* GemRepeatAction.m in Sources */,
+				09cd5bd1af99b64517f8bd8c /* ViewController.m in Sources */,
+				c3518a3e9be4a9a39431f1a6 /* b2Collision.cpp in Sources */,
+				29dcdbcec8a2282af403c7f2 /* AppDelegate.m in Sources */,
+				dfdd90db120dacd783afad3c /* b2StackAllocator.cpp in Sources */,
+				67e03f4dd43815d0d1304997 /* b2CircleShape.cpp in Sources */,
+				f9efe9168ee2821cf5616568 /* LGeminiEvent.m in Sources */,
+				87bc92c192890f1616b5bd37 /* b2ContactManager.cpp in Sources */,
+				25e41b7efcb4131985a4c64c /* LGeminiSprite.m in Sources */,
+				6c2acde9449774405e83f68c /* b2EdgeShape.cpp in Sources */,
+				4a717ce5531f4d44b343b1ba /* lmem.c in Sources */,
+				2fc0bb3d9af4fc673b6676d9 /* lgc.c in Sources */,
+				1e2bc09ca4ba4fbe61235912 /* b2World.cpp in Sources */,
+				5460443cfdfa9d2543624b20 /* b2WorldCallbacks.cpp in Sources */,
+				acf36d37cf8ddeb0a121a4fd /* b2Draw.cpp in Sources */,
+				8a7a08203cd613471864d3cb /* lopcodes.c in Sources */,
+				10e68d65b1c96f183091d11e /* ltable.c in Sources */,
+				ef25cf3bd5533d5e705bc000 /* b2Contact.cpp in Sources */,
+				15f7c37731b3a5910b3d3b87 /* lcorolib.c in Sources */,
+				1a8fd08315756835d132aac5 /* lundump.c in Sources */,
+				25af5af83fb39296817ee7dd /* b2RevoluteJoint.cpp in Sources */,
+				2476ce693995adcc3aea667b /* GemSampledCurve.m in Sources */,
+				6b380e1454b426f75c79ad5d /* b2TimeOfImpact.cpp in Sources */,
+				965ef1736906439b740c4079 /* GemPhysics.mm in Sources */,
+				9e550cdc679a8d08da29d586 /* lstate.c in Sources */,
+				4ca6e137401e6684cad5aae1 /* lvm.c in Sources */,
+				f6916912924b7ef86ee76fe9 /* GemSKSpriteNode.m in Sources */,
+				112412a3d03ca2e6e9a6f559 /* LGeminiTexture.m in Sources */,
+				2cfbaa9caa16244eaf3e249c /* b2BlockAllocator.cpp in Sources */,
+				80101c5f7d98f1a7d301da8c /* llex.c in Sources */,
+				c586731e0d8aeeb95201ae55 /* LGeminiNode.m in Sources */,
+				3fa48507ae6c03f9931627b2 /* LGeminiPath.m in Sources */,
+				ff860f21028dd9cb1ba418ef /* b2Rope.cpp in Sources */,
+				c19c6c83b886f83612cbd7f7 /* GemTextureAtlas.m in Sources */,
+				164f8c048921bcc28d5d0067 /* GemAVAudioPlayer.m in Sources */,
+				c4538f60e1af3230f96b4292 /* ldump.c in Sources */,
+				a218f086ed2781a274ebe0b0 /* LGeminiLuaSupport.m in Sources */,
+				6535766ac6dbc12fa66f46c5 /* ltablib.c in Sources */,
+				48c585e7e3af3cb644d682e4 /* b2CircleContact.cpp in Sources */,
+				0abfe81fcf12e417d35a965d /* GemPhysicsBody.mm in Sources */,
+				27a9cb0dcf54f1f7dc3799ce /* b2BroadPhase.cpp in Sources */,
+				3400bad2044521c109c4b436 /* b2WheelJoint.cpp in Sources */,
+				e744f252b89d3273bbd3526a /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7688706D17B08BBA0002430C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1414,6 +1841,7 @@
 				768872A517B08D3D0002430C /* liolib.c in Sources */,
 				7688729B17B08D3D0002430C /* ldo.c in Sources */,
 				7688729517B08D3D0002430C /* lctype.c in Sources */,
+				762819D719FF0F1E00B9A77E /* NSObject+NSObject_Gem.m in Sources */,
 				765DA23018C420CB00F6BFEF /* GemUITouch.m in Sources */,
 				7688731417B09C2D0002430C /* GemObjectWrapper.m in Sources */,
 				76C22C2818A2EE83006FD3E2 /* b2MouseJoint.cpp in Sources */,
@@ -1457,6 +1885,7 @@
 				7688731817B09C610002430C /* GemEvent.m in Sources */,
 				76D081C017B1E3590033E3DF /* GemTimer.mm in Sources */,
 				76C67A0D17BDA1C200B73696 /* LGeminiAction.m in Sources */,
+				762819DB19FF11DA00B9A77E /* GemLevelHelperLoader.m in Sources */,
 				768872C917B08D3D0002430C /* lsqlite3.c in Sources */,
 				768872C117B08D3D0002430C /* ltm.c in Sources */,
 				76C67A1517BF381100B73696 /* LGeminiShape.m in Sources */,
@@ -1685,6 +2114,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5b400bb16a59cce564af246e /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeminiSK/GeminiSK-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"GEM_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GeminiSK/GeminiSK-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "GeminiSK/libs/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
 		768870AB17B08BBA0002430C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1839,9 +2300,44 @@
 			};
 			name = Release;
 		};
+		f274edb6e7b71ba88b0098e3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GeminiSK/GeminiSK-Prefix.pch";
+				INFOPLIST_FILE = "GeminiSK/GeminiSK-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-force_load",
+					"\"$(SRCROOT)/calabash.framework/calabash\"",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				USER_HEADER_SEARCH_PATHS = "GeminiSK/libs/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1c7c3acf93f8c642fd6e1db4 /* Build configuration list for PBXNativeTarget "GeminiSK-cal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5b400bb16a59cce564af246e /* Debug */,
+				f274edb6e7b71ba88b0098e3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7688706C17B08BBA0002430C /* Build configuration list for PBXProject "GeminiSK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

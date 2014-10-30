@@ -10,7 +10,7 @@ local physics = require("physics")
 local texture = require("texture")
 local path = require("path")
 local emitter = require("emitter")
-local scene = director.newScene()
+scene = director.newScene()
 
 local progressBarBackground
 local progressBar

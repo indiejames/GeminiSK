@@ -10,29 +10,29 @@
 	<string>GeminiSK</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</key>
-		<string>ssh://github.com/indiejames/GeminiSK.git</string>
+		<key>C22C0B0E6C3C1CE7DF12449B7C2FA2CB24EB5FA0</key>
+		<string>github.com:indiejames/GeminiSK.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>GeminiSK.xcodeproj/project.xcworkspace</string>
+	<string>GeminiSK.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</key>
+		<key>C22C0B0E6C3C1CE7DF12449B7C2FA2CB24EB5FA0</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/indiejames/GeminiSK.git</string>
+	<string>github.com:indiejames/GeminiSK.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</string>
+	<string>C22C0B0E6C3C1CE7DF12449B7C2FA2CB24EB5FA0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>184A20CE-C76F-46EE-B9C5-2B740CBCCB56</string>
+			<string>C22C0B0E6C3C1CE7DF12449B7C2FA2CB24EB5FA0</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GeminiSK</string>
 		</dict>

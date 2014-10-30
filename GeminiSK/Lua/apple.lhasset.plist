@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>alpha</key>
+	<real>255</real>
+	<key>anchor</key>
+	<string>{0.500000, 0.500000}</string>
+	<key>assetUUID</key>
+	<string>686A0B0B-D72D-48AA-8F70-2B8EB6C29187</string>
+	<key>children</key>
+	<array>
+		<dict>
+			<key>alpha</key>
+			<real>255</real>
+			<key>anchor</key>
+			<string>{0.500000, 0.500000}</string>
+			<key>colorOverlay</key>
+			<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+			<key>generalPosition</key>
+			<string>{0.000000, 0.000000}</string>
+			<key>imageFileName</key>
+			<string>images-1.jpeg</string>
+			<key>invisibleInEditor</key>
+			<false/>
+			<key>name</key>
+			<string>images-1</string>
+			<key>nodeType</key>
+			<string>LHSprite</string>
+			<key>parentUUID</key>
+			<string>429A8F05-B279-4DB8-8560-BD6B946796AE</string>
+			<key>relativeImagePath</key>
+			<string>/</string>
+			<key>rotation</key>
+			<real>0.0</real>
+			<key>scale</key>
+			<string>{1.000000, 1.000000}</string>
+			<key>size</key>
+			<string>{113.000000, 113.000000}</string>
+			<key>tags</key>
+			<array>
+				<string>DEFAULT</string>
+			</array>
+			<key>uuid</key>
+			<string>4B8EE2A5-0BF4-4572-8A2F-2EEE64B9273F</string>
+			<key>zOrder</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>colorOverlay</key>
+	<string>{{1.000000, 1.000000}, {1.000000, 1.000000}}</string>
+	<key>generalPosition</key>
+	<string>{0.100000, 0.066667}</string>
+	<key>invisibleInEditor</key>
+	<false/>
+	<key>name</key>
+	<string>Untitled</string>
+	<key>nodeType</key>
+	<string>LHAsset</string>
+	<key>parentUUID</key>
+	<string>B8247D48-6248-44F0-ADA0-BDA45B21B582</string>
+	<key>rotation</key>
+	<real>0.0</real>
+	<key>scale</key>
+	<string>{1.000000, 1.000000}</string>
+	<key>size</key>
+	<string>{128.000000, 128.000000}</string>
+	<key>tags</key>
+	<array>
+		<string>DEFAULT</string>
+	</array>
+	<key>uuid</key>
+	<string>429A8F05-B279-4DB8-8560-BD6B946796AE</string>
+	<key>zOrder</key>
+	<integer>0</integer>
+</dict>
+</plist>

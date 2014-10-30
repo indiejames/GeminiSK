@@ -82,12 +82,12 @@ GemSKScene * (^sceneLoader)(GemDirector *self, NSString *sceneName, lua_State *L
     
     // The scene should now be on the top of the stack
     __unsafe_unretained GemObjectWrapper **lscene = (__unsafe_unretained GemObjectWrapper **)luaL_checkudata(L, -1, GEMINI_SCENE_LUA_KEY);
-    
+    GemSKScene *scene = (GemSKScene *)(*lscene).delegate;
     //SKView *skView = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).skView;
     CGRect bounds = CGRectMake(0, 0, self.sceneWidth, self.sceneHeight);
     bounds.size.width = 1136;
     bounds.size.height = 640;
-    GemSKScene *scene = [[GemSKScene alloc] initWithSize:bounds.size];
+    //GemSKScene *scene = [[GemSKScene alloc] initWithSize:bounds.size];
     scene.name = sceneName;
     NSMutableDictionary *wrapper = [NSMutableDictionary dictionaryWithCapacity:1];
     [wrapper setObject:*lscene forKey:@"LUA_DATA"];

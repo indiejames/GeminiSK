@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GeminiSK-cal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>GeminiSK.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>7688709B17B08BBA0002430C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8546879b64787e06e3c564d9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
